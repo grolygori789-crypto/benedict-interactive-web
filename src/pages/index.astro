@@ -1,0 +1,133 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { products, site } from '../data/site';
+---
+
+<SiteLayout>
+  <section class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow">Independent software studio</p>
+      <h1>Technology with a <span>brighter point of view.</span></h1>
+      <p class="hero-lead">
+        We create thoughtful software that feels clear, capable, and human — built with
+        care for the person on the other side of the screen.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="/products">Explore our products</a>
+        <a class="button secondary" href="#philosophy">How we think</a>
+      </div>
+    </div>
+
+    <div class="hero-system" aria-label="Benedict Interactive visual system">
+      <div class="system-window">
+        <div class="window-topline">
+          <span class="window-title">Benedict / ideas in motion</span>
+          <span class="window-status">Live system</span>
+        </div>
+
+        <div class="system-stage">
+          <div class="stage-copy">
+            <small>{site.tagline}</small>
+            <strong>Useful can still feel joyful.</strong>
+          </div>
+
+          <div class="idea-orbits" aria-hidden="true">
+            <span class="orbit orbit-a"></span>
+            <span class="orbit orbit-b"></span>
+            <span class="orbit orbit-c"></span>
+            <span class="spark spark-a"></span>
+            <span class="spark spark-b"></span>
+            <span class="spark spark-c"></span>
+          </div>
+        </div>
+
+        <div class="system-dock" aria-hidden="true">
+          <span class="dock-tile tile-blue"></span>
+          <span class="dock-tile tile-violet"></span>
+          <span class="dock-tile tile-amber"></span>
+          <span class="dock-tile tile-green"></span>
+          <span class="dock-label">Bright human technology</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell" aria-labelledby="products-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Products</p>
+        <h2 id="products-title">Built as a family, not a pile of apps.</h2>
+      </div>
+      <p>
+        Every product can have its own personality while sharing one standard for clarity,
+        trust, craft, and long-term quality.
+      </p>
+    </div>
+
+    <div class="product-grid">
+      {products.map((product) => <ProductCard {...product} />)}
+      <article class="product-card future-card">
+        <div class="future-symbol" aria-hidden="true">+</div>
+        <p class="eyebrow">What comes next</p>
+        <h3>More useful things.</h3>
+        <p class="product-description">
+          New utilities, playful experiments, and carefully chosen ideas can join the
+          ecosystem without forcing Benedict Interactive into a single category.
+        </p>
+        <p class="product-promise">One home. Distinct products. A consistent point of view.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section philosophy-section" id="philosophy" aria-labelledby="philosophy-title">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Our philosophy</p>
+          <h2 id="philosophy-title">Premium should feel better, not colder.</h2>
+        </div>
+        <p>
+          Our visual language is bright, optimistic, and meticulously finished. It borrows
+          the human-centered spirit of classic personal computing while remaining visibly
+          Benedict — modern, original, and independent.
+        </p>
+      </div>
+
+      <div class="principle-grid">
+        <article>
+          <span class="principle-icon icon-blue" aria-hidden="true">◎</span>
+          <h3>Human first</h3>
+          <p>Technology should reduce friction and explain itself without talking down to people.</p>
+        </article>
+        <article>
+          <span class="principle-icon icon-violet" aria-hidden="true">◇</span>
+          <h3>Calm by design</h3>
+          <p>Hierarchy, spacing, and motion should make complicated things feel understandable.</p>
+        </article>
+        <article>
+          <span class="principle-icon icon-amber" aria-hidden="true">✦</span>
+          <h3>Joy with restraint</h3>
+          <p>Color and personality belong in serious software when they serve the experience.</p>
+        </article>
+        <article>
+          <span class="principle-icon icon-green" aria-hidden="true">✓</span>
+          <h3>Trust is structural</h3>
+          <p>Privacy, honest states, and verifiable behavior matter more than persuasive decoration.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell closing-panel">
+    <div>
+      <p class="eyebrow">Benedict Interactive</p>
+      <h2>Independent by design.</h2>
+    </div>
+    <p>
+      Our website is the long-term home of the brand. Stores, social networks, and marketplaces
+      can help people discover us, but they are channels — not the foundation.
+    </p>
+    <a class="button primary" href="/products">See what we’re building</a>
+  </section>
+</SiteLayout>
