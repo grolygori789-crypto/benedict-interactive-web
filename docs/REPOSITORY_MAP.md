@@ -59,7 +59,7 @@ Do not scatter translations through page files when the content belongs to the s
 
 ## `src/layouts/`
 
-- `SiteLayout.astro` — canonical HTML document shell, metadata, direction/language attributes, header/footer.
+- `SiteLayout.astro` — canonical HTML document shell, metadata, direction/language attributes, header/footer, and global style imports.
 
 ## `src/pages/`
 
@@ -90,9 +90,10 @@ English remains unprefixed. Non-English localized routes are generated from the 
 
 ## `src/styles/`
 
-- `global.css` — tokens, base typography, navigation, responsive/adaptive system, Home, Products, Bearagnostic, Support, commerce-preview, RTL-safe logical styling, reduced-motion behavior.
+- `global.css` — visual tokens, reset, shared structural styles, navigation shell, page layouts, responsive/adaptive rules, RTL-safe logical styling, and reduced-motion behavior.
+- `typography.css` — canonical multilingual typography system for all 16 locales: native system/open-source fallback stacks, script-aware line-height/tracking, responsive type scale variables, and language-specific text rhythm.
 
-Split CSS only when responsibilities become meaningfully independent; do not split merely to reduce line count.
+Keep typographic rules centralized in `typography.css` rather than scattering language-specific font and line-height fixes through individual pages. Split additional CSS only when responsibilities become meaningfully independent; do not split merely to reduce line count.
 
 ## Overwrite policy
 

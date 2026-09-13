@@ -1,0 +1,549 @@
+/* Benedict Interactive — Global Multilingual Typography System
+   Purpose: one durable, privacy-safe typographic standard for all 16 locales.
+   No remote font requests. Language-specific system/open-source fallbacks are
+   chosen for legibility, native rhythm, and predictable rendering. */
+
+:root {
+  --font-body: "Segoe UI Variable Text", "Segoe UI", Aptos, Inter, Roboto, Arial, system-ui, sans-serif;
+  --font-display: var(--font-body);
+
+  --type-body-size: 1rem;
+  --type-body-leading: 1.66;
+  --type-ui-leading: 1.25;
+  --type-heading-leading: 1.035;
+  --type-heading-tracking: -0.04em;
+  --type-heading-weight: 780;
+  --type-label-leading: 1.45;
+  --type-label-tracking: 0.16em;
+
+  --home-hero-min: 2.9rem;
+  --home-hero-fluid: 4.05vw;
+  --home-hero-max: 3.82rem;
+  --home-hero-tablet-min: 3.05rem;
+  --home-hero-tablet-fluid: 7.6vw;
+  --home-hero-tablet-max: 4.45rem;
+  --home-hero-mobile-min: 2.45rem;
+  --home-hero-mobile-fluid: 12vw;
+  --home-hero-mobile-max: 3.35rem;
+  --home-hero-leading: 1.035;
+  --home-hero-tracking: -0.052em;
+  --home-lead-leading: 1.62;
+
+  --home-product-leading: 0.99;
+  --home-philosophy-leading: 1.06;
+  --home-philosophy-tracking: -0.042em;
+  --home-card-leading: 1.52;
+  --home-signoff-leading: 1.08;
+
+  --page-hero-size-min: 3.1rem;
+  --page-hero-size-fluid: 7vw;
+  --page-hero-size-max: 6.2rem;
+  --page-hero-mobile-min: 3rem;
+  --page-hero-mobile-fluid: 15vw;
+  --page-hero-mobile-max: 4.7rem;
+}
+
+html,
+body {
+  font-family: var(--font-body);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures contextual;
+}
+
+h1,
+h2,
+h3,
+.display-type {
+  font-family: var(--font-display);
+  font-weight: var(--type-heading-weight);
+  letter-spacing: var(--type-heading-tracking);
+  line-height: var(--type-heading-leading);
+}
+
+p,
+li,
+blockquote {
+  line-height: var(--type-body-leading);
+}
+
+.section-label,
+.eyebrow {
+  line-height: var(--type-label-leading);
+  letter-spacing: var(--type-label-tracking);
+}
+
+button,
+input,
+textarea,
+select,
+summary,
+.button,
+.text-link,
+.status-pill,
+.bi-desktop-nav a,
+.bi-mobile-panel a,
+.bi-footer-nav a,
+.language-list a {
+  line-height: var(--type-ui-leading);
+}
+
+.page-hero h1 {
+  font-size: clamp(var(--page-hero-size-min), var(--page-hero-size-fluid), var(--page-hero-size-max));
+  line-height: var(--type-heading-leading);
+  letter-spacing: var(--type-heading-tracking);
+}
+
+.page-hero > p:last-child,
+.product-panel-copy > p:not(.section-label, .panel-promise, .fine-note),
+.bear-lead,
+.feature-row p,
+.commerce-copy > p,
+.commerce-copy li,
+.support-card p,
+.fine-note,
+.staging-note p {
+  line-height: var(--type-body-leading);
+}
+
+/* Latin locales: subtle tuning for text expansion and dense diacritics. */
+html:lang(de) {
+  --type-heading-tracking: -0.034em;
+  --type-heading-leading: 1.06;
+  --home-hero-max: 3.5rem;
+  --home-hero-fluid: 3.72vw;
+  --home-hero-mobile-max: 3.05rem;
+  --home-philosophy-leading: 1.1;
+  --page-hero-size-max: 5.55rem;
+}
+
+html:lang(fr),
+html:lang(es),
+html:lang(pt-BR),
+html:lang(it),
+html:lang(id),
+html:lang(tr) {
+  --type-heading-leading: 1.055;
+  --type-heading-tracking: -0.037em;
+  --home-hero-max: 3.68rem;
+  --home-hero-fluid: 3.88vw;
+  --home-philosophy-leading: 1.09;
+  --page-hero-size-max: 5.8rem;
+}
+
+html:lang(vi) {
+  --type-body-leading: 1.72;
+  --type-heading-leading: 1.08;
+  --type-heading-tracking: -0.027em;
+  --type-label-tracking: 0.13em;
+  --home-hero-max: 3.55rem;
+  --home-hero-fluid: 3.72vw;
+  --home-hero-leading: 1.08;
+  --home-philosophy-leading: 1.12;
+  --page-hero-size-max: 5.55rem;
+}
+
+/* Thai: extra vertical breathing room for marks above/below the line. */
+html:lang(th) {
+  --font-body: "Leelawadee UI", "Noto Sans Thai", Tahoma, system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --type-body-size: 1.01rem;
+  --type-body-leading: 1.82;
+  --type-ui-leading: 1.42;
+  --type-heading-leading: 1.17;
+  --type-heading-tracking: -0.012em;
+  --type-heading-weight: 700;
+  --type-label-leading: 1.58;
+  --type-label-tracking: 0.065em;
+
+  --home-hero-min: 2.62rem;
+  --home-hero-fluid: 3.62vw;
+  --home-hero-max: 3.42rem;
+  --home-hero-tablet-min: 2.72rem;
+  --home-hero-tablet-fluid: 6.85vw;
+  --home-hero-tablet-max: 3.82rem;
+  --home-hero-mobile-min: 2.18rem;
+  --home-hero-mobile-fluid: 10.6vw;
+  --home-hero-mobile-max: 2.95rem;
+  --home-hero-leading: 1.17;
+  --home-hero-tracking: -0.018em;
+  --home-lead-leading: 1.82;
+  --home-product-leading: 1.09;
+  --home-philosophy-leading: 1.2;
+  --home-philosophy-tracking: -0.012em;
+  --home-card-leading: 1.78;
+  --home-signoff-leading: 1.2;
+
+  --page-hero-size-min: 2.72rem;
+  --page-hero-size-fluid: 5.6vw;
+  --page-hero-size-max: 4.75rem;
+  --page-hero-mobile-min: 2.42rem;
+  --page-hero-mobile-fluid: 11.8vw;
+  --page-hero-mobile-max: 3.65rem;
+}
+
+html:lang(th) h1,
+html:lang(th) h2,
+html:lang(th) h3 {
+  text-wrap: pretty;
+  word-break: normal;
+}
+
+/* Japanese */
+html:lang(ja) {
+  --font-body: "Yu Gothic UI", "Yu Gothic", "Noto Sans JP", Meiryo, system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --type-body-size: 0.98rem;
+  --type-body-leading: 1.74;
+  --type-ui-leading: 1.36;
+  --type-heading-leading: 1.17;
+  --type-heading-tracking: 0;
+  --type-heading-weight: 700;
+  --type-label-leading: 1.55;
+  --type-label-tracking: 0.09em;
+  --home-hero-max: 3.48rem;
+  --home-hero-fluid: 3.68vw;
+  --home-hero-leading: 1.17;
+  --home-hero-tracking: 0;
+  --home-lead-leading: 1.76;
+  --home-philosophy-leading: 1.18;
+  --home-philosophy-tracking: 0;
+  --home-card-leading: 1.72;
+  --page-hero-size-max: 5.15rem;
+}
+
+/* Korean */
+html:lang(ko) {
+  --font-body: "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --type-body-size: 0.99rem;
+  --type-body-leading: 1.72;
+  --type-ui-leading: 1.36;
+  --type-heading-leading: 1.18;
+  --type-heading-tracking: -0.012em;
+  --type-heading-weight: 700;
+  --type-label-leading: 1.52;
+  --type-label-tracking: 0.08em;
+  --home-hero-max: 3.4rem;
+  --home-hero-fluid: 3.6vw;
+  --home-hero-leading: 1.18;
+  --home-hero-tracking: -0.012em;
+  --home-lead-leading: 1.74;
+  --home-philosophy-leading: 1.2;
+  --home-philosophy-tracking: -0.01em;
+  --home-card-leading: 1.68;
+  --page-hero-size-max: 5rem;
+}
+
+/* Simplified Chinese */
+html:lang(zh-CN) {
+  --font-body: "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --type-body-size: 0.98rem;
+  --type-body-leading: 1.72;
+  --type-ui-leading: 1.35;
+  --type-heading-leading: 1.16;
+  --type-heading-tracking: 0.004em;
+  --type-heading-weight: 700;
+  --type-label-leading: 1.5;
+  --type-label-tracking: 0.085em;
+  --home-hero-max: 3.42rem;
+  --home-hero-fluid: 3.62vw;
+  --home-hero-leading: 1.16;
+  --home-hero-tracking: 0.004em;
+  --home-lead-leading: 1.72;
+  --home-philosophy-leading: 1.18;
+  --home-philosophy-tracking: 0.003em;
+  --home-card-leading: 1.68;
+  --page-hero-size-max: 5.05rem;
+}
+
+/* Traditional Chinese */
+html:lang(zh-TW) {
+  --font-body: "Microsoft JhengHei UI", "Microsoft JhengHei", "Noto Sans TC", "Noto Sans CJK TC", system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --type-body-size: 0.98rem;
+  --type-body-leading: 1.72;
+  --type-ui-leading: 1.35;
+  --type-heading-leading: 1.16;
+  --type-heading-tracking: 0.004em;
+  --type-heading-weight: 700;
+  --type-label-leading: 1.5;
+  --type-label-tracking: 0.085em;
+  --home-hero-max: 3.42rem;
+  --home-hero-fluid: 3.62vw;
+  --home-hero-leading: 1.16;
+  --home-hero-tracking: 0.004em;
+  --home-lead-leading: 1.72;
+  --home-philosophy-leading: 1.18;
+  --home-philosophy-tracking: 0.003em;
+  --home-card-leading: 1.68;
+  --page-hero-size-max: 5.05rem;
+}
+
+html:lang(ja) *,
+html:lang(ko) *,
+html:lang(zh-CN) *,
+html:lang(zh-TW) * {
+  line-break: strict;
+  word-break: normal;
+}
+
+/* Arabic: larger leading, zero tracking, logical RTL-safe rhythm. */
+html:lang(ar) {
+  --font-body: "Segoe UI", "Noto Sans Arabic", Tahoma, Arial, system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --type-body-size: 1.02rem;
+  --type-body-leading: 1.9;
+  --type-ui-leading: 1.5;
+  --type-heading-leading: 1.22;
+  --type-heading-tracking: 0;
+  --type-heading-weight: 700;
+  --type-label-leading: 1.65;
+  --type-label-tracking: 0;
+  --home-hero-min: 2.55rem;
+  --home-hero-fluid: 3.5vw;
+  --home-hero-max: 3.3rem;
+  --home-hero-tablet-min: 2.6rem;
+  --home-hero-tablet-fluid: 6.5vw;
+  --home-hero-tablet-max: 3.6rem;
+  --home-hero-mobile-min: 2.12rem;
+  --home-hero-mobile-fluid: 10.3vw;
+  --home-hero-mobile-max: 2.82rem;
+  --home-hero-leading: 1.22;
+  --home-hero-tracking: 0;
+  --home-lead-leading: 1.9;
+  --home-product-leading: 1.12;
+  --home-philosophy-leading: 1.24;
+  --home-philosophy-tracking: 0;
+  --home-card-leading: 1.84;
+  --home-signoff-leading: 1.25;
+  --page-hero-size-max: 4.65rem;
+}
+
+html:lang(ar) h1,
+html:lang(ar) h2,
+html:lang(ar) h3 {
+  text-wrap: pretty;
+}
+
+/* Hindi / Devanagari */
+html:lang(hi) {
+  --font-body: "Nirmala UI", "Noto Sans Devanagari", Mangal, system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --type-body-size: 1.01rem;
+  --type-body-leading: 1.82;
+  --type-ui-leading: 1.44;
+  --type-heading-leading: 1.2;
+  --type-heading-tracking: 0;
+  --type-heading-weight: 700;
+  --type-label-leading: 1.6;
+  --type-label-tracking: 0.035em;
+  --home-hero-min: 2.55rem;
+  --home-hero-fluid: 3.5vw;
+  --home-hero-max: 3.32rem;
+  --home-hero-tablet-min: 2.65rem;
+  --home-hero-tablet-fluid: 6.5vw;
+  --home-hero-tablet-max: 3.65rem;
+  --home-hero-mobile-min: 2.1rem;
+  --home-hero-mobile-fluid: 10.25vw;
+  --home-hero-mobile-max: 2.82rem;
+  --home-hero-leading: 1.2;
+  --home-hero-tracking: 0;
+  --home-lead-leading: 1.82;
+  --home-product-leading: 1.1;
+  --home-philosophy-leading: 1.22;
+  --home-philosophy-tracking: 0;
+  --home-card-leading: 1.78;
+  --page-hero-size-max: 4.8rem;
+}
+
+/* Long-copy locale safety without blunt word breaking. */
+html:lang(de) h1,
+html:lang(de) h2,
+html:lang(de) h3,
+html:lang(fr) h1,
+html:lang(fr) h2,
+html:lang(fr) h3,
+html:lang(es) h1,
+html:lang(es) h2,
+html:lang(es) h3,
+html:lang(pt-BR) h1,
+html:lang(pt-BR) h2,
+html:lang(pt-BR) h3,
+html:lang(it) h1,
+html:lang(it) h2,
+html:lang(it) h3,
+html:lang(id) h1,
+html:lang(id) h2,
+html:lang(id) h3,
+html:lang(tr) h1,
+html:lang(tr) h2,
+html:lang(tr) h3,
+html:lang(vi) h1,
+html:lang(vi) h2,
+html:lang(vi) h3 {
+  hyphens: auto;
+  overflow-wrap: normal;
+}
+
+/* Header/footer/UI controls: prevent cropped marks and cramped translated labels. */
+.bi-desktop-nav a,
+.bi-mobile-panel a,
+.bi-header-cta,
+.bi-footer-nav a,
+.bi-footer-brand p,
+.language-list span,
+.language-panel-head strong {
+  font-family: var(--font-body);
+  line-height: var(--type-ui-leading);
+}
+
+html:lang(th) .bi-desktop-nav a,
+html:lang(ar) .bi-desktop-nav a,
+html:lang(hi) .bi-desktop-nav a,
+html:lang(th) .bi-mobile-panel a,
+html:lang(ar) .bi-mobile-panel a,
+html:lang(hi) .bi-mobile-panel a {
+  font-size: 0.86rem;
+}
+
+html:lang(th) .bi-header-cta,
+html:lang(ar) .bi-header-cta,
+html:lang(hi) .bi-header-cta {
+  min-height: 42px;
+  padding-block: 0.5rem;
+}
+
+/* Localized route page headings keep the same visual hierarchy without crowding. */
+.product-panel h2,
+.bear-features h2,
+.commerce-copy h2,
+.support-card h2 {
+  line-height: var(--type-heading-leading);
+  letter-spacing: var(--type-heading-tracking);
+}
+
+html:lang(th) .product-panel h2,
+html:lang(th) .bear-features h2,
+html:lang(th) .commerce-copy h2,
+html:lang(hi) .product-panel h2,
+html:lang(hi) .bear-features h2,
+html:lang(hi) .commerce-copy h2,
+html:lang(ar) .product-panel h2,
+html:lang(ar) .bear-features h2,
+html:lang(ar) .commerce-copy h2 {
+  font-size: clamp(2.25rem, 4.5vw, 4.15rem);
+}
+
+@media (max-width: 680px) {
+  .page-hero h1,
+  .bear-hero h1 {
+    font-size: clamp(var(--page-hero-mobile-min), var(--page-hero-mobile-fluid), var(--page-hero-mobile-max));
+  }
+
+  html:lang(th) .product-panel h2,
+  html:lang(th) .bear-features h2,
+  html:lang(th) .commerce-copy h2,
+  html:lang(ar) .product-panel h2,
+  html:lang(ar) .bear-features h2,
+  html:lang(ar) .commerce-copy h2,
+  html:lang(hi) .product-panel h2,
+  html:lang(hi) .bear-features h2,
+  html:lang(hi) .commerce-copy h2 {
+    font-size: clamp(2rem, 9.7vw, 3.15rem);
+  }
+}
+
+/* Language switcher entries render in their own native script even when the
+   current page is a different locale. */
+.language-list a:lang(th) {
+  font-family: "Leelawadee UI", "Noto Sans Thai", Tahoma, system-ui, sans-serif;
+  line-height: 1.48;
+}
+.language-list a:lang(ja) {
+  font-family: "Yu Gothic UI", "Yu Gothic", "Noto Sans JP", Meiryo, system-ui, sans-serif;
+  line-height: 1.42;
+}
+.language-list a:lang(ko) {
+  font-family: "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+  line-height: 1.42;
+}
+.language-list a:lang(zh-CN) {
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
+  line-height: 1.42;
+}
+.language-list a:lang(zh-TW) {
+  font-family: "Microsoft JhengHei UI", "Microsoft JhengHei", "Noto Sans TC", "Noto Sans CJK TC", system-ui, sans-serif;
+  line-height: 1.42;
+}
+.language-list a:lang(ar) {
+  font-family: "Segoe UI", "Noto Sans Arabic", Tahoma, Arial, system-ui, sans-serif;
+  line-height: 1.55;
+}
+.language-list a:lang(hi) {
+  font-family: "Nirmala UI", "Noto Sans Devanagari", Mangal, system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+/* Long localized section titles get a slightly calmer scale so they wrap by
+   meaning rather than colliding with their containers. */
+html:lang(de) .product-panel h2,
+html:lang(de) .bear-features h2,
+html:lang(de) .commerce-copy h2 {
+  font-size: clamp(2.3rem, 4.25vw, 4.05rem);
+}
+
+html:lang(fr) .product-panel h2,
+html:lang(fr) .bear-features h2,
+html:lang(fr) .commerce-copy h2,
+html:lang(es) .product-panel h2,
+html:lang(es) .bear-features h2,
+html:lang(es) .commerce-copy h2,
+html:lang(pt-BR) .product-panel h2,
+html:lang(pt-BR) .bear-features h2,
+html:lang(pt-BR) .commerce-copy h2,
+html:lang(it) .product-panel h2,
+html:lang(it) .bear-features h2,
+html:lang(it) .commerce-copy h2,
+html:lang(id) .product-panel h2,
+html:lang(id) .bear-features h2,
+html:lang(id) .commerce-copy h2,
+html:lang(tr) .product-panel h2,
+html:lang(tr) .bear-features h2,
+html:lang(tr) .commerce-copy h2,
+html:lang(vi) .product-panel h2,
+html:lang(vi) .bear-features h2,
+html:lang(vi) .commerce-copy h2 {
+  font-size: clamp(2.4rem, 4.5vw, 4.3rem);
+}
+
+@media (max-width: 680px) {
+  html:lang(de) .product-panel h2,
+  html:lang(de) .bear-features h2,
+  html:lang(de) .commerce-copy h2,
+  html:lang(fr) .product-panel h2,
+  html:lang(fr) .bear-features h2,
+  html:lang(fr) .commerce-copy h2,
+  html:lang(es) .product-panel h2,
+  html:lang(es) .bear-features h2,
+  html:lang(es) .commerce-copy h2,
+  html:lang(pt-BR) .product-panel h2,
+  html:lang(pt-BR) .bear-features h2,
+  html:lang(pt-BR) .commerce-copy h2,
+  html:lang(it) .product-panel h2,
+  html:lang(it) .bear-features h2,
+  html:lang(it) .commerce-copy h2,
+  html:lang(id) .product-panel h2,
+  html:lang(id) .bear-features h2,
+  html:lang(id) .commerce-copy h2,
+  html:lang(tr) .product-panel h2,
+  html:lang(tr) .bear-features h2,
+  html:lang(tr) .commerce-copy h2,
+  html:lang(vi) .product-panel h2,
+  html:lang(vi) .bear-features h2,
+  html:lang(vi) .commerce-copy h2 {
+    font-size: clamp(2.05rem, 9.4vw, 3.2rem);
+  }
+}
