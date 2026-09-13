@@ -14,42 +14,56 @@ const bear = copy.bear;
 const heroA = locale === 'en' ? 'Bright software for' : home.headlineA;
 const heroB = locale === 'en' ? 'calmer digital lives.' : home.headlineB;
 const heroLead = locale === 'en'
-  ? 'Thoughtful software for a cleaner, simpler, brighter everyday.'
+  ? 'Thoughtful, human-centered software for a cleaner, simpler, brighter everyday.'
   : home.lead;
-const heroNote = locale === 'en' ? 'Better tools. Brighter days.' : home.founderNote;
+const founderNote = locale === 'en' ? 'Better tools. Brighter days!' : home.founderNote;
+
+const distributionCopy: Record<LocaleCode, { website: string; uptodown: string; soon: string; safe: string; light: string; android: string }> = {
+  en: { website: 'Download via Website', uptodown: 'Uptodown', soon: 'coming soon', safe: 'Safe & private', light: 'Lightweight', android: 'Made for Android' },
+  th: { website: 'ดาวน์โหลดจากเว็บไซต์', uptodown: 'Uptodown', soon: 'เร็วๆ นี้', safe: 'ปลอดภัยและเป็นส่วนตัว', light: 'เบาเครื่อง', android: 'สร้างมาสำหรับ Android' },
+  es: { website: 'Descargar desde la web', uptodown: 'Uptodown', soon: 'próximamente', safe: 'Seguro y privado', light: 'Ligero', android: 'Hecho para Android' },
+  'pt-br': { website: 'Baixar pelo site', uptodown: 'Uptodown', soon: 'em breve', safe: 'Seguro e privado', light: 'Leve', android: 'Feito para Android' },
+  fr: { website: 'Télécharger sur le site', uptodown: 'Uptodown', soon: 'bientôt', safe: 'Sûr et privé', light: 'Léger', android: 'Conçu pour Android' },
+  de: { website: 'Über die Website laden', uptodown: 'Uptodown', soon: 'demnächst', safe: 'Sicher & privat', light: 'Leichtgewichtig', android: 'Für Android gemacht' },
+  it: { website: 'Scarica dal sito', uptodown: 'Uptodown', soon: 'presto', safe: 'Sicuro e privato', light: 'Leggero', android: 'Creato per Android' },
+  ja: { website: 'ウェブサイトから入手', uptodown: 'Uptodown', soon: '近日公開', safe: '安全・プライベート', light: '軽快', android: 'Android向け' },
+  ko: { website: '웹사이트에서 다운로드', uptodown: 'Uptodown', soon: '곧 공개', safe: '안전하고 비공개', light: '가볍게', android: 'Android용' },
+  id: { website: 'Unduh lewat situs', uptodown: 'Uptodown', soon: 'segera', safe: 'Aman & privat', light: 'Ringan', android: 'Dibuat untuk Android' },
+  vi: { website: 'Tải từ website', uptodown: 'Uptodown', soon: 'sắp có', safe: 'An toàn & riêng tư', light: 'Gọn nhẹ', android: 'Dành cho Android' },
+  'zh-cn': { website: '从官网下载', uptodown: 'Uptodown', soon: '即将上线', safe: '安全且注重隐私', light: '轻巧流畅', android: '专为 Android 打造' },
+  'zh-tw': { website: '從官網下載', uptodown: 'Uptodown', soon: '即將上線', safe: '安全且重視隱私', light: '輕巧流暢', android: '專為 Android 打造' },
+  ar: { website: 'تنزيل من الموقع', uptodown: 'Uptodown', soon: 'قريبًا', safe: 'آمن وخاص', light: 'خفيف', android: 'مصمم لأندرويد' },
+  hi: { website: 'वेबसाइट से डाउनलोड करें', uptodown: 'Uptodown', soon: 'जल्द आ रहा है', safe: 'सुरक्षित और निजी', light: 'हल्का', android: 'Android के लिए बनाया गया' },
+  tr: { website: 'Web sitesinden indir', uptodown: 'Uptodown', soon: 'yakında', safe: 'Güvenli ve özel', light: 'Hafif', android: 'Android için' },
+};
+const dist = distributionCopy[locale];
 ---
 
 <SiteLayout title="Benedict Interactive" description={home.metaDescription} locale={locale}>
-  <div class="bi-home">
-    <section class:list={["bi-hero", "bi-shell", { "bi-hero-en": locale === 'en' }]} aria-labelledby="home-title">
-      <div class="bi-hero-copy">
-        <p class="bi-kicker">{home.kicker}</p>
+  <main class="home-onepage">
+    <section class="hero shell" id="home" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <p class="eyebrow">{home.kicker}</p>
         <h1 id="home-title">
           <span>{heroA}</span>
           <strong>{heroB}</strong>
         </h1>
-        <p class="bi-hero-lead">{heroLead}</p>
-
-        <div class="bi-actions">
-          <a class="bi-button bi-button-primary" href="#bearagnostic">
-            {home.primaryCta}<span aria-hidden="true">→</span>
-          </a>
-          <a class="bi-button bi-button-secondary" href="#philosophy">
-            {home.secondaryCta}
-          </a>
-        </div>
-
-        <div class="bi-hero-signoff" aria-label="Benedict J.">
-          <span>{heroNote}</span>
-          <strong>Benedict J.</strong>
+        <p class="hero-lead">{heroLead}</p>
+        <div class="actions">
+          <a class="button primary" href="#bearagnostic">{home.primaryCta}<span aria-hidden="true">→</span></a>
+          <a class="button secondary" href="#philosophy">{home.secondaryCta}</a>
         </div>
       </div>
 
-      <figure class="bi-founder">
-        <div class="bi-founder-glow" aria-hidden="true"></div>
+      <figure class="founder-visual">
+        <div class="founder-halo" aria-hidden="true"></div>
+        <div class="founder-signoff" aria-label="Benedict J.">
+          <span>{founderNote}</span>
+          <strong>Benedict J.</strong>
+        </div>
         <img
-          src="/brand/benedict-j.webp"
-          alt="Benedict J. at his desk with a laptop and a sleeping dog"
+          src="/brand/benedict-j-final.webp"
+          alt="Benedict J. at a desk with a laptop and a sleeping dog"
           width="1672"
           height="941"
           loading="eager"
@@ -57,77 +71,73 @@ const heroNote = locale === 'en' ? 'Better tools. Brighter days.' : home.founder
         />
       </figure>
 
-      <div class="bi-hero-proof" aria-label={home.kicker}>
+      <div class="hero-proof" aria-label={home.kicker}>
         {home.proof.map((item, index) => (
-          <span>
-            <i class:list={["bi-proof-dot", `bi-proof-dot-${index + 1}`]} aria-hidden="true"></i>
-            {item}
-          </span>
+          <span><i class={`dot dot-${index + 1}`} aria-hidden="true"></i>{item}</span>
         ))}
       </div>
     </section>
 
-    <section class="bi-product-wrap" id="bearagnostic" aria-labelledby="bearagnostic-title">
-      <div class="bi-product bi-shell">
-        <div class="bi-product-copy">
-          <p class="bi-kicker">{home.productKicker}</p>
+    <section class="product-band" id="bearagnostic" aria-labelledby="bearagnostic-title">
+      <div class="product-shell shell">
+        <div class="product-copy">
+          <p class="eyebrow">{home.productKicker}</p>
           <h2 id="bearagnostic-title">{home.productTitle}</h2>
-          <p class="bi-product-promise">{home.productPromise}</p>
-          <p class="bi-product-body">{home.productBody}</p>
+          <p class="promise">{home.productPromise}</p>
+          <p class="product-body">{home.productBody}</p>
 
-          <div class="bi-actions bi-product-actions">
-            <a class="bi-button bi-button-primary" href={localizedPath(locale, '/products/bearagnostic')}>
-              {home.productCta}<span aria-hidden="true">→</span>
+          <div class="download-actions" id="download">
+            <a class="button primary download" href={localizedPath(locale, '/products/bearagnostic')}>
+              <span aria-hidden="true">↓</span>{dist.website}<span aria-hidden="true">→</span>
             </a>
-            <a class="bi-link" href={localizedPath(locale, '/support')}>
-              {home.productSupport}<span aria-hidden="true">↗</span>
-            </a>
+            <span class="button secondary planned" title={`${dist.uptodown} · ${dist.soon}`} aria-label={`${dist.uptodown}, ${dist.soon}`}>
+              {dist.uptodown}<small>{dist.soon}</small>
+            </span>
+          </div>
+
+          <div class="micro-proof" aria-label={home.productTitle}>
+            <span>◇ {dist.safe}</span>
+            <span>ϟ {dist.light}</span>
+            <span>▯ {dist.android}</span>
           </div>
         </div>
 
-        <div class="bi-product-gallery" aria-label={home.productTitle}>
-          <figure class="bi-screen bi-screen-insights">
-            <img
-              src="/products/bearagnostic/app-insights.webp"
-              alt="Bearagnostic insights screen"
-              width="691"
-              height="1536"
-              loading="lazy"
-              decoding="async"
-            />
+        <div class="device-stage" aria-label={home.realScreen}>
+          <figure class="device device-tools">
+            <img src="/products/bearagnostic/final-tools.webp" alt="Bearagnostic tools screen" width="691" height="1536" loading="lazy" decoding="async" />
           </figure>
-
-          <figure class="bi-screen bi-screen-scan">
-            <img
-              src="/products/bearagnostic/app-scan-safe.webp"
-              alt="Bearagnostic scanning files locally on device"
-              width="691"
-              height="1536"
-              loading="lazy"
-              decoding="async"
-            />
+          <figure class="device device-scan">
+            <img src="/products/bearagnostic/final-scan-safe.webp" alt="Bearagnostic scanning files locally on the device" width="691" height="1536" loading="eager" decoding="async" />
             <figcaption>{home.realScreen}</figcaption>
           </figure>
-
-          <figure class="bi-screen bi-screen-home">
-            <img
-              src="/products/bearagnostic/app-home.webp"
-              alt="Bearagnostic home screen"
-              width="691"
-              height="1536"
-              loading="lazy"
-              decoding="async"
-            />
+          <figure class="device device-depth">
+            <img src="/products/bearagnostic/final-depth.webp" alt="Bearagnostic scan depth choices" width="691" height="1536" loading="lazy" decoding="async" />
           </figure>
         </div>
-      </div>
 
-      <div class="bi-benefits bi-shell" aria-label={home.productTitle}>
-        {bear.features.map((item, index) => (
+        <div class="feature-stack" aria-label={bear.featuresTitle}>
+          {bear.features.slice(0, 3).map((item, index) => (
+            <article class={`feature feature-${index + 1}`}>
+              <span class="feature-icon" aria-hidden="true">{index === 0 ? '▣' : index === 1 ? '▥' : '◆'}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="philosophy shell" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="philosophy-head">
+        <p class="eyebrow">{home.philosophyKicker}</p>
+        <h2 id="philosophy-title">{home.philosophyTitle}</h2>
+      </div>
+      <div class="principles">
+        {home.principles.map((item, index) => (
           <article>
-            <span class:list={["bi-benefit-icon", `bi-benefit-icon-${index + 1}`]} aria-hidden="true">
-              {index === 0 ? '✦' : index === 1 ? '◇' : '⌁'}
-            </span>
+            <span class={`principle-icon principle-${index + 1}`} aria-hidden="true">{index === 0 ? '●' : index === 1 ? '◇' : '♥'}</span>
             <div>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
@@ -136,761 +146,478 @@ const heroNote = locale === 'en' ? 'Better tools. Brighter days.' : home.founder
         ))}
       </div>
     </section>
-
-    <section class="bi-philosophy bi-shell" id="philosophy" aria-labelledby="philosophy-title">
-      <div class="bi-philosophy-title">
-        <p class="bi-kicker">{home.philosophyKicker}</p>
-        <h2 id="philosophy-title">{home.philosophyTitle}</h2>
-        <p class="bi-philosophy-body">{home.philosophyBody}</p>
-      </div>
-
-      <div class="bi-philosophy-side">
-        <div class="bi-principles">
-          {home.principles.map((item, index) => (
-            <article>
-              <span aria-hidden="true">0{index + 1}</span>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
-
-        <blockquote class="bi-studio-quote">
-          <p>“{home.studioQuote}”</p>
-          <footer>— Benedict J.</footer>
-        </blockquote>
-      </div>
-    </section>
-  </div>
+  </main>
 </SiteLayout>
 
 <style>
-  .bi-home {
+  .home-onepage {
     overflow: clip;
     color: #10213a;
     background:
-      radial-gradient(circle at 82% 7%, rgba(76, 196, 234, 0.13), transparent 25rem),
-      radial-gradient(circle at 12% 20%, rgba(45, 126, 246, 0.06), transparent 28rem),
+      radial-gradient(circle at 82% 6%, rgba(84, 201, 236, 0.15), transparent 31rem),
+      radial-gradient(circle at 8% 24%, rgba(33, 131, 244, 0.06), transparent 28rem),
       #f8fbff;
   }
 
-  .bi-shell {
+  .shell {
     width: min(calc(100% - 3rem), 1240px);
     margin-inline: auto;
   }
 
-  .bi-kicker {
-    margin: 0 0 0.85rem;
-    color: #3d7eb8;
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    line-height: 1.4;
+  .eyebrow {
+    margin: 0 0 0.9rem;
+    color: #3a83c2;
+    font-size: 0.68rem;
+    font-weight: 820;
+    letter-spacing: 0.2em;
+    line-height: 1.35;
     text-transform: uppercase;
   }
 
-  .bi-hero {
+  .hero {
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     grid-template-areas:
       "copy founder"
       "proof proof";
-    gap: 1.4rem clamp(2.2rem, 4.2vw, 4.4rem);
+    gap: 0 clamp(1.8rem, 4vw, 4rem);
     align-items: center;
-    padding-block: clamp(2.5rem, 4.8vw, 4.5rem) 1.7rem;
+    padding-block: clamp(2.7rem, 5vw, 4.8rem) 1rem;
   }
 
-  .bi-hero-copy {
+  .hero::before {
+    position: absolute;
+    z-index: 0;
+    inset: 4% -11% 13% 46%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(81, 195, 232, 0.2), rgba(81, 195, 232, 0));
+    filter: blur(30px);
+    content: "";
+    pointer-events: none;
+  }
+
+  .hero-copy {
     grid-area: copy;
     position: relative;
     z-index: 2;
+    align-self: center;
     max-width: 610px;
-    padding-block: 0.7rem;
+    padding-block: 1rem 2rem;
   }
 
-  .bi-hero h1,
-  .bi-product h2,
-  .bi-philosophy h2 {
+  .hero h1,
+  .product-copy h2,
+  .philosophy h2 {
     margin: 0;
-    letter-spacing: -0.048em;
+    color: #101f36;
+    font-weight: 790;
+    letter-spacing: -0.052em;
     text-wrap: balance;
   }
 
-  .bi-hero h1 {
-    overflow: visible;
-    font-size: clamp(3.35rem, 5.05vw, 4.55rem);
-    line-height: 1.015;
+  .hero h1 {
+    font-size: clamp(3rem, 4.7vw, 4.45rem);
+    line-height: 1.01;
   }
 
-  .bi-hero h1 span,
-  .bi-hero h1 strong {
+  .hero h1 span,
+  .hero h1 strong {
     display: block;
     overflow: visible;
-    padding-block-end: 0.055em;
+    padding-bottom: 0.05em;
   }
 
-  @media (min-width: 941px) {
-    .bi-hero-en h1 span,
-    .bi-hero-en h1 strong {
-      white-space: nowrap;
-    }
-  }
-
-  .bi-hero h1 strong {
-    color: #1c7ff2;
-    font-weight: inherit;
-    background: linear-gradient(105deg, #185ecf 0%, #1e87f7 55%, #48c6de 100%);
-    -webkit-background-clip: text;
+  .hero h1 strong {
+    color: #1483f2;
+    background: linear-gradient(105deg, #1462d1 0%, #158bf5 57%, #43c5dd 100%);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .bi-hero-lead {
-    max-width: 515px;
+  .hero-lead {
+    max-width: 560px;
     margin: 1.15rem 0 0;
-    color: #63758c;
-    font-size: clamp(1rem, 1.25vw, 1.16rem);
+    color: #62758b;
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
     line-height: 1.62;
   }
 
-  .bi-actions {
+  .actions,
+  .download-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.72rem;
     align-items: center;
-    margin-top: 1.5rem;
+    margin-top: 1.55rem;
   }
 
-  .bi-button,
-  .bi-link {
+  .button {
     display: inline-flex;
+    min-height: 46px;
     align-items: center;
     justify-content: center;
-    gap: 0.55rem;
-    min-height: 46px;
+    gap: 0.5rem;
+    padding-inline: 1.2rem;
     border-radius: 999px;
-    font-size: 0.86rem;
+    font-size: 0.84rem;
     font-weight: 760;
+    line-height: 1;
     text-decoration: none;
-    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
   }
 
-  .bi-button {
-    padding-inline: 1.15rem;
-  }
+  .button:hover { transform: translateY(-2px); }
 
-  .bi-button:hover,
-  .bi-link:hover {
-    transform: translateY(-1px);
-  }
-
-  .bi-button-primary {
+  .button.primary {
     color: #fff;
-    background: linear-gradient(135deg, #087ff0, #22a8f5);
-    box-shadow: 0 14px 32px rgba(17, 129, 235, 0.22);
+    background: linear-gradient(135deg, #087ff0, #20a7f4);
+    box-shadow: 0 14px 34px rgba(17, 129, 235, 0.23);
   }
 
-  .bi-button-secondary {
-    color: #1d5f9f;
-    border: 1px solid #c8dded;
-    background: rgba(255, 255, 255, 0.82);
+  .button.secondary {
+    color: #1d66a7;
+    border: 1px solid #c7ddec;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 10px 28px rgba(42, 79, 116, 0.04);
   }
 
-  .bi-link {
-    min-height: 42px;
-    padding-inline: 0.3rem;
-    color: #2d6fae;
-  }
-
-  .bi-hero-signoff {
-    display: grid;
-    width: fit-content;
-    gap: 0.15rem;
-    margin-top: 1.5rem;
-    color: #2c85e8;
-    transform: rotate(-2.5deg);
-  }
-
-  .bi-hero-signoff span {
-    max-width: 250px;
-    font-family: "Segoe Print", "Bradley Hand", cursive;
-    font-size: clamp(1rem, 1.35vw, 1.18rem);
-    line-height: 1.2;
-  }
-
-  .bi-hero-signoff strong {
-    justify-self: end;
-    color: #385a7d;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 0.75rem;
-    font-style: italic;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-
-  .bi-founder {
+  .founder-visual {
     grid-area: founder;
     position: relative;
-    min-height: clamp(390px, 34vw, 510px);
+    z-index: 1;
+    min-height: clamp(420px, 36vw, 535px);
     margin: 0;
     isolation: isolate;
   }
 
-  .bi-founder-glow {
+  .founder-halo {
     position: absolute;
     z-index: -1;
-    inset: 7% 2% 4% 10%;
+    inset: 8% 1% 2% 10%;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(83, 195, 226, 0.24), rgba(83, 195, 226, 0));
-    filter: blur(24px);
+    background: radial-gradient(circle, rgba(80, 194, 231, 0.22), rgba(80, 194, 231, 0));
+    filter: blur(25px);
   }
 
-  .bi-founder img {
+  .founder-visual img {
     position: absolute;
-    inset-inline-end: -1.5%;
+    inset-inline-end: -2%;
     inset-block-end: 0;
-    width: 107%;
+    width: 112%;
     max-width: none;
     height: auto;
+    filter: drop-shadow(0 28px 38px rgba(40, 83, 118, 0.1));
   }
 
-  .bi-hero-proof {
+  .founder-signoff {
+    position: absolute;
+    z-index: 2;
+    inset-inline-start: 2%;
+    inset-block-start: 11%;
+    display: grid;
+    gap: 0.25rem;
+    color: #208ce9;
+    transform: rotate(-5deg);
+  }
+
+  .founder-signoff span {
+    max-width: 300px;
+    font-family: "Segoe Print", "Bradley Hand", cursive;
+    font-size: clamp(1.25rem, 2.1vw, 1.85rem);
+    font-weight: 600;
+    line-height: 1.05;
+  }
+
+  .founder-signoff strong {
+    justify-self: end;
+    margin-inline-end: 1.2rem;
+    color: #445b73;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(0.85rem, 1.35vw, 1.1rem);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .hero-proof {
     grid-area: proof;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.7rem 1.7rem;
+    gap: 0.65rem 1.8rem;
     align-items: center;
     min-height: 48px;
-    padding-block: 0.9rem 0.25rem;
-    border-block-start: 1px solid rgba(55, 96, 137, 0.13);
-    color: #687b90;
-    font-size: 0.75rem;
+    padding-block: 0.95rem 0.15rem;
+    border-block-start: 1px solid rgba(31, 74, 113, 0.13);
+    color: #65788d;
+    font-size: 0.73rem;
     font-weight: 720;
   }
 
-  .bi-hero-proof span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.48rem;
-  }
+  .hero-proof span { display: inline-flex; align-items: center; gap: 0.48rem; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .dot-1 { background: #1c80ef; }
+  .dot-2 { background: #41bad5; }
+  .dot-3 { background: #dda04b; }
 
-  .bi-proof-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-  }
-
-  .bi-proof-dot-1 { background: #1c80ef; }
-  .bi-proof-dot-2 { background: #43bed8; }
-  .bi-proof-dot-3 { background: #e1a149; }
-
-  .bi-product-wrap {
-    padding-block: clamp(3.8rem, 6vw, 5.7rem);
-    border-block: 1px solid rgba(28, 54, 84, 0.07);
+  .product-band {
+    padding-block: clamp(2.9rem, 5vw, 4.6rem);
+    border-block: 1px solid rgba(24, 53, 83, 0.07);
     background:
-      radial-gradient(circle at 70% 30%, rgba(59, 190, 228, 0.12), transparent 34rem),
-      linear-gradient(180deg, rgba(255,255,255,0.82), rgba(244,249,253,0.96));
+      radial-gradient(circle at 60% 30%, rgba(73, 190, 231, 0.12), transparent 34rem),
+      linear-gradient(180deg, rgba(255,255,255,0.86), rgba(242,248,253,0.97));
   }
 
-  .bi-product {
+  .product-shell {
     display: grid;
-    grid-template-columns: minmax(0, 0.72fr) minmax(560px, 1.28fr);
-    gap: clamp(2.3rem, 4.8vw, 4.7rem);
+    grid-template-columns: minmax(270px, 0.78fr) minmax(520px, 1.35fr) minmax(250px, 0.74fr);
+    gap: clamp(1.6rem, 3vw, 2.7rem);
     align-items: center;
   }
 
-  .bi-product-copy {
-    max-width: 490px;
+  .product-copy { max-width: 420px; }
+
+  .product-copy h2 {
+    font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+    line-height: 0.98;
   }
 
-  .bi-product h2 {
-    font-size: clamp(2.9rem, 4.9vw, 4.9rem);
-    line-height: 1;
+  .promise {
+    margin: 1rem 0 0;
+    color: #214d77;
+    font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+    font-weight: 770;
+    line-height: 1.4;
   }
 
-  .bi-product-promise {
-    margin: 1.05rem 0 0;
-    color: #234d78;
-    font-size: clamp(1.1rem, 1.55vw, 1.34rem);
-    font-weight: 760;
-    line-height: 1.38;
+  .product-body {
+    margin: 0.85rem 0 0;
+    color: #687b90;
+    font-size: 0.92rem;
+    line-height: 1.63;
   }
 
-  .bi-product-body {
-    margin: 0.9rem 0 0;
-    color: #65788e;
-    line-height: 1.68;
+  .download-actions { gap: 0.55rem; margin-top: 1.3rem; }
+  .download { padding-inline: 1rem; }
+  .planned { gap: 0.35rem; cursor: default; }
+  .planned small { color: #7d8da0; font-size: 0.62rem; font-weight: 700; }
+
+  .micro-proof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    margin-top: 1.1rem;
+    color: #6081a0;
+    font-size: 0.7rem;
+    font-weight: 650;
   }
 
-  .bi-product-gallery {
+  .device-stage {
     display: grid;
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.08fr) minmax(0, 0.9fr);
-    gap: clamp(0.7rem, 1.25vw, 1rem);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.06fr) minmax(0, 0.8fr);
+    gap: clamp(0.45rem, 1vw, 0.8rem);
     align-items: end;
     min-width: 0;
+    perspective: 1400px;
   }
 
-  .bi-screen {
+  .device {
     position: relative;
     min-width: 0;
     margin: 0;
     overflow: hidden;
-    border: 1px solid rgba(18, 40, 65, 0.08);
+    border: 1px solid rgba(24, 52, 82, 0.11);
     border-radius: 28px;
     background: #fff;
-    box-shadow: 0 24px 58px rgba(29, 63, 102, 0.12);
+    box-shadow: 0 28px 62px rgba(35, 72, 110, 0.13);
+    transform-origin: 50% 88%;
+    transition: transform 260ms cubic-bezier(.2,.7,.2,1), box-shadow 260ms ease;
   }
 
-  .bi-screen img {
-    display: block;
-    width: 100%;
-    height: auto;
+  .device:hover {
+    z-index: 5;
+    box-shadow: 0 38px 80px rgba(31, 71, 112, 0.2);
   }
 
-  .bi-screen-insights {
-    transform: translateY(18px) rotate(-0.8deg);
+  .device img { display: block; width: 100%; height: auto; }
+  .device-tools { transform: translateY(20px) rotateY(5deg) rotateZ(-1deg); }
+  .device-depth { transform: translateY(18px) rotateY(-5deg) rotateZ(1deg); }
+  .device-scan {
+    z-index: 3;
+    transform: translateY(-8px);
+    box-shadow: 0 34px 76px rgba(31, 71, 112, 0.18);
+    animation: scanFloat 6s ease-in-out infinite;
   }
+  .device-tools:hover { transform: translateY(8px) rotateY(2deg) rotateZ(-0.4deg) scale(1.015); }
+  .device-depth:hover { transform: translateY(7px) rotateY(-2deg) rotateZ(0.4deg) scale(1.015); }
+  .device-scan:hover { transform: translateY(-14px) scale(1.015); animation-play-state: paused; }
 
-  .bi-screen-scan {
-    z-index: 2;
-    transform: translateY(-10px);
-    box-shadow: 0 28px 70px rgba(29, 63, 102, 0.16);
-  }
-
-  .bi-screen-home {
-    transform: translateY(12px) rotate(0.8deg);
-  }
-
-  .bi-screen figcaption {
+  .device figcaption {
     position: absolute;
-    inset-inline-start: 0.7rem;
-    inset-block-end: 0.7rem;
-    padding: 0.4rem 0.62rem;
-    color: #214e79;
-    border: 1px solid rgba(255, 255, 255, 0.84);
+    inset-inline-start: 0.65rem;
+    inset-block-end: 0.65rem;
+    padding: 0.36rem 0.58rem;
+    color: #20537f;
+    border: 1px solid rgba(255,255,255,0.92);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255,255,255,0.88);
+    box-shadow: 0 8px 24px rgba(27, 70, 105, 0.09);
     backdrop-filter: blur(10px);
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     font-weight: 780;
   }
 
-  .bi-benefits {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.8rem;
-    margin-top: clamp(2rem, 3vw, 2.8rem);
+  @keyframes scanFloat {
+    0%, 100% { transform: translateY(-8px); }
+    50% { transform: translateY(-14px); }
   }
 
-  .bi-benefits article {
+  .feature-stack {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.9rem;
+    gap: 0.75rem;
+  }
+
+  .feature {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 0.82rem;
     align-items: start;
-    min-width: 0;
-    padding: 1.05rem 1.15rem;
-    border: 1px solid rgba(26, 58, 91, 0.08);
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.82);
-    box-shadow: 0 14px 34px rgba(39, 78, 118, 0.05);
+    padding: 1rem;
+    border: 1px solid rgba(27, 60, 94, 0.08);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.84);
+    box-shadow: 0 15px 34px rgba(35, 76, 112, 0.05);
+    transition: transform 180ms ease, box-shadow 180ms ease;
   }
 
-  .bi-benefit-icon {
+  .feature:hover { transform: translateY(-2px); box-shadow: 0 20px 42px rgba(35, 76, 112, 0.09); }
+
+  .feature-icon {
     display: grid;
-    width: 43px;
-    height: 43px;
+    width: 44px;
+    height: 44px;
     place-items: center;
     border-radius: 14px;
-    font-size: 1.08rem;
-    font-weight: 800;
+    font-size: 1rem;
+    font-weight: 850;
   }
 
-  .bi-benefit-icon-1 { color: #087de6; background: #e5f4ff; }
-  .bi-benefit-icon-2 { color: #7b5de9; background: #f0ecff; }
-  .bi-benefit-icon-3 { color: #17a879; background: #e5fbf4; }
+  .feature-1 .feature-icon { color: #0a82eb; background: #e3f3ff; }
+  .feature-2 .feature-icon { color: #7b5de7; background: #f0ecff; }
+  .feature-3 .feature-icon { color: #13a97a; background: #e3fbf3; }
+  .feature h3 { margin: 0; color: #14243a; font-size: 0.92rem; letter-spacing: -0.015em; }
+  .feature p { margin: 0.28rem 0 0; color: #718197; font-size: 0.74rem; line-height: 1.48; }
 
-  .bi-benefits h3 {
-    margin: 0;
-    font-size: 0.96rem;
-    letter-spacing: -0.015em;
-  }
-
-  .bi-benefits p {
-    margin: 0.3rem 0 0;
-    color: #718196;
-    font-size: 0.78rem;
-    line-height: 1.48;
-  }
-
-  .bi-philosophy {
+  .philosophy {
     display: grid;
-    grid-template-columns: minmax(330px, 0.83fr) minmax(0, 1.17fr);
-    gap: clamp(2.2rem, 4vw, 4.2rem);
-    align-items: stretch;
-    margin-block: clamp(3.3rem, 5.6vw, 5rem);
-    padding: clamp(2rem, 3.5vw, 3.2rem);
-    border: 1px solid rgba(29, 62, 96, 0.08);
-    border-radius: 30px;
-    background:
-      radial-gradient(circle at 90% 12%, rgba(71, 190, 224, 0.1), transparent 22rem),
-      rgba(255, 255, 255, 0.7);
-    box-shadow: 0 18px 48px rgba(41, 75, 108, 0.05);
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 2.2fr);
+    gap: clamp(1.5rem, 3.2vw, 3rem);
+    align-items: center;
+    margin-block: clamp(2.8rem, 4vw, 4rem);
+    padding: clamp(1.4rem, 2.5vw, 2rem);
+    border: 1px solid rgba(27, 60, 94, 0.08);
+    border-radius: 28px;
+    background: rgba(255,255,255,0.72);
+    box-shadow: 0 18px 46px rgba(42, 76, 111, 0.05);
   }
 
-  .bi-philosophy-title {
-    align-self: start;
-  }
-
-  .bi-philosophy h2 {
-    max-width: 455px;
-    font-size: clamp(2.35rem, 3.4vw, 3.35rem);
-    line-height: 1.04;
-  }
-
-  .bi-philosophy-body {
-    max-width: 455px;
-    margin: 1.15rem 0 0;
-    color: #6d7e91;
-    font-size: 0.9rem;
-    line-height: 1.66;
-  }
-
-  .bi-philosophy-side {
+  .philosophy h2 { max-width: 340px; font-size: clamp(1.9rem, 2.65vw, 2.65rem); line-height: 1.04; }
+  .principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.65rem; }
+  .principles article {
     display: grid;
-    grid-template-rows: auto 1fr;
-    gap: 1.15rem;
+    grid-template-columns: 42px 1fr;
+    gap: 0.72rem;
+    align-items: start;
     min-width: 0;
+    padding: 0.95rem;
+    border-inline-start: 1px solid rgba(28, 63, 99, 0.09);
+  }
+  .principle-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 13px; }
+  .principle-1 { color: #0c7fe5; background: #e4f4ff; }
+  .principle-2 { color: #0f83d9; background: #e7f6ff; }
+  .principle-3 { color: #1684ef; background: #e8f4ff; }
+  .principles h3 { margin: 0; font-size: 0.84rem; letter-spacing: -0.015em; }
+  .principles p { margin: 0.25rem 0 0; color: #74849a; font-size: 0.72rem; line-height: 1.48; }
+
+  @media (max-width: 1110px) {
+    .product-shell { grid-template-columns: minmax(240px, 0.72fr) minmax(455px, 1.28fr); }
+    .feature-stack { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); }
+    .feature { min-height: 112px; }
   }
 
-  .bi-principles {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.85rem;
-  }
-
-  .bi-principles article {
-    min-width: 0;
-    padding: 1.05rem;
-    border: 1px solid rgba(29, 62, 96, 0.08);
-    border-radius: 20px;
-    background: rgba(248, 252, 255, 0.78);
-  }
-
-  .bi-principles span {
-    color: #2980d8;
-    font-size: 0.68rem;
-    font-weight: 820;
-    letter-spacing: 0.12em;
-  }
-
-  .bi-principles h3 {
-    margin: 0.75rem 0 0;
-    font-size: 0.98rem;
-    letter-spacing: -0.02em;
-  }
-
-  .bi-principles p {
-    margin: 0.4rem 0 0;
-    color: #718196;
-    font-size: 0.76rem;
-    line-height: 1.5;
-  }
-
-  .bi-studio-quote {
-    display: grid;
-    align-content: center;
-    min-height: 150px;
-    margin: 0;
-    padding: 1.35rem 1.5rem;
-    overflow: hidden;
-    border-radius: 22px;
-    background:
-      radial-gradient(circle at 92% 10%, rgba(66, 188, 221, 0.2), transparent 16rem),
-      linear-gradient(135deg, #153454, #1f557d);
-    color: #fff;
-  }
-
-  .bi-studio-quote p {
-    max-width: 620px;
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
-    font-style: italic;
-    line-height: 1.38;
-  }
-
-  .bi-studio-quote footer {
-    margin-top: 0.7rem;
-    color: rgba(222, 239, 250, 0.82);
-    font-size: 0.76rem;
-    font-weight: 680;
-  }
-
-  @media (max-width: 1120px) {
-    .bi-hero {
-      grid-template-columns: minmax(0, 0.94fr) minmax(430px, 1.06fr);
-      gap: 1.2rem 2.2rem;
-    }
-
-    .bi-hero h1 {
-      font-size: clamp(3.1rem, 5vw, 3.9rem);
-    }
-
-    .bi-product {
-      grid-template-columns: minmax(0, 0.76fr) minmax(500px, 1.24fr);
-      gap: 2.2rem;
-    }
-  }
-
-  @media (max-width: 940px) {
-    .bi-shell {
-      width: min(calc(100% - 2rem), 900px);
-    }
-
-    .bi-hero {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "copy"
-        "founder"
-        "proof";
-      gap: 1rem;
-      padding-block: 3rem 1.5rem;
-    }
-
-    .bi-hero-copy {
-      max-width: 720px;
-      padding-block: 0;
-    }
-
-    .bi-hero h1 {
-      max-width: 760px;
-      font-size: clamp(3.3rem, 8vw, 5rem);
-    }
-
-    .bi-founder {
-      min-height: 430px;
-    }
-
-    .bi-founder img {
-      width: 101%;
-      inset-inline-end: -1%;
-    }
-
-    .bi-hero-signoff {
-      margin-top: 1.2rem;
-    }
-
-    .bi-product {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .bi-product-copy {
-      max-width: 700px;
-    }
-
-    .bi-product-gallery {
-      width: min(100%, 760px);
-      margin-inline: auto;
-    }
-
-    .bi-benefits {
-      grid-template-columns: 1fr;
-      gap: 0.65rem;
-    }
-
-    .bi-philosophy {
-      grid-template-columns: 1fr;
-    }
+  @media (max-width: 900px) {
+    .shell { width: min(calc(100% - 2rem), 860px); }
+    .hero { grid-template-columns: 1fr; grid-template-areas: "copy" "founder" "proof"; padding-block-start: 2.6rem; }
+    .hero-copy { max-width: 720px; padding-bottom: 0; }
+    .hero h1 { max-width: 760px; font-size: clamp(3.2rem, 8vw, 4.7rem); }
+    .founder-visual { min-height: 430px; }
+    .founder-visual img { width: 103%; inset-inline-end: -2%; }
+    .founder-signoff { inset-inline-start: auto; inset-inline-end: 5%; inset-block-start: 8%; }
+    .product-shell { grid-template-columns: 1fr; }
+    .product-copy { max-width: 690px; }
+    .device-stage { width: min(100%, 700px); margin-inline: auto; }
+    .feature-stack { grid-column: auto; grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .philosophy { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 680px) {
-    .bi-shell {
-      width: min(calc(100% - 1.25rem), 620px);
-    }
+    .shell { width: min(calc(100% - 1.15rem), 620px); }
+    .eyebrow { margin-bottom: 0.7rem; font-size: 0.6rem; letter-spacing: 0.17em; }
+    .hero { gap: 0; padding-block: 2rem 0.8rem; }
+    .hero h1 { font-size: clamp(2.55rem, 12.9vw, 3.55rem); line-height: 1.01; }
+    .hero-lead { margin-top: 0.9rem; font-size: 0.94rem; }
+    .actions { margin-top: 1.1rem; }
+    .button { min-height: 44px; font-size: 0.8rem; }
+    .founder-visual { min-height: 300px; margin-top: 0.6rem; }
+    .founder-visual img { width: 116%; inset-inline-end: -14%; }
+    .founder-signoff { inset-inline-end: 1%; inset-block-start: 3%; }
+    .founder-signoff span { max-width: 155px; font-size: 1.02rem; }
+    .founder-signoff strong { font-size: 0.72rem; }
+    .hero-proof { gap: 0.5rem 0.9rem; font-size: 0.67rem; }
+    .product-band { padding-block: 2.7rem 3rem; }
+    .product-copy h2 { font-size: clamp(2.55rem, 12vw, 3.45rem); }
+    .product-body { font-size: 0.88rem; }
+    .download-actions { display: grid; grid-template-columns: 1fr 1fr; }
+    .download-actions .button { padding-inline: 0.8rem; }
+    .planned { display: grid; gap: 0.15rem; }
+    .micro-proof { justify-content: space-between; gap: 0.6rem; font-size: 0.64rem; }
 
-    .bi-kicker {
-      margin-bottom: 0.7rem;
-      font-size: 0.61rem;
-      letter-spacing: 0.15em;
+    .device-stage {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: min(118vw, 500px);
+      margin-top: 0.3rem;
+      perspective: 1000px;
     }
+    .device { position: absolute; inset-block-end: 0; }
+    .device-scan { z-index: 3; inset-inline-start: 50%; width: 53%; transform: translateX(-50%) translateY(-4px); animation: none; }
+    .device-tools { z-index: 1; inset-inline-start: 2%; width: 38%; transform: translateY(2px) rotate(-2deg); }
+    .device-depth { z-index: 1; inset-inline-end: 2%; width: 38%; transform: translateY(2px) rotate(2deg); }
+    .device-tools:hover { transform: translateY(-3px) rotate(-1deg); }
+    .device-depth:hover { transform: translateY(-3px) rotate(1deg); }
+    .device-scan:hover { transform: translateX(-50%) translateY(-9px) scale(1.01); }
+    .device figcaption { display: none; }
 
-    .bi-hero {
-      padding-block: 2.2rem 1rem;
-    }
-
-    .bi-hero h1 {
-      font-size: clamp(2.65rem, 13.2vw, 3.75rem);
-      line-height: 1.01;
-    }
-
-    .bi-hero h1 span,
-    .bi-hero h1 strong {
-      padding-block-end: 0.03em;
-    }
-
-    .bi-hero-lead {
-      margin-top: 0.9rem;
-      font-size: 0.96rem;
-    }
-
-    .bi-actions {
-      margin-top: 1.15rem;
-    }
-
-    .bi-button {
-      min-height: 44px;
-      font-size: 0.81rem;
-    }
-
-    .bi-hero-signoff {
-      margin-top: 1.15rem;
-    }
-
-    .bi-hero-signoff span {
-      font-size: 0.92rem;
-    }
-
-    .bi-founder {
-      min-height: 275px;
-    }
-
-    .bi-founder img {
-      width: 113%;
-      inset-inline-end: -12%;
-    }
-
-    .bi-hero-proof {
-      gap: 0.55rem 1rem;
-      min-height: 0;
-      padding-top: 0.8rem;
-      font-size: 0.68rem;
-    }
-
-    .bi-product-wrap {
-      padding-block: 3rem 3.4rem;
-    }
-
-    .bi-product h2 {
-      font-size: clamp(2.65rem, 12.7vw, 3.6rem);
-    }
-
-    .bi-product-promise {
-      margin-top: 0.85rem;
-      font-size: 1.06rem;
-    }
-
-    .bi-product-body {
-      font-size: 0.9rem;
-    }
-
-    .bi-product-gallery {
-      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-      gap: 0.55rem;
-      align-items: end;
-      margin-top: 0.2rem;
-    }
-
-    .bi-screen {
-      border-radius: 21px;
-      transform: none;
-    }
-
-    .bi-screen-insights {
-      display: none;
-    }
-
-    .bi-screen-scan {
-      order: 1;
-    }
-
-    .bi-screen-home {
-      order: 2;
-      transform: translateY(10px);
-    }
-
-    .bi-screen figcaption {
-      display: none;
-    }
-
-    .bi-benefits {
-      margin-top: 1.45rem;
-    }
-
-    .bi-benefits article {
-      grid-template-columns: 40px 1fr;
-      padding: 0.95rem;
-      border-radius: 19px;
-    }
-
-    .bi-benefit-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 13px;
-    }
-
-    .bi-benefits p {
-      font-size: 0.76rem;
-    }
-
-    .bi-philosophy {
-      margin-block: 2.8rem 3.5rem;
-      padding: 1.35rem;
-      border-radius: 24px;
-    }
-
-    .bi-philosophy h2 {
-      font-size: clamp(2rem, 9.4vw, 2.85rem);
-    }
-
-    .bi-philosophy-body {
-      margin-top: 0.9rem;
-      font-size: 0.84rem;
-    }
-
-    .bi-principles {
-      grid-template-columns: 1fr;
-      gap: 0.6rem;
-    }
-
-    .bi-principles article {
-      padding: 0.95rem;
-      border-radius: 17px;
-    }
-
-    .bi-principles h3 {
-      margin-top: 0.5rem;
-    }
-
-    .bi-studio-quote {
-      min-height: 0;
-      padding: 1.2rem;
-      border-radius: 18px;
-    }
-
-    .bi-studio-quote p {
-      font-size: 1.08rem;
-    }
+    .feature-stack { grid-template-columns: 1fr; gap: 0.55rem; }
+    .feature { min-height: 0; padding: 0.9rem; border-radius: 18px; }
+    .philosophy { margin-block: 2.5rem 3rem; padding: 1.2rem; border-radius: 23px; }
+    .philosophy h2 { font-size: clamp(1.8rem, 8.6vw, 2.5rem); }
+    .principles { grid-template-columns: 1fr; gap: 0.45rem; }
+    .principles article { border-inline-start: 0; border-block-start: 1px solid rgba(28,63,99,0.08); padding: 0.8rem 0; }
   }
 
   @media (max-width: 420px) {
-    .bi-hero h1 {
-      font-size: clamp(2.45rem, 12.7vw, 3.1rem);
-    }
-
-    .bi-founder {
-      min-height: 248px;
-    }
-
-    .bi-hero-proof {
-      gap: 0.45rem 0.8rem;
-    }
+    .hero h1 { font-size: clamp(2.35rem, 12vw, 2.95rem); }
+    .founder-visual { min-height: 270px; }
+    .download-actions { grid-template-columns: 1fr; }
+    .device-stage { height: min(124vw, 490px); }
+    .device-scan { width: 56%; }
+    .device-tools, .device-depth { width: 39%; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .bi-button,
-    .bi-link {
-      transition: none;
-    }
+    .device-scan { animation: none; }
+    .button, .device, .feature { transition: none; }
   }
 </style>
