@@ -9,81 +9,491 @@ const page = copy.bear;
 ---
 
 <SiteLayout title="Bearagnostic" description={page.metaDescription} locale={locale}>
-  <section class="bear-hero shell" aria-labelledby="bear-title">
-    <div class="bear-hero-copy">
-      <p class="section-label">{page.kicker}</p>
-      <div class="product-status-row">
-        <span class="status-pill">{copy.common.inDevelopment}</span>
-        <span>Android</span>
-      </div>
-      <h1 id="bear-title">{page.title}</h1>
-      <p class="bear-promise">{page.promise}</p>
-      <p class="bear-lead">{page.lead}</p>
-      <a class="text-link bear-support-link" href={localizedPath(locale, '/support')}>
-        {page.supportCta}<span aria-hidden="true">→</span>
-      </a>
-    </div>
-
-    <div class="bear-hero-art" aria-label={page.title}>
-      <div class="bear-wordmark bear-wordmark-large" aria-hidden="true">
-        <strong>Bear</strong><span>agnostic</span>
-      </div>
-      <p class="bear-lockup-line">DEVICE HEALTH <i aria-hidden="true"></i> BETTER DAYS</p>
-
-      <figure class="bear-character-hero">
-        <img src="/products/bearagnostic/dr-bear.png" alt="Dr. Bear giving a thumbs-up while holding a tablet" width="1478" height="1536" loading="eager" />
-      </figure>
-
-      <figure class="bear-phone-hero phone-card">
-        <div class="phone-speaker" aria-hidden="true"></div>
-        <div class="phone-screen">
-          <img src="/products/bearagnostic/app-home.webp" alt="Bearagnostic home screen" width="691" height="1536" loading="eager" />
+  <div class="bear-page">
+    <section class="bear-hero shell" aria-labelledby="bear-title">
+      <div class="bear-hero-copy">
+        <p class="section-label">{page.kicker}</p>
+        <div class="product-status-row">
+          <span class="status-pill">{copy.common.inDevelopment}</span>
+          <span>Android</span>
         </div>
-      </figure>
-    </div>
-  </section>
 
-  <section class="bear-features" aria-labelledby="bear-features-title">
-    <div class="shell">
-      <p class="section-label">{page.featuresKicker}</p>
-      <h2 id="bear-features-title">{page.featuresTitle}</h2>
-      <div class="feature-row">
-        {page.features.map((item, index) => (
-          <article>
-            <span>0{index + 1}</span>
-            <h3>{item.title}</h3>
-            <p>{item.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+        <h1 id="bear-title" class="bear-title-wordmark" aria-label={page.title}>
+          <span class="bear-title-dark">Bear</span><span class="bear-title-blue">agnostic</span>
+        </h1>
 
-  <section class="commerce-section shell" aria-labelledby="pro-title">
-    <div class="commerce-copy">
-      <p class="section-label">{page.proKicker}</p>
-      <h2 id="pro-title">{page.proTitle}</h2>
-      <p>{page.proBody}</p>
-      <ul>
-        {page.proPoints.map((point) => <li>{point}</li>)}
-      </ul>
-      <div class="commerce-status">
-        <span class="status-dot" aria-hidden="true"></span>
-        <strong>{page.proStatus}</strong>
+        <p class="bear-promise">{page.promise}</p>
+        <p class="bear-lead">{page.lead}</p>
+        <a class="text-link bear-support-link" href={localizedPath(locale, '/support')}>
+          {page.supportCta}<span aria-hidden="true">→</span>
+        </a>
       </div>
-      <p class="fine-note">{page.proNote}</p>
-    </div>
 
-    <div class="commerce-card" aria-hidden="true">
-      <div class="commerce-card-top">
-        <span>PRO</span>
-        <i></i>
+      <div class="bear-showcase" aria-label={page.title}>
+        <div class="bear-showcase-lockup" aria-hidden="true">
+          <span>DEVICE HEALTH</span>
+          <i></i>
+          <span>BETTER DAYS</span>
+        </div>
+
+        <figure class="bear-character-hero">
+          <img
+            src="/products/bearagnostic/dr-bear.png"
+            alt="Dr. Bear giving a thumbs-up while holding a tablet"
+            width="1478"
+            height="1536"
+            loading="eager"
+          />
+        </figure>
+
+        <figure class="bear-phone-hero phone-card">
+          <div class="phone-speaker" aria-hidden="true"></div>
+          <div class="phone-screen">
+            <img
+              src="/products/bearagnostic/app-home.webp"
+              alt="Bearagnostic home screen"
+              width="691"
+              height="1536"
+              loading="eager"
+            />
+          </div>
+        </figure>
       </div>
-      <img src="/products/bearagnostic/dr-bear.png" alt="" width="1478" height="1536" loading="lazy" />
-      <div class="commerce-card-copy">
-        <strong>Bearagnostic Pro</strong>
-        <span>{page.proPoints[0]}</span>
+    </section>
+
+    <section class="bear-features" aria-labelledby="bear-features-title">
+      <div class="shell">
+        <p class="section-label">{page.featuresKicker}</p>
+        <h2 id="bear-features-title">{page.featuresTitle}</h2>
+        <div class="feature-row">
+          {page.features.map((item, index) => (
+            <article>
+              <span>0{index + 1}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="commerce-section shell" aria-labelledby="pro-title">
+      <div class="commerce-copy">
+        <p class="section-label">{page.proKicker}</p>
+        <h2 id="pro-title">{page.proTitle}</h2>
+        <p>{page.proBody}</p>
+        <ul>
+          {page.proPoints.map((point) => <li>{point}</li>)}
+        </ul>
+        <div class="commerce-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <strong>{page.proStatus}</strong>
+        </div>
+        <p class="fine-note">{page.proNote}</p>
+      </div>
+
+      <div class="commerce-visual" aria-hidden="true">
+        <span class="pro-orbit">PRO</span>
+        <span class="commerce-halo"></span>
+        <img
+          src="/products/bearagnostic/dr-bear-warning.png"
+          alt=""
+          width="1478"
+          height="1536"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  </div>
 </SiteLayout>
+
+<style>
+  .bear-page {
+    overflow: clip;
+  }
+
+  .bear-page .bear-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(520px, 1.14fr);
+    gap: clamp(2.6rem, 6vw, 6rem);
+    align-items: center;
+    min-height: min(780px, calc(100svh - 76px));
+    padding-block: clamp(4.4rem, 7vw, 6.8rem);
+  }
+
+  .bear-page .bear-hero-copy {
+    min-width: 0;
+    max-width: 560px;
+  }
+
+  .bear-page .product-status-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    margin-block-end: 1rem;
+    color: #53677f;
+    font-size: 0.82rem;
+    font-weight: 650;
+  }
+
+  .bear-title-wordmark {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+    overflow: visible;
+    color: #071a39;
+    font-family: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+    font-size: clamp(3.55rem, 5.5vw, 5.35rem);
+    font-weight: 800;
+    letter-spacing: -0.062em;
+    line-height: 0.96;
+    white-space: nowrap;
+  }
+
+  .bear-title-dark {
+    color: #071a39;
+  }
+
+  .bear-title-blue {
+    color: #1688f3;
+    background: linear-gradient(100deg, #176fdc 0%, #168ef7 55%, #36bee4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bear-page .bear-promise {
+    margin-block-start: 1.3rem;
+    color: #1c5f9e;
+    font-size: clamp(1.16rem, 1.55vw, 1.4rem);
+    font-weight: 780;
+    line-height: 1.42;
+  }
+
+  .bear-page .bear-lead {
+    max-width: 540px;
+    margin-block-start: 1.05rem;
+    color: #667b95;
+    line-height: 1.74;
+  }
+
+  .bear-page .bear-support-link {
+    margin-block-start: 0.9rem;
+  }
+
+  .bear-showcase {
+    position: relative;
+    min-width: 0;
+    min-height: clamp(520px, 43vw, 640px);
+    isolation: isolate;
+  }
+
+  .bear-showcase::before {
+    position: absolute;
+    z-index: -2;
+    inset: 5% 0 0 8%;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 44% 48%, rgba(42, 186, 241, 0.19), rgba(42, 186, 241, 0.05) 42%, transparent 69%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .bear-showcase::after {
+    position: absolute;
+    z-index: -1;
+    inset-inline-end: 9%;
+    inset-block-end: 5%;
+    width: 54%;
+    height: 17%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(28, 76, 123, 0.13), transparent 69%);
+    filter: blur(14px);
+    content: "";
+    pointer-events: none;
+  }
+
+  .bear-showcase-lockup {
+    position: absolute;
+    z-index: 5;
+    inset-block-start: 3%;
+    inset-inline-end: 2%;
+    display: grid;
+    grid-template-columns: auto 28px auto;
+    align-items: center;
+    gap: 0.55rem;
+    color: #657d98;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .bear-showcase-lockup i {
+    display: block;
+    width: 28px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #167bf2, #35c5de);
+  }
+
+  .bear-character-hero {
+    position: absolute;
+    z-index: 2;
+    inset-inline-start: -1%;
+    inset-block-end: 0;
+    width: min(79%, 610px);
+    margin: 0;
+  }
+
+  .bear-character-hero img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .bear-page .bear-phone-hero {
+    position: absolute;
+    z-index: 4;
+    inset-inline-end: 0;
+    inset-block-end: 4%;
+    width: min(31%, 238px);
+    margin: 0;
+    padding: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(20, 67, 114, 0.08);
+    border-radius: 31px;
+    background: #fff;
+    box-shadow: 0 24px 65px rgba(28, 78, 129, 0.16);
+    transform: rotate(1.6deg);
+  }
+
+  .bear-page .bear-phone-hero .phone-screen {
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  .bear-page .bear-phone-hero img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 691 / 1536;
+    object-fit: cover;
+  }
+
+  .bear-page .bear-features {
+    padding-block: clamp(5rem, 8vw, 7rem);
+    border-block: 1px solid rgba(12, 47, 91, 0.08);
+    background: linear-gradient(180deg, rgba(248, 252, 255, 0.92), rgba(255, 255, 255, 0.98));
+  }
+
+  .bear-page .feature-row article {
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 18px 48px rgba(31, 89, 147, 0.045);
+  }
+
+  .bear-page .commerce-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(390px, 0.72fr);
+    gap: clamp(2.8rem, 7vw, 7rem);
+    align-items: center;
+    padding-block: clamp(5.4rem, 8vw, 7.5rem);
+  }
+
+  .bear-page .commerce-copy {
+    min-width: 0;
+  }
+
+  .bear-page .commerce-visual {
+    position: relative;
+    min-height: 540px;
+    isolation: isolate;
+  }
+
+  .commerce-halo {
+    position: absolute;
+    z-index: -1;
+    inset: 12% 4% 5% 3%;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 47% 46%, rgba(42, 186, 241, 0.16), rgba(239, 173, 87, 0.07) 45%, transparent 72%);
+  }
+
+  .bear-page .commerce-visual img {
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-end: 0;
+    width: min(96%, 520px);
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    transform: translateX(-50%);
+  }
+
+  .pro-orbit {
+    position: absolute;
+    z-index: 3;
+    inset-block-start: 8%;
+    inset-inline-start: 6%;
+    display: grid;
+    min-width: 58px;
+    min-height: 34px;
+    place-items: center;
+    padding-inline: 0.8rem;
+    color: #476b90;
+    border: 1px solid rgba(36, 102, 166, 0.13);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 32px rgba(33, 84, 135, 0.08);
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+  }
+
+  @media (max-width: 1120px) {
+    .bear-page .bear-hero {
+      grid-template-columns: minmax(0, 0.82fr) minmax(470px, 1.18fr);
+      gap: 2.6rem;
+    }
+
+    .bear-title-wordmark {
+      font-size: clamp(3.35rem, 5.25vw, 4.8rem);
+    }
+  }
+
+  @media (max-width: 980px) {
+    .bear-page .bear-hero,
+    .bear-page .commerce-section {
+      grid-template-columns: 1fr;
+    }
+
+    .bear-page .bear-hero {
+      min-height: 0;
+      gap: 1.2rem;
+      padding-block-start: 4.2rem;
+    }
+
+    .bear-page .bear-hero-copy {
+      max-width: 720px;
+    }
+
+    .bear-showcase {
+      width: min(100%, 760px);
+      min-height: 590px;
+      margin-inline: auto;
+    }
+
+    .bear-page .commerce-section {
+      gap: 1rem;
+    }
+
+    .bear-page .commerce-visual {
+      width: min(100%, 620px);
+      min-height: 520px;
+      margin-inline: auto;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .bear-page .bear-hero {
+      padding-block: 3.2rem 2rem;
+    }
+
+    .bear-title-wordmark {
+      font-size: clamp(2.65rem, 12.4vw, 4rem);
+      letter-spacing: -0.058em;
+    }
+
+    .bear-page .bear-promise {
+      font-size: 1.08rem;
+    }
+
+    .bear-showcase {
+      min-height: min(118vw, 500px);
+    }
+
+    .bear-showcase-lockup {
+      inset-block-start: 0;
+      inset-inline-end: 1%;
+      grid-template-columns: auto;
+      gap: 0.12rem;
+      font-size: 0.52rem;
+      letter-spacing: 0.09em;
+      text-align: end;
+    }
+
+    .bear-showcase-lockup i {
+      display: none;
+    }
+
+    .bear-character-hero {
+      inset-inline-start: -7%;
+      width: 87%;
+    }
+
+    .bear-page .bear-phone-hero {
+      inset-inline-end: -1%;
+      inset-block-end: 4%;
+      width: min(36%, 185px);
+      border-radius: 24px;
+    }
+
+    .bear-page .bear-phone-hero .phone-screen {
+      border-radius: 18px;
+    }
+
+    .bear-page .commerce-section {
+      padding-block: 4.8rem;
+    }
+
+    .bear-page .commerce-visual {
+      min-height: min(115vw, 460px);
+    }
+
+    .bear-page .commerce-visual img {
+      width: min(100%, 470px);
+    }
+
+    .pro-orbit {
+      inset-inline-start: 2%;
+      inset-block-start: 5%;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .bear-title-wordmark {
+      font-size: clamp(2.5rem, 11.8vw, 3.25rem);
+    }
+
+    .bear-showcase {
+      min-height: 405px;
+    }
+
+    .bear-page .commerce-visual {
+      min-height: 390px;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .bear-page .bear-phone-hero {
+      animation: bear-phone-float 6s ease-in-out infinite;
+    }
+
+    .bear-character-hero img,
+    .bear-page .commerce-visual img {
+      transition: transform 280ms ease;
+    }
+
+    .bear-showcase:hover .bear-character-hero img {
+      transform: translateY(-4px);
+    }
+
+    .bear-page .commerce-visual:hover img {
+      transform: translateX(-50%) translateY(-4px);
+    }
+  }
+
+  @keyframes bear-phone-float {
+    0%, 100% { transform: rotate(1.6deg) translateY(0); }
+    50% { transform: rotate(1.1deg) translateY(-7px); }
+  }
+</style>

@@ -9,39 +9,251 @@ const page = copy.support;
 ---
 
 <SiteLayout title={copy.nav.support} description={page.metaDescription} locale={locale}>
-  <section class="page-hero shell">
-    <p class="section-label">{page.kicker}</p>
-    <h1>{page.title}</h1>
-    <p>{page.lead}</p>
-  </section>
+  <div class="support-page">
+    <section class="page-hero shell">
+      <p class="section-label">{page.kicker}</p>
+      <h1>{page.title}</h1>
+      <p>{page.lead}</p>
+    </section>
 
-  <section class="support-cards shell">
-    <article class="support-card support-bear">
-      <div class="support-card-mark support-bear-mark">
-        <img src="/products/bearagnostic/dr-bear.png" alt="" width="1478" height="1536" loading="lazy" />
-      </div>
-      <div>
-        <p class="section-label">Android</p>
-        <h2>{page.bearTitle}</h2>
-        <p>{page.bearBody}</p>
-        <a class="text-link" href={localizedPath(locale, '/products/bearagnostic')}>{copy.common.viewProduct}<span aria-hidden="true">→</span></a>
-      </div>
-    </article>
+    <section class="support-cards shell">
+      <article class="support-card support-bear">
+        <div class="support-bear-visual" aria-hidden="true">
+          <span class="support-bear-halo"></span>
+          <img
+            src="/products/bearagnostic/dr-bear-inspecting.png"
+            alt=""
+            width="1536"
+            height="1477"
+            loading="lazy"
+          />
+        </div>
+        <div class="support-card-copy">
+          <p class="section-label">Android</p>
+          <h2>{page.bearTitle}</h2>
+          <p>{page.bearBody}</p>
+          <a class="text-link" href={localizedPath(locale, '/products/bearagnostic')}>
+            {copy.common.viewProduct}<span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
 
-    <article class="support-card support-benedict">
-      <div class="support-card-mark support-brand-mark">
-        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
-      </div>
-      <div>
-        <p class="section-label">Benedict Interactive</p>
-        <h2>{page.generalTitle}</h2>
-        <p>{page.generalBody}</p>
-      </div>
-    </article>
-  </section>
+      <article class="support-card support-benedict">
+        <div class="support-card-mark support-brand-mark">
+          <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
+        </div>
+        <div class="support-card-copy">
+          <p class="section-label">Benedict Interactive</p>
+          <h2>{page.generalTitle}</h2>
+          <p>{page.generalBody}</p>
+        </div>
+      </article>
+    </section>
 
-  <aside class="staging-note shell">
-    <span class="status-dot" aria-hidden="true"></span>
-    <p>{page.stagingNote}</p>
-  </aside>
+    <aside class="staging-note shell">
+      <span class="status-dot" aria-hidden="true"></span>
+      <p>{page.stagingNote}</p>
+    </aside>
+  </div>
 </SiteLayout>
+
+<style>
+  .support-page {
+    overflow: clip;
+  }
+
+  .support-page .page-hero {
+    width: min(calc(100% - clamp(2rem, 6vw, 5rem)), 980px);
+    max-width: 980px;
+    padding-block: clamp(4.6rem, 8vw, 7rem) clamp(3rem, 5vw, 4.4rem);
+    overflow: visible;
+    text-align: center;
+  }
+
+  .support-page .page-hero h1 {
+    max-width: 15ch;
+    margin-inline: auto;
+    overflow: visible;
+    font-size: clamp(3rem, 6.2vw, 5.35rem);
+    line-height: 1.01;
+    letter-spacing: var(--type-heading-tracking, -0.045em);
+    overflow-wrap: normal;
+    text-wrap: balance;
+  }
+
+  .support-page .page-hero > p:last-child {
+    max-width: 760px;
+    margin: 1.25rem auto 0;
+    color: #667b95;
+    font-size: clamp(1rem, 1.45vw, 1.15rem);
+    line-height: var(--type-body-leading, 1.72);
+  }
+
+  .support-page .support-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.4rem);
+    padding-block-end: 2rem;
+  }
+
+  .support-page .support-card {
+    min-width: 0;
+    min-height: 330px;
+    border-color: rgba(14, 54, 96, 0.07);
+    background:
+      radial-gradient(circle at 8% 10%, rgba(42, 186, 241, 0.07), transparent 15rem),
+      rgba(255, 255, 255, 0.88);
+    box-shadow: 0 22px 62px rgba(31, 89, 147, 0.075);
+  }
+
+  .support-page .support-bear {
+    grid-template-columns: minmax(145px, 0.36fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .support-bear-visual {
+    position: relative;
+    display: grid;
+    min-width: 0;
+    place-items: center;
+    align-self: stretch;
+    overflow: visible;
+  }
+
+  .support-bear-halo {
+    position: absolute;
+    z-index: 0;
+    inset: 17% 7% 14%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(42, 186, 241, 0.13), transparent 70%);
+  }
+
+  .support-bear-visual img {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 190px);
+    height: auto;
+    object-fit: contain;
+  }
+
+  .support-page .support-benedict {
+    grid-template-columns: 104px minmax(0, 1fr);
+  }
+
+  .support-page .support-card-mark {
+    background: transparent;
+  }
+
+  .support-page .support-brand-mark {
+    background: #f2f8fb;
+  }
+
+  .support-card-copy {
+    min-width: 0;
+  }
+
+  .support-page .support-card h2 {
+    max-width: 100%;
+    margin: 0;
+    overflow: visible;
+    font-size: clamp(1.75rem, 2.6vw, 2.4rem);
+    line-height: var(--type-heading-leading, 1.08);
+    letter-spacing: var(--type-heading-tracking, -0.035em);
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .support-page .support-card p:not(.section-label) {
+    margin-block-start: 0.9rem;
+    color: #687c94;
+    line-height: var(--type-body-leading, 1.72);
+  }
+
+  .support-page .support-card .text-link {
+    margin-block-start: 1.15rem;
+  }
+
+  .support-page .staging-note {
+    margin-block-start: 0.35rem;
+  }
+
+  @media (max-width: 920px) {
+    .support-page .support-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .support-page .support-card {
+      min-height: 0;
+    }
+
+    .support-page .support-bear {
+      grid-template-columns: minmax(130px, 0.28fr) minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .support-page .page-hero {
+      padding-block: 3.5rem 2.5rem;
+    }
+
+    .support-page .page-hero h1 {
+      max-width: 12ch;
+      font-size: clamp(2.6rem, 12vw, 4rem);
+      line-height: 1.04;
+    }
+
+    .support-page .support-card {
+      padding: 1.25rem;
+      border-radius: 26px;
+    }
+
+    .support-page .support-bear {
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .support-bear-visual img {
+      width: 112px;
+    }
+
+    .support-page .support-benedict {
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .support-page .support-card h2 {
+      font-size: clamp(1.55rem, 7vw, 2.1rem);
+    }
+  }
+
+  @media (max-width: 460px) {
+    .support-page .support-bear,
+    .support-page .support-benedict {
+      grid-template-columns: 1fr;
+    }
+
+    .support-bear-visual {
+      justify-items: start;
+      min-height: 122px;
+    }
+
+    .support-bear-visual img {
+      width: 138px;
+    }
+
+    .support-page .support-card-mark {
+      width: 76px;
+      height: 76px;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .support-bear-visual img {
+      transition: transform 220ms ease;
+    }
+
+    .support-page .support-bear:hover .support-bear-visual img {
+      transform: translateY(-4px) rotate(-1deg);
+    }
+  }
+</style>
