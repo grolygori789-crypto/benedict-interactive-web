@@ -9,6 +9,7 @@ interface Props {
 const { locale } = Astro.props;
 const copy = getLocaleContent(locale);
 const home = copy.home;
+const bear = copy.bear;
 ---
 
 <SiteLayout title="Benedict Interactive" description={home.metaDescription} locale={locale}>
@@ -35,88 +36,62 @@ const home = copy.home;
       </div>
     </div>
 
-    <figure class="founder-scene">
-      <div class="founder-aura" aria-hidden="true"></div>
-      <div class="founder-pixel founder-pixel-a" aria-hidden="true"></div>
-      <div class="founder-pixel founder-pixel-b" aria-hidden="true"></div>
+    <figure class="founder-visual">
       <img
-        class="founder-cutout"
         src="/brand/benedict-j.webp"
-        alt="Benedict J."
-        width="1440"
-        height="810"
+        alt="Benedict J. at his desk with a laptop and a sleeping dog"
+        width="1672"
+        height="941"
         loading="eager"
         decoding="async"
       />
-      <figcaption class="founder-caption">
-        <span>
-          <strong>Benedict J.</strong>
-          <small>{home.founderRole}</small>
-        </span>
-        <em>{home.founderNote}</em>
+      <figcaption>
+        <strong>Benedict J.</strong>
+        <span>{home.founderRole}</span>
       </figcaption>
     </figure>
   </section>
 
-  <section class="philosophy-band" id="philosophy" aria-labelledby="philosophy-title">
-    <div class="shell philosophy-grid">
-      <div>
-        <p class="section-label">{home.philosophyKicker}</p>
-        <h2 id="philosophy-title">{home.philosophyTitle}</h2>
-      </div>
-      <p>{home.philosophyBody}</p>
-    </div>
-  </section>
+  <section class="home-product" id="bearagnostic" aria-labelledby="bearagnostic-title">
+    <div class="shell product-grid">
+      <div class="product-copy">
+        <p class="section-label">{home.productKicker}</p>
+        <h2 id="bearagnostic-title">{home.productTitle}</h2>
+        <p class="product-promise">{home.productPromise}</p>
+        <p class="product-body">{home.productBody}</p>
 
-  <section class="product-feature shell" id="bearagnostic" aria-labelledby="bearagnostic-title">
-    <div class="product-copy">
-      <p class="section-label">{home.productKicker}</p>
-      <div class="product-status-row">
-        <span class="status-pill">{copy.common.inDevelopment}</span>
-        <span>Android</span>
-      </div>
-      <h2 id="bearagnostic-title">{home.productTitle}</h2>
-      <p class="product-promise">{home.productPromise}</p>
-      <p class="product-body">{home.productBody}</p>
-
-      <div class="quality-list" aria-label="Bearagnostic qualities">
-        {home.productTags.map((tag, index) => (
-          <span><i aria-hidden="true">0{index + 1}</i>{tag}</span>
-        ))}
-      </div>
-
-      <div class="product-actions">
-        <a class="button button-primary" href={localizedPath(locale, '/products/bearagnostic')}>
-          {home.productCta}<span aria-hidden="true">→</span>
-        </a>
-        <a class="text-link" href={localizedPath(locale, '/support')}>
-          {home.productSupport}<span aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="product-theatre" aria-label={home.productTitle}>
-      <div class="product-theatre-header">
-        <div class="bear-wordmark" aria-label="Bearagnostic">
-          <strong>Bear</strong><span>agnostic</span>
+        <div class="product-points" aria-label="Bearagnostic qualities">
+          {home.productTags.map((tag, index) => (
+            <div class="product-point">
+              <span>0{index + 1}</span>
+              <strong>{tag}</strong>
+            </div>
+          ))}
         </div>
-        <p>DEVICE HEALTH <i aria-hidden="true"></i> BETTER DAYS</p>
+
+        <div class="product-actions">
+          <a class="button button-primary" href={localizedPath(locale, '/products/bearagnostic')}>
+            {home.productCta}<span aria-hidden="true">→</span>
+          </a>
+          <a class="text-link" href={localizedPath(locale, '/support')}>
+            {home.productSupport}<span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
 
-      <figure class="dr-bear-figure">
-        <img
-          src="/products/bearagnostic/dr-bear.png"
-          alt="Dr. Bear, the Bearagnostic mascot, giving a thumbs-up while holding a tablet"
-          width="1478"
-          height="1536"
-          loading="lazy"
-          decoding="async"
-        />
-      </figure>
-
-      <figure class="phone-card">
-        <div class="phone-speaker" aria-hidden="true"></div>
-        <div class="phone-screen">
+      <div class="device-stage" aria-label={home.productTitle}>
+        <div class="device-halo" aria-hidden="true"></div>
+        <figure class="device device-secondary">
+          <img
+            src="/products/bearagnostic/app-insights.webp"
+            alt="Bearagnostic insights screen"
+            width="691"
+            height="1536"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <figure class="device device-main">
           <img
             src="/products/bearagnostic/app-home.webp"
             alt="Bearagnostic home screen"
@@ -125,67 +100,77 @@ const home = copy.home;
             loading="lazy"
             decoding="async"
           />
-        </div>
-        <figcaption>{home.realScreen}</figcaption>
-      </figure>
-
-      <div class="product-orbit product-orbit-a" aria-hidden="true"></div>
-      <div class="product-orbit product-orbit-b" aria-hidden="true"></div>
+        </figure>
+        <span class="real-screen-label">{home.realScreen}</span>
+      </div>
     </div>
   </section>
 
-  <section class="principles-section" aria-labelledby="principles-title">
-    <div class="shell">
-      <div class="principles-heading">
-        <div>
-          <p class="section-label">{home.principlesKicker}</p>
-          <h2 id="principles-title">{home.principlesTitle}</h2>
-        </div>
-        <p>{home.principlesIntro}</p>
+  <section class="workflow-section shell" aria-labelledby="workflow-title">
+    <div class="workflow-heading">
+      <div>
+        <p class="section-label">{bear.featuresKicker}</p>
+        <h2 id="workflow-title">{bear.featuresTitle}</h2>
       </div>
+      <p>{bear.lead}</p>
+    </div>
 
-      <div class="principle-grid">
-        {home.principles.map((item, index) => (
-          <article class="principle-item">
-            <span class={`principle-icon principle-icon-${index + 1}`} aria-hidden="true"></span>
-            <span class="principle-number">0{index + 1}</span>
-            <h3>{item.title}</h3>
-            <p>{item.body}</p>
+    <div class="workflow-grid">
+      <figure class="scan-visual">
+        <img
+          src="/products/bearagnostic/app-scan-safe.webp"
+          alt="Bearagnostic scanning files on device"
+          width="691"
+          height="1536"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="workflow-copy">
+        {bear.features.map((item, index) => (
+          <article class="workflow-fact">
+            <span>0{index + 1}</span>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="studio-section shell" aria-labelledby="studio-title">
-    <div class="studio-rule" aria-hidden="true"></div>
-    <div class="studio-mark" aria-hidden="true">
-      <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
+  <section class="philosophy-section" id="philosophy" aria-labelledby="philosophy-title">
+    <div class="shell philosophy-grid">
+      <div class="philosophy-copy">
+        <p class="section-label">{home.philosophyKicker}</p>
+        <h2 id="philosophy-title">{home.philosophyTitle}</h2>
+        <p>{home.philosophyBody}</p>
+      </div>
+
+      <div class="principle-list">
+        {home.principles.map((item, index) => (
+          <article class="principle-row">
+            <span>0{index + 1}</span>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
-    <div class="studio-copy">
-      <p class="section-label">{home.studioKicker}</p>
-      <h2 id="studio-title">{home.studioTitle}</h2>
-      <p>{home.studioBody}</p>
-    </div>
-    <blockquote>
-      <p>“{home.studioQuote}”</p>
-      <footer>— Benedict J.</footer>
-    </blockquote>
   </section>
 
-  <section class="closing-section shell" aria-labelledby="closing-title">
-    <div class="closing-badge" aria-hidden="true">
-      <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
-    </div>
-    <div class="closing-copy">
+  <section class="home-closing shell" aria-labelledby="closing-title">
+    <div>
       <p class="section-label">{home.closingKicker}</p>
       <h2 id="closing-title">{home.closingTitle}</h2>
       <p>{home.closingBody}</p>
-      <a class="button button-light" href={localizedPath(locale, '/products')}>
-        {home.closingCta}<span aria-hidden="true">→</span>
-      </a>
     </div>
-    <div class="closing-spark closing-spark-a" aria-hidden="true"></div>
-    <div class="closing-spark closing-spark-b" aria-hidden="true"></div>
+    <a class="button button-light" href={localizedPath(locale, '/products')}>
+      {home.closingCta}<span aria-hidden="true">→</span>
+    </a>
   </section>
 </SiteLayout>

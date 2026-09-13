@@ -5,7 +5,7 @@
 **Date:** 2026-09-13  
 **Repository:** `grolygori789-crypto/benedict-interactive-web`  
 **Default branch:** `main`  
-**Project status:** Pre-launch / premium art-direction refinement  
+**Project status:** Pre-launch / production-premium refinement  
 **Product authority:** P'Benz / Benedict Interactive
 
 ---
@@ -252,7 +252,7 @@ Canonical product promise:
 
 Do not position it as a fake booster, antivirus, speed optimizer, or exaggerated device-health product.
 
-The web presentation must use real product imagery and preserve correct image aspect ratios on all devices. Dr. Bear is a supporting brand character, not a rectangular poster. Use the approved transparent PNG cutout on light editorial surfaces; never place a baked black-background mascot image into the public composition. The real app screen is the primary product proof. On mobile, use simplified product art direction rather than desktop-style layered collage.
+The web presentation should use real product imagery and preserve correct image aspect ratios on all devices. On mobile, use simplified product art direction rather than desktop-style layered collage.
 
 ### Benedict Test Center
 
@@ -464,25 +464,17 @@ If one of these dimensions is weak, the page is not 10/10 yet.
 
 ---
 
-## 18. Current Revision 3 objective
+## 18. Current production design objective
 
-Revision 2 established useful engineering foundations — localization, responsive routing, RTL support, and billing-ready information architecture — but its public art direction was rejected because it became too generic, card-heavy, restrained, and visually flatter than the earlier Benedict experience.
+The approved final production direction prioritizes a clean, device-adaptive, Macintosh-spirit humanist experience built from real production assets and browser-realizable layouts:
 
-Revision 3 keeps the stable engineering work while restoring and improving the stronger Benedict visual DNA:
-
-- premium **Bright Humanist Computing** with Macintosh-era warmth and optimism, never Apple imitation;
-- expressive editorial composition rather than a stack of generic SaaS cards;
-- porcelain/light surfaces, Benedict blue/cyan, carefully rationed violet/amber accents, and confident negative space;
-- founder illustration treated as a living hero scene rather than being boxed into a profile card;
-- Bearagnostic presented with the approved transparent Dr. Bear PNG and the real app screen; no baked black-background mascot artwork;
-- the app screen remains readable, correctly proportioned, and visually primary;
-- smartphone, tablet, laptop, desktop/PC, and large-display layouts are intentionally art-directed at their own scale;
-- 16-locale architecture and native-feeling transcreation remain intact;
-- Arabic RTL remains first-class;
-- billing/payment remains planned in the information architecture but does not dominate the Home experience and is explicitly non-live;
-- staging remains static-first, fast, accessible, and Cloudflare-compatible.
-
-The acceptance test is visual and functional together: if the page is technically correct but loses charm, character, hierarchy, or premium perception, it is not a successful revision.
+- clean premium art direction with generous whitespace, bright restrained color, and no Apple trade-dress imitation;
+- real Benedict J. and Bearagnostic production assets rather than generated mock UI;
+- real Bearagnostic Home, Insights, and scanning screens with a privacy-safe neutral sample filename in the scan artwork;
+- adaptive compositions for smartphone, tablet, laptop, desktop, and large displays;
+- full 16-locale route architecture and Arabic RTL support;
+- billing-ready product architecture while payments remain explicitly non-live;
+- static-first performance, accessibility, maintainability, and Cloudflare compatibility.
 
 The staging site remains pre-launch and must not take live payments or be indexed as the final canonical public domain.
 
