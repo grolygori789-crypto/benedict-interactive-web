@@ -44,7 +44,7 @@ const dist = distributionCopy[locale];
     <section class="hero shell" id="home" aria-labelledby="home-title">
       <div class="hero-copy">
         <p class="eyebrow">{home.kicker}</p>
-        <h1 id="home-title">
+        <h1 id="home-title" class:list={{ 'hero-title-en': locale === 'en' }}>
           <span>{heroA}</span>
           <strong>{heroB}</strong>
         </h1>
@@ -82,7 +82,9 @@ const dist = distributionCopy[locale];
       <div class="product-shell shell">
         <div class="product-copy">
           <p class="eyebrow">{home.productKicker}</p>
-          <h2 id="bearagnostic-title">{home.productTitle}</h2>
+          <h2 id="bearagnostic-title" class="product-wordmark" aria-label={home.productTitle}>
+            <span class="wordmark-bear">Bear</span><span class="wordmark-agnostic">agnostic</span>
+          </h2>
           <p class="promise">{home.productPromise}</p>
           <p class="product-body">{home.productBody}</p>
 
@@ -177,7 +179,7 @@ const dist = distributionCopy[locale];
   .hero {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
     grid-template-areas:
       "copy founder"
       "proof proof";
@@ -202,7 +204,9 @@ const dist = distributionCopy[locale];
     position: relative;
     z-index: 2;
     align-self: center;
-    max-width: 610px;
+    max-width: 660px;
+    min-width: 0;
+    overflow: visible;
     padding-block: 1rem 2rem;
   }
 
@@ -217,15 +221,17 @@ const dist = distributionCopy[locale];
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 4.7vw, 4.45rem);
-    line-height: 1.01;
+    font-size: clamp(2.9rem, 4.05vw, 3.82rem);
+    line-height: 1.035;
+    overflow: visible;
   }
 
   .hero h1 span,
   .hero h1 strong {
     display: block;
     overflow: visible;
-    padding-bottom: 0.05em;
+    padding: 0 0 0.12em;
+    line-height: 1.035;
   }
 
   .hero h1 strong {
@@ -234,6 +240,12 @@ const dist = distributionCopy[locale];
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  /* Lock the approved English hero into exactly two complete lines on desktop/laptop. */
+  .hero-title-en span,
+  .hero-title-en strong {
+    white-space: nowrap;
   }
 
   .hero-lead {
@@ -380,6 +392,18 @@ const dist = distributionCopy[locale];
   .product-copy h2 {
     font-size: clamp(2.8rem, 4.5vw, 4.5rem);
     line-height: 0.98;
+  }
+
+  .product-wordmark {
+    white-space: nowrap;
+  }
+
+  .wordmark-bear {
+    color: #10213a;
+  }
+
+  .wordmark-agnostic {
+    color: #168cf3;
   }
 
   .promise {
@@ -540,6 +564,7 @@ const dist = distributionCopy[locale];
   .principles p { margin: 0.25rem 0 0; color: #74849a; font-size: 0.72rem; line-height: 1.48; }
 
   @media (max-width: 1110px) {
+    .hero h1 { font-size: clamp(2.65rem, 4.35vw, 3.25rem); }
     .product-shell { grid-template-columns: minmax(240px, 0.72fr) minmax(455px, 1.28fr); }
     .feature-stack { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); }
     .feature { min-height: 112px; }
@@ -547,6 +572,8 @@ const dist = distributionCopy[locale];
 
   @media (max-width: 900px) {
     .shell { width: min(calc(100% - 2rem), 860px); }
+    .hero-title-en span,
+    .hero-title-en strong { white-space: normal; }
     .hero { grid-template-columns: 1fr; grid-template-areas: "copy" "founder" "proof"; padding-block-start: 2.6rem; }
     .hero-copy { max-width: 720px; padding-bottom: 0; }
     .hero h1 { max-width: 760px; font-size: clamp(3.2rem, 8vw, 4.7rem); }
