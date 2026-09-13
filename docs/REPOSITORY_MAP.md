@@ -1,6 +1,6 @@
 # Repository Map
 
-This file explains the durable responsibility of each committed path. It exists to prevent file drift.
+This file records the durable responsibility of committed paths so the repository does not drift.
 
 ## Root
 
@@ -11,79 +11,59 @@ This file explains the durable responsibility of each committed path. It exists 
 | `astro.config.mjs` | Astro build configuration |
 | `tsconfig.json` | TypeScript configuration |
 | `.nvmrc` | Canonical Node baseline |
-| `.gitignore` | Prevent generated/local files entering Git |
-| `.editorconfig` | Basic cross-editor formatting rules |
-
-## `.github/`
-
-| Path | Responsibility |
-|---|---|
-| `.github/workflows/quality.yml` | Main branch / PR verification |
+| `.gitignore` | Generated/local-file exclusions |
+| `.editorconfig` | Cross-editor formatting basics |
 
 ## `docs/`
 
 | Path | Responsibility |
 |---|---|
-| `docs/BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md` | Canonical product/technical/operating plan |
-| `docs/REPOSITORY_MAP.md` | Canonical repository ownership map |
-| `docs/ROOM_MIGRATION_PROMPT.md` | Prompt for starting a clean ChatGPT project room |
+| `BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md` | Canonical product/design/technical/commerce/localization plan |
+| `REPOSITORY_MAP.md` | Canonical path ownership map |
+| `ROOM_MIGRATION_PROMPT.md` | Clean-room project handoff prompt |
 
-Do not add daily notes, throwaway exports, meeting scraps, or duplicated plans here.
+Do not add daily notes, scratchpads, exported ZIPs, or duplicate plans here.
 
 ## `public/`
 
 Files served unchanged at the web root.
 
-Current:
+- `public/robots.txt` — staging indexing policy.
+- `public/brand/` — canonical public Benedict brand assets.
+- `public/products/bearagnostic/` — approved Bearagnostic web assets.
 
-| Path | Responsibility |
-|---|---|
-| `public/robots.txt` | Search indexing policy |
-
-Future approved public assets should use stable semantic paths such as:
-
-```text
-public/brand/
-public/products/bearagnostic/
-```
-
-Do not use version words such as `final`, `new`, or `v2` in asset filenames when the role is unchanged.
+Asset roles keep stable semantic filenames. Replace canonical assets in place rather than adding `final`, `new`, `v2`, or backup variants.
 
 ## `src/components/`
 
-Reusable presentational/structural pieces.
+Reusable public-site responsibilities:
 
-Current:
-
-- `SiteHeader.astro`
-- `SiteFooter.astro`
-- `ProductCard.astro`
-
-A component should be created only when it has a durable reusable responsibility.
+- `SiteHeader.astro` — responsive Benedict header/navigation.
+- `LanguageSwitcher.astro` — 16-locale selector and equivalent-route switching.
+- `SiteFooter.astro` — shared footer/status/navigation.
+- `HomePage.astro` — locale-aware Home composition.
+- `ProductsPage.astro` — locale-aware Products composition.
+- `BearagnosticPage.astro` — locale-aware Bearagnostic composition.
+- `SupportPage.astro` — locale-aware Support composition.
+- `ProductCard.astro` — older reusable product-card component; retain until a deliberate cleanup confirms no route needs it.
 
 ## `src/data/`
 
-Centralized stable data/config that would otherwise be duplicated.
+- `site.ts` — stable brand/repository metadata.
 
-Current:
+## `src/i18n/`
 
-- `site.ts` — brand metadata, navigation, product metadata.
+- `content.ts` — locale registry, native names, route helpers, direction metadata, and canonical transcreated copy for all 16 supported locales.
 
-Do not turn this folder into a miscellaneous dumping ground.
+Do not scatter translations through page files when the content belongs to the same localized responsibility.
 
 ## `src/layouts/`
 
-Page shells.
-
-Current:
-
-- `SiteLayout.astro` — canonical public site document/layout shell.
+- `SiteLayout.astro` — canonical HTML document shell, metadata, direction/language attributes, header/footer.
 
 ## `src/pages/`
 
-Astro file-based routes.
-
-Current:
+Canonical English routes:
 
 ```text
 /
@@ -95,32 +75,30 @@ Current:
    └─ bearagnostic.astro
 ```
 
-Create a new page only when it represents a real route.
+Localized static routes:
+
+```text
+/[locale]/
+├─ index.astro
+├─ support.astro
+└─ products/
+   ├─ index.astro
+   └─ bearagnostic.astro
+```
+
+English remains unprefixed. Non-English localized routes are generated from the approved locale registry.
 
 ## `src/styles/`
 
-Current:
+- `global.css` — tokens, base typography, navigation, responsive/adaptive system, Home, Products, Bearagnostic, Support, commerce-preview, RTL-safe logical styling, reduced-motion behavior.
 
-- `global.css` — design tokens, shared site styles, responsive/adaptive system.
-
-As the site grows, split CSS only when responsibilities become meaningfully independent. Do not split files merely to make them smaller.
+Split CSS only when responsibilities become meaningfully independent; do not split merely to reduce line count.
 
 ## Overwrite policy
 
-When a path still owns the same responsibility, replace its content in place.
+When a path still owns the same responsibility, replace it in place. Git history preserves previous versions.
 
-Examples:
-
-- new header design → overwrite `src/components/SiteHeader.astro`;
-- new homepage → overwrite `src/pages/index.astro`;
-- new design tokens → update `src/styles/global.css`;
-- revised canonical plan → update the same Master Plan file.
-
-Git history preserves previous versions.
-
-## Forbidden repository patterns
-
-Do not create:
+Forbidden version-clutter patterns include:
 
 ```text
 *-old.*
@@ -135,4 +113,4 @@ temp/
 exports/
 ```
 
-unless a future requirement gives that word a genuine semantic meaning rather than using it as version clutter.
+Generated output, dependencies, caches, and secrets never belong in the repository.

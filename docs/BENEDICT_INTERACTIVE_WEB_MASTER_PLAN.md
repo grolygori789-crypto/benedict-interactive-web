@@ -1,143 +1,80 @@
 # Benedict Interactive Web — Master Plan
 
 **Document:** Canonical Project Master Plan  
-**Revision:** 1.0  
-**Date:** 2026-09-12  
+**Revision:** 2.0  
+**Date:** 2026-09-13  
 **Repository:** `grolygori789-crypto/benedict-interactive-web`  
 **Default branch:** `main`  
-**Repository visibility:** Public  
-**Project status:** Foundation / pre-launch  
+**Project status:** Pre-launch / production-premium refinement  
 **Product authority:** P'Benz / Benedict Interactive
 
 ---
 
-## 1. Purpose of this document
+## 1. Purpose and authority
 
-This file is the canonical operational and product plan for the Benedict Interactive website.
-
-It exists to prevent three common project failures:
-
-1. context drift between working sessions;
-2. repository clutter and duplicated files;
-3. visual or technical decisions that slowly move away from the intended Benedict Interactive identity.
-
-Before any substantive implementation, architecture, deployment, design-system, monetization, localization, security, support, analytics, or release decision, read the latest version of this file from `main`.
-
-Git history is the archive. This file is the current truth.
-
----
-
-## 2. Authority order
+This file is the canonical product, design, technical, localization, commerce, and operating plan for the Benedict Interactive website. Git history is the archive; this document records the current durable decisions.
 
 When sources disagree, use this order:
 
-1. the latest explicit instruction from P'Benz in the current conversation;
-2. the latest state of GitHub `main`;
+1. latest explicit instruction from P'Benz in the current conversation;
+2. latest GitHub `main`;
 3. this Master Plan;
-4. approved brand assets and current deployed-device/browser evidence;
-5. Git history and older project discussions.
+4. approved brand/product assets and current deployed-device evidence;
+5. Git history and older discussions.
 
-Never silently let an older chat override a newer GitHub state or user instruction.
+Never silently let an older chat override a newer instruction or production state.
 
 ---
 
-## 3. Project identity
+## 2. Brand and role
 
-### 3.1 Brand
+**Benedict Interactive** is the official parent brand and digital home.
 
-**Benedict Interactive**
-
-Current brand line:
+Canonical brand line:
 
 > Ideas for a brighter everyday
 
-The website is the official digital home of Benedict Interactive.
+Bearagnostic is one product inside the Benedict Interactive ecosystem. The site must never feel like a Bearagnostic microsite wearing a corporate logo.
 
-It is not a Bearagnostic website with a corporate logo on top. Bearagnostic is one product inside a broader Benedict Interactive ecosystem.
-
-### 3.2 Long-term role
-
-The site should become the canonical home for:
+Long-term responsibilities:
 
 - company identity;
-- products;
-- official downloads;
-- product information;
-- support;
-- release notes;
-- privacy and legal information;
-- news or announcements when useful;
-- direct purchase/licensing flows when introduced;
-- links to external distribution channels;
+- products and official product information;
+- downloads/distribution links;
+- support and release information;
+- privacy/legal information;
+- purchase/licensing flows when ready;
 - future products and services.
 
-Third-party stores and social networks are discovery/distribution channels, not the foundation of the brand.
-
-### 3.3 Independence principle
-
-The strategic goal is not to avoid all third-party infrastructure. That is unrealistic.
-
-The goal is:
+Strategic independence principle:
 
 > Own the product. Own the customer relationship. Rent replaceable infrastructure. Avoid unnecessary gatekeepers.
 
-Domain, source, content structure, product positioning, and customer-facing information must remain portable.
-
 ---
 
-## 4. Experience vision
+## 3. Experience vision — Bright Humanist Computing
 
-### 4.1 Core design direction
+The design language is **Bright Humanist Computing**.
 
-The design language is:
+The emotional target is bright, optimistic, intelligent, mature, friendly, premium, meticulous, independent, and memorable without being loud.
 
-> **Bright Humanist Computing**
+The site should feel expensive because of typography, hierarchy, spacing, rhythm, illustration, clarity, motion restraint, and product truth — not because it is dark, metallic, overloaded with glass effects, or decorated for decoration's sake.
 
-The emotional target is:
+### Macintosh influence
 
-- bright;
-- optimistic;
-- intelligent;
-- colorful;
-- mature;
-- friendly;
-- premium;
-- meticulously finished;
-- independent;
-- memorable without being loud.
+The site may borrow the human-centered *spirit* associated with classic personal computing:
 
-The site should feel expensive because of its typography, spacing, hierarchy, motion, craft, and clarity — not because it is dark, metallic, cinematic, or excessively luxurious.
-
-### 4.2 Macintosh influence: allowed and forbidden
-
-The project may draw from the **human-centered spirit** associated with classic personal computing:
-
-- approachability;
+- approachable technology;
 - understandable interfaces;
 - playful intelligence;
 - optimism;
 - personality;
-- simplicity;
 - useful visual metaphors;
 - small moments of delight.
 
-It must **not** copy Apple/Macintosh trade dress or identifiable design assets.
+It must not copy Apple/Macintosh trade dress, logos, Finder/menu-bar replicas, Mac face icons, traffic-light window controls as a motif, rainbow Apple stripes, proprietary typefaces, exact product-page compositions, or recognizable system layouts.
 
-Do not imitate:
-
-- Apple logos or marks;
-- Macintosh computer silhouettes;
-- classic Finder/menu-bar replicas;
-- Mac face icons;
-- traffic-light window controls as a signature motif;
-- Apple rainbow stripes;
-- exact Apple iconography;
-- exact system layouts;
-- Apple marketing compositions;
-- Apple-proprietary typefaces;
-- recognizable product-page cloning.
-
-The final result should make a viewer think:
+The intended reaction is:
 
 > “This has the warmth and confidence of human-centered computing.”
 
@@ -145,184 +82,167 @@ The final result should make a viewer think:
 
 > “This is pretending to be an Apple website.”
 
-### 4.3 Relationship to Bearagnostic
+### Premium rule
 
-Benedict Interactive is the parent visual system.
-
-Bearagnostic may be approximately **15–20% more playful** than the corporate layer.
-
-Shared qualities:
-
-- bright backgrounds;
-- clear hierarchy;
-- friendly geometry;
-- restrained gradients;
-- careful rounded forms;
-- strong whitespace;
-- colorful accents;
-- approachable technology;
-- honest states and labels.
-
-Benedict Interactive itself remains slightly more mature and editorial.
+Subtract before adding. Prefer fewer, better-resolved visual ideas over many effects. The work should feel art-directed rather than templated.
 
 ---
 
-## 5. Visual system
+## 4. Visual system
 
-### 5.1 Base palette
+Base direction:
 
-The system begins with:
-
-- porcelain / cool white backgrounds;
+- porcelain / warm-cool white backgrounds;
 - graphite / near-black primary text;
 - soft slate secondary text;
-- blue/cyan as the principal technology accent;
-- violet, amber, green, and coral as controlled secondary accents.
+- Benedict blue/cyan as the principal technology accent;
+- violet, amber, and green used selectively;
+- generous negative space;
+- precise rounded geometry;
+- restrained shadows and gradients;
+- no decorative overload.
 
-Color must be purposeful. Never use every accent in every section.
+Typography must be contemporary, open, warm, highly legible, and premium through proportion and spacing. Do not use Apple-proprietary fonts. The current implementation uses a privacy-safe system stack; a licensed self-hosted type system can be evaluated later as a deliberate design-system change.
 
-### 5.2 Typography
-
-Typography must feel:
-
-- contemporary;
-- open;
-- highly legible;
-- warm rather than sterile;
-- premium through proportion and spacing.
-
-Do not use Apple-proprietary fonts.
-
-The foundation uses a safe system stack to avoid unnecessary dependencies. A licensed self-hosted or privacy-respecting final type system can be evaluated later.
-
-No font files are committed casually. Typography changes require a deliberate design-system decision.
-
-### 5.3 Icons
-
-Icons should be:
-
-- rounded-geometric;
-- simple at small sizes;
-- distinct across products;
-- friendly but not childish;
-- visually consistent in stroke/volume.
-
-Do not copy Apple system icons.
-
-Prefer a small approved icon system over mixing several icon libraries.
-
-### 5.4 Motion
-
-Motion is a finishing tool, not decoration.
-
-Use:
-
-- short transitions;
-- subtle depth;
-- small hover lifts;
-- gentle state changes;
-- restrained entrance motion where it improves comprehension.
-
-Always respect `prefers-reduced-motion`.
-
-Never gate understanding behind hover because mobile devices do not have hover.
+Icons should be simple, rounded-geometric, consistent, and original. Motion is a finishing tool only; respect `prefers-reduced-motion` and never gate understanding behind hover.
 
 ---
 
-## 6. Responsive / adaptive strategy
+## 5. Responsive and adaptive standard
 
-The website must work beautifully on phone, tablet, laptop, and large desktop.
+The site must look intentionally designed on **smartphone, tablet, laptop, desktop/PC, and large displays**.
 
-The strategy is **adaptive behavior**, not merely shrinking the desktop page.
+This is adaptive art direction, not “desktop shrunk until it fits.”
 
-### 6.1 Mobile mode
+### Mobile
 
-Mobile should feel app-like:
-
-- large comfortable touch targets;
-- compact information hierarchy;
-- short hero;
-- one-column content;
-- persistent or highly accessible navigation when useful;
+- mobile-first reading rhythm;
+- compact header with visible Benedict identity;
+- comfortable touch targets;
+- one-column content when appropriate;
+- product imagery never stretched, crushed, or forced into desktop collage logic;
+- no horizontal scrolling;
 - no hover dependency;
-- clear CTAs;
-- strong reading rhythm;
-- fast loading.
+- clear CTA hierarchy.
 
-### 6.2 Tablet mode
+### Tablet
 
-Tablet is a first-class layout:
+Tablet is first-class, not a stretched phone or cramped desktop. Use one or two columns based on content and preserve comfortable touch geometry.
 
-- one or two columns depending on content;
-- generous touch targets;
-- no awkward stretched mobile cards;
-- no cramped desktop grid.
+### Laptop / desktop
 
-### 6.3 Desktop mode
+Use editorial whitespace, larger storytelling, deliberate multi-column layouts, restrained hover states, and balanced typography without wasting the viewport.
 
-Desktop should feel like a premium editorial technology site:
+### Large display
 
-- wide whitespace;
-- larger visual storytelling;
-- multi-column product layouts;
-- richer hover states;
-- balanced large typography;
-- deliberate use of the viewport.
+Cap reading and composition widths. Do not allow artwork or text to stretch until proportions lose intent.
 
-### 6.4 Breakpoints
-
-Use content-driven CSS/container behavior first.
-
-Current practical reference points:
-
-- mobile: below ~720 px;
-- intermediate/tablet: ~720–980 px;
-- desktop: above ~980 px.
-
-These are implementation guides, not immutable product rules.
+Reference breakpoints remain content-driven; practical guides are roughly mobile below 680–720 px, intermediate/tablet to ~980 px, and desktop above that.
 
 ---
 
-## 7. Information architecture
+## 6. Information architecture
 
-### Phase 1 public structure
+Current public structure:
 
-- `/` — Benedict Interactive Home
+- `/` — Home
 - `/products` — Product ecosystem
 - `/products/bearagnostic` — Bearagnostic
-- `/support` — Support landing
-- `/404` — branded error experience
+- `/support` — Support
+- `/404` — branded error page
 
-### Before public launch
+Localized equivalents are generated for all approved non-English locales using `/<locale>/...` paths. English remains canonical at unprefixed root paths.
 
-Add when content is ready:
+Before public launch, add only when real content is ready:
 
-- `/about`
-- `/privacy`
-- `/terms`
-- `/releases` or product-specific release notes
-- official download/purchase routes
-- contact/support routing
-- accessibility statement if appropriate
+- `/about`;
+- `/privacy`;
+- `/terms`;
+- release notes;
+- official download/purchase routes;
+- real contact/support routing;
+- accessibility statement if appropriate.
 
-Do not publish empty template pages merely to make the navigation look full.
-
-### Future
-
-Potential additions:
-
-- news/updates;
-- press/media assets;
-- licensing/customer portal;
-- Tester program landing;
-- documentation;
-- localized routes.
+Never publish empty legal/support templates merely to make navigation look complete.
 
 ---
 
-## 8. Product ecosystem
+## 7. Global localization system
 
-### 8.1 Bearagnostic
+### 7.1 Approved launch-localization set
+
+The site architecture supports **16 locales**:
+
+- `en` — English (canonical)
+- `th` — ภาษาไทย
+- `es` — Español
+- `pt-br` — Português (Brasil)
+- `fr` — Français
+- `de` — Deutsch
+- `it` — Italiano
+- `ja` — 日本語
+- `ko` — 한국어
+- `id` — Bahasa Indonesia
+- `vi` — Tiếng Việt
+- `zh-cn` — 简体中文
+- `zh-tw` — 繁體中文
+- `ar` — العربية
+- `hi` — हिन्दी
+- `tr` — Türkçe
+
+### 7.2 Voice standard
+
+Localization is **transcreation**, not literal translation.
+
+Each locale should feel native, natural, easy to understand, warm, intelligent, lightly witty where culturally appropriate, and confident without bragging or insulting competitors.
+
+Benedict voice:
+
+- clever without announcing cleverness;
+- cheerful without becoming childish;
+- witty without turning every sentence into a joke;
+- confident without hype;
+- specific rather than startup-generic;
+- human without forced informality.
+
+The quality test is not “does this translation match the English?” The test is “would a native reader forget that this was translated at all?”
+
+### 7.3 Layout requirements
+
+- text expansion must not break composition;
+- CJK, Thai, Devanagari, and Arabic typography must receive language-appropriate spacing/line-height behavior;
+- Arabic is RTL and must use logical CSS properties;
+- language selection uses native language names, not country flags;
+- user language choice must not be forced solely by IP/location;
+- English remains the canonical content source for revision control.
+
+### 7.4 Sensitive copy
+
+Marketing/product copy can be transcreated. Privacy, terms, refund, billing, and other legal copy must prioritize precision over wit and should receive appropriate legal review before public launch.
+
+---
+
+## 8. Content principles
+
+Copy should be concise, mature, clear, warm, specific, and memorable.
+
+Avoid:
+
+- fake superlatives;
+- unsupported claims;
+- vague startup language;
+- defensive explanations about being a small studio;
+- repeated “one person / small / independent” messaging;
+- unnecessary competitor-bashing;
+- technical jargon for ordinary users.
+
+Being independent should be stated with confidence once or twice, then demonstrated through the quality of the work.
+
+---
+
+## 9. Product ecosystem
+
+### Bearagnostic
 
 Bearagnostic is a premium privacy-first Android file clarity / cleanup assistant.
 
@@ -330,603 +250,235 @@ Canonical product promise:
 
 > Find clutter. Explain the risk. Clean with confidence.
 
-The website must preserve that positioning. Do not turn it into a fake “booster”, antivirus, speed optimizer, or exaggerated device-health product.
+Do not position it as a fake booster, antivirus, speed optimizer, or exaggerated device-health product.
 
-### 8.2 Benedict Test Center
+The web presentation should use real product imagery and preserve correct image aspect ratios on all devices. On mobile, use simplified product art direction rather than desktop-style layered collage.
 
-Planned reusable QA and release-evidence platform.
+### Benedict Test Center
 
-Core concept:
-
-- project-agnostic tester client;
-- server-driven/versioned test packs;
-- structured Pass / Minor / Major / Not Tested responses;
-- optional written evidence and screenshots/videos;
-- build/device/session traceability;
-- issue → fix → retest history;
-- reward eligibility;
-- evidence-backed summary generation;
-- owner dashboard.
-
-It should be architecturally separate from the public corporate website when authentication, tester data, backend secrets, and owner-console permissions are implemented.
-
-Likely future structure:
-
-- public corporate site: `benedictinteractive.com`
-- tester experience: `test.benedictinteractive.com`
-- owner console: separate authenticated surface
-
-Do not force backend/security concerns into the public website repo merely for convenience.
+Planned reusable QA and release-evidence platform. It remains architecturally separate from the public corporate site because authentication, tester data, evidence, backend secrets, and owner-console permissions have different security requirements.
 
 ---
 
-## 9. Technical architecture
+## 10. Commerce, billing, and licensing direction
 
-### 9.1 Foundation stack
+The website must be designed so payment can be added cleanly without redesigning the product experience, but **payment is not live on the staging site**.
+
+Current planned Bearagnostic commercial direction:
+
+- straightforward **one-time Bearagnostic Pro** purchase rather than a mandatory subscription;
+- web-based checkout, with Ko-fi as the preferred low-complexity provider to integrate first;
+- entitlement confirmed server-side;
+- planned backend direction: Cloudflare Worker + D1 or equivalent replaceable server-side store;
+- app restores/validates entitlement from the backend and caches a safe offline entitlement state;
+- no permanent `isPro=true` bypasses;
+- no client-only purchase trust;
+- no secrets in the public repository.
+
+Conceptual flow:
+
+```text
+Bearagnostic App
+      ↓
+Benedict Entitlement API
+      ↓
+Cloudflare Worker + D1
+      ↑
+Ko-fi webhook
+      ↑
+Ko-fi checkout
+```
+
+Exact pricing, purchase URL, refund terms, recovery identity, webhook secrets, and production entitlement rules must be finalized before live commerce is enabled.
+
+Billing UI must localize price/currency/status accurately and never imply a payment method or country availability that is not actually supported.
+
+---
+
+## 11. Distribution direction
+
+Current preferred low-complexity model:
+
+> Benedict Interactive website → product page → official download/distribution channel
+
+Bearagnostic distribution direction prioritizes the official Benedict site plus Uptodown; Google Play may be added later but is not the center of the business strategy.
+
+Third-party stores are distribution/discovery channels. Benedict Interactive remains the canonical source of product information.
+
+---
+
+## 12. Technical architecture
 
 Current foundation:
 
 - Astro `7.3.2`;
-- TypeScript `7.0.2`;
+- TypeScript `6.0.3` (compatible with the current `@astrojs/check` dependency);
 - static-first output;
 - semantic HTML;
-- CSS custom properties / centralized design tokens;
+- centralized CSS tokens/shared styles;
 - small Astro components;
-- no JavaScript framework dependency unless justified.
+- no client-side framework unless a real requirement justifies it.
 
-This is intentional.
+Why Astro remains appropriate:
 
-The corporate website is primarily a content and brand experience. It should not carry a large client-side runtime by default.
+- excellent static-first performance;
+- componentized source;
+- selective interactivity only where useful;
+- straightforward edge/static deployment;
+- no forced SPA runtime.
 
-### 9.2 Why Astro
+### Hosting
 
-Astro suits this project because it allows:
+Current production direction is established:
 
-- static-first performance;
-- componentized architecture;
-- selective interactivity only where needed;
-- clean deployment to modern edge/static platforms;
-- future expansion without forcing all pages into a large SPA runtime.
+> GitHub `main` → Cloudflare Pages → staging `pages.dev` URL → final custom domain later
 
-Do not introduce React/Vue/Svelte globally unless a real interactive requirement justifies it.
+Cloudflare deployment is connected and staging has deployed successfully. Do not redesign around GitHub Pages.
 
-### 9.3 Hosting direction
+### Search/indexing
 
-Preferred direction:
+`public/robots.txt` intentionally blocks indexing during staging. Before public launch, deliberately enable crawling, establish the real custom-domain canonical URL, add sitemap/canonical/alternate metadata, review social metadata, and verify favicon/brand metadata.
 
-> GitHub source of truth → Cloudflare deployment → temporary project URL → final custom domain later
-
-Cloudflare Pages/Workers configuration is added only when deployment is actually being established.
-
-Do not commit credentials.
-
-### 9.4 Domain direction
-
-Long-term preferred main domain:
-
-`benedictinteractive.com`
-
-Purchase timing:
-
-- prototype and design direction can start before buying;
-- once the desired `.com` is confirmed available and the brand direction is stable, buy it rather than waiting until the entire site is complete;
-- attach the domain at launch or when staging becomes useful.
-
-Do not couple internal code paths to the temporary host name.
+Never make the temporary Cloudflare staging host the canonical indexed domain by accident.
 
 ---
 
-## 10. Repository architecture
+## 13. Performance, accessibility, privacy, security
 
-Canonical structure:
+Performance is a product feature. Avoid heavy animation libraries, unnecessary third-party scripts, giant font bundles, and autoplay video. Optimize images and preserve layout stability.
 
-```text
-/
-├─ .github/
-│  └─ workflows/
-│     └─ quality.yml
-├─ .vscode/
-│  └─ extensions.json
-├─ docs/
-│  ├─ BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md
-│  ├─ REPOSITORY_MAP.md
-│  └─ ROOM_MIGRATION_PROMPT.md
-├─ public/
-│  └─ robots.txt
-├─ src/
-│  ├─ components/
-│  ├─ data/
-│  │  └─ site.ts
-│  ├─ layouts/
-│  ├─ pages/
-│  │  └─ products/
-│  └─ styles/
-│     └─ global.css
-├─ .editorconfig
-├─ .gitignore
-├─ .nvmrc
-├─ astro.config.mjs
-├─ package.json
-├─ README.md
-└─ tsconfig.json
-```
+Accessibility requirements include semantic structure, keyboard navigation, visible focus, sufficient contrast, comfortable touch targets, heading hierarchy, meaningful links, reduced-motion support, correct alt text, and form labels/error states when forms arrive.
 
-Do not create empty folders just because they might be needed later.
+Privacy default: collect as little as possible. Do not add analytics just because websites usually do. If analytics become useful, prefer privacy-respecting aggregate measurement with a clear purpose.
 
-Create a directory only when it contains a durable project responsibility.
+Security principles:
 
----
-
-## 11. Repository hygiene: non-negotiable rules
-
-### 11.1 Git is the archive
-
-Never keep old working copies inside the repository.
-
-Forbidden examples:
-
-- `index-old.astro`
-- `index-final.astro`
-- `index-final2.astro`
-- `header-v3.astro`
-- `styles-backup.css`
-- `backup/`
-- `archive/`
-- `temp/`
-- exported ZIPs
-- device screenshots not explicitly approved as project assets
-
-If history is needed, use Git history.
-
-### 11.2 Overwrite canonical paths
-
-If a file still owns the same responsibility, update that file at the same path.
-
-Example:
-
-`src/components/SiteHeader.astro`
-
-should be replaced by the new SiteHeader implementation, not accompanied by:
-
-`SiteHeaderNew.astro`
-
-unless both components now have genuinely different responsibilities.
-
-### 11.3 New file test
-
-A new file is justified only if at least one is true:
-
-- it creates a new route;
-- it introduces a reusable component with a durable responsibility;
-- it centralizes data/config that would otherwise be duplicated;
-- it records a durable architectural/project decision;
-- it is required by tooling.
-
-### 11.4 Generated artifacts
-
-Never commit:
-
-- `node_modules/`;
-- `.astro/`;
-- `dist/`;
-- local environment files;
-- logs;
-- cache;
-- local Cloudflare state;
-- downloaded build artifacts.
-
-### 11.5 Secrets
-
-Never commit:
-
-- API keys;
-- payment secrets;
-- tokens;
-- private credentials;
-- owner-console secrets;
-- production environment variables.
-
-Public repo means all committed content must be safe for anyone to read.
-
----
-
-## 12. Asset discipline
-
-Store approved public assets only.
-
-When brand images are introduced, use durable canonical paths, for example:
-
-```text
-public/brand/benedict-mark.svg
-public/brand/benedict-wordmark.svg
-public/products/bearagnostic/hero.webp
-```
-
-Do not create:
-
-```text
-logo-final.svg
-logo-final-new.svg
-logo-blue-v4.svg
-```
-
-A newer approved asset replaces the canonical asset at the same path whenever the role is unchanged.
-
-Image formats:
-
-- SVG for appropriate vector marks/icons;
-- AVIF/WebP for photographic or rendered web imagery when browser requirements allow;
-- PNG only when lossless/transparency requirements justify it.
-
-Keep original heavy design-source files outside the production repository unless there is a strong reason to version them.
-
----
-
-## 13. Performance standard
-
-Performance is a product feature.
-
-Targets before public launch:
-
-- responsive first render;
-- minimal blocking JavaScript;
-- optimized images;
-- stable layout;
-- no unnecessary third-party scripts;
-- no autoplay video by default;
-- no giant font bundles;
-- no heavy animation libraries for simple effects.
-
-A premium site that feels slow is not premium.
-
----
-
-## 14. Accessibility standard
-
-Before launch, validate:
-
-- semantic page structure;
-- keyboard navigation;
-- visible focus;
-- sufficient contrast;
-- touch-target size;
-- heading hierarchy;
-- meaningful link text;
-- reduced-motion support;
-- alt text for meaningful imagery;
-- decorative imagery hidden from assistive tech;
-- form labels and error states when forms are introduced.
-
-Accessibility is part of the design quality bar, not a later compliance patch.
-
----
-
-## 15. Privacy and analytics
-
-Default posture:
-
-- collect as little as possible;
-- do not add analytics merely because websites usually have analytics;
-- avoid invasive trackers;
-- document every third-party service;
-- never claim privacy properties that are not verified.
-
-If analytics are introduced, prefer privacy-respecting aggregate measurement with a clear purpose.
-
-Cookie banners must not be added performatively. They should exist only if the actual technology/legal requirements justify them.
-
----
-
-## 16. Search / SEO
-
-During development:
-
-`public/robots.txt` blocks indexing.
-
-Before public launch:
-
-- deliberately enable crawling;
-- configure canonical production URL;
-- add sitemap;
-- review page titles/descriptions;
-- add social sharing metadata;
-- add structured data only where truthful and useful;
-- verify favicon/brand metadata;
-- verify robots and noindex behavior.
-
-Never let a temporary Cloudflare staging host become the canonical indexed website accidentally.
-
----
-
-## 17. Security
-
-The corporate site should remain static-first whenever possible.
-
-Principles:
-
-- no secret client-side data;
+- static-first public site;
 - no credentials in Git;
-- minimal external scripts;
-- dependency additions reviewed for need and maintenance;
-- backend/admin/tester systems isolated from the public site;
-- payment logic implemented on secure server-side infrastructure, never trusted to front-end state.
-
-Public source visibility is acceptable for the corporate front end because security must not depend on hiding client code.
+- no secret client-side data;
+- minimal third-party scripts;
+- backend/admin/tester/payment systems isolated from public front-end trust;
+- public-source visibility must not weaken security.
 
 ---
 
-## 18. CI / quality workflow
+## 14. Repository architecture and hygiene
 
-The repo includes a small GitHub Actions quality workflow.
+Canonical durable responsibilities now include:
 
-Current bootstrap workflow:
+```text
+src/
+├─ components/
+│  ├─ HomePage.astro
+│  ├─ ProductsPage.astro
+│  ├─ BearagnosticPage.astro
+│  ├─ SupportPage.astro
+│  ├─ LanguageSwitcher.astro
+│  ├─ SiteHeader.astro
+│  ├─ SiteFooter.astro
+│  └─ ProductCard.astro (legacy reusable component; remove only in a deliberate cleanup)
+├─ data/
+│  └─ site.ts
+├─ i18n/
+│  └─ content.ts
+├─ layouts/
+│  └─ SiteLayout.astro
+├─ pages/
+│  ├─ index.astro
+│  ├─ 404.astro
+│  ├─ support.astro
+│  ├─ products/
+│  └─ [locale]/
+└─ styles/
+   └─ global.css
+```
 
-1. install dependencies;
-2. run `astro check`;
-3. build production output.
+Git is the archive. Never create `old`, `backup`, `final2`, `new`, `v2`, `temp`, or exported ZIP paths inside the repository just to preserve history.
 
-Once a canonical `package-lock.json` is generated and approved, change CI from `npm install` to `npm ci` for deterministic installs.
+When a path still owns the same responsibility, replace it in place. Add files only for durable new responsibilities such as a real route, reusable component, centralized i18n/config, or required tooling.
 
-Do not commit a hand-authored fake lock file.
-
-Future checks may include:
-
-- HTML/accessibility checks;
-- link validation;
-- Lighthouse budget;
-- Playwright smoke tests;
-- formatting/lint checks.
-
-Add each check only when it produces signal worth maintaining.
+Never commit `node_modules`, `.astro`, `dist`, local environment files, logs, caches, build artifacts, credentials, tokens, API keys, or payment secrets.
 
 ---
 
-## 19. Development workflow
+## 15. Development and handoff workflow
 
 Before substantive work:
 
-1. fetch latest GitHub `main`;
-2. read this Master Plan;
-3. inspect the exact files relevant to the change;
-4. identify current rollback baseline;
-5. define changed-file allowlist;
-6. assess regression risk;
-7. implement locally;
-8. validate;
-9. package only canonical repo-relative files;
-10. provide the upload package and commit name.
+1. fetch latest `main`;
+2. read this Master Plan and Repository Map;
+3. inspect relevant source;
+4. establish rollback SHA;
+5. define changed-file allowlist and regression risk;
+6. implement locally;
+7. validate as far as the environment permits;
+8. package only canonical repo-relative files;
+9. provide upload package and commit name (50 characters or fewer).
 
-After P'Benz uploads:
-
-1. inspect the resulting commit;
-2. confirm changed paths;
-3. inspect CI;
-4. resolve failures before starting unrelated work.
-
-Do not claim CI, browser/device behavior, or deployment success unless actually observed.
-
----
-
-## 20. Remote-write rule
-
-Default workflow is:
+Default remote-write rule:
 
 > inspect GitHub → modify/package locally → P'Benz uploads → inspect commit/CI
 
-Never mutate the GitHub remote unless P'Benz explicitly authorizes that remote write in the same conversation turn.
+Never mutate GitHub remotely unless P'Benz explicitly authorizes that write in the current turn.
 
-Read access does not imply write authorization.
-
----
-
-## 21. Handoff / upload package protocol
-
-Every GitHub-bound handoff must include:
-
-- exact repo-relative paths;
-- only required new/updated files;
-- replacements at canonical existing paths whenever possible;
-- no junk, backups, duplicate versions, or generated output;
-- a brief changed-file summary;
-- validation status;
-- a recommended commit name of **50 characters or fewer**.
-
-The commit name must always be shown in a fenced code block, for example:
-
-```text
-Refine responsive product layout
-```
-
-This rule applies every time files are sent for GitHub upload.
-
-If a future change truly requires deletion, the handoff must explicitly list the obsolete path and why it can no longer be replaced in place. Avoid creating such cleanup work through careless architecture.
+After upload, inspect the resulting commit and Cloudflare/CI status before starting unrelated work.
 
 ---
 
-## 22. Content principles
+## 16. Current rollback baseline
 
-Copy should be:
+Known-good pre-Revision-2 GitHub baseline:
 
-- natural;
-- concise;
-- clear;
-- mature;
-- confident without hype;
-- human without forced jokes;
-- specific rather than corporate-generic.
+`0f2513c1a53089c814663d08ea631a043b1beb2d` — `Fix Cloudflare build dependency`
 
-Avoid:
-
-- “revolutionary”;
-- fake superlatives;
-- unsupported claims;
-- vague startup language;
-- overly technical copy for ordinary users.
-
-The company should sound like people who care deeply about making software, not a faceless enterprise.
+That commit successfully deployed through Cloudflare Pages. Git history is the rollback mechanism; do not keep duplicate working copies in the repository.
 
 ---
 
-## 23. Localization direction
+## 17. Definition of 10/10
 
-Initial corporate website language can be English-first while architecture remains localization-ready.
+“10/10” is an acceptance standard, not a visual adjective.
 
-Do not prematurely duplicate every page per language before:
+A release-quality Benedict page must simultaneously satisfy:
 
-- information architecture is stable;
-- canonical copy is approved;
-- language-switch behavior is designed;
-- localized support requirements are known.
-
-Bearagnostic currently targets multiple product languages; the corporate site may later support English, Thai, Japanese, and additional languages as justified.
-
-Avoid hard-coding layout assumptions that break when text expands.
-
----
-
-## 24. Commerce and distribution direction
-
-Benedict Interactive should be able to distribute products independently.
-
-Current strategic direction discussed:
-
-- official Benedict Interactive website as canonical home;
-- direct download/sales where appropriate;
-- Uptodown or other stores as additional discovery/distribution;
-- Google Play optional rather than the center of the business.
-
-Payment/licensing infrastructure must not be baked into the static website until a concrete provider and entitlement model are selected.
-
-No permanent hidden `isPro=true` bypasses or insecure client-only entitlement logic.
-
----
-
-## 25. Tester reward direction
-
-For future tester programs, Bearagnostic Pro Lifetime can be used as a participation reward if implemented truthfully.
-
-The reward is for completing genuine testing requirements, not for:
-
-- positive reviews;
-- positive ratings;
-- flattering feedback;
-- finding a required number of bugs.
-
-Honest negative feedback must never reduce reward eligibility.
-
-Reward eligibility should eventually be computed by server-side evidence, not a client flag.
-
----
-
-## 26. Current baseline — Revision 1.0
-
-At the creation of this Master Plan:
-
-- GitHub repository exists and is Public;
-- repository is newly created;
-- `main` is the default branch;
-- the first website foundation package is being prepared;
-- no permanent domain is attached;
-- visual direction is approved conceptually as bright, colorful, premium, mature human-centered technology;
-- Bearagnostic is a product subpage, not the corporate identity;
-- Benedict Test Center is planned but separate backend/security architecture is deferred;
-- Cloudflare is the preferred deployment direction;
-- indexing is disabled during development;
-- official production legal/support/download flows are not yet finalized.
-
----
-
-## 27. Roadmap
-
-### Foundation
-- establish clean repo structure;
-- commit Master Plan;
-- establish Astro/TypeScript baseline;
-- establish initial design tokens;
-- establish responsive corporate shell;
-- establish CI.
-
-### Design system
-- approve logo/wordmark production assets;
-- refine typography;
-- finalize icon language;
-- formalize color/token scale;
-- refine motion language;
-- test mobile/tablet/desktop behavior.
-
-### Corporate content
-- finalize Home;
-- Products;
-- Bearagnostic;
-- About;
-- Support;
-- legal/privacy;
-- release/news structure if needed.
-
-### Deployment
-- connect Cloudflare;
-- establish staging;
-- validate deployment;
-- buy/attach domain at the appropriate point;
-- add HTTPS/canonical configuration;
-- enable production SEO only when ready.
-
-### Launch readiness
-- accessibility review;
-- performance review;
-- browser/device matrix;
-- content proofreading;
-- broken-link scan;
-- security/privacy review;
-- legal copy approval;
-- analytics decision;
-- backup/rollback verification.
-
-### Future ecosystem
-- Tester Center;
-- licensing/purchase system;
-- customer portal if needed;
-- future applications/games;
-- localization expansion.
-
----
-
-## 28. Definition of “10/10” for this project
-
-“10/10” is not a visual adjective. It is an acceptance standard.
-
-A release-quality Benedict Interactive page must simultaneously satisfy:
-
-- original visual identity;
-- premium typography and spacing;
-- excellent mobile behavior;
-- excellent desktop behavior;
-- clear content hierarchy;
-- accessibility;
-- fast loading;
-- honest product claims;
-- maintainable source;
-- zero unnecessary files;
+- original Benedict identity;
+- premium art direction;
 - no obvious template feel;
 - no Apple/Macintosh imitation;
-- no broken states;
-- no avoidable polish debt.
+- excellent smartphone behavior;
+- excellent tablet behavior;
+- excellent laptop/desktop/large-display behavior;
+- correct image proportions;
+- native-feeling localization;
+- RTL correctness where required;
+- clear content hierarchy;
+- honest product claims;
+- billing-ready architecture without insecure payment shortcuts;
+- accessibility;
+- fast loading;
+- maintainable source;
+- zero unnecessary files;
+- no broken routes or avoidable polish debt.
 
-If one dimension is weak, the page is not 10/10 yet.
+If one of these dimensions is weak, the page is not 10/10 yet.
 
 ---
 
-## 29. Change-control rule
+## 18. Current Revision 2 objective
 
-Update this Master Plan when a decision becomes durable enough that a future room/session would need it.
+The current production-premium pass redesigns the public experience around:
 
-Do not use the Master Plan as a daily scratchpad.
+- cleaner Macintosh-spirit humanist art direction without imitation;
+- simplified premium header/navigation;
+- correct mobile product composition;
+- restrained effects and stronger editorial spacing;
+- tighter, smarter brand voice;
+- full 16-locale route architecture and transcreated core content;
+- Arabic RTL support;
+- responsive behavior across all major device classes;
+- Bearagnostic Pro commerce preview that is explicitly non-live;
+- preserved static-first performance and Cloudflare compatibility.
 
-Meaningful revisions should update:
-
-- revision number;
-- date;
-- affected sections;
-- current baseline if it changed materially.
+The staging site remains pre-launch and must not take live payments or be indexed as the final canonical public domain.
 
 End of canonical plan.

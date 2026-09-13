@@ -1,21 +1,39 @@
 ---
-import { navigation, site } from '../data/site';
+import { site } from '../data/site';
+import {
+  getLocaleContent,
+  localizedPath,
+  stripLocalePrefix,
+  type LocaleCode,
+} from '../i18n/content';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
+  locale: LocaleCode;
   currentPath?: string;
 }
 
-const { currentPath = '/' } = Astro.props;
-const isCurrent = (href: string) => {
-  if (href === '/') return currentPath === '/';
-  if (href.includes('#')) return false;
-  return currentPath.startsWith(href);
+const { locale, currentPath = '/' } = Astro.props;
+const copy = getLocaleContent(locale);
+const basePath = stripLocalePrefix(currentPath);
+const nav = [
+  { label: copy.nav.home, href: localizedPath(locale, '/'), key: 'home' },
+  { label: copy.nav.products, href: localizedPath(locale, '/products'), key: 'products' },
+  { label: copy.nav.philosophy, href: `${localizedPath(locale, '/')}#philosophy`, key: 'philosophy' },
+  { label: copy.nav.support, href: localizedPath(locale, '/support'), key: 'support' },
+] as const;
+
+const isActive = (key: string) => {
+  if (key === 'home') return basePath === '/';
+  if (key === 'products') return basePath.startsWith('/products');
+  if (key === 'support') return basePath.startsWith('/support');
+  return false;
 };
 ---
 
 <header class="site-header">
   <div class="shell nav-shell">
-    <a class="brand" href="/" aria-label={`${site.name} home`}>
+    <a class="brand" href={localizedPath(locale, '/')} aria-label={`${site.name} home`}>
       <span class="brand-symbol" aria-hidden="true">
         <img src="/brand/benedict-mark.png" alt="" width="609" height="754" decoding="async" />
       </span>
@@ -25,69 +43,30 @@ const isCurrent = (href: string) => {
       </span>
     </a>
 
-    <nav class="desktop-nav" aria-label="Primary navigation">
-      {navigation.map((item) => (
-        <a
-          href={item.href}
-          aria-current={isCurrent(item.href) ? 'page' : undefined}
-          class:list={{ active: isCurrent(item.href) }}
-        >
+    <nav class="desktop-nav" aria-label={copy.nav.menu}>
+      {nav.map((item) => (
+        <a href={item.href} class:list={{ active: isActive(item.key) }} aria-current={isActive(item.key) ? 'page' : undefined}>
           {item.label}
         </a>
       ))}
     </nav>
 
-    <a class="compact-action" href="/products">
-      Products <span aria-hidden="true">↗</span>
-    </a>
+    <div class="header-actions">
+      <LanguageSwitcher locale={locale} currentPath={currentPath} />
+
+      <details class="mobile-menu">
+        <summary aria-label={copy.nav.menu} title={copy.nav.menu}>
+          <span></span><span></span><span></span>
+        </summary>
+        <nav class="mobile-menu-panel" aria-label={copy.nav.menu}>
+          {nav.map((item) => (
+            <a href={item.href} class:list={{ active: isActive(item.key) }} aria-current={isActive(item.key) ? 'page' : undefined}>
+              {item.label}
+              <span aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </nav>
+      </details>
+    </div>
   </div>
-
-  <nav class="mobile-nav" aria-label="Mobile navigation">
-    {navigation.map((item) => (
-      <a
-        href={item.href}
-        aria-current={isCurrent(item.href) ? 'page' : undefined}
-        class:list={{ active: isCurrent(item.href) }}
-      >
-        {item.label}
-      </a>
-    ))}
-  </nav>
 </header>
-
-<style>
-  .brand-symbol {
-    display: grid;
-    width: 43px;
-    height: 43px;
-    flex: 0 0 auto;
-    place-items: center;
-    overflow: hidden;
-    border-radius: 13px;
-    background:
-      radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.92), transparent 35%),
-      linear-gradient(145deg, #f4fbff, #dff3ff);
-    box-shadow:
-      inset 0 0 0 1px rgba(23, 32, 51, 0.06),
-      0 10px 24px rgba(36, 121, 255, 0.12);
-  }
-
-  .brand-symbol img {
-    width: 37px;
-    height: 37px;
-    object-fit: contain;
-  }
-
-  @media (max-width: 720px) {
-    .brand-symbol {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-    }
-
-    .brand-symbol img {
-      width: 33px;
-      height: 33px;
-    }
-  }
-</style>

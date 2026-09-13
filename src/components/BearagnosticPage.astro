@@ -1,0 +1,74 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
+
+interface Props { locale: LocaleCode; }
+const { locale } = Astro.props;
+const copy = getLocaleContent(locale);
+const page = copy.bear;
+---
+
+<SiteLayout title="Bearagnostic" description={page.metaDescription} locale={locale}>
+  <section class="bear-hero shell" aria-labelledby="bear-title">
+    <div class="bear-hero-copy">
+      <p class="section-label">{page.kicker}</p>
+      <span class="status-pill">{copy.common.inDevelopment}</span>
+      <h1 id="bear-title">{page.title}</h1>
+      <p class="bear-promise">{page.promise}</p>
+      <p class="bear-lead">{page.lead}</p>
+    </div>
+
+    <div class="bear-hero-art" aria-label={page.title}>
+      <figure class="bear-brand-hero">
+        <img src="/products/bearagnostic/brand.webp" alt="Bearagnostic" width="980" height="980" loading="eager" />
+      </figure>
+      <figure class="bear-phone-hero">
+        <img src="/products/bearagnostic/app-home.webp" alt="Bearagnostic" width="691" height="1536" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="bear-features" aria-labelledby="bear-features-title">
+    <div class="shell">
+      <p class="section-label">{page.featuresKicker}</p>
+      <h2 id="bear-features-title">{page.featuresTitle}</h2>
+      <div class="feature-row">
+        {page.features.map((item, index) => (
+          <article>
+            <span>0{index + 1}</span>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="commerce-section shell" aria-labelledby="pro-title">
+    <div class="commerce-copy">
+      <p class="section-label">{page.proKicker}</p>
+      <h2 id="pro-title">{page.proTitle}</h2>
+      <p>{page.proBody}</p>
+      <ul>
+        {page.proPoints.map((point) => <li>{point}</li>)}
+      </ul>
+      <div class="commerce-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <strong>{page.proStatus}</strong>
+      </div>
+      <p class="fine-note">{page.proNote}</p>
+    </div>
+    <div class="commerce-card" aria-hidden="true">
+      <span class="commerce-card-label">PRO</span>
+      <img src="/products/bearagnostic/mascot.webp" alt="" width="820" height="852" loading="lazy" />
+      <div>
+        <strong>Bearagnostic Pro</strong>
+        <span>{page.proPoints[0]}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="mini-cta shell">
+    <a class="button button-primary" href={localizedPath(locale, '/support')}>{page.supportCta}<span aria-hidden="true">→</span></a>
+  </section>
+</SiteLayout>

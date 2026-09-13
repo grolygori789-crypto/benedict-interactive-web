@@ -1,0 +1,47 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
+
+interface Props { locale: LocaleCode; }
+const { locale } = Astro.props;
+const copy = getLocaleContent(locale);
+const page = copy.support;
+---
+
+<SiteLayout title={copy.nav.support} description={page.metaDescription} locale={locale}>
+  <section class="page-hero shell">
+    <p class="section-label">{page.kicker}</p>
+    <h1>{page.title}</h1>
+    <p>{page.lead}</p>
+  </section>
+
+  <section class="support-cards shell">
+    <article class="support-card support-bear">
+      <div class="support-card-mark">
+        <img src="/products/bearagnostic/mascot.webp" alt="" width="820" height="852" loading="lazy" />
+      </div>
+      <div>
+        <p class="section-label">Android</p>
+        <h2>{page.bearTitle}</h2>
+        <p>{page.bearBody}</p>
+        <a class="text-link" href={localizedPath(locale, '/products/bearagnostic')}>{copy.common.viewProduct}<span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <article class="support-card">
+      <div class="support-card-mark support-brand-mark">
+        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
+      </div>
+      <div>
+        <p class="section-label">Benedict Interactive</p>
+        <h2>{page.generalTitle}</h2>
+        <p>{page.generalBody}</p>
+      </div>
+    </article>
+  </section>
+
+  <aside class="staging-note shell">
+    <span class="status-dot" aria-hidden="true"></span>
+    <p>{page.stagingNote}</p>
+  </aside>
+</SiteLayout>

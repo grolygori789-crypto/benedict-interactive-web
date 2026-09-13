@@ -3,41 +3,52 @@ import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { site } from '../data/site';
+import { defaultLocale, getLocaleContent, localeMeta, type LocaleCode } from '../i18n/content';
 
 interface Props {
   title?: string;
   description?: string;
   currentPath?: string;
+  locale?: LocaleCode;
 }
 
 const {
   title = site.name,
   description = site.description,
   currentPath = Astro.url.pathname,
+  locale = defaultLocale,
 } = Astro.props;
 
 const pageTitle = title === site.name ? title : `${title} — ${site.name}`;
+const language = localeMeta[locale];
+const copy = getLocaleContent(locale);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={language.htmlLang} dir={language.dir}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f8fbff" />
+    <meta name="theme-color" content="#f7f8f5" />
     <meta name="color-scheme" content="light" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/png" href="/brand/benedict-mark.png" />
     <title>{pageTitle}</title>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">{copy.common.skipToContent}</a>
     <div class="site-shell">
-      <SiteHeader currentPath={currentPath} />
+      <SiteHeader locale={locale} currentPath={currentPath} />
       <main id="main-content">
         <slot />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </div>
   </body>
 </html>

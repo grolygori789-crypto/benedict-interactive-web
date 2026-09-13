@@ -1,0 +1,55 @@
+---
+import {
+  getLocaleContent,
+  localeCodes,
+  localeMeta,
+  localizedPath,
+  stripLocalePrefix,
+  type LocaleCode,
+} from '../i18n/content';
+
+interface Props {
+  locale: LocaleCode;
+  currentPath: string;
+}
+
+const { locale, currentPath } = Astro.props;
+const copy = getLocaleContent(locale);
+const current = localeMeta[locale];
+const basePath = stripLocalePrefix(currentPath);
+---
+
+<details class="language-switcher">
+  <summary aria-label={copy.nav.language} title={copy.nav.language}>
+    <svg class="language-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="8.4"></circle>
+      <path d="M3.9 12h16.2M12 3.6c2.1 2.3 3.2 5.1 3.2 8.4S14.1 18.1 12 20.4M12 3.6C9.9 5.9 8.8 8.7 8.8 12s1.1 6.1 3.2 8.4"></path>
+    </svg>
+    <span class="language-code">{current.short}</span>
+    <span class="sr-only">{current.nativeName}</span>
+  </summary>
+
+  <div class="language-panel" aria-label={copy.nav.language}>
+    <div class="language-panel-head">
+      <strong>{copy.nav.language}</strong>
+      <span>16</span>
+    </div>
+    <div class="language-list">
+      {localeCodes.map((code) => {
+        const meta = localeMeta[code];
+        return (
+          <a
+            href={localizedPath(code, basePath)}
+            lang={meta.htmlLang}
+            dir={meta.dir}
+            aria-current={code === locale ? 'page' : undefined}
+            class:list={{ selected: code === locale }}
+          >
+            <span>{meta.nativeName}</span>
+            <small>{meta.short}</small>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</details>

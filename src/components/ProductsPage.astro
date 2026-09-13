@@ -1,0 +1,46 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
+
+interface Props { locale: LocaleCode; }
+const { locale } = Astro.props;
+const copy = getLocaleContent(locale);
+const page = copy.products;
+---
+
+<SiteLayout title={copy.nav.products} description={page.metaDescription} locale={locale}>
+  <section class="page-hero shell">
+    <p class="section-label">{page.kicker}</p>
+    <h1>{page.title}</h1>
+    <p>{page.lead}</p>
+  </section>
+
+  <section class="products-showcase shell" aria-label={copy.nav.products}>
+    <article class="product-panel product-panel-bear">
+      <div class="product-panel-copy">
+        <span class="status-pill">{copy.common.inDevelopment}</span>
+        <p class="section-label">Android</p>
+        <h2>Bearagnostic</h2>
+        <p class="panel-promise">{copy.home.productPromise}</p>
+        <p>{page.bearDescription}</p>
+        <a class="button button-primary" href={localizedPath(locale, '/products/bearagnostic')}>
+          {page.bearCta}<span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="product-panel-art">
+        <img src="/products/bearagnostic/brand.webp" alt="Bearagnostic" width="980" height="980" loading="lazy" />
+      </div>
+    </article>
+
+    <article class="product-panel product-panel-lab" id="test-center">
+      <div class="lab-symbol" aria-hidden="true">B</div>
+      <div class="product-panel-copy">
+        <span class="status-pill status-muted">{copy.common.planned}</span>
+        <p class="section-label">{page.testKicker}</p>
+        <h2>{page.testTitle}</h2>
+        <p>{page.testDescription}</p>
+        <p class="fine-note">{page.testNote}</p>
+      </div>
+    </article>
+  </section>
+</SiteLayout>
