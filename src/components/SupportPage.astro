@@ -53,7 +53,7 @@ const products = copy.products;
 
       <article class="support-card support-test-center" id="tester-program">
         <div class="support-card-mark tester-mark" aria-hidden="true">
-          <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" decoding="async" />
+          <img src="/brand/benedict-logo.png" alt="" width="1170" height="1780" loading="lazy" decoding="async" />
         </div>
         <div class="support-card-copy">
           <span class="status-pill status-muted">{copy.common.planned}</span>
@@ -191,7 +191,7 @@ const products = copy.products;
   .support-test-center {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 112px minmax(0, 1fr);
+    grid-template-columns: minmax(170px, 220px) minmax(0, 1fr);
     align-items: center;
     min-height: 250px !important;
     background:
@@ -201,17 +201,18 @@ const products = copy.products;
 
   .support-test-center .tester-mark {
     display: grid;
-    width: 92px;
-    height: 92px;
+    width: 100%;
+    min-height: 118px;
     place-items: center;
     border-radius: 26px;
-    background: linear-gradient(145deg, #f0f4ff, #ffffff);
-    box-shadow: 0 16px 38px rgba(86, 83, 172, 0.1);
+    padding: 1rem 1.1rem;
+    background: linear-gradient(145deg, #f0f7fb, #ffffff);
+    box-shadow: 0 16px 38px rgba(86, 83, 172, 0.08);
   }
 
   .support-test-center .tester-mark img {
-    width: 68px;
-    height: 68px;
+    width: min(100%, 170px);
+    height: auto;
     object-fit: contain;
   }
 
@@ -273,19 +274,19 @@ const products = copy.products;
 
     .support-page .support-benedict,
     .support-test-center {
-      grid-template-columns: 82px minmax(0, 1fr);
+      grid-template-columns: minmax(120px, 160px) minmax(0, 1fr);
       gap: 1rem;
     }
 
     .support-test-center .tester-mark {
-      width: 76px;
-      height: 76px;
+      min-height: 94px;
       border-radius: 22px;
+      padding: 0.9rem;
     }
 
     .support-test-center .tester-mark img {
-      width: 56px;
-      height: 56px;
+      width: min(100%, 132px);
+      height: auto;
     }
 
     .support-page .support-card h2 {
@@ -312,6 +313,13 @@ const products = copy.products;
     .support-page .support-card-mark {
       width: 76px;
       height: 76px;
+    }
+
+    .support-test-center .tester-mark {
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      max-width: 170px;
     }
   }
 

@@ -36,7 +36,6 @@ if (!bearProduct) {
         </a>
       </div>
       <div class="product-panel-art" aria-label="Bearagnostic">
-        <div class="panel-wordmark" aria-hidden="true"><strong>Bear</strong><span>agnostic</span></div>
         <img
           src={bearProduct.heroAsset}
           alt={bearProduct.heroAlt}
@@ -50,7 +49,7 @@ if (!bearProduct) {
 
     <article class="product-panel product-panel-lab" id="test-center">
       <div class="lab-symbol" aria-hidden="true">
-        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" decoding="async" />
+        <img src="/brand/benedict-logo.png" alt="" width="1170" height="1780" loading="lazy" decoding="async" />
       </div>
       <div class="product-panel-copy">
         <span class="status-pill status-muted">{copy.common.planned}</span>
@@ -83,30 +82,36 @@ if (!bearProduct) {
     isolation: isolate;
   }
 
-  .product-panel-art .panel-wordmark {
-    position: absolute;
-    z-index: 2;
-    inset-inline-start: 1.25rem;
-    inset-block-start: 1.15rem;
-    display: flex;
-    align-items: baseline;
-    color: #fff;
-    font-family: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
-    font-size: clamp(1.3rem, 2.5vw, 2.05rem);
-    font-weight: 800;
-    letter-spacing: -0.055em;
-    line-height: 1;
-    pointer-events: none;
+  .product-panel-lab {
+    align-items: center;
   }
 
-  .product-panel-art .panel-wordmark span {
-    color: #45bdf2;
+  .product-panel-lab .lab-symbol {
+    display: grid;
+    place-items: center;
+    min-width: 0;
+    align-self: stretch;
+    padding: clamp(1.2rem, 2.4vw, 1.8rem);
+    border-radius: clamp(1.5rem, 2.4vw, 2rem);
+    background:
+      radial-gradient(circle at 18% 18%, rgba(42, 186, 241, 0.1), transparent 13rem),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(245, 249, 252, 0.96));
+    box-shadow: inset 0 0 0 1px rgba(14, 54, 96, 0.04);
+  }
+
+  .product-panel-lab .lab-symbol img {
+    width: min(100%, 260px);
+    height: auto;
+    object-fit: contain;
   }
 
   @container (max-width: 760px) {
-    .product-panel-art .panel-wordmark {
-      inset-inline-start: 0.95rem;
-      inset-block-start: 0.95rem;
+    .product-panel-lab .lab-symbol {
+      padding: 1rem;
+    }
+
+    .product-panel-lab .lab-symbol img {
+      width: min(100%, 220px);
     }
   }
 </style>
