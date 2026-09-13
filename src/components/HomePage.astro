@@ -10,35 +10,37 @@ const { locale } = Astro.props;
 const copy = getLocaleContent(locale);
 const home = copy.home;
 const bear = copy.bear;
+
+const heroA = locale === 'en' ? 'Bright software for' : home.headlineA;
+const heroB = locale === 'en' ? 'calmer digital lives.' : home.headlineB;
+const heroLead = locale === 'en'
+  ? 'Thoughtful software for a cleaner, simpler, brighter everyday.'
+  : home.lead;
+const heroNote = locale === 'en' ? 'Better tools. Brighter days.' : home.founderNote;
 ---
 
 <SiteLayout title="Benedict Interactive" description={home.metaDescription} locale={locale}>
-  <div class="home-page">
-    <section class="home-hero shell" aria-labelledby="home-title">
-      <div class="hero-copy">
-        <p class="section-label">{home.kicker}</p>
+  <div class="bi-home">
+    <section class="bi-hero bi-shell" aria-labelledby="home-title">
+      <div class="bi-hero-copy">
+        <p class="bi-kicker">{home.kicker}</p>
         <h1 id="home-title">
-          <span>{home.headlineA}</span>
-          <strong>{home.headlineB}</strong>
+          <span>{heroA}</span>
+          <strong>{heroB}</strong>
         </h1>
-        <p class="hero-lead">{home.lead}</p>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#bearagnostic">
+        <p class="bi-hero-lead">{heroLead}</p>
+        <div class="bi-actions">
+          <a class="bi-button bi-button-primary" href="#bearagnostic">
             {home.primaryCta}<span aria-hidden="true">→</span>
           </a>
-          <a class="button button-quiet" href="#philosophy">{home.secondaryCta}</a>
-        </div>
-
-        <div class="trust-line" aria-label={home.kicker}>
-          {home.proof.map((item, index) => (
-            <span><i class={`trust-dot trust-dot-${index + 1}`} aria-hidden="true"></i>{item}</span>
-          ))}
+          <a class="bi-button bi-button-secondary" href="#philosophy">
+            {home.secondaryCta}
+          </a>
         </div>
       </div>
 
-      <figure class="founder-visual">
-        <div class="founder-glow" aria-hidden="true"></div>
+      <figure class="bi-founder">
+        <div class="bi-founder-glow" aria-hidden="true"></div>
         <img
           src="/brand/benedict-j.webp"
           alt="Benedict J. at his desk with a laptop and a sleeping dog"
@@ -47,48 +49,44 @@ const bear = copy.bear;
           loading="eager"
           decoding="async"
         />
-        <figcaption>
+        <figcaption class="bi-founder-note">
+          <span>{heroNote}</span>
           <strong>Benedict J.</strong>
-          <span>{home.founderRole}</span>
         </figcaption>
       </figure>
     </section>
 
-    <section class="home-product" id="bearagnostic" aria-labelledby="bearagnostic-title">
-      <div class="shell product-grid">
-        <div class="product-copy">
-          <p class="section-label">{home.productKicker}</p>
+    <section class="bi-product-wrap" id="bearagnostic" aria-labelledby="bearagnostic-title">
+      <div class="bi-product bi-shell">
+        <div class="bi-product-copy">
+          <p class="bi-kicker">{home.productKicker}</p>
           <h2 id="bearagnostic-title">{home.productTitle}</h2>
-          <p class="product-promise">{home.productPromise}</p>
-          <p class="product-body">{home.productBody}</p>
+          <p class="bi-product-promise">{home.productPromise}</p>
+          <p class="bi-product-body">{home.productBody}</p>
 
-          <div class="quality-line" aria-label="Bearagnostic qualities">
-            {home.productTags.map((tag) => <span>{tag}</span>)}
-          </div>
-
-          <div class="product-actions">
-            <a class="button button-primary" href={localizedPath(locale, '/products/bearagnostic')}>
+          <div class="bi-actions bi-product-actions">
+            <a class="bi-button bi-button-primary" href={localizedPath(locale, '/products/bearagnostic')}>
               {home.productCta}<span aria-hidden="true">→</span>
             </a>
-            <a class="text-link" href={localizedPath(locale, '/support')}>
+            <a class="bi-link" href={localizedPath(locale, '/support')}>
               {home.productSupport}<span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
 
-        <div class="device-stage" aria-label={home.productTitle}>
-          <div class="stage-glow" aria-hidden="true"></div>
-          <figure class="device device-secondary">
+        <div class="bi-product-gallery" aria-label={home.productTitle}>
+          <figure class="bi-screen bi-screen-scan">
             <img
-              src="/products/bearagnostic/app-insights.webp"
-              alt="Bearagnostic insights screen"
+              src="/products/bearagnostic/app-scan-safe.webp"
+              alt="Bearagnostic scanning files locally on device"
               width="691"
               height="1536"
               loading="lazy"
               decoding="async"
             />
+            <figcaption>{home.realScreen}</figcaption>
           </figure>
-          <figure class="device device-main">
+          <figure class="bi-screen bi-screen-home">
             <img
               src="/products/bearagnostic/app-home.webp"
               alt="Bearagnostic home screen"
@@ -98,57 +96,25 @@ const bear = copy.bear;
               decoding="async"
             />
           </figure>
-          <span class="real-screen-label">{home.realScreen}</span>
+          <figure class="bi-screen bi-screen-insights">
+            <img
+              src="/products/bearagnostic/app-insights.webp"
+              alt="Bearagnostic insights screen"
+              width="691"
+              height="1536"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         </div>
       </div>
-    </section>
 
-    <section class="workflow-section shell" aria-labelledby="workflow-title">
-      <div class="workflow-heading">
-        <div>
-          <p class="section-label">{bear.featuresKicker}</p>
-          <h2 id="workflow-title">{bear.featuresTitle}</h2>
-        </div>
-        <p>{bear.lead}</p>
-      </div>
-
-      <div class="workflow-grid">
-        <figure class="scan-visual">
-          <img
-            src="/products/bearagnostic/app-scan-safe.webp"
-            alt="Bearagnostic scanning files locally on device"
-            width="691"
-            height="1536"
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-
-        <div class="workflow-copy">
-          {bear.features.map((item, index) => (
-            <article class="workflow-fact">
-              <span>0{index + 1}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="philosophy-section shell" id="philosophy" aria-labelledby="philosophy-title">
-      <div class="philosophy-copy">
-        <p class="section-label">{home.philosophyKicker}</p>
-        <h2 id="philosophy-title">{home.philosophyTitle}</h2>
-        <p>{home.philosophyBody}</p>
-      </div>
-
-      <div class="principle-list">
-        {home.principles.map((item, index) => (
-          <article class="principle-row">
-            <span>0{index + 1}</span>
+      <div class="bi-benefits bi-shell" aria-label={home.productTitle}>
+        {bear.features.map((item, index) => (
+          <article>
+            <span class:list={["bi-benefit-icon", `bi-benefit-icon-${index + 1}`]} aria-hidden="true">
+              {index === 0 ? '✦' : index === 1 ? '◇' : '⌁'}
+            </span>
             <div>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
@@ -158,633 +124,651 @@ const bear = copy.bear;
       </div>
     </section>
 
-    <section class="home-closing shell" aria-labelledby="closing-title">
-      <div>
-        <p class="section-label">{home.closingKicker}</p>
-        <h2 id="closing-title">{home.closingTitle}</h2>
-        <p>{home.closingBody}</p>
+    <section class="bi-philosophy bi-shell" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="bi-philosophy-title">
+        <p class="bi-kicker">{home.philosophyKicker}</p>
+        <h2 id="philosophy-title">{home.philosophyTitle}</h2>
       </div>
-      <a class="button button-primary" href={localizedPath(locale, '/products')}>
-        {home.closingCta}<span aria-hidden="true">→</span>
-      </a>
+      <div class="bi-principles">
+        {home.principles.map((item, index) => (
+          <article>
+            <span aria-hidden="true">0{index + 1}</span>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
     </section>
   </div>
 </SiteLayout>
 
 <style>
-  .home-page {
+  .bi-home {
     overflow: clip;
+    color: #10213a;
+    background:
+      radial-gradient(circle at 82% 7%, rgba(76, 196, 234, 0.13), transparent 25rem),
+      radial-gradient(circle at 12% 20%, rgba(45, 126, 246, 0.06), transparent 28rem),
+      #f8fbff;
   }
 
-  .home-hero {
+  .bi-shell {
+    width: min(calc(100% - 3rem), 1240px);
+    margin-inline: auto;
+  }
+
+  .bi-kicker {
+    margin: 0 0 1rem;
+    color: #3d7eb8;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .bi-hero {
     display: grid;
-    grid-template-columns: minmax(0, 0.88fr) minmax(480px, 1.12fr);
+    grid-template-columns: minmax(0, 0.88fr) minmax(520px, 1.12fr);
+    gap: clamp(2.4rem, 5vw, 5rem);
     align-items: center;
-    gap: clamp(2.5rem, 5vw, 5rem);
-    min-height: 0;
-    padding-block: clamp(3.6rem, 6vw, 6.4rem);
+    min-height: clamp(610px, 72vh, 760px);
+    padding-block: clamp(3.2rem, 6vw, 6rem);
   }
 
-  .hero-copy {
-    max-width: 620px;
+  .bi-hero-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 590px;
   }
 
-  .home-hero h1 {
+  .bi-hero h1,
+  .bi-product h2,
+  .bi-philosophy h2 {
     margin: 0;
-    font-size: clamp(3.4rem, 6vw, 6rem);
-    line-height: 0.96;
-    letter-spacing: -0.055em;
+    letter-spacing: -0.052em;
+    text-wrap: balance;
   }
 
-  .home-hero h1 span,
-  .home-hero h1 strong {
+  .bi-hero h1 {
+    font-size: clamp(3.7rem, 6vw, 6.2rem);
+    line-height: 0.94;
+  }
+
+  .bi-hero h1 span,
+  .bi-hero h1 strong {
     display: block;
   }
 
-  .home-hero h1 strong {
-    color: #2182f3;
+  .bi-hero h1 strong {
+    color: #1c7ff2;
     font-weight: inherit;
-    background: linear-gradient(104deg, #1f63d8 0%, #2489f6 48%, #48c7df 100%);
+    background: linear-gradient(105deg, #185ecf 0%, #1e87f7 55%, #48c6de 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .hero-lead {
-    max-width: 590px;
-    margin-block-start: 1.45rem;
-    color: var(--muted);
-    font-size: clamp(1.02rem, 1.35vw, 1.2rem);
-    line-height: 1.68;
+  .bi-hero-lead {
+    max-width: 530px;
+    margin: 1.45rem 0 0;
+    color: #63758c;
+    font-size: clamp(1.02rem, 1.45vw, 1.24rem);
+    line-height: 1.65;
   }
 
-  .hero-actions,
-  .product-actions {
+  .bi-actions {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     gap: 0.75rem;
-    margin-block-start: 1.8rem;
+    align-items: center;
+    margin-top: 1.8rem;
   }
 
-  .trust-line {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem 1.1rem;
-    margin-block-start: 1.5rem;
-    color: var(--muted);
-    font-size: 0.77rem;
-    font-weight: 700;
-  }
-
-  .trust-line span {
+  .bi-button,
+  .bi-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.42rem;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 48px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 760;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
   }
 
-  .trust-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+  .bi-button {
+    padding-inline: 1.2rem;
   }
 
-  .trust-dot-1 { background: #2b72f6; }
-  .trust-dot-2 { background: #42bdd8; }
-  .trust-dot-3 { background: #e7a84e; }
+  .bi-button:hover,
+  .bi-link:hover {
+    transform: translateY(-1px);
+  }
 
-  .founder-visual {
+  .bi-button-primary {
+    color: #fff;
+    background: linear-gradient(135deg, #087ff0, #22a8f5);
+    box-shadow: 0 14px 32px rgba(17, 129, 235, 0.22);
+  }
+
+  .bi-button-secondary {
+    color: #1d5f9f;
+    border: 1px solid #c8dded;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .bi-link {
+    min-height: 44px;
+    padding-inline: 0.3rem;
+    color: #2d6fae;
+  }
+
+  .bi-founder {
     position: relative;
-    isolation: isolate;
-    min-width: 0;
-    min-height: clamp(390px, 39vw, 560px);
+    min-height: clamp(460px, 38vw, 585px);
     margin: 0;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.92);
-    border-radius: 40px;
-    background:
-      radial-gradient(circle at 70% 25%, rgba(83, 196, 222, 0.18), transparent 32%),
-      radial-gradient(circle at 18% 88%, rgba(43, 114, 246, 0.09), transparent 28%),
-      linear-gradient(145deg, #fbfdff, #eef6fa);
-    box-shadow: 0 30px 90px rgba(28, 56, 92, 0.11);
+    isolation: isolate;
   }
 
-  .founder-glow {
+  .bi-founder-glow {
     position: absolute;
     z-index: -1;
-    width: 45%;
-    aspect-ratio: 1;
-    inset-block-start: 10%;
-    inset-inline-end: 8%;
+    inset: 9% 4% 8% 16%;
     border-radius: 50%;
-    background: rgba(71, 196, 223, 0.16);
-    filter: blur(45px);
+    background: radial-gradient(circle, rgba(83, 195, 226, 0.24), rgba(83, 195, 226, 0));
+    filter: blur(24px);
   }
 
-  .founder-visual img {
+  .bi-founder img {
     position: absolute;
-    inset-inline-end: -7%;
-    inset-block-end: -1px;
-    width: 118%;
+    inset-inline-end: -4%;
+    inset-block-end: 0;
+    width: 112%;
     max-width: none;
     height: auto;
-    object-fit: contain;
   }
 
-  .founder-visual figcaption {
+  .bi-founder::after {
     position: absolute;
-    z-index: 2;
-    inset-inline-start: 1.15rem;
-    inset-block-end: 1.15rem;
-    display: grid;
-    gap: 0.1rem;
-    padding: 0.75rem 0.9rem;
-    border: 1px solid rgba(255, 255, 255, 0.86);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.84);
-    box-shadow: 0 14px 38px rgba(27, 48, 75, 0.09);
-    backdrop-filter: blur(12px);
-  }
-
-  .founder-visual figcaption strong {
-    font-size: 0.82rem;
-  }
-
-  .founder-visual figcaption span {
-    color: var(--muted);
-    font-size: 0.66rem;
-  }
-
-  .home-product {
-    position: relative;
-    padding-block: clamp(4.8rem, 8vw, 7.5rem);
-    border-block: 1px solid rgba(24, 41, 62, 0.08);
-    background:
-      radial-gradient(circle at 75% 20%, rgba(74, 196, 225, 0.16), transparent 32rem),
-      radial-gradient(circle at 20% 80%, rgba(95, 114, 232, 0.08), transparent 28rem),
-      #f5f9fc;
-  }
-
-  .product-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.72fr) minmax(520px, 1.28fr);
-    align-items: center;
-    gap: clamp(3rem, 7vw, 7rem);
-  }
-
-  .product-copy {
-    max-width: 520px;
-  }
-
-  .product-copy h2,
-  .workflow-heading h2,
-  .philosophy-copy h2,
-  .home-closing h2 {
-    margin: 0;
-    font-size: clamp(2.7rem, 4.9vw, 4.8rem);
-    line-height: 1;
-    letter-spacing: -0.045em;
-  }
-
-  .product-promise {
-    margin-block-start: 1.1rem;
-    color: #1f5fc9;
-    font-size: clamp(1.2rem, 1.8vw, 1.45rem);
-    font-weight: 780;
-    line-height: 1.38;
-  }
-
-  .product-body {
-    margin-block-start: 1rem;
-    color: var(--muted);
-    line-height: 1.72;
-  }
-
-  .quality-line {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.2rem;
-    margin-block-start: 1.5rem;
-    color: var(--ink-2);
-    font-size: 0.78rem;
-    font-weight: 740;
-  }
-
-  .quality-line span {
-    position: relative;
-    padding-inline-start: 0.9rem;
-  }
-
-  .quality-line span::before {
-    position: absolute;
-    inset-inline-start: 0;
-    inset-block-start: 0.55em;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #35a8d7;
+    inset-inline: 6% 0;
+    inset-block-end: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(85, 135, 179, 0.22), transparent);
     content: "";
   }
 
-  .device-stage {
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr);
-    align-items: end;
-    justify-content: center;
-    gap: clamp(0.9rem, 2vw, 1.6rem);
-    min-height: 590px;
-    padding: clamp(1.4rem, 2.5vw, 2rem);
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.92);
-    border-radius: 38px;
-    background: rgba(255, 255, 255, 0.62);
-    box-shadow: 0 28px 80px rgba(34, 64, 102, 0.11);
-  }
-
-  .stage-glow {
+  .bi-founder-note {
     position: absolute;
-    width: 70%;
-    aspect-ratio: 1;
-    inset-block-start: 2%;
-    inset-inline-end: 0;
-    border-radius: 50%;
-    background: rgba(77, 190, 220, 0.16);
-    filter: blur(60px);
-  }
-
-  .device {
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    overflow: hidden;
-    border: 1px solid rgba(15, 37, 66, 0.08);
-    border-radius: 31px;
-    background: #fff;
-    box-shadow: 0 24px 60px rgba(23, 50, 84, 0.14);
-  }
-
-  .device img {
-    width: 100%;
-    height: auto;
-  }
-
-  .device-secondary {
-    transform: translateY(26px) rotate(-1.2deg);
-  }
-
-  .device-main {
-    transform: rotate(0.9deg);
-  }
-
-  .real-screen-label {
-    position: absolute;
-    z-index: 3;
-    inset-inline-start: 1rem;
-    inset-block-end: 1rem;
-    padding: 0.55rem 0.72rem;
-    color: var(--ink-2);
-    border: 1px solid rgba(24, 41, 62, 0.08);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
-    font-size: 0.68rem;
-    font-weight: 800;
-    box-shadow: 0 10px 24px rgba(25, 49, 80, 0.08);
-  }
-
-  .workflow-section {
-    padding-block: clamp(5rem, 8vw, 8rem);
-  }
-
-  .workflow-heading {
+    z-index: 2;
+    inset-inline-end: 2%;
+    inset-block-start: 8%;
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.55fr);
-    align-items: end;
-    gap: clamp(2rem, 6vw, 6rem);
+    gap: 0.35rem;
+    max-width: 175px;
+    color: #2c85e8;
+    transform: rotate(-4deg);
+    text-align: center;
   }
 
-  .workflow-heading > p {
-    color: var(--muted);
+  .bi-founder-note span {
+    font-family: "Segoe Print", "Bradley Hand", cursive;
+    font-size: clamp(1rem, 1.5vw, 1.35rem);
+    line-height: 1.2;
+  }
+
+  .bi-founder-note strong {
+    color: #284b72;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .bi-product-wrap {
+    padding-block: clamp(4.6rem, 7vw, 7rem);
+    border-block: 1px solid rgba(28, 54, 84, 0.07);
+    background:
+      radial-gradient(circle at 70% 30%, rgba(59, 190, 228, 0.12), transparent 34rem),
+      linear-gradient(180deg, rgba(255,255,255,0.82), rgba(244,249,253,0.96));
+  }
+
+  .bi-product {
+    display: grid;
+    grid-template-columns: minmax(0, 0.68fr) minmax(580px, 1.32fr);
+    gap: clamp(2.5rem, 5.5vw, 5.4rem);
+    align-items: center;
+  }
+
+  .bi-product-copy {
+    max-width: 480px;
+  }
+
+  .bi-product h2 {
+    font-size: clamp(3rem, 5.2vw, 5.2rem);
+    line-height: 0.98;
+  }
+
+  .bi-product-promise {
+    margin: 1.15rem 0 0;
+    color: #234d78;
+    font-size: clamp(1.12rem, 1.7vw, 1.42rem);
+    font-weight: 760;
+    line-height: 1.38;
+  }
+
+  .bi-product-body {
+    margin: 1rem 0 0;
+    color: #65788e;
     line-height: 1.72;
   }
 
-  .workflow-grid {
-    display: grid;
-    grid-template-columns: minmax(330px, 0.68fr) minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(3rem, 7vw, 7rem);
-    margin-block-start: clamp(3rem, 5vw, 4.5rem);
+  .bi-product-gallery {
+    position: relative;
+    min-height: 610px;
   }
 
-  .scan-visual {
-    width: min(100%, 390px);
-    margin: 0 auto;
+  .bi-screen {
+    position: absolute;
+    margin: 0;
     overflow: hidden;
-    border: 1px solid rgba(20, 44, 75, 0.09);
-    border-radius: 34px;
+    border: 1px solid rgba(18, 40, 65, 0.08);
+    border-radius: 32px;
     background: #fff;
-    box-shadow: 0 28px 70px rgba(27, 54, 88, 0.13);
+    box-shadow: 0 28px 70px rgba(29, 63, 102, 0.14);
   }
 
-  .scan-visual img {
+  .bi-screen img {
+    display: block;
     width: 100%;
     height: auto;
   }
 
-  .workflow-copy {
-    border-block-start: 1px solid rgba(24, 41, 62, 0.11);
+  .bi-screen figcaption {
+    position: absolute;
+    inset-inline-start: 0.8rem;
+    inset-block-end: 0.8rem;
+    padding: 0.45rem 0.68rem;
+    color: #214e79;
+    border: 1px solid rgba(255, 255, 255, 0.84);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(10px);
+    font-size: 0.65rem;
+    font-weight: 780;
   }
 
-  .workflow-fact {
+  .bi-screen-scan {
+    z-index: 3;
+    inset-inline-start: 22%;
+    inset-block-start: 1%;
+    width: 42%;
+    transform: rotate(-1.2deg);
+  }
+
+  .bi-screen-home {
+    z-index: 2;
+    inset-inline-end: 0;
+    inset-block-start: 10%;
+    width: 35%;
+    transform: rotate(1.4deg);
+  }
+
+  .bi-screen-insights {
+    z-index: 1;
+    inset-inline-start: 2%;
+    inset-block-start: 17%;
+    width: 31%;
+    transform: rotate(-2deg);
+    opacity: 0.98;
+  }
+
+  .bi-benefits {
     display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 1rem;
-    padding-block: 1.55rem;
-    border-block-end: 1px solid rgba(24, 41, 62, 0.11);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+    margin-top: clamp(2.8rem, 5vw, 4rem);
   }
 
-  .workflow-fact > span,
-  .principle-row > span {
-    color: #2c77e7;
-    font-size: 0.68rem;
-    font-weight: 850;
+  .bi-benefits article {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.25rem 1.35rem;
+    border: 1px solid rgba(26, 58, 91, 0.08);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 16px 38px rgba(39, 78, 118, 0.05);
+  }
+
+  .bi-benefit-icon {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+
+  .bi-benefit-icon-1 { color: #087de6; background: #e5f4ff; }
+  .bi-benefit-icon-2 { color: #7b5de9; background: #f0ecff; }
+  .bi-benefit-icon-3 { color: #17a879; background: #e5fbf4; }
+
+  .bi-benefits h3 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: -0.015em;
+  }
+
+  .bi-benefits p {
+    margin: 0.35rem 0 0;
+    color: #718196;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .bi-philosophy {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.25fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+    padding-block: clamp(4.2rem, 7vw, 6rem);
+  }
+
+  .bi-philosophy h2 {
+    max-width: 430px;
+    font-size: clamp(2.2rem, 4vw, 3.9rem);
+    line-height: 1.02;
+  }
+
+  .bi-principles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .bi-principles article {
+    padding-inline-start: 1.15rem;
+    border-inline-start: 1px solid #d9e6f0;
+  }
+
+  .bi-principles span {
+    color: #2980d8;
+    font-size: 0.7rem;
+    font-weight: 820;
     letter-spacing: 0.12em;
   }
 
-  .workflow-fact h3,
-  .principle-row h3 {
-    margin: 0;
-    font-size: clamp(1.35rem, 2vw, 1.75rem);
-    letter-spacing: -0.03em;
+  .bi-principles h3 {
+    margin: 0.95rem 0 0;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
   }
 
-  .workflow-fact p,
-  .principle-row p {
-    margin-block-start: 0.5rem;
-    color: var(--muted);
-    font-size: 0.92rem;
-    line-height: 1.68;
+  .bi-principles p {
+    margin: 0.5rem 0 0;
+    color: #718196;
+    font-size: 0.82rem;
+    line-height: 1.55;
   }
 
-  .philosophy-section {
-    display: grid;
-    grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
-    gap: clamp(2.5rem, 7vw, 7rem);
-    align-items: start;
-    margin-block: 0 clamp(0rem, 0vw, 0rem);
-    padding: clamp(3rem, 5vw, 5rem);
-    color: #eef6ff;
-    border-radius: 38px;
-    background:
-      radial-gradient(circle at 90% 12%, rgba(68, 193, 224, 0.23), transparent 28rem),
-      radial-gradient(circle at 5% 100%, rgba(102, 94, 218, 0.18), transparent 30rem),
-      linear-gradient(145deg, #0f2138, #143458 68%, #174769);
-    box-shadow: 0 32px 90px rgba(15, 36, 61, 0.16);
-  }
+  @media (max-width: 1120px) {
+    .bi-hero {
+      grid-template-columns: minmax(0, 0.9fr) minmax(440px, 1.1fr);
+      gap: 2.2rem;
+    }
 
-  .philosophy-section .section-label {
-    color: #74d2e7;
-  }
-
-  .philosophy-copy h2 {
-    color: #fff;
-  }
-
-  .philosophy-copy > p:last-child {
-    max-width: 580px;
-    margin-block-start: 1.2rem;
-    color: rgba(237, 245, 253, 0.72);
-    line-height: 1.74;
-  }
-
-  .principle-list {
-    border-block-start: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  .principle-row {
-    display: grid;
-    grid-template-columns: 50px 1fr;
-    gap: 1rem;
-    padding-block: 1.3rem;
-    border-block-end: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  .principle-row > span {
-    color: #72d3e7;
-  }
-
-  .principle-row h3 {
-    color: #fff;
-  }
-
-  .principle-row p {
-    color: rgba(237, 245, 253, 0.68);
-  }
-
-  .home-closing {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding-block: clamp(4.5rem, 7vw, 7rem);
-  }
-
-  .home-closing > div {
-    max-width: 760px;
-  }
-
-  .home-closing > div > p:last-child {
-    max-width: 650px;
-    margin-block-start: 1rem;
-    color: var(--muted);
-    line-height: 1.72;
-  }
-
-  @media (max-width: 1080px) {
-    .home-hero {
-      grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
+    .bi-product {
+      grid-template-columns: minmax(0, 0.75fr) minmax(500px, 1.25fr);
       gap: 2.5rem;
     }
 
-    .product-grid {
-      grid-template-columns: minmax(0, 0.8fr) minmax(440px, 1.2fr);
-      gap: 3rem;
-    }
-
-    .device-stage {
-      min-height: 520px;
+    .bi-product-gallery {
+      min-height: 560px;
     }
   }
 
-  @media (max-width: 880px) {
-    .home-hero,
-    .product-grid,
-    .workflow-grid,
-    .philosophy-section {
+  @media (max-width: 940px) {
+    .bi-shell {
+      width: min(calc(100% - 2rem), 900px);
+    }
+
+    .bi-hero {
       grid-template-columns: 1fr;
+      gap: 1.2rem;
+      min-height: 0;
+      padding-block: 3.5rem 2.4rem;
     }
 
-    .home-hero {
-      gap: 2.4rem;
-      padding-block-start: 3.4rem;
+    .bi-hero-copy {
+      max-width: 720px;
     }
 
-    .hero-copy,
-    .product-copy {
-      max-width: 680px;
+    .bi-hero h1 {
+      max-width: 760px;
+      font-size: clamp(3.4rem, 8vw, 5.2rem);
     }
 
-    .founder-visual {
-      min-height: clamp(360px, 62vw, 510px);
+    .bi-founder {
+      min-height: 460px;
     }
 
-    .product-grid {
-      gap: 2.8rem;
+    .bi-founder img {
+      width: 102%;
+      inset-inline-end: -2%;
     }
 
-    .device-stage {
+    .bi-founder-note {
+      inset-inline-end: 5%;
+      inset-block-start: 7%;
+    }
+
+    .bi-product {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .bi-product-copy {
+      max-width: 700px;
+    }
+
+    .bi-product-gallery {
       width: min(100%, 720px);
       min-height: 590px;
       margin-inline: auto;
     }
 
-    .workflow-heading {
+    .bi-benefits {
       grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .workflow-grid {
-      gap: 2.6rem;
-    }
-
-    .workflow-copy {
-      width: min(100%, 720px);
-      margin-inline: auto;
-    }
-
-    .philosophy-section {
-      gap: 2.2rem;
-    }
-
-    .home-closing {
-      align-items: flex-start;
-    }
-  }
-
-  @media (max-width: 620px) {
-    .home-hero {
-      gap: 1.8rem;
-      padding-block: 2.8rem 3.8rem;
-    }
-
-    .home-hero h1 {
-      font-size: clamp(3rem, 14vw, 4.25rem);
-    }
-
-    .hero-lead {
-      font-size: 0.98rem;
-    }
-
-    .hero-actions,
-    .product-actions {
-      align-items: stretch;
-    }
-
-    .hero-actions .button,
-    .product-actions .button {
-      flex: 1 1 100%;
-    }
-
-    .product-actions .text-link {
-      justify-content: center;
-      min-height: 44px;
-    }
-
-    .founder-visual {
-      min-height: 300px;
-      border-radius: 28px;
-    }
-
-    .founder-visual img {
-      width: 132%;
-      inset-inline-end: -17%;
-    }
-
-    .founder-visual figcaption {
-      inset-inline-start: 0.8rem;
-      inset-block-end: 0.8rem;
-      padding: 0.62rem 0.72rem;
-      border-radius: 13px;
-    }
-
-    .home-product,
-    .workflow-section {
-      padding-block: 4rem;
-    }
-
-    .product-copy h2,
-    .workflow-heading h2,
-    .philosophy-copy h2,
-    .home-closing h2 {
-      font-size: clamp(2.45rem, 11vw, 3.5rem);
-    }
-
-    .quality-line {
-      display: grid;
-      gap: 0.6rem;
-    }
-
-    .device-stage {
-      display: block;
-      min-height: 0;
-      padding: 1rem;
-      border-radius: 28px;
-    }
-
-    .device-secondary {
-      display: none;
-    }
-
-    .device-main {
-      width: min(84%, 340px);
-      margin-inline: auto;
-      transform: none;
-      border-radius: 25px;
-    }
-
-    .real-screen-label {
-      inset-inline-start: 0.85rem;
-      inset-block-end: 0.85rem;
-    }
-
-    .workflow-grid {
-      margin-block-start: 2.2rem;
-    }
-
-    .scan-visual {
-      width: min(84%, 330px);
-      border-radius: 27px;
-    }
-
-    .workflow-fact,
-    .principle-row {
-      grid-template-columns: 42px 1fr;
       gap: 0.7rem;
     }
 
-    .philosophy-section {
-      padding: 2rem 1.4rem;
-      border-radius: 28px;
+    .bi-philosophy {
+      grid-template-columns: 1fr;
+      gap: 2.2rem;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .bi-shell {
+      width: min(calc(100% - 1.25rem), 620px);
     }
 
-    .home-closing {
-      flex-direction: column;
-      align-items: stretch;
-      padding-block: 4rem;
+    .bi-kicker {
+      margin-bottom: 0.75rem;
+      font-size: 0.63rem;
+      letter-spacing: 0.16em;
     }
 
-    .home-closing .button {
-      width: 100%;
+    .bi-hero {
+      padding-block: 2.4rem 1.5rem;
+    }
+
+    .bi-hero h1 {
+      font-size: clamp(2.65rem, 13.5vw, 4rem);
+      line-height: 0.98;
+    }
+
+    .bi-hero-lead {
+      margin-top: 1rem;
+      font-size: 0.97rem;
+    }
+
+    .bi-actions {
+      margin-top: 1.3rem;
+    }
+
+    .bi-button {
+      min-height: 45px;
+      font-size: 0.82rem;
+    }
+
+    .bi-founder {
+      min-height: 280px;
+    }
+
+    .bi-founder img {
+      width: 118%;
+      inset-inline-end: -16%;
+    }
+
+    .bi-founder-note {
+      inset-inline-start: 1%;
+      inset-inline-end: auto;
+      inset-block-start: 6%;
+      max-width: 125px;
+      transform: rotate(-5deg);
+    }
+
+    .bi-founder-note span {
+      font-size: 0.9rem;
+    }
+
+    .bi-product-wrap {
+      padding-block: 3.3rem 3.8rem;
+    }
+
+    .bi-product h2 {
+      font-size: clamp(2.7rem, 13vw, 3.7rem);
+    }
+
+    .bi-product-promise {
+      margin-top: 0.9rem;
+      font-size: 1.08rem;
+    }
+
+    .bi-product-body {
+      font-size: 0.92rem;
+    }
+
+    .bi-product-gallery {
+      display: grid;
+      grid-template-columns: 1fr 0.86fr;
+      gap: 0.75rem;
+      align-items: end;
+      min-height: 0;
+      margin-top: 0.25rem;
+    }
+
+    .bi-screen {
+      position: relative;
+      inset: auto;
+      width: auto;
+      border-radius: 22px;
+      transform: none;
+    }
+
+    .bi-screen-scan {
+      z-index: 2;
+    }
+
+    .bi-screen-home {
+      z-index: 1;
+    }
+
+    .bi-screen-insights {
+      display: none;
+    }
+
+    .bi-screen figcaption {
+      display: none;
+    }
+
+    .bi-benefits {
+      margin-top: 1.4rem;
+    }
+
+    .bi-benefits article {
+      grid-template-columns: 42px 1fr;
+      padding: 1rem;
+      border-radius: 20px;
+    }
+
+    .bi-benefit-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+    }
+
+    .bi-benefits p {
+      font-size: 0.78rem;
+    }
+
+    .bi-philosophy {
+      padding-block: 3.4rem 4rem;
+    }
+
+    .bi-philosophy h2 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .bi-principles {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .bi-principles article {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 0 0.7rem;
+      padding: 1rem 0;
+      border-inline-start: 0;
+      border-block-start: 1px solid #d9e6f0;
+    }
+
+    .bi-principles h3 {
+      margin: 0;
+    }
+
+    .bi-principles p {
+      grid-column: 2;
+      margin-top: 0.35rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .bi-hero h1 {
+      font-size: clamp(2.5rem, 13.2vw, 3.25rem);
+    }
+
+    .bi-founder {
+      min-height: 250px;
+    }
+
+    .bi-product-gallery {
+      gap: 0.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bi-button,
+    .bi-link {
+      transition: none;
     }
   }
 </style>

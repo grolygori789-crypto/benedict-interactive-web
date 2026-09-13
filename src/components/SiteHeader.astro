@@ -31,19 +31,19 @@ const isActive = (key: string) => {
 };
 ---
 
-<header class="site-header">
-  <div class="shell nav-shell">
-    <a class="brand" href={localizedPath(locale, '/')} aria-label={`${site.name} home`}>
-      <span class="brand-symbol" aria-hidden="true">
+<header class="bi-header">
+  <div class="bi-header-inner">
+    <a class="bi-brand" href={localizedPath(locale, '/')} aria-label={`${site.name} home`}>
+      <span class="bi-brand-mark" aria-hidden="true">
         <img src="/brand/benedict-mark.png" alt="" width="609" height="754" decoding="async" />
       </span>
-      <span class="brand-copy">
-        <strong>Benedict</strong>
-        <small>Interactive</small>
+      <span class="bi-brand-copy">
+        <strong>BENEDICT</strong>
+        <small>INTERACTIVE</small>
       </span>
     </a>
 
-    <nav class="desktop-nav" aria-label={copy.nav.menu}>
+    <nav class="bi-desktop-nav" aria-label={copy.nav.menu}>
       {nav.map((item) => (
         <a href={item.href} class:list={{ active: isActive(item.key) }} aria-current={isActive(item.key) ? 'page' : undefined}>
           {item.label}
@@ -51,18 +51,22 @@ const isActive = (key: string) => {
       ))}
     </nav>
 
-    <div class="header-actions">
-      <LanguageSwitcher locale={locale} currentPath={currentPath} />
+    <div class="bi-header-actions">
+      <div class="bi-language-wrap">
+        <LanguageSwitcher locale={locale} currentPath={currentPath} />
+      </div>
+      <a class="bi-header-cta" href={localizedPath(locale, '/products/bearagnostic')}>
+        {copy.home.primaryCta}<span aria-hidden="true">→</span>
+      </a>
 
-      <details class="mobile-menu">
+      <details class="bi-mobile-menu">
         <summary aria-label={copy.nav.menu} title={copy.nav.menu}>
           <span></span><span></span><span></span>
         </summary>
-        <nav class="mobile-menu-panel" aria-label={copy.nav.menu}>
+        <nav class="bi-mobile-panel" aria-label={copy.nav.menu}>
           {nav.map((item) => (
             <a href={item.href} class:list={{ active: isActive(item.key) }} aria-current={isActive(item.key) ? 'page' : undefined}>
-              {item.label}
-              <span aria-hidden="true">↗</span>
+              {item.label}<span aria-hidden="true">↗</span>
             </a>
           ))}
         </nav>
@@ -70,3 +74,229 @@ const isActive = (key: string) => {
     </div>
   </div>
 </header>
+
+<style>
+  .bi-header {
+    position: sticky;
+    z-index: 100;
+    inset-block-start: 0;
+    padding: 0.7rem 1rem 0;
+    pointer-events: none;
+  }
+
+  .bi-header-inner {
+    display: grid;
+    grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+    gap: 1rem;
+    align-items: center;
+    width: min(1240px, 100%);
+    min-height: 62px;
+    margin-inline: auto;
+    padding: 0.5rem 0.65rem 0.5rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.92);
+    border-radius: 22px;
+    background: rgba(251, 253, 255, 0.88);
+    box-shadow: 0 12px 38px rgba(26, 58, 92, 0.08);
+    backdrop-filter: blur(18px) saturate(140%);
+    pointer-events: auto;
+  }
+
+  .bi-brand {
+    display: inline-flex;
+    gap: 0.72rem;
+    align-items: center;
+    width: fit-content;
+    color: #0e2340;
+    text-decoration: none;
+  }
+
+  .bi-brand-mark {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #eff9ff, #fff);
+  }
+
+  .bi-brand-mark img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  .bi-brand-copy {
+    display: grid;
+    line-height: 1;
+  }
+
+  .bi-brand-copy strong {
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+  }
+
+  .bi-brand-copy small {
+    margin-top: 0.22rem;
+    color: #49698e;
+    font-size: 0.52rem;
+    font-weight: 750;
+    letter-spacing: 0.32em;
+  }
+
+  .bi-desktop-nav {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bi-desktop-nav a {
+    position: relative;
+    padding: 0.75rem 0.85rem;
+    color: #52657c;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 680;
+    text-decoration: none;
+  }
+
+  .bi-desktop-nav a:hover,
+  .bi-desktop-nav a.active {
+    color: #0f579e;
+    background: rgba(229, 243, 254, 0.8);
+  }
+
+  .bi-desktop-nav a.active::after {
+    position: absolute;
+    inset-inline: 28%;
+    inset-block-end: 0.28rem;
+    height: 2px;
+    border-radius: 999px;
+    background: #1b8af5;
+    content: "";
+  }
+
+  .bi-header-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .bi-header-cta {
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding-inline: 1rem;
+    color: #fff;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #087ff0, #22a8f5);
+    box-shadow: 0 10px 25px rgba(17, 129, 235, 0.2);
+    font-size: 0.72rem;
+    font-weight: 760;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .bi-mobile-menu {
+    position: relative;
+    display: none;
+  }
+
+  .bi-mobile-menu > summary {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-content: center;
+    gap: 4px;
+    cursor: pointer;
+    list-style: none;
+    border: 1px solid #d7e6f1;
+    border-radius: 14px;
+    background: #fff;
+  }
+
+  .bi-mobile-menu > summary::-webkit-details-marker { display: none; }
+  .bi-mobile-menu > summary span {
+    width: 17px;
+    height: 2px;
+    border-radius: 999px;
+    background: #3378b8;
+  }
+
+  .bi-mobile-panel {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: calc(100% + 0.55rem);
+    display: grid;
+    width: min(78vw, 280px);
+    padding: 0.55rem;
+    border: 1px solid #dce8f2;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.97);
+    box-shadow: 0 20px 55px rgba(29, 59, 93, 0.16);
+  }
+
+  .bi-mobile-panel a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 0.9rem;
+    color: #334d68;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 680;
+    text-decoration: none;
+  }
+
+  .bi-mobile-panel a.active {
+    color: #0f67b9;
+    background: #eef8ff;
+  }
+
+  :global(.bi-language-wrap .language-switcher > summary) {
+    min-height: 40px;
+  }
+
+  @media (max-width: 900px) {
+    .bi-header-inner {
+      grid-template-columns: 1fr auto;
+    }
+    .bi-desktop-nav,
+    .bi-header-cta {
+      display: none;
+    }
+    .bi-mobile-menu {
+      display: block;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .bi-header {
+      padding: 0.45rem 0.55rem 0;
+    }
+    .bi-header-inner {
+      min-height: 58px;
+      padding: 0.4rem 0.45rem 0.4rem 0.58rem;
+      border-radius: 18px;
+    }
+    .bi-brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+    }
+    .bi-brand-mark img {
+      width: 31px;
+      height: 31px;
+    }
+    .bi-brand-copy strong { font-size: 0.78rem; }
+    .bi-brand-copy small { font-size: 0.46rem; }
+    .bi-mobile-menu > summary {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>

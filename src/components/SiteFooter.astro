@@ -11,23 +11,119 @@ const copy = getLocaleContent(locale);
 const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer">
-  <div class="shell footer-grid">
-    <div class="footer-brand-block">
-      <a class="footer-brand" href={localizedPath(locale, '/')}>{site.name}</a>
+<footer class="bi-footer">
+  <div class="bi-footer-inner">
+    <div class="bi-footer-brand">
+      <a href={localizedPath(locale, '/')} aria-label={`${site.name} home`}>
+        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
+        <span>
+          <strong>BENEDICT</strong>
+          <small>INTERACTIVE</small>
+        </span>
+      </a>
       <p>{copy.common.footerLine}</p>
     </div>
 
-    <nav class="footer-links" aria-label={copy.nav.menu}>
+    <nav class="bi-footer-nav" aria-label={copy.nav.menu}>
       <a href={localizedPath(locale, '/products')}>{copy.nav.products}</a>
+      <a href={`${localizedPath(locale, '/')}#philosophy`}>{copy.nav.philosophy}</a>
       <a href={localizedPath(locale, '/support')}>{copy.nav.support}</a>
       <a href={`https://github.com/${site.repository}`} rel="noopener noreferrer">GitHub</a>
     </nav>
 
-    <div class="footer-meta">
-      <span class="staging-dot" aria-hidden="true"></span>
-      <span>{copy.common.footerStaging}</span>
+    <div class="bi-footer-meta">
       <small>© {year} Benedict Interactive</small>
     </div>
   </div>
 </footer>
+
+<style>
+  .bi-footer {
+    padding: 1rem 1rem 1.4rem;
+    background: #f8fbff;
+  }
+
+  .bi-footer-inner {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    width: min(1240px, 100%);
+    margin-inline: auto;
+    padding: 1.25rem 0.25rem 0.4rem;
+    border-block-start: 1px solid #dce7f0;
+  }
+
+  .bi-footer-brand > a {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    color: #10213a;
+    text-decoration: none;
+  }
+
+  .bi-footer-brand img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+  }
+
+  .bi-footer-brand span {
+    display: grid;
+    line-height: 1;
+  }
+
+  .bi-footer-brand strong {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+  }
+
+  .bi-footer-brand small {
+    margin-top: 0.2rem;
+    color: #537291;
+    font-size: 0.45rem;
+    font-weight: 740;
+    letter-spacing: 0.28em;
+  }
+
+  .bi-footer-brand p {
+    margin: 0.5rem 0 0;
+    color: #8090a3;
+    font-size: 0.72rem;
+  }
+
+  .bi-footer-nav {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .bi-footer-nav a {
+    color: #61748a;
+    font-size: 0.72rem;
+    font-weight: 680;
+    text-decoration: none;
+  }
+
+  .bi-footer-nav a:hover { color: #167bd4; }
+
+  .bi-footer-meta {
+    justify-self: end;
+    color: #8b99a9;
+    font-size: 0.72rem;
+  }
+
+  @media (max-width: 760px) {
+    .bi-footer-inner {
+      grid-template-columns: 1fr;
+      justify-items: start;
+      gap: 1rem;
+    }
+    .bi-footer-nav {
+      justify-content: flex-start;
+      gap: 0.85rem 1.1rem;
+    }
+    .bi-footer-meta { justify-self: start; }
+  }
+</style>
