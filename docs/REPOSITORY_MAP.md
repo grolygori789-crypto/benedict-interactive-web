@@ -18,7 +18,7 @@ This file records the durable responsibility of committed paths so the repositor
 
 | Path | Responsibility |
 |---|---|
-| `BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md` | Canonical product/design/technical/commerce/localization plan |
+| `BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md` | Canonical product/design/technical/commerce/localization/tester/support plan |
 | `REPOSITORY_MAP.md` | Canonical path ownership map |
 | `ROOM_MIGRATION_PROMPT.md` | Clean-room project handoff prompt |
 
@@ -30,7 +30,7 @@ Files served unchanged at the web root.
 
 - `public/robots.txt` — staging indexing policy.
 - `public/brand/` — canonical public Benedict brand assets.
-- `public/products/bearagnostic/` — approved Bearagnostic web assets, including real Home/Insights screens and the privacy-safe scanning screen used by the final Home experience.
+- `public/products/bearagnostic/` — approved Bearagnostic web assets, including real Home/Insights/scanning imagery and Dr. Bear variants.
 
 Asset roles keep stable semantic filenames. Replace canonical assets in place rather than adding `final`, `new`, `v2`, or backup variants.
 
@@ -38,18 +38,21 @@ Asset roles keep stable semantic filenames. Replace canonical assets in place ra
 
 Reusable public-site responsibilities:
 
-- `SiteHeader.astro` — responsive Benedict header/navigation.
+- `SiteHeader.astro` — responsive Benedict header/navigation and route-aware active state.
 - `LanguageSwitcher.astro` — 16-locale selector and equivalent-route switching.
-- `SiteFooter.astro` — shared footer/status/navigation.
-- `HomePage.astro` — locale-aware Home composition.
-- `ProductsPage.astro` — locale-aware Products composition.
+- `SiteFooter.astro` — shared public footer/status/navigation; do not expose developer infrastructure by default.
+- `HomePage.astro` — locale-aware Home composition and responsive founder/product storytelling.
+- `ProductsPage.astro` — locale-aware multi-product showroom composition backed by stable product metadata.
 - `BearagnosticPage.astro` — locale-aware Bearagnostic composition.
-- `SupportPage.astro` — locale-aware Support composition.
+- `SupportPage.astro` — locale-aware customer support composition and public tester-program preview/status.
 - `ProductCard.astro` — older reusable product-card component; retain until a deliberate cleanup confirms no route needs it.
 
 ## `src/data/`
 
 - `site.ts` — stable brand/repository metadata.
+- `products.ts` — stable non-localized product catalog metadata such as slug, route, platform, status, and canonical hero asset. Marketing copy stays in i18n.
+
+Do not put prices, payment secrets, entitlement state, user data, or mutable backend truth into the public product registry.
 
 ## `src/i18n/`
 
@@ -88,12 +91,18 @@ Localized static routes:
 
 English remains unprefixed. Non-English localized routes are generated from the approved locale registry.
 
+Do not add public Reviews, Commerce, Account, or Tester routes until they have real content/behavior and the security model is ready.
+
 ## `src/styles/`
 
 - `global.css` — visual tokens, reset, shared structural styles, navigation shell, page layouts, responsive/adaptive rules, RTL-safe logical styling, and reduced-motion behavior.
 - `typography.css` — canonical multilingual typography system for all 16 locales: native system/open-source fallback stacks, script-aware line-height/tracking, responsive type scale variables, and language-specific text rhythm.
 
 Keep typographic rules centralized in `typography.css` rather than scattering language-specific font and line-height fixes through individual pages. Split additional CSS only when responsibilities become meaningfully independent; do not split merely to reduce line count.
+
+## Future backend boundary
+
+Payment, entitlement, tester authentication, moderation/admin, support-ticket data, and webhook handlers do **not** belong in the static public-site trust boundary. When implemented, keep secrets and privileged operations in isolated server-side services (for example Cloudflare Workers/D1/R2 or an equivalent replaceable backend).
 
 ## Overwrite policy
 
@@ -114,4 +123,4 @@ temp/
 exports/
 ```
 
-Generated output, dependencies, caches, and secrets never belong in the repository.
+Generated output, dependencies, caches, local packages, and secrets never belong in the repository.

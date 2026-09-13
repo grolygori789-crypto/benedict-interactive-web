@@ -6,6 +6,7 @@ interface Props { locale: LocaleCode; }
 const { locale } = Astro.props;
 const copy = getLocaleContent(locale);
 const page = copy.support;
+const products = copy.products;
 ---
 
 <SiteLayout title={copy.nav.support} description={page.metaDescription} locale={locale}>
@@ -16,7 +17,7 @@ const page = copy.support;
       <p>{page.lead}</p>
     </section>
 
-    <section class="support-cards shell">
+    <section class="support-cards shell" aria-label={copy.nav.support}>
       <article class="support-card support-bear">
         <div class="support-bear-visual" aria-hidden="true">
           <span class="support-bear-halo"></span>
@@ -26,6 +27,7 @@ const page = copy.support;
             width="1536"
             height="1477"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="support-card-copy">
@@ -40,12 +42,25 @@ const page = copy.support;
 
       <article class="support-card support-benedict">
         <div class="support-card-mark support-brand-mark">
-          <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
+          <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" decoding="async" />
         </div>
         <div class="support-card-copy">
           <p class="section-label">Benedict Interactive</p>
           <h2>{page.generalTitle}</h2>
           <p>{page.generalBody}</p>
+        </div>
+      </article>
+
+      <article class="support-card support-test-center" id="tester-program">
+        <div class="support-card-mark tester-mark" aria-hidden="true">
+          <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" decoding="async" />
+        </div>
+        <div class="support-card-copy">
+          <span class="status-pill status-muted">{copy.common.planned}</span>
+          <p class="section-label">{products.testKicker}</p>
+          <h2>{products.testTitle}</h2>
+          <p>{products.testDescription}</p>
+          <p class="fine-note">{products.testNote}</p>
         </div>
       </article>
     </section>
@@ -163,7 +178,7 @@ const page = copy.support;
     text-wrap: balance;
   }
 
-  .support-page .support-card p:not(.section-label) {
+  .support-page .support-card p:not(.section-label, .fine-note) {
     margin-block-start: 0.9rem;
     color: #687c94;
     line-height: var(--type-body-leading, 1.72);
@@ -171,6 +186,42 @@ const page = copy.support;
 
   .support-page .support-card .text-link {
     margin-block-start: 1.15rem;
+  }
+
+  .support-test-center {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    align-items: center;
+    min-height: 250px !important;
+    background:
+      radial-gradient(circle at 6% 50%, rgba(122, 115, 230, 0.1), transparent 15rem),
+      linear-gradient(135deg, rgba(251, 253, 255, 0.98), rgba(246, 247, 255, 0.96)) !important;
+  }
+
+  .support-test-center .tester-mark {
+    display: grid;
+    width: 92px;
+    height: 92px;
+    place-items: center;
+    border-radius: 26px;
+    background: linear-gradient(145deg, #f0f4ff, #ffffff);
+    box-shadow: 0 16px 38px rgba(86, 83, 172, 0.1);
+  }
+
+  .support-test-center .tester-mark img {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+  }
+
+  .support-test-center .status-pill {
+    margin-block-end: 0.75rem;
+  }
+
+  .support-test-center .fine-note {
+    max-width: 760px;
+    margin-block-start: 0.75rem;
   }
 
   .support-page .staging-note {
@@ -188,6 +239,10 @@ const page = copy.support;
 
     .support-page .support-bear {
       grid-template-columns: minmax(130px, 0.28fr) minmax(0, 1fr);
+    }
+
+    .support-test-center {
+      grid-column: auto;
     }
   }
 
@@ -216,9 +271,21 @@ const page = copy.support;
       width: 112px;
     }
 
-    .support-page .support-benedict {
+    .support-page .support-benedict,
+    .support-test-center {
       grid-template-columns: 82px minmax(0, 1fr);
       gap: 1rem;
+    }
+
+    .support-test-center .tester-mark {
+      width: 76px;
+      height: 76px;
+      border-radius: 22px;
+    }
+
+    .support-test-center .tester-mark img {
+      width: 56px;
+      height: 56px;
     }
 
     .support-page .support-card h2 {
@@ -228,7 +295,8 @@ const page = copy.support;
 
   @media (max-width: 460px) {
     .support-page .support-bear,
-    .support-page .support-benedict {
+    .support-page .support-benedict,
+    .support-test-center {
       grid-template-columns: 1fr;
     }
 

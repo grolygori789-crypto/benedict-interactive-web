@@ -68,7 +68,7 @@ const page = copy.bear;
         <div class="feature-row">
           {page.features.map((item, index) => (
             <article>
-              <span>0{index + 1}</span>
+              <span class="feature-number">0{index + 1}</span>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
             </article>
@@ -151,9 +151,7 @@ const page = copy.bear;
     white-space: nowrap;
   }
 
-  .bear-title-dark {
-    color: #071a39;
-  }
+  .bear-title-dark { color: #071a39; }
 
   .bear-title-blue {
     color: #1688f3;
@@ -178,9 +176,7 @@ const page = copy.bear;
     line-height: 1.74;
   }
 
-  .bear-page .bear-support-link {
-    margin-block-start: 0.9rem;
-  }
+  .bear-page .bear-support-link { margin-block-start: 0.9rem; }
 
   .bear-showcase {
     position: relative;
@@ -194,8 +190,7 @@ const page = copy.bear;
     z-index: -2;
     inset: 5% 0 0 8%;
     border-radius: 50%;
-    background:
-      radial-gradient(circle at 44% 48%, rgba(42, 186, 241, 0.19), rgba(42, 186, 241, 0.05) 42%, transparent 69%);
+    background: radial-gradient(circle at 44% 48%, rgba(42, 186, 241, 0.19), rgba(42, 186, 241, 0.05) 42%, transparent 69%);
     content: "";
     pointer-events: none;
   }
@@ -291,6 +286,19 @@ const page = copy.bear;
     box-shadow: 0 18px 48px rgba(31, 89, 147, 0.045);
   }
 
+  .bear-page .feature-row .feature-number {
+    display: block;
+    color: #1688f3;
+    font-size: clamp(2.15rem, 3.25vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 0.92;
+  }
+
+  .bear-page .feature-row h3 {
+    margin-block-start: 0.9rem;
+  }
+
   .bear-page .commerce-section {
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(390px, 0.72fr);
@@ -299,9 +307,7 @@ const page = copy.bear;
     padding-block: clamp(5.4rem, 8vw, 7.5rem);
   }
 
-  .bear-page .commerce-copy {
-    min-width: 0;
-  }
+  .bear-page .commerce-copy { min-width: 0; }
 
   .bear-page .commerce-visual {
     position: relative;
@@ -314,8 +320,7 @@ const page = copy.bear;
     z-index: -1;
     inset: 12% 4% 5% 3%;
     border-radius: 50%;
-    background:
-      radial-gradient(circle at 47% 46%, rgba(42, 186, 241, 0.16), rgba(239, 173, 87, 0.07) 45%, transparent 72%);
+    background: radial-gradient(circle at 47% 46%, rgba(42, 186, 241, 0.16), rgba(239, 173, 87, 0.07) 45%, transparent 72%);
   }
 
   .bear-page .commerce-visual img {
@@ -355,16 +360,12 @@ const page = copy.bear;
       gap: 2.6rem;
     }
 
-    .bear-title-wordmark {
-      font-size: clamp(3.35rem, 5.25vw, 4.8rem);
-    }
+    .bear-title-wordmark { font-size: clamp(3.35rem, 5.25vw, 4.8rem); }
   }
 
   @media (max-width: 980px) {
     .bear-page .bear-hero,
-    .bear-page .commerce-section {
-      grid-template-columns: 1fr;
-    }
+    .bear-page .commerce-section { grid-template-columns: 1fr; }
 
     .bear-page .bear-hero {
       min-height: 0;
@@ -372,9 +373,7 @@ const page = copy.bear;
       padding-block-start: 4.2rem;
     }
 
-    .bear-page .bear-hero-copy {
-      max-width: 720px;
-    }
+    .bear-page .bear-hero-copy { max-width: 720px; }
 
     .bear-showcase {
       width: min(100%, 760px);
@@ -382,9 +381,7 @@ const page = copy.bear;
       margin-inline: auto;
     }
 
-    .bear-page .commerce-section {
-      gap: 1rem;
-    }
+    .bear-page .commerce-section { gap: 1rem; }
 
     .bear-page .commerce-visual {
       width: min(100%, 620px);
@@ -394,22 +391,16 @@ const page = copy.bear;
   }
 
   @media (max-width: 680px) {
-    .bear-page .bear-hero {
-      padding-block: 3.2rem 2rem;
-    }
+    .bear-page .bear-hero { padding-block: 3.2rem 2rem; }
 
     .bear-title-wordmark {
       font-size: clamp(2.65rem, 12.4vw, 4rem);
       letter-spacing: -0.058em;
     }
 
-    .bear-page .bear-promise {
-      font-size: 1.08rem;
-    }
+    .bear-page .bear-promise { font-size: 1.08rem; }
 
-    .bear-showcase {
-      min-height: min(118vw, 500px);
-    }
+    .bear-showcase { min-height: min(118vw, 500px); }
 
     .bear-showcase-lockup {
       inset-block-start: 0;
@@ -421,9 +412,7 @@ const page = copy.bear;
       text-align: end;
     }
 
-    .bear-showcase-lockup i {
-      display: none;
-    }
+    .bear-showcase-lockup i { display: none; }
 
     .bear-character-hero {
       inset-inline-start: -7%;
@@ -437,21 +426,17 @@ const page = copy.bear;
       border-radius: 24px;
     }
 
-    .bear-page .bear-phone-hero .phone-screen {
-      border-radius: 18px;
+    .bear-page .bear-phone-hero .phone-screen { border-radius: 18px; }
+
+    .bear-page .feature-row .feature-number {
+      font-size: clamp(2rem, 9.5vw, 2.55rem);
     }
 
-    .bear-page .commerce-section {
-      padding-block: 4.8rem;
-    }
+    .bear-page .commerce-section { padding-block: 4.8rem; }
 
-    .bear-page .commerce-visual {
-      min-height: min(115vw, 460px);
-    }
+    .bear-page .commerce-visual { min-height: min(115vw, 460px); }
 
-    .bear-page .commerce-visual img {
-      width: min(100%, 470px);
-    }
+    .bear-page .commerce-visual img { width: min(100%, 470px); }
 
     .pro-orbit {
       inset-inline-start: 2%;
@@ -460,36 +445,20 @@ const page = copy.bear;
   }
 
   @media (max-width: 420px) {
-    .bear-title-wordmark {
-      font-size: clamp(2.5rem, 11.8vw, 3.25rem);
-    }
-
-    .bear-showcase {
-      min-height: 405px;
-    }
-
-    .bear-page .commerce-visual {
-      min-height: 390px;
-    }
+    .bear-title-wordmark { font-size: clamp(2.5rem, 11.8vw, 3.25rem); }
+    .bear-showcase { min-height: 405px; }
+    .bear-page .commerce-visual { min-height: 390px; }
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .bear-page .bear-phone-hero {
-      animation: bear-phone-float 6s ease-in-out infinite;
-    }
+    .bear-page .bear-phone-hero { animation: bear-phone-float 6s ease-in-out infinite; }
 
     .bear-character-hero img,
-    .bear-page .commerce-visual img {
-      transition: transform 280ms ease;
-    }
+    .bear-page .commerce-visual img { transition: transform 280ms ease; }
 
-    .bear-showcase:hover .bear-character-hero img {
-      transform: translateY(-4px);
-    }
+    .bear-showcase:hover .bear-character-hero img { transform: translateY(-4px); }
 
-    .bear-page .commerce-visual:hover img {
-      transform: translateX(-50%) translateY(-4px);
-    }
+    .bear-page .commerce-visual:hover img { transform: translateX(-50%) translateY(-4px); }
   }
 
   @keyframes bear-phone-float {

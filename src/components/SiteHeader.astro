@@ -19,13 +19,14 @@ const basePath = stripLocalePrefix(currentPath);
 const homePath = localizedPath(locale, '/');
 const nav = [
   { label: copy.nav.home, href: `${homePath}#home`, key: 'home' },
-  { label: copy.nav.products, href: `${homePath}#bearagnostic`, key: 'products' },
+  { label: copy.nav.products, href: localizedPath(locale, '/products'), key: 'products' },
   { label: copy.nav.philosophy, href: `${homePath}#philosophy`, key: 'philosophy' },
   { label: copy.nav.support, href: localizedPath(locale, '/support'), key: 'support' },
 ] as const;
 
 const isActive = (key: string) => {
   if (key === 'home') return basePath === '/';
+  if (key === 'products') return basePath.startsWith('/products');
   if (key === 'support') return basePath.startsWith('/support');
   return false;
 };
@@ -56,7 +57,7 @@ const isActive = (key: string) => {
         <LanguageSwitcher locale={locale} currentPath={currentPath} />
       </div>
       <a class="bi-header-cta" href={`${homePath}#bearagnostic`}>
-        {copy.common.footerLine}<span aria-hidden="true">→</span>
+        {copy.common.footerLine}
       </a>
 
       <details class="bi-mobile-menu">
@@ -65,8 +66,8 @@ const isActive = (key: string) => {
         </summary>
         <nav class="bi-mobile-panel" aria-label={copy.nav.menu}>
           {nav.map((item) => (
-            <a href={item.href} class:list={{ active: isActive(item.key) }}>
-              {item.label}<span aria-hidden="true">↗</span>
+            <a href={item.href} class:list={{ active: isActive(item.key) }} aria-current={isActive(item.key) ? 'page' : undefined}>
+              {item.label}
             </a>
           ))}
         </nav>
@@ -122,7 +123,6 @@ const isActive = (key: string) => {
   .bi-header-actions { display: flex; gap: 0.45rem; align-items: center; justify-content: flex-end; }
   .bi-header-cta {
     display: inline-flex;
-    gap: 0.4rem;
     align-items: center;
     justify-content: center;
     max-width: 240px;
@@ -149,7 +149,7 @@ const isActive = (key: string) => {
   .bi-mobile-panel a {
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    min-height: 48px;
     padding:0.82rem 0.9rem;
     color:#334d68;
     border-radius:12px;

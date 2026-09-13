@@ -13,16 +13,15 @@ const homePath = localizedPath(locale, '/');
   <div class="bi-footer-inner">
     <div class="bi-footer-brand">
       <a href={`${homePath}#home`} aria-label={`${site.name} home`}>
-        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
+        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" decoding="async" />
         <span><strong>BENEDICT</strong><small>INTERACTIVE</small></span>
       </a>
       <p>{copy.common.footerLine}</p>
     </div>
     <nav class="bi-footer-nav" aria-label={copy.nav.menu}>
-      <a href={`${homePath}#bearagnostic`}>{copy.nav.products}</a>
+      <a href={localizedPath(locale, '/products')}>{copy.nav.products}</a>
       <a href={`${homePath}#philosophy`}>{copy.nav.philosophy}</a>
       <a href={localizedPath(locale, '/support')}>{copy.nav.support}</a>
-      <a href={`https://github.com/${site.repository}`} rel="noopener noreferrer">GitHub</a>
     </nav>
     <div class="bi-footer-meta"><small>© {year} Benedict Interactive</small></div>
   </div>
@@ -45,6 +44,9 @@ const homePath = localizedPath(locale, '/');
   }
   .bi-footer-nav { display:flex; gap:1.15rem; flex-wrap:wrap; justify-content:center; }
   .bi-footer-nav a {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
     color:#61748a;
     font-family: var(--font-body);
     font-size:0.7rem;
@@ -54,5 +56,10 @@ const homePath = localizedPath(locale, '/');
   }
   .bi-footer-nav a:hover { color:#167bd4; }
   .bi-footer-meta { justify-self:end; color:#8b99a9; font-size:0.7rem; line-height: var(--type-ui-leading); }
-  @media (max-width:760px) { .bi-footer-inner { grid-template-columns:1fr; justify-items:start; gap:0.9rem; } .bi-footer-nav { justify-content:flex-start; gap:0.8rem 1rem; } .bi-footer-meta { justify-self:start; } }
+  @media (max-width:760px) {
+    .bi-footer { padding-inline: 0.75rem; }
+    .bi-footer-inner { grid-template-columns:1fr; justify-items:start; gap:0.8rem; }
+    .bi-footer-nav { justify-content:flex-start; gap:0.35rem 1rem; }
+    .bi-footer-meta { justify-self:start; }
+  }
 </style>

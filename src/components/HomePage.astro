@@ -50,7 +50,7 @@ const dist = distributionCopy[locale];
         </h1>
         <p class="hero-lead">{heroLead}</p>
         <div class="actions">
-          <a class="button primary" href="#bearagnostic">{home.primaryCta}<span aria-hidden="true">→</span></a>
+          <a class="button primary" href="#bearagnostic">{home.primaryCta}</a>
           <a class="button secondary" href="#philosophy">{home.secondaryCta}</a>
         </div>
       </div>
@@ -90,7 +90,7 @@ const dist = distributionCopy[locale];
 
           <div class="download-actions" id="download">
             <a class="button primary download" href={localizedPath(locale, '/products/bearagnostic')}>
-              <span aria-hidden="true">↓</span>{dist.website}<span aria-hidden="true">→</span>
+              {dist.website}
             </a>
             <span class="button secondary planned" title={`${dist.uptodown} · ${dist.soon}`} aria-label={`${dist.uptodown}, ${dist.soon}`}>
               {dist.uptodown}<small>{dist.soon}</small>
@@ -244,7 +244,6 @@ const dist = distributionCopy[locale];
     -webkit-text-fill-color: transparent;
   }
 
-  /* Lock the approved English hero into exactly two complete lines on desktop/laptop. */
   .hero-title-en span,
   .hero-title-en strong {
     white-space: nowrap;
@@ -328,7 +327,8 @@ const dist = distributionCopy[locale];
   .founder-signoff {
     position: absolute;
     z-index: 2;
-    inset-inline-start: 2%;
+    left: 2%;
+    right: auto;
     inset-block-start: 11%;
     display: grid;
     gap: 0.25rem;
@@ -405,13 +405,8 @@ const dist = distributionCopy[locale];
     line-height: 0.98;
   }
 
-  .wordmark-bear {
-    color: #10213a;
-  }
-
-  .wordmark-agnostic {
-    color: #168cf3;
-  }
+  .wordmark-bear { color: #10213a; }
+  .wordmark-agnostic { color: #168cf3; }
 
   .promise {
     margin: 1rem 0 0;
@@ -503,10 +498,7 @@ const dist = distributionCopy[locale];
     50% { transform: translateY(-14px); }
   }
 
-  .feature-stack {
-    display: grid;
-    gap: 0.75rem;
-  }
+  .feature-stack { display: grid; gap: 0.75rem; }
 
   .feature {
     display: grid;
@@ -586,7 +578,17 @@ const dist = distributionCopy[locale];
     .hero h1 { max-width: 760px; font-size: clamp(var(--home-hero-tablet-min), var(--home-hero-tablet-fluid), var(--home-hero-tablet-max)); }
     .founder-visual { min-height: 430px; }
     .founder-visual img { width: 103%; inset-inline-end: -2%; }
-    .founder-signoff { inset-inline-start: auto; inset-inline-end: 5%; inset-block-start: 8%; }
+    .founder-signoff {
+      left: 2%;
+      right: auto;
+      inset-block-start: 8%;
+      width: min(44%, 260px);
+    }
+    .founder-signoff strong {
+      justify-self: start;
+      margin-inline-start: 1.8rem;
+      margin-inline-end: 0;
+    }
     .product-shell { grid-template-columns: 1fr; }
     .product-copy { max-width: 690px; }
     .device-stage { width: min(100%, 700px); margin-inline: auto; }
@@ -604,9 +606,20 @@ const dist = distributionCopy[locale];
     .button { min-height: 44px; font-size: 0.8rem; }
     .founder-visual { min-height: 300px; margin-top: 0.6rem; }
     .founder-visual img { width: 116%; inset-inline-end: -14%; }
-    .founder-signoff { inset-inline-end: 1%; inset-block-start: 3%; }
-    .founder-signoff span { max-width: 155px; font-size: 1.02rem; }
-    .founder-signoff strong { font-size: 0.72rem; }
+    .founder-signoff {
+      left: 1.5%;
+      right: auto;
+      inset-block-start: 7%;
+      width: min(43%, 170px);
+      transform: rotate(-4deg);
+    }
+    .founder-signoff span { max-width: 165px; font-size: 1.02rem; }
+    .founder-signoff strong {
+      justify-self: start;
+      margin-inline-start: 1.35rem;
+      margin-inline-end: 0;
+      font-size: 0.72rem;
+    }
     .hero-proof { gap: 0.5rem 0.9rem; font-size: 0.67rem; }
     .product-band { padding-block: 2.7rem 3rem; }
     .product-copy h2 { font-size: clamp(2.55rem, 12vw, 3.45rem); }
@@ -644,6 +657,13 @@ const dist = distributionCopy[locale];
   @media (max-width: 420px) {
     .hero h1 { font-size: clamp(var(--home-hero-mobile-min), var(--home-hero-mobile-fluid), var(--home-hero-mobile-max)); }
     .founder-visual { min-height: 270px; }
+    .founder-signoff {
+      left: 1%;
+      inset-block-start: 6%;
+      width: min(42%, 150px);
+    }
+    .founder-signoff span { font-size: 0.94rem; }
+    .founder-signoff strong { margin-inline-start: 1rem; font-size: 0.68rem; }
     .download-actions { grid-template-columns: 1fr; }
     .device-stage { height: min(124vw, 490px); }
     .device-scan { width: 56%; }

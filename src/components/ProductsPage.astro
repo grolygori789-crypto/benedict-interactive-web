@@ -1,11 +1,17 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { productCatalog } from '../data/products';
 import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
 
 interface Props { locale: LocaleCode; }
 const { locale } = Astro.props;
 const copy = getLocaleContent(locale);
 const page = copy.products;
+const bearProduct = productCatalog.find((product) => product.slug === 'bearagnostic');
+
+if (!bearProduct) {
+  throw new Error('Bearagnostic product metadata is missing from the product catalog.');
+}
 ---
 
 <SiteLayout title={copy.nav.products} description={page.metaDescription} locale={locale}>
@@ -15,29 +21,36 @@ const page = copy.products;
     <p>{page.lead}</p>
   </section>
 
-  <section class="products-showcase shell" aria-label={copy.nav.products}>
-    <article class="product-panel product-panel-bear">
+  <section class="products-showcase shell" aria-label={copy.nav.products} data-product-count={productCatalog.length}>
+    <article class="product-panel product-panel-bear" data-product={bearProduct.slug}>
       <div class="product-panel-copy">
         <div class="product-status-row">
           <span class="status-pill">{copy.common.inDevelopment}</span>
-          <span>Android</span>
+          <span>{bearProduct.platform}</span>
         </div>
         <p class="section-label">Bearagnostic</p>
         <h2>{copy.home.productPromise}</h2>
         <p>{page.bearDescription}</p>
-        <a class="button button-primary" href={localizedPath(locale, '/products/bearagnostic')}>
-          {page.bearCta}<span aria-hidden="true">→</span>
+        <a class="button button-primary" href={localizedPath(locale, bearProduct.path)}>
+          {page.bearCta}
         </a>
       </div>
       <div class="product-panel-art" aria-label="Bearagnostic">
         <div class="panel-wordmark" aria-hidden="true"><strong>Bear</strong><span>agnostic</span></div>
-        <img src="/products/bearagnostic/dr-bear.png" alt="Dr. Bear holding a tablet" width="1478" height="1536" loading="lazy" />
+        <img
+          src={bearProduct.heroAsset}
+          alt={bearProduct.heroAlt}
+          width={bearProduct.heroWidth}
+          height={bearProduct.heroHeight}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </article>
 
     <article class="product-panel product-panel-lab" id="test-center">
       <div class="lab-symbol" aria-hidden="true">
-        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
+        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" decoding="async" />
       </div>
       <div class="product-panel-copy">
         <span class="status-pill status-muted">{copy.common.planned}</span>
@@ -49,3 +62,51 @@ const page = copy.products;
     </article>
   </section>
 </SiteLayout>
+
+<style>
+  .products-showcase {
+    container-type: inline-size;
+  }
+
+  .product-panel-bear .product-status-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    color: #60758d;
+    font-size: 0.78rem;
+    font-weight: 680;
+  }
+
+  .product-panel-art {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .product-panel-art .panel-wordmark {
+    position: absolute;
+    z-index: 2;
+    inset-inline-start: 1.25rem;
+    inset-block-start: 1.15rem;
+    display: flex;
+    align-items: baseline;
+    color: #fff;
+    font-family: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+    font-size: clamp(1.3rem, 2.5vw, 2.05rem);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .product-panel-art .panel-wordmark span {
+    color: #45bdf2;
+  }
+
+  @container (max-width: 760px) {
+    .product-panel-art .panel-wordmark {
+      inset-inline-start: 0.95rem;
+      inset-block-start: 0.95rem;
+    }
+  }
+</style>
