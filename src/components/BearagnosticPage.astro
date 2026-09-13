@@ -12,18 +12,33 @@ const page = copy.bear;
   <section class="bear-hero shell" aria-labelledby="bear-title">
     <div class="bear-hero-copy">
       <p class="section-label">{page.kicker}</p>
-      <span class="status-pill">{copy.common.inDevelopment}</span>
+      <div class="product-status-row">
+        <span class="status-pill">{copy.common.inDevelopment}</span>
+        <span>Android</span>
+      </div>
       <h1 id="bear-title">{page.title}</h1>
       <p class="bear-promise">{page.promise}</p>
       <p class="bear-lead">{page.lead}</p>
+      <a class="text-link bear-support-link" href={localizedPath(locale, '/support')}>
+        {page.supportCta}<span aria-hidden="true">→</span>
+      </a>
     </div>
 
     <div class="bear-hero-art" aria-label={page.title}>
-      <figure class="bear-brand-hero">
-        <img src="/products/bearagnostic/brand.webp" alt="Bearagnostic" width="980" height="980" loading="eager" />
+      <div class="bear-wordmark bear-wordmark-large" aria-hidden="true">
+        <strong>Bear</strong><span>agnostic</span>
+      </div>
+      <p class="bear-lockup-line">DEVICE HEALTH <i aria-hidden="true"></i> BETTER DAYS</p>
+
+      <figure class="bear-character-hero">
+        <img src="/products/bearagnostic/dr-bear.png" alt="Dr. Bear giving a thumbs-up while holding a tablet" width="1478" height="1536" loading="eager" />
       </figure>
-      <figure class="bear-phone-hero">
-        <img src="/products/bearagnostic/app-home.webp" alt="Bearagnostic" width="691" height="1536" loading="eager" />
+
+      <figure class="bear-phone-hero phone-card">
+        <div class="phone-speaker" aria-hidden="true"></div>
+        <div class="phone-screen">
+          <img src="/products/bearagnostic/app-home.webp" alt="Bearagnostic home screen" width="691" height="1536" loading="eager" />
+        </div>
       </figure>
     </div>
   </section>
@@ -58,17 +73,17 @@ const page = copy.bear;
       </div>
       <p class="fine-note">{page.proNote}</p>
     </div>
+
     <div class="commerce-card" aria-hidden="true">
-      <span class="commerce-card-label">PRO</span>
-      <img src="/products/bearagnostic/mascot.webp" alt="" width="820" height="852" loading="lazy" />
-      <div>
+      <div class="commerce-card-top">
+        <span>PRO</span>
+        <i></i>
+      </div>
+      <img src="/products/bearagnostic/dr-bear.png" alt="" width="1478" height="1536" loading="lazy" />
+      <div class="commerce-card-copy">
         <strong>Bearagnostic Pro</strong>
         <span>{page.proPoints[0]}</span>
       </div>
     </div>
-  </section>
-
-  <section class="mini-cta shell">
-    <a class="button button-primary" href={localizedPath(locale, '/support')}>{page.supportCta}<span aria-hidden="true">→</span></a>
   </section>
 </SiteLayout>

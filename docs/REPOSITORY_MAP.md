@@ -31,6 +31,8 @@ Files served unchanged at the web root.
 - `public/robots.txt` — staging indexing policy.
 - `public/brand/` — canonical public Benedict brand assets.
 - `public/products/bearagnostic/` — approved Bearagnostic web assets.
+  - `app-home.webp` — canonical real-app Home screen used as product proof.
+  - `dr-bear.png` — canonical transparent Dr. Bear web cutout; do not replace with a baked black-background poster image.
 
 Asset roles keep stable semantic filenames. Replace canonical assets in place rather than adding `final`, `new`, `v2`, or backup variants.
 

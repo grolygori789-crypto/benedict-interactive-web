@@ -18,22 +18,27 @@ const page = copy.products;
   <section class="products-showcase shell" aria-label={copy.nav.products}>
     <article class="product-panel product-panel-bear">
       <div class="product-panel-copy">
-        <span class="status-pill">{copy.common.inDevelopment}</span>
-        <p class="section-label">Android</p>
-        <h2>Bearagnostic</h2>
-        <p class="panel-promise">{copy.home.productPromise}</p>
+        <div class="product-status-row">
+          <span class="status-pill">{copy.common.inDevelopment}</span>
+          <span>Android</span>
+        </div>
+        <p class="section-label">Bearagnostic</p>
+        <h2>{copy.home.productPromise}</h2>
         <p>{page.bearDescription}</p>
         <a class="button button-primary" href={localizedPath(locale, '/products/bearagnostic')}>
           {page.bearCta}<span aria-hidden="true">→</span>
         </a>
       </div>
-      <div class="product-panel-art">
-        <img src="/products/bearagnostic/brand.webp" alt="Bearagnostic" width="980" height="980" loading="lazy" />
+      <div class="product-panel-art" aria-label="Bearagnostic">
+        <div class="panel-wordmark" aria-hidden="true"><strong>Bear</strong><span>agnostic</span></div>
+        <img src="/products/bearagnostic/dr-bear.png" alt="Dr. Bear holding a tablet" width="1478" height="1536" loading="lazy" />
       </div>
     </article>
 
     <article class="product-panel product-panel-lab" id="test-center">
-      <div class="lab-symbol" aria-hidden="true">B</div>
+      <div class="lab-symbol" aria-hidden="true">
+        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
+      </div>
       <div class="product-panel-copy">
         <span class="status-pill status-muted">{copy.common.planned}</span>
         <p class="section-label">{page.testKicker}</p>
