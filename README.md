@@ -3,7 +3,7 @@
 Official website source for **Benedict Interactive**.
 
 **Repository:** `grolygori789-crypto/benedict-interactive-web`  
-**Status:** Foundation / pre-launch  
+**Status:** Pre-launch / production-premium refinement  
 **Canonical plan:** `docs/BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md`
 
 ## Product intent
@@ -27,7 +27,7 @@ Bearagnostic is one product inside the Benedict Interactive ecosystem, not the i
 - Static-first output
 - Component-scoped Astro UI
 - Centralized design tokens in `src/styles/global.css`
-- Cloudflare deployment planned after the web foundation is stable
+- Cloudflare Pages for current pre-launch staging deployment
 
 The first foundation deliberately keeps dependencies small. Add libraries only when a concrete requirement justifies them.
 
@@ -73,6 +73,8 @@ Read the complete rules in the Master Plan before substantive work.
 
 ## Deployment status
 
-The project is intentionally not bound to a permanent domain yet. Development can use a temporary Cloudflare address. The final `.com` domain can be attached later without restructuring the source tree.
+Cloudflare Pages is the current pre-launch staging deployment target. The project is intentionally not bound to a permanent domain yet; the final `.com` domain can be attached later without restructuring the source tree.
+
+GitHub Pages is **not** a deployment target for this Astro project. It should remain disabled; if enabled, GitHub may try to process Astro source files with the default Jekyll pipeline.
 
 Search-engine indexing is disabled in `public/robots.txt` during development. This must be changed deliberately at public launch.
