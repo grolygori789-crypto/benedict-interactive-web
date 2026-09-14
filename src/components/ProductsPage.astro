@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import AccentHeading from './AccentHeading.astro';
 import { productCatalog } from '../data/products';
 import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
 
@@ -18,7 +19,7 @@ if (!bearProduct) {
   <div class="products-page">
     <section class="page-hero products-page-hero shell">
       <p class="section-label">{page.kicker}</p>
-      <h1 class="premium-tone-heading">{page.title}</h1>
+      <AccentHeading as="h1" class="products-title" text={page.title} />
       <p>{page.lead}</p>
     </section>
 
@@ -56,7 +57,7 @@ if (!bearProduct) {
       <article class="product-showcase test-center-card" id="test-center">
         <div class="test-center-brand" aria-hidden="true">
           <span class="test-center-glow"></span>
-          <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" decoding="async" />
+          <img src="/brand/benedict-test-center-mark.svg" alt="" width="160" height="160" loading="lazy" decoding="async" />
         </div>
 
         <div class="product-showcase-copy test-center-copy">
@@ -64,7 +65,7 @@ if (!bearProduct) {
             <span class="status-pill status-muted">{copy.common.planned}</span>
             <span class="section-label">{page.testKicker}</span>
           </div>
-          <h2>{page.testTitle}</h2>
+          <h2 class="test-center-title" aria-label={page.testTitle}><span>Benedict</span><strong>Test Center</strong></h2>
           <p class="product-description">{page.testDescription}</p>
           <p class="fine-note">{page.testNote}</p>
         </div>
@@ -82,7 +83,7 @@ if (!bearProduct) {
     padding-block: clamp(4.5rem, 7vw, 6.6rem) clamp(2.4rem, 4vw, 3.6rem);
   }
 
-  .products-page-hero h1 {
+  :global(.products-title) {
     max-width: 900px;
     font-size: clamp(3.2rem, 5.5vw, 5.2rem);
     line-height: 1.01;
@@ -97,13 +98,6 @@ if (!bearProduct) {
     line-height: var(--type-body-leading, 1.7);
   }
 
-  .premium-tone-heading {
-    color: #10213a;
-    background: linear-gradient(112deg, #10213a 0%, #10213a 48%, #146fd9 73%, #35b7df 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
 
   .products-showcase {
     display: grid;
@@ -164,10 +158,6 @@ if (!bearProduct) {
   .bear-wordmark strong {
     color: #1688f3;
     font-weight: inherit;
-    background: linear-gradient(100deg, #176fdc, #168ef7 55%, #35bfe4);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   .bear-promise {
@@ -216,21 +206,22 @@ if (!bearProduct) {
 
   .test-center-card {
     display: grid;
-    grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
-    gap: clamp(1.8rem, 4vw, 3.6rem);
+    grid-template-columns: minmax(190px, 0.36fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4.5vw, 4.2rem);
     align-items: center;
-    min-height: 300px;
-    padding: clamp(1.8rem, 3.8vw, 3.2rem);
+    min-height: 320px;
+    padding: clamp(2rem, 4vw, 3.5rem);
     overflow: hidden;
     background:
-      radial-gradient(circle at 8% 50%, rgba(78, 183, 238, 0.11), transparent 18rem),
-      linear-gradient(135deg, rgba(255,255,255,.98), rgba(248,250,255,.96));
+      radial-gradient(circle at 9% 50%, rgba(93, 111, 232, 0.09), transparent 19rem),
+      radial-gradient(circle at 23% 82%, rgba(73, 194, 222, 0.09), transparent 17rem),
+      linear-gradient(135deg, rgba(255,255,255,.985), rgba(247,249,255,.965));
   }
 
   .test-center-brand {
     position: relative;
     display: grid;
-    min-height: 190px;
+    min-height: 205px;
     place-items: center;
     isolation: isolate;
   }
@@ -238,18 +229,18 @@ if (!bearProduct) {
   .test-center-glow {
     position: absolute;
     z-index: -1;
-    width: 180px;
-    height: 180px;
+    width: 210px;
+    height: 210px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(42, 186, 241, 0.15), transparent 70%);
-    filter: blur(2px);
+    background: radial-gradient(circle, rgba(111, 103, 232, 0.12), rgba(63, 189, 223, 0.05) 48%, transparent 72%);
+    filter: blur(5px);
   }
 
   .test-center-brand img {
-    width: clamp(116px, 12vw, 154px);
+    width: clamp(132px, 13vw, 174px);
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 18px 30px rgba(34, 96, 151, 0.11));
+    filter: drop-shadow(0 20px 34px rgba(69, 86, 168, 0.12));
   }
 
   .test-center-meta {
@@ -272,6 +263,9 @@ if (!bearProduct) {
     letter-spacing: var(--type-heading-tracking, -0.04em);
     text-wrap: balance;
   }
+
+  .test-center-title span { color: #10213a; }
+  .test-center-title strong { color: #756ce8; font-weight: inherit; }
 
   .test-center-copy .fine-note {
     max-width: 760px;
@@ -311,7 +305,7 @@ if (!bearProduct) {
       padding-block: 3.4rem 2.4rem;
     }
 
-    .products-page-hero h1 {
+    :global(.products-title) {
       font-size: clamp(2.65rem, 12vw, 3.7rem);
       line-height: 1.05;
     }
@@ -350,7 +344,7 @@ if (!bearProduct) {
     }
 
     .test-center-brand img {
-      width: 112px;
+      width: 124px;
     }
 
     .test-center-glow {

@@ -19,10 +19,9 @@ const homePath = localizedPath(locale, '/');
       <p>{copy.common.footerLine}</p>
     </div>
     <nav class="bi-footer-nav" aria-label={copy.nav.menu}>
-      <a href={`${homePath}#bearagnostic`}>{copy.nav.products}</a>
+      <a href={localizedPath(locale, '/products')}>{copy.nav.products}</a>
       <a href={`${homePath}#philosophy`}>{copy.nav.philosophy}</a>
       <a href={localizedPath(locale, '/support')}>{copy.nav.support}</a>
-      <a href={`https://github.com/${site.repository}`} rel="noopener noreferrer">GitHub</a>
     </nav>
     <div class="bi-footer-meta"><small>© {year} Benedict Interactive</small></div>
   </div>

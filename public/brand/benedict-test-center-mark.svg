@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Benedict Test Center mark</title>
+  <desc id="desc">A verification matrix with a check path in Benedict blue, cyan and violet.</desc>
+  <defs>
+    <linearGradient id="btc-blue" x1="18" y1="22" x2="142" y2="138" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#176FD8"/>
+      <stop offset="0.5" stop-color="#1694F4"/>
+      <stop offset="1" stop-color="#5BC9E2"/>
+    </linearGradient>
+    <linearGradient id="btc-violet" x1="92" y1="18" x2="126" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#756CE8"/>
+      <stop offset="1" stop-color="#9B8CF2"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="20" y="22" width="50" height="50" rx="15" stroke="url(#btc-blue)" stroke-width="11"/>
+    <rect x="90" y="22" width="50" height="50" rx="15" stroke="url(#btc-violet)" stroke-width="11" opacity="0.94"/>
+    <rect x="20" y="90" width="50" height="50" rx="15" stroke="#53C4DE" stroke-width="11" opacity="0.92"/>
+    <path d="M92 116l14 14 34-42" stroke="url(#btc-blue)" stroke-width="13"/>
+    <path d="M105 97h17" stroke="#12233B" stroke-width="7" opacity="0.9"/>
+  </g>
+  <circle cx="115" cy="47" r="5" fill="#12233B" opacity="0.82"/>
+</svg>

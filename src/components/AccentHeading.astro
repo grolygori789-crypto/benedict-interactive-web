@@ -1,0 +1,87 @@
+---
+interface Props {
+  text: string;
+  as?: 'h1' | 'h2' | 'h3';
+  id?: string;
+  class?: string;
+}
+
+const { text, as = 'h2', id, class: className = '' } = Astro.props;
+const Tag = as;
+
+const splitHeading = (value: string) => {
+  const clean = value.trim();
+  const separators = [', ', ' — ', ' – ', ': ', '; ', '. ', '。', '，', '、', '；', '：'];
+
+  for (const separator of separators) {
+    const index = clean.indexOf(separator);
+    if (index > clean.length * 0.28 && index < clean.length * 0.72) {
+      const keepPunctuation = ['。', '，', '、', '；', '：'].includes(separator) ? separator : separator.trimEnd();
+      const baseEnd = index + (separator === '. ' || separator === ', ' || separator === ': ' || separator === '; ' ? 1 : keepPunctuation.length);
+      const base = clean.slice(0, baseEnd).trim();
+      const accent = clean.slice(index + separator.length).trim();
+      if (base && accent) return { base, accent, gap: /\s$/.test(separator) };
+    }
+  }
+
+  const words = clean.split(/\s+/).filter(Boolean);
+  if (words.length >= 2) {
+    const accentCount = words.length <= 4 ? 1 : Math.max(2, Math.round(words.length * 0.4));
+    const cut = Math.max(1, words.length - accentCount);
+    return {
+      base: words.slice(0, cut).join(' '),
+      accent: words.slice(cut).join(' '),
+      gap: true,
+    };
+  }
+
+  const characters = Array.from(clean);
+  if (characters.length >= 8) {
+    const cut = Math.max(1, Math.round(characters.length * 0.58));
+    return {
+      base: characters.slice(0, cut).join(''),
+      accent: characters.slice(cut).join(''),
+      gap: false,
+    };
+  }
+
+  return { base: clean, accent: '', gap: false };
+};
+
+const parts = splitHeading(text);
+---
+
+<Tag id={id} class:list={['accent-heading', className]} aria-label={text}>
+  <span class="accent-heading-base">{parts.base}</span>{parts.accent && <>{parts.gap && <span class="accent-heading-gap" aria-hidden="true"> </span>}<span class="accent-heading-accent">{parts.accent}</span></>}
+</Tag>
+
+<style>
+  .accent-heading {
+    color: #10213a;
+    text-wrap: balance;
+  }
+
+  .accent-heading-base,
+  .accent-heading-accent {
+    color: inherit;
+    -webkit-text-fill-color: currentColor;
+  }
+
+  .accent-heading-accent {
+    color: #1688f3;
+  }
+
+  .accent-heading-gap {
+    white-space: pre;
+  }
+
+  :global(html:lang(ar)) .accent-heading,
+  :global(html:lang(ja)) .accent-heading,
+  :global(html:lang(ko)) .accent-heading,
+  :global(html:lang(zh-CN)) .accent-heading,
+  :global(html:lang(zh-TW)) .accent-heading,
+  :global(html:lang(th)) .accent-heading,
+  :global(html:lang(hi)) .accent-heading {
+    text-wrap: pretty;
+  }
+</style>

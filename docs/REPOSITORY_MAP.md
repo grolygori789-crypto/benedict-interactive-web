@@ -29,7 +29,7 @@ Do not add daily notes, scratchpads, exported ZIPs, or duplicate plans here.
 Files served unchanged at the web root.
 
 - `public/robots.txt` — staging indexing policy.
-- `public/brand/` — canonical public Benedict brand assets.
+- `public/brand/` — canonical public Benedict brand assets. `benedict-test-center-mark.svg` is the distinct endorsed-sub-brand symbol for Benedict Test Center; it remains visually related to Benedict Interactive but must not reuse the parent mark as if the two identities were interchangeable.
 - `public/products/bearagnostic/` — approved Bearagnostic web assets, including real Home/Insights/scanning imagery and Dr. Bear variants.
 
 Asset roles keep stable semantic filenames. Replace canonical assets in place rather than adding `final`, `new`, `v2`, or backup variants.
@@ -38,12 +38,13 @@ Asset roles keep stable semantic filenames. Replace canonical assets in place ra
 
 Reusable public-site responsibilities:
 
-- `SiteHeader.astro` — responsive Benedict header/navigation and route-aware active state.
+- `SiteHeader.astro` — responsive Benedict header/navigation and route-aware active state. Product navigation points to the showroom rather than a single-product Home anchor so future products can be added without changing the global information architecture.
 - `LanguageSwitcher.astro` — 16-locale selector and equivalent-route switching.
 - `SiteFooter.astro` — shared public footer/status/navigation; do not expose developer infrastructure by default.
+- `AccentHeading.astro` — shared multilingual semantic two-tone heading treatment. It uses a solid Benedict accent for the emphasized phrase; gradients are reserved for explicit brand marks and rare signature moments.
 - `HomePage.astro` — locale-aware Home composition and responsive founder/product storytelling.
 - `ProductsPage.astro` — locale-aware multi-product showroom composition backed by stable product metadata.
-- `BearagnosticPage.astro` — locale-aware Bearagnostic composition.
+- `BearagnosticPage.astro` — locale-aware Bearagnostic composition, including a commerce-ready planned-state slot that can later receive live purchase UI without redesigning the surrounding page.
 - `SupportPage.astro` — locale-aware customer support composition and public tester-program preview/status.
 - `ProductCard.astro` — older reusable product-card component; retain until a deliberate cleanup confirms no route needs it.
 
@@ -99,6 +100,12 @@ Do not add public Reviews, Commerce, Account, or Tester routes until they have r
 - `typography.css` — canonical multilingual typography system for all 16 locales: native system/open-source fallback stacks, script-aware line-height/tracking, responsive type scale variables, and language-specific text rhythm.
 
 Keep typographic rules centralized in `typography.css` rather than scattering language-specific font and line-height fixes through individual pages. Split additional CSS only when responsibilities become meaningfully independent; do not split merely to reduce line count.
+
+## Brand architecture rule
+
+Benedict Interactive is the parent identity. Products and operational programs may have their own distinct marks while retaining Benedict family DNA. Do not reuse the parent Benedict mark as the logo for a separate product or program merely for convenience. Use parent-brand endorsement through naming, copy, and visual system rather than duplicate logos.
+
+Editorial headings use semantic solid-color emphasis by default: graphite/navy base plus a solid Benedict accent phrase. Do not apply a left-to-right gradient through ordinary headline text. Gradients are reserved for explicit brand marks, product wordmarks, or rare signature moments where the effect is intentional.
 
 ## Future backend boundary
 
