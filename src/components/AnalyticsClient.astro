@@ -1,0 +1,143 @@
+---
+import { productCatalog } from '../data/products';
+import { stripLocalePrefix, type LocaleCode } from '../i18n/content';
+
+interface Props {
+  locale: LocaleCode;
+  currentPath: string;
+}
+
+const { locale, currentPath } = Astro.props;
+const canonicalPath = stripLocalePrefix(currentPath).replace(/\/$/, '') || '/';
+const currentProduct = productCatalog.find((product) => product.path === canonicalPath);
+const currentProductSlug = currentProduct?.slug ?? '';
+const currentPlatform = currentProduct?.platform ?? '';
+const surface = currentProductSlug
+  ? 'product_detail'
+  : canonicalPath === '/'
+    ? 'home'
+    : canonicalPath === '/products'
+      ? 'products'
+      : canonicalPath === '/support'
+        ? 'support'
+        : 'other';
+const productRoutes = productCatalog.map(({ slug, path, platform }) => ({ slug, path, platform }));
+---
+
+<script define:vars={{ locale, currentProductSlug, currentPlatform, surface, productRoutes }}>
+  const endpoint = '/api/analytics';
+  const explicitEvents = new Set(['product_view', 'product_open', 'download_click', 'support_click', 'pro_interest']);
+
+  const canonicalizePath = (pathname) => {
+    if (locale === 'en') return pathname.replace(/\/$/, '') || '/';
+    const prefix = `/${locale}`;
+    const withoutLocale = pathname === prefix
+      ? '/'
+      : pathname.startsWith(`${prefix}/`)
+        ? pathname.slice(prefix.length)
+        : pathname;
+    return withoutLocale.replace(/\/$/, '') || '/';
+  };
+
+  const productForPath = (pathname) => {
+    const canonical = canonicalizePath(pathname);
+    return productRoutes.find((product) => product.path === canonical) || null;
+  };
+
+  const nearestProductSlug = (element) => {
+    const owner = element?.closest?.('[data-product]');
+    return owner?.dataset?.product || currentProductSlug || '';
+  };
+
+  const platformForSlug = (slug) => productRoutes.find((product) => product.slug === slug)?.platform || currentPlatform || '';
+
+  const send = (payload) => {
+    if (!payload?.event || !payload?.product) return;
+
+    const body = JSON.stringify({
+      event: payload.event,
+      product: payload.product,
+      channel: payload.channel || 'internal',
+      locale,
+      surface: payload.surface || surface,
+      path: window.location.pathname,
+      platform: payload.platform || platformForSlug(payload.product),
+    });
+
+    if (navigator.sendBeacon) {
+      const blob = new Blob([body], { type: 'application/json' });
+      if (navigator.sendBeacon(endpoint, blob)) return;
+    }
+
+    fetch(endpoint, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body,
+      keepalive: true,
+      credentials: 'same-origin',
+    }).catch(() => {});
+  };
+
+  if (currentProductSlug) {
+    send({
+      event: 'product_view',
+      product: currentProductSlug,
+      channel: 'page',
+      surface: 'product_detail',
+      platform: currentPlatform,
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    const tracked = target?.closest?.('[data-analytics-event]');
+
+    if (tracked) {
+      const eventName = tracked.dataset.analyticsEvent || '';
+      if (!explicitEvents.has(eventName)) return;
+      const product = tracked.dataset.analyticsProduct || nearestProductSlug(tracked);
+      if (!product) return;
+
+      send({
+        event: eventName,
+        product,
+        channel: tracked.dataset.analyticsChannel || 'internal',
+        surface: tracked.dataset.analyticsSurface || surface,
+        platform: tracked.dataset.analyticsPlatform || platformForSlug(product),
+      });
+      return;
+    }
+
+    const anchor = target?.closest?.('a[href]');
+    if (!anchor) return;
+
+    let destination;
+    try {
+      destination = new URL(anchor.href, window.location.href);
+    } catch {
+      return;
+    }
+
+    if (destination.origin !== window.location.origin) return;
+
+    const targetProduct = productForPath(destination.pathname);
+    if (targetProduct) {
+      send({
+        event: 'product_open',
+        product: targetProduct.slug,
+        channel: surface,
+        platform: targetProduct.platform,
+      });
+      return;
+    }
+
+    if (currentProductSlug && canonicalizePath(destination.pathname) === '/support') {
+      send({
+        event: 'support_click',
+        product: currentProductSlug,
+        channel: 'product_page',
+        platform: currentPlatform,
+      });
+    }
+  }, { passive: true });
+</script>

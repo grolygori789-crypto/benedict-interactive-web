@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/typography.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import AnalyticsClient from '../components/AnalyticsClient.astro';
 import { site } from '../data/site';
 import { defaultLocale, getLocaleContent, localeMeta, type LocaleCode } from '../i18n/content';
 
@@ -52,5 +53,6 @@ const copy = getLocaleContent(locale);
       </main>
       <SiteFooter locale={locale} />
     </div>
+    <AnalyticsClient locale={locale} currentPath={currentPath} />
   </body>
 </html>

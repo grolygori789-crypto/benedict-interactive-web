@@ -123,9 +123,9 @@ export const content = {
     "home": {
       "metaDescription": "Thoughtful software from Benedict Interactive: clear, capable, privacy-minded, and made with character.",
       "kicker": "Independent software studio · Benedict J.",
-      "headlineA": "Ideas for a",
-      "headlineB": "brighter everyday.",
-      "lead": "Useful software, carefully made. Clear enough to trust, cheerful enough to enjoy, and never busier than it needs to be.",
+      "headlineA": "Bright software for",
+      "headlineB": "calmer digital lives.",
+      "lead": "Thoughtful, human-centered software for a cleaner, simpler, brighter everyday.",
       "primaryCta": "Meet Bearagnostic",
       "secondaryCta": "See the point of view",
       "proof": [
@@ -134,7 +134,14 @@ export const content = {
         "Built with care"
       ],
       "founderRole": "Independent developer",
-      "founderNote": "A small studio with unusually high standards.",
+      "founderSlogan": "Better tools. Brighter days!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "coming soon",
+        "safe": "Safe & private",
+        "light": "Lightweight",
+        "android": "Made for Android"
+      },
       "philosophyKicker": "A point of view",
       "philosophyTitle": "Technology can be serious without taking itself too seriously.",
       "philosophyBody": "Benedict Interactive makes software that explains itself, respects attention, and leaves room for personality. The interface can smile. The engineering still has to behave.",
@@ -255,9 +262,9 @@ export const content = {
     "home": {
       "metaDescription": "ซอฟต์แวร์ที่คิดมาอย่างดีจาก Benedict Interactive ชัดเจน ใช้งานจริง เคารพความเป็นส่วนตัว และมีบุคลิกในแบบของตัวเอง",
       "kicker": "สตูดิโอซอฟต์แวร์อิสระ · Benedict J.",
-      "headlineA": "ไอเดียดีๆ เพื่อ",
-      "headlineB": "ทุกวันที่สดใสขึ้น",
-      "lead": "ซอฟต์แวร์ที่มีประโยชน์และทำอย่างพิถีพิถัน ชัดเจนพอให้ไว้ใจ เป็นมิตรพอให้อยากใช้ และไม่วุ่นวายเกินความจำเป็น",
+      "headlineA": "ซอฟต์แวร์ที่สดใส",
+      "headlineB": "เพื่อชีวิตดิจิทัลที่สบายใจขึ้น",
+      "lead": "ซอฟต์แวร์ที่คิดถึงคนใช้เป็นหลัก เพื่อทุกวันที่สะอาดขึ้น เรียบง่ายขึ้น และสดใสขึ้น",
       "primaryCta": "รู้จัก Bearagnostic",
       "secondaryCta": "ดูแนวคิดของเรา",
       "proof": [
@@ -266,7 +273,14 @@ export const content = {
         "ทำด้วยความตั้งใจ"
       ],
       "founderRole": "นักพัฒนาอิสระ",
-      "founderNote": "สตูดิโอเล็กๆ ที่ตั้งมาตรฐานไว้สูงกว่าขนาดตัวเองเยอะ",
+      "founderSlogan": "เครื่องมือที่ดีกว่า ทุกวันที่สดใสขึ้น!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "เร็วๆ นี้",
+        "safe": "ปลอดภัยและเป็นส่วนตัว",
+        "light": "เบาเครื่อง",
+        "android": "สร้างมาสำหรับ Android"
+      },
       "philosophyKicker": "มุมมองของเรา",
       "philosophyTitle": "เทคโนโลยีจริงจังได้ โดยไม่จำเป็นต้องทำหน้าขรึมตลอดเวลา",
       "philosophyBody": "Benedict Interactive ทำซอฟต์แวร์ที่อธิบายตัวเองได้ เคารพเวลาของคนใช้ และยังมีพื้นที่ให้บุคลิกกับรอยยิ้ม หน้าตาเป็นมิตรได้ ส่วนวิศวกรรมข้างในยังต้องเป๊ะเหมือนเดิม",
@@ -387,9 +401,9 @@ export const content = {
     "home": {
       "metaDescription": "Software cuidado de Benedict Interactive: claro, capaz, respetuoso con la privacidad y con personalidad propia.",
       "kicker": "Estudio de software independiente · Benedict J.",
-      "headlineA": "Ideas para un",
-      "headlineB": "día a día más luminoso.",
-      "lead": "Software útil, hecho con mimo. Lo bastante claro para confiar en él, lo bastante alegre para disfrutarlo y nunca más complicado de lo necesario.",
+      "headlineA": "Software pensado para",
+      "headlineB": "una vida digital más tranquila.",
+      "lead": "Software pensado para las personas, para un día a día más limpio, simple y luminoso.",
       "primaryCta": "Conoce Bearagnostic",
       "secondaryCta": "Nuestra forma de pensar",
       "proof": [
@@ -398,7 +412,14 @@ export const content = {
         "Hecho con cuidado"
       ],
       "founderRole": "Desarrollador independiente",
-      "founderNote": "Un estudio pequeño con estándares nada pequeños.",
+      "founderSlogan": "Mejores herramientas. Días más luminosos.",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "próximamente",
+        "safe": "Seguro y privado",
+        "light": "Ligero",
+        "android": "Hecho para Android"
+      },
       "philosophyKicker": "Una forma de verlo",
       "philosophyTitle": "La tecnología puede ser seria sin tomarse demasiado en serio.",
       "philosophyBody": "Benedict Interactive crea software que se explica, respeta tu atención y deja sitio para la personalidad. La interfaz puede sonreír; la ingeniería, en cambio, tiene que portarse impecablemente.",
@@ -519,9 +540,9 @@ export const content = {
     "home": {
       "metaDescription": "Software bem pensado da Benedict Interactive: claro, competente, cuidadoso com a privacidade e cheio de personalidade.",
       "kicker": "Estúdio independente de software · Benedict J.",
-      "headlineA": "Ideias para um",
-      "headlineB": "dia a dia mais leve.",
-      "lead": "Software útil, feito com cuidado. Claro o bastante para confiar, simpático o bastante para gostar de usar e nunca mais complicado do que precisa ser.",
+      "headlineA": "Software para deixar",
+      "headlineB": "a vida digital mais leve.",
+      "lead": "Software pensado para pessoas, para um dia a dia mais limpo, simples e leve.",
       "primaryCta": "Conheça o Bearagnostic",
       "secondaryCta": "Veja nossa filosofia",
       "proof": [
@@ -530,7 +551,14 @@ export const content = {
         "Feito com cuidado"
       ],
       "founderRole": "Desenvolvedor independente",
-      "founderNote": "Um estúdio pequeno com padrões nada pequenos.",
+      "founderSlogan": "Ferramentas melhores. Dias mais leves!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "em breve",
+        "safe": "Seguro e privado",
+        "light": "Leve",
+        "android": "Feito para Android"
+      },
       "philosophyKicker": "Nosso jeito de pensar",
       "philosophyTitle": "Tecnologia pode ser séria sem precisar ficar de cara fechada.",
       "philosophyBody": "A Benedict Interactive cria software que se explica, respeita sua atenção e ainda deixa espaço para personalidade. A interface pode sorrir. A engenharia continua tendo que se comportar muito bem.",
@@ -651,9 +679,9 @@ export const content = {
     "home": {
       "metaDescription": "Des logiciels soignés par Benedict Interactive : clairs, capables, respectueux de la vie privée et avec une vraie personnalité.",
       "kicker": "Studio logiciel indépendant · Benedict J.",
-      "headlineA": "Des idées pour un",
-      "headlineB": "quotidien plus lumineux.",
-      "lead": "Des logiciels utiles, fabriqués avec soin. Assez clairs pour inspirer confiance, assez joyeux pour donner envie de les utiliser, et jamais plus compliqués que nécessaire.",
+      "headlineA": "Des logiciels clairs pour",
+      "headlineB": "une vie numérique plus sereine.",
+      "lead": "Des logiciels pensés pour les gens, pour un quotidien plus net, plus simple et plus lumineux.",
       "primaryCta": "Découvrir Bearagnostic",
       "secondaryCta": "Notre point de vue",
       "proof": [
@@ -662,7 +690,14 @@ export const content = {
         "Fait avec soin"
       ],
       "founderRole": "Développeur indépendant",
-      "founderNote": "Un petit studio avec des standards étonnamment élevés.",
+      "founderSlogan": "De meilleurs outils. Des jours plus lumineux !",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "bientôt",
+        "safe": "Sûr et privé",
+        "light": "Léger",
+        "android": "Conçu pour Android"
+      },
       "philosophyKicker": "Notre point de vue",
       "philosophyTitle": "La technologie peut être sérieuse sans se prendre trop au sérieux.",
       "philosophyBody": "Benedict Interactive conçoit des logiciels qui s’expliquent, respectent votre attention et gardent une place pour la personnalité. L’interface peut sourire. L’ingénierie, elle, doit rester irréprochable.",
@@ -783,9 +818,9 @@ export const content = {
     "home": {
       "metaDescription": "Durchdachte Software von Benedict Interactive: klar, leistungsfähig, datenschutzbewusst und mit eigener Persönlichkeit.",
       "kicker": "Unabhängiges Softwarestudio · Benedict J.",
-      "headlineA": "Ideen für einen",
-      "headlineB": "helleren Alltag.",
-      "lead": "Nützliche Software, sorgfältig gemacht. Klar genug, um ihr zu vertrauen, freundlich genug, um sie gern zu benutzen — und nie komplizierter als nötig.",
+      "headlineA": "Freundliche Software für",
+      "headlineB": "ein ruhigeres digitales Leben.",
+      "lead": "Menschlich gedachte Software für einen aufgeräumteren, einfacheren und helleren digitalen Alltag.",
       "primaryCta": "Bearagnostic kennenlernen",
       "secondaryCta": "Unsere Haltung",
       "proof": [
@@ -794,7 +829,14 @@ export const content = {
         "Mit Sorgfalt gebaut"
       ],
       "founderRole": "Unabhängiger Entwickler",
-      "founderNote": "Ein kleines Studio mit bemerkenswert hohen Ansprüchen.",
+      "founderSlogan": "Bessere Werkzeuge. Schönere Tage!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "demnächst",
+        "safe": "Sicher & privat",
+        "light": "Leichtgewichtig",
+        "android": "Für Android gemacht"
+      },
       "philosophyKicker": "Eine Haltung",
       "philosophyTitle": "Technologie darf ernsthaft sein, ohne sich ständig ernst zu nehmen.",
       "philosophyBody": "Benedict Interactive baut Software, die sich selbst erklärt, Aufmerksamkeit respektiert und Platz für Persönlichkeit lässt. Die Oberfläche darf lächeln. Die Technik dahinter muss trotzdem sauber arbeiten.",
@@ -915,9 +957,9 @@ export const content = {
     "home": {
       "metaDescription": "Software curato da Benedict Interactive: chiaro, capace, attento alla privacy e con una personalità tutta sua.",
       "kicker": "Studio software indipendente · Benedict J.",
-      "headlineA": "Idee per una",
-      "headlineB": "quotidianità più luminosa.",
-      "lead": "Software utile, fatto con cura. Abbastanza chiaro da meritare fiducia, abbastanza piacevole da farsi usare volentieri e mai più complicato del necessario.",
+      "headlineA": "Software chiaro per",
+      "headlineB": "una vita digitale più serena.",
+      "lead": "Software pensato per le persone, per giornate più ordinate, semplici e luminose.",
       "primaryCta": "Scopri Bearagnostic",
       "secondaryCta": "Il nostro punto di vista",
       "proof": [
@@ -926,7 +968,14 @@ export const content = {
         "Fatto con cura"
       ],
       "founderRole": "Sviluppatore indipendente",
-      "founderNote": "Uno studio piccolo con standard decisamente grandi.",
+      "founderSlogan": "Strumenti migliori. Giornate più luminose!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "presto",
+        "safe": "Sicuro e privato",
+        "light": "Leggero",
+        "android": "Creato per Android"
+      },
       "philosophyKicker": "Un punto di vista",
       "philosophyTitle": "La tecnologia può essere seria senza prendersi troppo sul serio.",
       "philosophyBody": "Benedict Interactive crea software che si spiega, rispetta l’attenzione e lascia spazio alla personalità. L’interfaccia può sorridere. L’ingegneria, invece, deve comportarsi benissimo.",
@@ -1047,9 +1096,9 @@ export const content = {
     "home": {
       "metaDescription": "Benedict Interactiveが丁寧につくる、わかりやすく、頼れて、プライバシーにも配慮したソフトウェア。少しだけ個性もあります。",
       "kicker": "インディペンデント・ソフトウェアスタジオ · Benedict J.",
-      "headlineA": "毎日を、もう少し",
-      "headlineB": "明るくするアイデア。",
-      "lead": "役に立つことを、丁寧に。信頼できるほどわかりやすく、使うのが少し楽しくなるくらい親しみやすく。必要以上にややこしくはしません。",
+      "headlineA": "デジタルな毎日に、",
+      "headlineB": "明るく穏やかなソフトウェアを。",
+      "lead": "人を中心に考えたソフトウェアで、毎日をもっとすっきり、シンプルに、明るく。",
       "primaryCta": "Bearagnosticを見る",
       "secondaryCta": "ものづくりの考え方",
       "proof": [
@@ -1058,7 +1107,14 @@ export const content = {
         "丁寧につくる"
       ],
       "founderRole": "インディペンデント開発者",
-      "founderNote": "小さなスタジオ。でも基準は、あまり小さくありません。",
+      "founderSlogan": "もっと良い道具で、もっと明るい毎日を。",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "近日公開",
+        "safe": "安全・プライベート",
+        "light": "軽快",
+        "android": "Android向け"
+      },
       "philosophyKicker": "私たちの考え方",
       "philosophyTitle": "テクノロジーは真面目でいい。でも、ずっと真顔でいる必要はありません。",
       "philosophyBody": "Benedict Interactiveが目指すのは、自分の動きをきちんと説明し、人の注意をむやみに奪わず、少しの個性を残したソフトウェア。UIは笑ってもいい。中の仕組みは、きっちり働きます。",
@@ -1179,9 +1235,9 @@ export const content = {
     "home": {
       "metaDescription": "Benedict Interactive가 세심하게 만드는 소프트웨어. 명확하고, 믿을 만하고, 개인정보를 존중하며, 자기만의 성격도 있습니다.",
       "kicker": "인디 소프트웨어 스튜디오 · Benedict J.",
-      "headlineA": "매일을 조금 더",
-      "headlineB": "밝게 만드는 아이디어.",
-      "lead": "쓸모 있는 소프트웨어를 정성껏 만듭니다. 믿을 만큼 명확하고, 즐겁게 쓸 만큼 친근하며, 필요 이상으로 복잡하지 않게.",
+      "headlineA": "더 차분한 디지털 일상을 위한",
+      "headlineB": "밝고 다정한 소프트웨어.",
+      "lead": "사람을 중심에 둔 소프트웨어로, 매일을 더 깔끔하고 단순하고 밝게.",
       "primaryCta": "Bearagnostic 만나보기",
       "secondaryCta": "우리의 생각 보기",
       "proof": [
@@ -1190,7 +1246,14 @@ export const content = {
         "세심하게 제작"
       ],
       "founderRole": "인디 개발자",
-      "founderNote": "작은 스튜디오지만 기준까지 작지는 않습니다.",
+      "founderSlogan": "더 좋은 도구. 더 밝은 하루!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "곧 공개",
+        "safe": "안전하고 비공개",
+        "light": "가볍게",
+        "android": "Android용"
+      },
       "philosophyKicker": "우리의 관점",
       "philosophyTitle": "기술은 진지해도 됩니다. 그렇다고 늘 심각한 표정일 필요는 없죠.",
       "philosophyBody": "Benedict Interactive는 스스로 설명할 줄 알고, 사람의 주의를 존중하며, 개성을 위한 여백도 남기는 소프트웨어를 만듭니다. 인터페이스는 웃어도 됩니다. 엔지니어링은 여전히 정확해야 하고요.",
@@ -1311,9 +1374,9 @@ export const content = {
     "home": {
       "metaDescription": "Perangkat lunak yang dibuat dengan penuh pertimbangan oleh Benedict Interactive: jelas, andal, menghargai privasi, dan punya karakter.",
       "kicker": "Studio software independen · Benedict J.",
-      "headlineA": "Ide untuk hari-hari yang",
-      "headlineB": "sedikit lebih cerah.",
-      "lead": "Software yang berguna, dibuat dengan teliti. Cukup jelas untuk dipercaya, cukup menyenangkan untuk dipakai, dan tidak pernah lebih rumit dari yang perlu.",
+      "headlineA": "Software cerah untuk",
+      "headlineB": "hidup digital yang lebih tenang.",
+      "lead": "Software yang berpusat pada manusia, untuk hari-hari yang lebih rapi, sederhana, dan cerah.",
       "primaryCta": "Kenali Bearagnostic",
       "secondaryCta": "Lihat cara kami berpikir",
       "proof": [
@@ -1322,7 +1385,14 @@ export const content = {
         "Dibuat dengan teliti"
       ],
       "founderRole": "Pengembang independen",
-      "founderNote": "Studio kecil dengan standar yang sama sekali tidak kecil.",
+      "founderSlogan": "Alat yang lebih baik. Hari yang lebih cerah!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "segera",
+        "safe": "Aman & privat",
+        "light": "Ringan",
+        "android": "Dibuat untuk Android"
+      },
       "philosophyKicker": "Cara kami melihatnya",
       "philosophyTitle": "Teknologi boleh serius tanpa harus selalu memasang wajah serius.",
       "philosophyBody": "Benedict Interactive membuat software yang bisa menjelaskan dirinya sendiri, menghargai perhatian pengguna, dan masih punya ruang untuk karakter. Antarmuka boleh tersenyum. Engineering-nya tetap harus rapi.",
@@ -1443,9 +1513,9 @@ export const content = {
     "home": {
       "metaDescription": "Phần mềm được làm kỹ lưỡng bởi Benedict Interactive: rõ ràng, đáng tin, tôn trọng quyền riêng tư và có cá tính riêng.",
       "kicker": "Studio phần mềm độc lập · Benedict J.",
-      "headlineA": "Những ý tưởng cho",
-      "headlineB": "mỗi ngày sáng hơn.",
-      "lead": "Phần mềm hữu ích, làm thật chỉn chu. Đủ rõ để tin, đủ vui để thích dùng, và không bao giờ phức tạp hơn mức cần thiết.",
+      "headlineA": "Phần mềm tươi sáng cho",
+      "headlineB": "một đời sống số nhẹ nhàng hơn.",
+      "lead": "Phần mềm lấy con người làm trung tâm, để mỗi ngày gọn gàng hơn, đơn giản hơn và sáng sủa hơn.",
       "primaryCta": "Làm quen với Bearagnostic",
       "secondaryCta": "Xem cách chúng tôi nghĩ",
       "proof": [
@@ -1454,7 +1524,14 @@ export const content = {
         "Làm bằng sự chăm chút"
       ],
       "founderRole": "Nhà phát triển độc lập",
-      "founderNote": "Một studio nhỏ với tiêu chuẩn chẳng hề nhỏ.",
+      "founderSlogan": "Công cụ tốt hơn. Ngày tươi sáng hơn!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "sắp có",
+        "safe": "An toàn & riêng tư",
+        "light": "Gọn nhẹ",
+        "android": "Dành cho Android"
+      },
       "philosophyKicker": "Góc nhìn của chúng tôi",
       "philosophyTitle": "Công nghệ có thể nghiêm túc mà không cần lúc nào cũng nghiêm nghị.",
       "philosophyBody": "Benedict Interactive làm phần mềm biết tự giải thích, tôn trọng sự chú ý của người dùng và vẫn chừa chỗ cho cá tính. Giao diện có thể mỉm cười; phần kỹ thuật bên trong thì vẫn phải làm việc thật tử tế.",
@@ -1575,9 +1652,9 @@ export const content = {
     "home": {
       "metaDescription": "Benedict Interactive 用心打造的软件：清晰、可靠、尊重隐私，也保留一点自己的个性。",
       "kicker": "独立软件工作室 · Benedict J.",
-      "headlineA": "让每一天",
-      "headlineB": "再明亮一点的想法。",
-      "lead": "做真正有用的软件，也把细节做好。清楚到值得信任，友好到让人愿意使用，而且绝不把简单的事故意做复杂。",
+      "headlineA": "为更从容的数字生活",
+      "headlineB": "做更明亮的软件。",
+      "lead": "以人为本的软件，让每一天更整洁、更简单，也更明亮。",
       "primaryCta": "认识 Bearagnostic",
       "secondaryCta": "看看我们的理念",
       "proof": [
@@ -1586,7 +1663,14 @@ export const content = {
         "认真打磨"
       ],
       "founderRole": "独立开发者",
-      "founderNote": "工作室不大，标准倒是一点也不小。",
+      "founderSlogan": "更好的工具。更明亮的日子！",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "即将上线",
+        "safe": "安全且注重隐私",
+        "light": "轻巧流畅",
+        "android": "专为 Android 打造"
+      },
       "philosophyKicker": "我们的看法",
       "philosophyTitle": "技术可以很认真，但没必要一直板着脸。",
       "philosophyBody": "Benedict Interactive 希望软件能把自己说明白，尊重人的注意力，也留一点空间给个性。界面可以笑一笑，工程实现仍然得老老实实做好。",
@@ -1707,9 +1791,9 @@ export const content = {
     "home": {
       "metaDescription": "Benedict Interactive 用心打造的軟體：清楚、可靠、尊重隱私，也保留一點自己的個性。",
       "kicker": "獨立軟體工作室 · Benedict J.",
-      "headlineA": "讓每一天",
-      "headlineB": "再明亮一點的點子。",
-      "lead": "做真正有用的軟體，也把細節做好。清楚到值得信任，友善到讓人願意使用，而且不把簡單的事故意搞複雜。",
+      "headlineA": "為更從容的數位生活",
+      "headlineB": "做更明亮的軟體。",
+      "lead": "以人為本的軟體，讓每一天更整潔、更簡單，也更明亮。",
       "primaryCta": "認識 Bearagnostic",
       "secondaryCta": "看看我們的理念",
       "proof": [
@@ -1718,7 +1802,14 @@ export const content = {
         "用心打磨"
       ],
       "founderRole": "獨立開發者",
-      "founderNote": "工作室不大，標準可一點也不小。",
+      "founderSlogan": "更好的工具。更明亮的日子！",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "即將上線",
+        "safe": "安全且重視隱私",
+        "light": "輕巧流暢",
+        "android": "專為 Android 打造"
+      },
       "philosophyKicker": "我們的想法",
       "philosophyTitle": "科技可以很認真，但不需要一直板著臉。",
       "philosophyBody": "Benedict Interactive 希望軟體能把自己說清楚、尊重人的注意力，也留一點空間給個性。介面可以笑一笑，工程實作還是得好好做。",
@@ -1839,9 +1930,9 @@ export const content = {
     "home": {
       "metaDescription": "برمجيات مدروسة من Benedict Interactive: واضحة، موثوقة، تحترم الخصوصية، ولها شخصية من دون ضجيج.",
       "kicker": "استوديو برمجيات مستقل · Benedict J.",
-      "headlineA": "أفكار تجعل",
-      "headlineB": "كل يوم أكثر إشراقًا.",
-      "lead": "برمجيات مفيدة صُنعت بعناية. واضحة بما يكفي لتثق بها، مريحة بما يكفي لتستمتع باستخدامها، ولا تتعقّد أكثر مما يلزم.",
+      "headlineA": "برمجيات أكثر إشراقًا",
+      "headlineB": "لحياة رقمية أكثر هدوءًا.",
+      "lead": "برمجيات تتمحور حول الإنسان، ليصبح يومك الرقمي أنظف وأبسط وأكثر إشراقًا.",
       "primaryCta": "تعرّف إلى Bearagnostic",
       "secondaryCta": "اطّلع على فلسفتنا",
       "proof": [
@@ -1850,7 +1941,14 @@ export const content = {
         "مصنوع بعناية"
       ],
       "founderRole": "مطوّر مستقل",
-      "founderNote": "استوديو صغير بمعايير ليست صغيرة إطلاقًا.",
+      "founderSlogan": "أدوات أفضل. أيام أكثر إشراقًا!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "قريبًا",
+        "safe": "آمن وخاص",
+        "light": "خفيف",
+        "android": "مصمم لأندرويد"
+      },
       "philosophyKicker": "وجهة نظرنا",
       "philosophyTitle": "يمكن للتقنية أن تكون جادّة من دون أن تكون متجهّمة طوال الوقت.",
       "philosophyBody": "تصنع Benedict Interactive برمجيات تشرح نفسها، وتحترم انتباه الناس، وتترك مساحة للشخصية. لا بأس أن تبتسم الواجهة؛ أمّا الهندسة في الداخل فعليها أن تبقى منضبطة.",
@@ -1971,9 +2069,9 @@ export const content = {
     "home": {
       "metaDescription": "Benedict Interactive का सोच-समझकर बनाया गया सॉफ़्टवेयर: साफ़, भरोसेमंद, प्राइवेसी का सम्मान करने वाला और अपनी अलग पहचान के साथ।",
       "kicker": "स्वतंत्र सॉफ़्टवेयर स्टूडियो · Benedict J.",
-      "headlineA": "हर दिन को थोड़ा",
-      "headlineB": "ज़्यादा उजला बनाने वाले विचार।",
-      "lead": "काम का सॉफ़्टवेयर, बहुत ध्यान से बनाया हुआ। भरोसा करने जितना साफ़, इस्तेमाल करने में अच्छा लगने जितना दोस्ताना, और ज़रूरत से एक कदम भी ज़्यादा जटिल नहीं।",
+      "headlineA": "शांत डिजिटल ज़िंदगी के लिए",
+      "headlineB": "साफ़ और उजला सॉफ़्टवेयर।",
+      "lead": "लोगों को केंद्र में रखकर बनाया गया सॉफ़्टवेयर, ताकि हर दिन ज़्यादा साफ़, सरल और उजला लगे।",
       "primaryCta": "Bearagnostic से मिलिए",
       "secondaryCta": "हमारी सोच देखें",
       "proof": [
@@ -1982,7 +2080,14 @@ export const content = {
         "ध्यान से बनाया गया"
       ],
       "founderRole": "स्वतंत्र डेवलपर",
-      "founderNote": "स्टूडियो छोटा है। मानक बिल्कुल नहीं।",
+      "founderSlogan": "बेहतर औज़ार। ज़्यादा उजले दिन!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "जल्द आ रहा है",
+        "safe": "सुरक्षित और निजी",
+        "light": "हल्का",
+        "android": "Android के लिए बनाया गया"
+      },
       "philosophyKicker": "हमारी सोच",
       "philosophyTitle": "टेक्नोलॉजी गंभीर हो सकती है, हर समय गंभीर चेहरा बनाना ज़रूरी नहीं।",
       "philosophyBody": "Benedict Interactive ऐसा सॉफ़्टवेयर बनाता है जो खुद को समझाता है, लोगों के ध्यान का सम्मान करता है और थोड़ी-सी शख़्सियत के लिए जगह छोड़ता है। इंटरफ़ेस मुस्कुरा सकता है; इंजीनियरिंग फिर भी अनुशासित रहनी चाहिए।",
@@ -2103,9 +2208,9 @@ export const content = {
     "home": {
       "metaDescription": "Benedict Interactive’dan özenle yapılmış yazılımlar: açık, yetenekli, gizliliğe saygılı ve kendine özgü.",
       "kicker": "Bağımsız yazılım stüdyosu · Benedict J.",
-      "headlineA": "Her günü biraz daha",
-      "headlineB": "aydınlık yapan fikirler.",
-      "lead": "İşe yarayan yazılım, özenle yapılır. Güvenilecek kadar açık, kullanması keyifli olacak kadar sıcak ve gerekenden asla daha karmaşık değil.",
+      "headlineA": "Daha sakin bir dijital yaşam için",
+      "headlineB": "ferah ve özenli yazılımlar.",
+      "lead": "İnsanı merkeze alan yazılımlar; daha temiz, daha sade ve daha aydınlık bir günlük deneyim için.",
       "primaryCta": "Bearagnostic ile tanış",
       "secondaryCta": "Bakış açımızı gör",
       "proof": [
@@ -2114,7 +2219,14 @@ export const content = {
         "Özenle yapılmış"
       ],
       "founderRole": "Bağımsız geliştirici",
-      "founderNote": "Küçük bir stüdyo; standartları pek küçük sayılmaz.",
+      "founderSlogan": "Daha iyi araçlar. Daha aydınlık günler!",
+      "distribution": {
+        "uptodown": "Uptodown",
+        "soon": "yakında",
+        "safe": "Güvenli ve özel",
+        "light": "Hafif",
+        "android": "Android için"
+      },
       "philosophyKicker": "Bakış açımız",
       "philosophyTitle": "Teknoloji ciddi olabilir; ama sürekli ciddi görünmek zorunda değil.",
       "philosophyBody": "Benedict Interactive kendini açıklayan, dikkatinize saygı duyan ve kişiliğe biraz alan bırakan yazılımlar üretir. Arayüz gülümseyebilir. Mühendisliğin ise hâlâ uslu durması gerekir.",

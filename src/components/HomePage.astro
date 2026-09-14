@@ -12,32 +12,11 @@ const copy = getLocaleContent(locale);
 const home = copy.home;
 const bear = copy.bear;
 
-const heroA = locale === 'en' ? 'Bright software for' : home.headlineA;
-const heroB = locale === 'en' ? 'calmer digital lives.' : home.headlineB;
-const heroLead = locale === 'en'
-  ? 'Thoughtful, human-centered software for a cleaner, simpler, brighter everyday.'
-  : home.lead;
-const founderNote = locale === 'en' ? 'Better tools. Brighter days!' : home.founderNote;
-
-const distributionCopy: Record<LocaleCode, { uptodown: string; soon: string; safe: string; light: string; android: string }> = {
-  en: { uptodown: 'Uptodown', soon: 'coming soon', safe: 'Safe & private', light: 'Lightweight', android: 'Made for Android' },
-  th: { uptodown: 'Uptodown', soon: 'เร็วๆ นี้', safe: 'ปลอดภัยและเป็นส่วนตัว', light: 'เบาเครื่อง', android: 'สร้างมาสำหรับ Android' },
-  es: { uptodown: 'Uptodown', soon: 'próximamente', safe: 'Seguro y privado', light: 'Ligero', android: 'Hecho para Android' },
-  'pt-br': { uptodown: 'Uptodown', soon: 'em breve', safe: 'Seguro e privado', light: 'Leve', android: 'Feito para Android' },
-  fr: { uptodown: 'Uptodown', soon: 'bientôt', safe: 'Sûr et privé', light: 'Léger', android: 'Conçu pour Android' },
-  de: { uptodown: 'Uptodown', soon: 'demnächst', safe: 'Sicher & privat', light: 'Leichtgewichtig', android: 'Für Android gemacht' },
-  it: { uptodown: 'Uptodown', soon: 'presto', safe: 'Sicuro e privato', light: 'Leggero', android: 'Creato per Android' },
-  ja: { uptodown: 'Uptodown', soon: '近日公開', safe: '安全・プライベート', light: '軽快', android: 'Android向け' },
-  ko: { uptodown: 'Uptodown', soon: '곧 공개', safe: '안전하고 비공개', light: '가볍게', android: 'Android용' },
-  id: { uptodown: 'Uptodown', soon: 'segera', safe: 'Aman & privat', light: 'Ringan', android: 'Dibuat untuk Android' },
-  vi: { uptodown: 'Uptodown', soon: 'sắp có', safe: 'An toàn & riêng tư', light: 'Gọn nhẹ', android: 'Dành cho Android' },
-  'zh-cn': { uptodown: 'Uptodown', soon: '即将上线', safe: '安全且注重隐私', light: '轻巧流畅', android: '专为 Android 打造' },
-  'zh-tw': { uptodown: 'Uptodown', soon: '即將上線', safe: '安全且重視隱私', light: '輕巧流暢', android: '專為 Android 打造' },
-  ar: { uptodown: 'Uptodown', soon: 'قريبًا', safe: 'آمن وخاص', light: 'خفيف', android: 'مصمم لأندرويد' },
-  hi: { uptodown: 'Uptodown', soon: 'जल्द आ रहा है', safe: 'सुरक्षित और निजी', light: 'हल्का', android: 'Android के लिए बनाया गया' },
-  tr: { uptodown: 'Uptodown', soon: 'yakında', safe: 'Güvenli ve özel', light: 'Hafif', android: 'Android için' },
-};
-const dist = distributionCopy[locale];
+const heroA = home.headlineA;
+const heroB = home.headlineB;
+const heroLead = home.lead;
+const founderSlogan = home.founderSlogan;
+const dist = home.distribution;
 ---
 
 <SiteLayout title="Benedict Interactive" description={home.metaDescription} locale={locale}>
@@ -58,7 +37,7 @@ const dist = distributionCopy[locale];
 
       <figure class="founder-visual">
         <div class="founder-halo" aria-hidden="true"></div>
-        <div class:list={['founder-signoff', { 'founder-signoff-en': locale === 'en' }]} role="img" aria-label={`${founderNote} Benedict J.`}>
+        <div class:list={['founder-signoff', { 'founder-signoff-en': locale === 'en' }]} role="img" aria-label={`${founderSlogan} Benedict J.`}>
           {locale === 'en' ? (
             <img
               class="founder-slogan"
@@ -70,7 +49,7 @@ const dist = distributionCopy[locale];
               decoding="async"
             />
           ) : (
-            <span class="founder-note">{founderNote}</span>
+            <span class="founder-note">{founderSlogan}</span>
           )}
           <img
             class="founder-signature"
