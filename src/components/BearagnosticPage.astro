@@ -7,6 +7,26 @@ interface Props { locale: LocaleCode; }
 const { locale } = Astro.props;
 const copy = getLocaleContent(locale);
 const page = copy.bear;
+
+const featureMedia = [
+  {
+    primary: '/products/bearagnostic/app-scan-depth.webp',
+    secondary: '/products/bearagnostic/app-scan-progress.webp',
+    secondaryKind: 'detail',
+  },
+  {
+    primary: '/products/bearagnostic/app-scan-safe.webp',
+    secondary: '/products/bearagnostic/app-cleanup-categories.webp',
+    tertiary: '/products/bearagnostic/app-older-files.webp',
+    secondaryKind: 'phone',
+  },
+  {
+    primary: '/products/bearagnostic/app-tools.webp',
+    secondary: '/products/bearagnostic/app-insights.webp',
+    tertiary: '/products/bearagnostic/app-insights-trend.webp',
+    secondaryKind: 'phone',
+  },
+] as const;
 ---
 
 <SiteLayout title="Bearagnostic" description={page.metaDescription} locale={locale}>
@@ -67,14 +87,55 @@ const page = copy.bear;
       <div class="shell">
         <p class="section-label">{page.featuresKicker}</p>
         <AccentHeading as="h2" id="bear-features-title" class="bear-section-title" text={page.featuresTitle} />
-        <div class="feature-row">
-          {page.features.map((item, index) => (
-            <article>
-              <span>0{index + 1}</span>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
-          ))}
+
+        <div class="feature-stories">
+          {page.features.map((item, index) => {
+            const media = featureMedia[index];
+            return (
+              <article class="feature-story">
+                <div class="feature-story-copy">
+                  <span class="feature-number">0{index + 1}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+
+                <div class={`feature-story-visual feature-story-visual-${index + 1}`} aria-hidden="true">
+                  <figure class="product-device device-primary">
+                    <span class="device-speaker"></span>
+                    <img src={media.primary} alt="" width="691" height="1536" loading="lazy" decoding="async" />
+                  </figure>
+
+                  <figure class:list={[
+                    'device-secondary',
+                    media.secondaryKind === 'detail' ? 'product-detail' : 'product-device'
+                  ]}>
+                    {media.secondaryKind === 'phone' && <span class="device-speaker"></span>}
+                    <img
+                      src={media.secondary}
+                      alt=""
+                      width="691"
+                      height={media.secondaryKind === 'detail' ? '555' : '1536'}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+
+                  {'tertiary' in media && media.tertiary && (
+                    <figure class="product-detail device-tertiary">
+                      <img
+                        src={media.tertiary}
+                        alt=""
+                        width="691"
+                        height={index === 1 ? '1115' : '1536'}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </figure>
+                  )}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -279,7 +340,9 @@ const page = copy.bear;
   .bear-page .bear-features {
     padding-block: clamp(5.2rem, 8vw, 7.2rem);
     border-block: 1px solid rgba(12, 47, 91, 0.07);
-    background: linear-gradient(180deg, rgba(248, 252, 255, 0.82), rgba(255, 255, 255, 0.98));
+    background:
+      radial-gradient(circle at 92% 12%, rgba(83, 196, 222, 0.09), transparent 25rem),
+      linear-gradient(180deg, rgba(248, 252, 255, 0.82), rgba(255, 255, 255, 0.98));
   }
 
   :global(.bear-section-title) {
@@ -289,45 +352,195 @@ const page = copy.bear;
     letter-spacing: var(--type-heading-tracking, -0.045em);
   }
 
-  .bear-page .feature-row {
+  .feature-stories {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
-    margin-block-start: clamp(2.8rem, 5vw, 4.2rem);
-    border-block: 1px solid rgba(17, 60, 103, 0.09);
+    gap: clamp(1.5rem, 3vw, 2.3rem);
+    margin-block-start: clamp(3rem, 5vw, 4.8rem);
   }
 
-  .bear-page .feature-row article {
+  .feature-story {
+    display: grid;
+    grid-template-columns: minmax(0, 0.78fr) minmax(430px, 1.22fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    min-height: 650px;
+    padding: clamp(1.45rem, 3vw, 2.5rem);
+    overflow: hidden;
+    border: 1px solid rgba(17, 60, 103, 0.08);
+    border-radius: 38px;
+    background:
+      radial-gradient(circle at 82% 14%, rgba(43, 114, 246, 0.08), transparent 24rem),
+      rgba(255, 255, 255, 0.88);
+    box-shadow: 0 22px 64px rgba(31, 48, 72, 0.08);
+  }
+
+  .feature-story:nth-child(2) {
+    background:
+      radial-gradient(circle at 18% 18%, rgba(122, 115, 230, 0.08), transparent 23rem),
+      rgba(255, 255, 255, 0.9);
+  }
+
+  .feature-story:nth-child(3) {
+    background:
+      radial-gradient(circle at 82% 18%, rgba(72, 173, 121, 0.08), transparent 23rem),
+      rgba(255, 255, 255, 0.9);
+  }
+
+  .feature-story:nth-child(even) .feature-story-copy { order: 2; }
+  .feature-story:nth-child(even) .feature-story-visual { order: 1; }
+
+  .feature-story-copy {
     min-width: 0;
-    padding: clamp(1.6rem, 2.8vw, 2.2rem);
-    border: 0;
-    border-inline-start: 1px solid rgba(17, 60, 103, 0.09);
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
+    max-width: 490px;
   }
 
-  .bear-page .feature-row article:first-child { border-inline-start: 0; }
-
-  .bear-page .feature-row > article > span {
-    display: block;
-    color: #1688f3;
-    font-size: 0.68rem;
+  .feature-number {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    color: #176fc9;
+    border: 1px solid rgba(43, 114, 246, 0.1);
+    border-radius: 15px;
+    background: rgba(43, 114, 246, 0.07);
+    font-size: 0.76rem;
     font-weight: 850;
-    letter-spacing: 0.12em;
-    line-height: 1;
+    letter-spacing: 0.1em;
   }
 
-  .bear-page .feature-row h3 {
-    margin-block-start: 1.35rem;
-    font-size: clamp(1.28rem, 1.8vw, 1.55rem);
-    line-height: 1.15;
+  .feature-story-copy h3 {
+    margin-block-start: 1.2rem;
+    font-size: clamp(2rem, 3.3vw, 3.15rem);
+    line-height: 1.02;
   }
 
-  .bear-page .feature-row p {
-    margin-block-start: 0.7rem;
-    color: #6b7e94;
-    line-height: var(--type-body-leading, 1.7);
+  .feature-story-copy p {
+    margin-block-start: 1rem;
+    color: #667b95;
+    font-size: clamp(1rem, 1.25vw, 1.1rem);
+    line-height: var(--type-body-leading, 1.72);
+  }
+
+  .feature-story-visual {
+    position: relative;
+    min-width: 0;
+    min-height: 570px;
+    isolation: isolate;
+  }
+
+  .feature-story-visual::before {
+    position: absolute;
+    z-index: -1;
+    inset: 7% 4% 4%;
+    border-radius: 42px;
+    background:
+      radial-gradient(circle at 48% 42%, rgba(255,255,255,0.98), rgba(236,247,255,0.78) 52%, rgba(224,242,252,0.36) 74%, transparent);
+    content: "";
+  }
+
+  .product-device,
+  .product-detail {
+    position: absolute;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(22, 67, 111, 0.09);
+    background: #fff;
+    box-shadow: 0 24px 65px rgba(28, 78, 129, 0.15);
+  }
+
+  .product-device {
+    padding: 6px;
+    border-radius: 31px;
+  }
+
+  .product-device img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+  }
+
+  .product-detail {
+    border-radius: 24px;
+  }
+
+  .product-detail img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .device-speaker {
+    position: absolute;
+    z-index: 2;
+    inset-block-start: 10px;
+    inset-inline-start: 50%;
+    width: 24%;
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(20, 42, 70, 0.1);
+    transform: translateX(-50%);
+  }
+
+  .feature-story-visual-1 .device-primary {
+    inset-inline-start: 7%;
+    inset-block-start: 3%;
+    width: min(47%, 255px);
+    transform: rotate(-3.2deg);
+  }
+
+  .feature-story-visual-1 .device-secondary {
+    inset-inline-end: 3%;
+    inset-block-end: 9%;
+    width: min(63%, 365px);
+    transform: rotate(2deg);
+  }
+
+  .feature-story-visual-2 .device-primary {
+    inset-inline-start: 3%;
+    inset-block-start: 2%;
+    width: min(43%, 245px);
+    transform: rotate(-4deg);
+  }
+
+  .feature-story-visual-2 .device-secondary {
+    inset-inline-end: 4%;
+    inset-block-start: 12%;
+    width: min(42%, 235px);
+    transform: rotate(4deg);
+  }
+
+  .feature-story-visual-2 .device-tertiary {
+    z-index: 4;
+    inset-inline-start: 23%;
+    inset-block-end: 0;
+    width: min(55%, 330px);
+  }
+
+  .feature-story-visual-3 .device-primary {
+    inset-inline-start: 4%;
+    inset-block-start: 2%;
+    width: min(42%, 240px);
+    transform: rotate(-3deg);
+  }
+
+  .feature-story-visual-3 .device-secondary {
+    inset-inline-end: 4%;
+    inset-block-start: 9%;
+    width: min(42%, 235px);
+    transform: rotate(3.5deg);
+  }
+
+  .feature-story-visual-3 .device-tertiary {
+    z-index: 4;
+    inset-inline-start: 24%;
+    inset-block-end: 0;
+    width: min(53%, 320px);
+    max-height: 245px;
+  }
+
+  .feature-story-visual-3 .device-tertiary img {
+    transform: translateY(-42%);
   }
 
   .bear-page .commerce-section {
@@ -426,6 +639,11 @@ const page = copy.bear;
 
     .bear-page .bear-hero-copy { max-width: 720px; }
 
+    .feature-story {
+      grid-template-columns: minmax(0, 0.8fr) minmax(390px, 1.2fr);
+      gap: 2rem;
+    }
+
     .bear-showcase {
       width: min(100%, 740px);
       min-height: 565px;
@@ -457,19 +675,40 @@ const page = copy.bear;
       line-height: 1.05;
     }
 
-    .bear-page .feature-row {
+    .feature-story {
       grid-template-columns: 1fr;
-      border-block: 0;
+      min-height: 0;
+      gap: 1.3rem;
+      padding: 1.2rem;
+      border-radius: 29px;
     }
 
-    .bear-page .feature-row article,
-    .bear-page .feature-row article:first-child {
-      padding: 1.35rem 0;
-      border-inline-start: 0;
-      border-block-start: 1px solid rgba(17, 60, 103, 0.09);
+    .feature-story:nth-child(even) .feature-story-copy,
+    .feature-story:nth-child(even) .feature-story-visual {
+      order: initial;
     }
 
-    .bear-page .feature-row article:first-child { border-block-start: 0; }
+    .feature-story-copy { max-width: 100%; }
+
+    .feature-story-copy h3 {
+      font-size: clamp(1.75rem, 8vw, 2.55rem);
+    }
+
+    .feature-story-visual {
+      min-height: min(118vw, 520px);
+    }
+
+    .feature-story-visual-1 .device-primary { width: min(50%, 220px); }
+    .feature-story-visual-1 .device-secondary { width: min(65%, 315px); }
+
+    .feature-story-visual-2 .device-primary,
+    .feature-story-visual-3 .device-primary { width: min(45%, 210px); }
+
+    .feature-story-visual-2 .device-secondary,
+    .feature-story-visual-3 .device-secondary { width: min(44%, 205px); }
+
+    .feature-story-visual-2 .device-tertiary,
+    .feature-story-visual-3 .device-tertiary { width: min(57%, 285px); }
 
     .bear-showcase { min-height: min(112vw, 470px); }
 
