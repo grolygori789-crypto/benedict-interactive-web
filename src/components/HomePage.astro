@@ -60,7 +60,7 @@ const dist = distributionCopy[locale];
         <div class="founder-halo" aria-hidden="true"></div>
         <div class="founder-signoff" aria-label="Benedict J.">
           <span>{founderNote}</span>
-          <strong>Benedict J.</strong>
+          <img class="founder-signature" src="/brand/benedict-j-signature.svg" alt="Benedict J." width="363" height="89" loading="eager" decoding="async" />
         </div>
         <img
           src="/brand/benedict-j-final.webp"
@@ -312,10 +312,10 @@ const dist = distributionCopy[locale];
     filter: blur(25px);
   }
 
-  .founder-visual img {
+  .founder-visual > img {
     position: absolute;
-    inset-inline-end: -2%;
-    inset-block-end: 0;
+    right: -2%;
+    bottom: 0;
     width: 112%;
     max-width: none;
     height: auto;
@@ -325,30 +325,39 @@ const dist = distributionCopy[locale];
   .founder-signoff {
     position: absolute;
     z-index: 2;
-    inset-inline-start: 2%;
-    inset-block-start: 11%;
-    display: grid;
-    gap: 0.25rem;
+    left: 10%;
+    top: 14%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    width: min(36%, 325px);
     color: #208ce9;
-    transform: rotate(-5deg);
+    text-align: left;
+    transform: rotate(-4deg);
+    pointer-events: none;
   }
 
   .founder-signoff span {
-    max-width: 300px;
-    font-family: "Segoe Print", "Bradley Hand", cursive;
-    font-size: clamp(1.25rem, 2.1vw, 1.85rem);
+    max-width: 100%;
+    font-family: "Segoe Print", "Bradley Hand", "Segoe Script", cursive;
+    font-size: clamp(1.4rem, 2.15vw, 1.9rem);
     font-weight: 600;
-    line-height: var(--home-signoff-leading);
+    line-height: 1.08;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
   }
 
-  .founder-signoff strong {
-    justify-self: end;
-    margin-inline-end: 1.2rem;
-    color: #445b73;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(0.85rem, 1.35vw, 1.1rem);
-    font-style: italic;
-    font-weight: 500;
+  .founder-signature {
+    position: static;
+    display: block;
+    width: clamp(116px, 55%, 176px);
+    max-width: 58%;
+    height: auto;
+    margin-left: 1.1rem;
+    filter: none;
+    transform: rotate(-1.5deg);
+    opacity: 0.96;
   }
 
   .hero-proof {
@@ -601,8 +610,8 @@ const dist = distributionCopy[locale];
     .hero-copy { max-width: 720px; padding-bottom: 0; }
     .hero h1 { max-width: 760px; font-size: clamp(var(--home-hero-tablet-min), var(--home-hero-tablet-fluid), var(--home-hero-tablet-max)); }
     .founder-visual { min-height: 430px; }
-    .founder-visual img { width: 103%; inset-inline-end: -2%; }
-    .founder-signoff { inset-inline-start: auto; inset-inline-end: 5%; inset-block-start: 8%; }
+    .founder-visual > img { width: 103%; right: -2%; }
+    .founder-signoff { left: 10%; right: auto; top: 10%; width: min(38%, 285px); }
     .product-shell { grid-template-columns: 1fr; }
     .product-copy { max-width: 690px; }
     .device-stage { width: min(100%, 700px); margin-inline: auto; }
@@ -618,11 +627,11 @@ const dist = distributionCopy[locale];
     .hero-lead { margin-top: 0.9rem; font-size: 0.94rem; }
     .actions { margin-top: 1.1rem; }
     .button { min-height: 44px; font-size: 0.8rem; }
-    .founder-visual { min-height: 300px; margin-top: 0.6rem; }
-    .founder-visual img { width: 116%; inset-inline-end: -14%; }
-    .founder-signoff { inset-inline-end: 1%; inset-block-start: 3%; }
-    .founder-signoff span { max-width: 155px; font-size: 1.02rem; }
-    .founder-signoff strong { font-size: 0.72rem; }
+    .founder-visual { min-height: 326px; margin-top: 0.65rem; }
+    .founder-visual > img { width: 116%; right: -14%; }
+    .founder-signoff { left: 6.5%; right: auto; top: 29%; width: 47%; max-width: 190px; gap: 0.72rem; }
+    .founder-signoff span { max-width: 100%; font-size: 1.18rem; line-height: 1.06; }
+    .founder-signature { width: 118px; max-width: 70%; margin-left: 0.45rem; }
     .hero-proof { gap: 0.5rem 0.9rem; font-size: 0.67rem; }
     .product-band { padding-block: 2.7rem 3rem; }
     .product-copy h2 { font-size: clamp(2.55rem, 12vw, 3.45rem); }
@@ -659,7 +668,10 @@ const dist = distributionCopy[locale];
 
   @media (max-width: 420px) {
     .hero h1 { font-size: clamp(var(--home-hero-mobile-min), var(--home-hero-mobile-fluid), var(--home-hero-mobile-max)); }
-    .founder-visual { min-height: 270px; }
+    .founder-visual { min-height: 294px; }
+    .founder-signoff { left: 5.5%; top: 28%; width: 48%; max-width: 182px; }
+    .founder-signoff span { font-size: 1.2rem; }
+    .founder-signature { width: 110px; margin-left: 0.4rem; }
     .download-actions { grid-template-columns: 1fr; }
     .device-stage { height: min(124vw, 490px); }
     .device-scan { width: 56%; }
@@ -690,6 +702,23 @@ const dist = distributionCopy[locale];
     font-style: normal;
     font-weight: 700;
     line-height: var(--home-signoff-leading);
+  }
+
+  :global(html:not(:lang(en))) .founder-signoff span {
+    font-size: clamp(1rem, 1.75vw, 1.45rem);
+    line-height: 1.15;
+  }
+
+  @media (max-width: 680px) {
+    :global(html:not(:lang(en))) .founder-signoff {
+      width: 49%;
+      max-width: 190px;
+    }
+
+    :global(html:not(:lang(en))) .founder-signoff span {
+      font-size: 0.98rem;
+      line-height: 1.16;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
