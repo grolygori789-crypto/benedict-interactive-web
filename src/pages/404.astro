@@ -3,10 +3,44 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
 <SiteLayout title="Page not found">
-  <section class="page-hero shell error-page">
+  <section class="page-hero shell error-page premium-404">
     <p class="section-label">404</p>
-    <h1>That page wandered off.</h1>
+    <h1>That page <span>wandered off.</span></h1>
     <p>The useful part is that you’re still in the right place.</p>
     <a class="button button-primary" href="/">Back to Benedict Interactive</a>
   </section>
 </SiteLayout>
+
+<style>
+  .premium-404 {
+    min-height: 68vh;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .premium-404 h1 {
+    max-width: 12ch;
+    font-size: clamp(3.4rem, 7vw, 6.5rem);
+    line-height: 0.98;
+  }
+
+  .premium-404 h1 span {
+    color: #147cf1;
+    background: linear-gradient(105deg, #1462d1, #158bf5 58%, #43c5dd);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .premium-404 > p:not(.section-label) {
+    max-width: 560px;
+    margin-block-start: 1.2rem;
+    color: #667b95;
+  }
+
+  .premium-404 .button {
+    margin-block-start: 1.5rem;
+  }
+</style>

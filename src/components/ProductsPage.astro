@@ -15,59 +15,130 @@ if (!bearProduct) {
 ---
 
 <SiteLayout title={copy.nav.products} description={page.metaDescription} locale={locale}>
-  <section class="page-hero shell">
-    <p class="section-label">{page.kicker}</p>
-    <h1>{page.title}</h1>
-    <p>{page.lead}</p>
-  </section>
+  <div class="products-page">
+    <section class="page-hero products-page-hero shell">
+      <p class="section-label">{page.kicker}</p>
+      <h1 class="premium-tone-heading">{page.title}</h1>
+      <p>{page.lead}</p>
+    </section>
 
-  <section class="products-showcase shell" aria-label={copy.nav.products} data-product-count={productCatalog.length}>
-    <article class="product-panel product-panel-bear" data-product={bearProduct.slug}>
-      <div class="product-panel-copy">
-        <div class="product-status-row">
-          <span class="status-pill">{copy.common.inDevelopment}</span>
-          <span>{bearProduct.platform}</span>
+    <section class="products-showcase shell" aria-label={copy.nav.products} data-product-count={productCatalog.length}>
+      <article class="product-showcase bear-showcase-card" data-product={bearProduct.slug}>
+        <div class="product-showcase-copy">
+          <div class="product-status-row">
+            <span class="status-pill">{copy.common.inDevelopment}</span>
+            <span>{bearProduct.platform}</span>
+          </div>
+
+          <h2 class="bear-wordmark" aria-label="Bearagnostic">
+            <span>Bear</span><strong>agnostic</strong>
+          </h2>
+          <p class="bear-promise">{copy.home.productPromise}</p>
+          <p class="product-description">{page.bearDescription}</p>
+          <a class="button button-primary product-cta" href={localizedPath(locale, bearProduct.path)}>
+            {page.bearCta}<span aria-hidden="true">→</span>
+          </a>
         </div>
-        <p class="section-label">Bearagnostic</p>
-        <h2>{copy.home.productPromise}</h2>
-        <p>{page.bearDescription}</p>
-        <a class="button button-primary" href={localizedPath(locale, bearProduct.path)}>
-          {page.bearCta}
-        </a>
-      </div>
-      <div class="product-panel-art" aria-label="Bearagnostic">
-        <img
-          src={bearProduct.heroAsset}
-          alt={bearProduct.heroAlt}
-          width={bearProduct.heroWidth}
-          height={bearProduct.heroHeight}
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-    </article>
 
-    <article class="product-panel product-panel-lab" id="test-center">
-      <div class="lab-symbol" aria-hidden="true">
-        <img src="/brand/benedict-logo.png" alt="" width="1170" height="1780" loading="lazy" decoding="async" />
-      </div>
-      <div class="product-panel-copy">
-        <span class="status-pill status-muted">{copy.common.planned}</span>
-        <p class="section-label">{page.testKicker}</p>
-        <h2>{page.testTitle}</h2>
-        <p>{page.testDescription}</p>
-        <p class="fine-note">{page.testNote}</p>
-      </div>
-    </article>
-  </section>
+        <div class="bear-product-art" aria-label="Bearagnostic">
+          <span class="art-halo" aria-hidden="true"></span>
+          <img
+            src={bearProduct.heroAsset}
+            alt={bearProduct.heroAlt}
+            width={bearProduct.heroWidth}
+            height={bearProduct.heroHeight}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </article>
+
+      <article class="product-showcase test-center-card" id="test-center">
+        <div class="test-center-brand" aria-hidden="true">
+          <span class="test-center-glow"></span>
+          <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="product-showcase-copy test-center-copy">
+          <div class="test-center-meta">
+            <span class="status-pill status-muted">{copy.common.planned}</span>
+            <span class="section-label">{page.testKicker}</span>
+          </div>
+          <h2>{page.testTitle}</h2>
+          <p class="product-description">{page.testDescription}</p>
+          <p class="fine-note">{page.testNote}</p>
+        </div>
+      </article>
+    </section>
+  </div>
 </SiteLayout>
 
 <style>
-  .products-showcase {
-    container-type: inline-size;
+  .products-page {
+    overflow: clip;
   }
 
-  .product-panel-bear .product-status-row {
+  .products-page-hero {
+    padding-block: clamp(4.5rem, 7vw, 6.6rem) clamp(2.4rem, 4vw, 3.6rem);
+  }
+
+  .products-page-hero h1 {
+    max-width: 900px;
+    font-size: clamp(3.2rem, 5.5vw, 5.2rem);
+    line-height: 1.01;
+    letter-spacing: var(--type-heading-tracking, -0.045em);
+  }
+
+  .products-page-hero > p:last-child {
+    max-width: 660px;
+    margin-block-start: 1.15rem;
+    color: #667b95;
+    font-size: clamp(1rem, 1.35vw, 1.12rem);
+    line-height: var(--type-body-leading, 1.7);
+  }
+
+  .premium-tone-heading {
+    color: #10213a;
+    background: linear-gradient(112deg, #10213a 0%, #10213a 48%, #146fd9 73%, #35b7df 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .products-showcase {
+    display: grid;
+    gap: clamp(1.25rem, 2.2vw, 1.8rem);
+    padding-block-end: clamp(5rem, 8vw, 7rem);
+  }
+
+  .product-showcase {
+    position: relative;
+    min-width: 0;
+    border: 1px solid rgba(14, 54, 96, 0.075);
+    border-radius: clamp(28px, 3vw, 40px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 24px 70px rgba(31, 89, 147, 0.08);
+  }
+
+  .bear-showcase-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.72fr);
+    gap: clamp(2.2rem, 5vw, 5rem);
+    align-items: center;
+    min-height: 540px;
+    padding: clamp(2rem, 4.5vw, 4rem);
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 83% 28%, rgba(48, 187, 235, 0.12), transparent 25rem),
+      linear-gradient(145deg, rgba(255,255,255,.98), rgba(246,251,255,.94));
+  }
+
+  .product-showcase-copy {
+    min-width: 0;
+    max-width: 610px;
+  }
+
+  .product-status-row {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -77,41 +148,234 @@ if (!bearProduct) {
     font-weight: 680;
   }
 
-  .product-panel-art {
+  .bear-wordmark {
+    width: fit-content;
+    max-width: 100%;
+    margin-block-start: 1.15rem;
+    font-family: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+    font-size: clamp(3.15rem, 5vw, 5.1rem);
+    font-weight: 800;
+    line-height: 0.97;
+    letter-spacing: -0.06em;
+    white-space: nowrap;
+  }
+
+  .bear-wordmark span { color: #071a39; }
+  .bear-wordmark strong {
+    color: #1688f3;
+    font-weight: inherit;
+    background: linear-gradient(100deg, #176fdc, #168ef7 55%, #35bfe4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bear-promise {
+    margin-block-start: 1rem;
+    color: #1d62a6;
+    font-size: clamp(1.12rem, 1.55vw, 1.34rem);
+    font-weight: 780;
+    line-height: 1.42;
+  }
+
+  .product-description {
+    margin-block-start: 1rem;
+    color: #677b92;
+    line-height: var(--type-body-leading, 1.72);
+  }
+
+  .product-cta {
+    width: fit-content;
+    margin-block-start: 1.45rem;
+  }
+
+  .bear-product-art {
     position: relative;
+    display: grid;
+    min-width: 0;
+    min-height: 430px;
+    place-items: end center;
+    align-self: stretch;
     isolation: isolate;
   }
 
-  .product-panel-lab {
-    align-items: center;
+  .art-halo {
+    position: absolute;
+    z-index: -1;
+    inset: 12% 4% 4%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(42, 186, 241, 0.16), rgba(42, 186, 241, 0.035) 52%, transparent 72%);
   }
 
-  .product-panel-lab .lab-symbol {
-    display: grid;
-    place-items: center;
-    min-width: 0;
-    align-self: stretch;
-    padding: clamp(1.2rem, 2.4vw, 1.8rem);
-    border-radius: clamp(1.5rem, 2.4vw, 2rem);
-    background:
-      radial-gradient(circle at 18% 18%, rgba(42, 186, 241, 0.1), transparent 13rem),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(245, 249, 252, 0.96));
-    box-shadow: inset 0 0 0 1px rgba(14, 54, 96, 0.04);
-  }
-
-  .product-panel-lab .lab-symbol img {
-    width: min(100%, 260px);
+  .bear-product-art img {
+    width: min(100%, 440px);
     height: auto;
     object-fit: contain;
+    filter: drop-shadow(0 26px 34px rgba(25, 64, 107, 0.08));
   }
 
-  @container (max-width: 760px) {
-    .product-panel-lab .lab-symbol {
-      padding: 1rem;
+  .test-center-card {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
+    gap: clamp(1.8rem, 4vw, 3.6rem);
+    align-items: center;
+    min-height: 300px;
+    padding: clamp(1.8rem, 3.8vw, 3.2rem);
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 8% 50%, rgba(78, 183, 238, 0.11), transparent 18rem),
+      linear-gradient(135deg, rgba(255,255,255,.98), rgba(248,250,255,.96));
+  }
+
+  .test-center-brand {
+    position: relative;
+    display: grid;
+    min-height: 190px;
+    place-items: center;
+    isolation: isolate;
+  }
+
+  .test-center-glow {
+    position: absolute;
+    z-index: -1;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(42, 186, 241, 0.15), transparent 70%);
+    filter: blur(2px);
+  }
+
+  .test-center-brand img {
+    width: clamp(116px, 12vw, 154px);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 30px rgba(34, 96, 151, 0.11));
+  }
+
+  .test-center-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 0.9rem;
+    align-items: center;
+    margin-block-end: 0.8rem;
+  }
+
+  .test-center-meta .section-label {
+    margin: 0;
+  }
+
+  .test-center-copy h2 {
+    max-width: 720px;
+    margin: 0;
+    font-size: clamp(2.35rem, 4.2vw, 4.15rem);
+    line-height: 1.02;
+    letter-spacing: var(--type-heading-tracking, -0.04em);
+    text-wrap: balance;
+  }
+
+  .test-center-copy .fine-note {
+    max-width: 760px;
+    margin-block-start: 0.75rem;
+  }
+
+  @media (max-width: 900px) {
+    .bear-showcase-card,
+    .test-center-card {
+      grid-template-columns: 1fr;
     }
 
-    .product-panel-lab .lab-symbol img {
-      width: min(100%, 220px);
+    .bear-showcase-card {
+      gap: 1rem;
+      padding-block-end: 0;
+    }
+
+    .bear-product-art {
+      min-height: 360px;
+    }
+
+    .bear-product-art img {
+      width: min(82%, 410px);
+    }
+
+    .test-center-card {
+      grid-template-columns: 150px minmax(0, 1fr);
+    }
+
+    .test-center-brand {
+      min-height: 150px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .products-page-hero {
+      padding-block: 3.4rem 2.4rem;
+    }
+
+    .products-page-hero h1 {
+      font-size: clamp(2.65rem, 12vw, 3.7rem);
+      line-height: 1.05;
+    }
+
+    .product-showcase {
+      border-radius: 28px;
+    }
+
+    .bear-showcase-card,
+    .test-center-card {
+      padding: 1.4rem;
+    }
+
+    .bear-wordmark {
+      font-size: clamp(2.55rem, 12vw, 3.65rem);
+      letter-spacing: -0.055em;
+    }
+
+    .bear-product-art {
+      min-height: 315px;
+    }
+
+    .bear-product-art img {
+      width: min(92%, 360px);
+    }
+
+    .test-center-card {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+
+    .test-center-brand {
+      min-height: 124px;
+      justify-items: start;
+      place-items: center start;
+    }
+
+    .test-center-brand img {
+      width: 112px;
+    }
+
+    .test-center-glow {
+      inset-inline-start: -32px;
+      width: 150px;
+      height: 150px;
+    }
+
+    .test-center-copy h2 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .bear-product-art img,
+    .test-center-brand img {
+      transition: transform 260ms cubic-bezier(.2,.7,.2,1);
+    }
+
+    .bear-showcase-card:hover .bear-product-art img {
+      transform: translateY(-5px) rotate(-0.7deg);
+    }
+
+    .test-center-card:hover .test-center-brand img {
+      transform: translateY(-3px) rotate(-1.5deg);
     }
   }
 </style>
