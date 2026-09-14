@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="375.84pt" height="98.64pt" viewBox="0 0 375.84 98.64" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="326.88pt" height="92.88pt" viewBox="0 0 326.88 92.88" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-09-14T05:49:19.343476</dc:date>
+    <dc:date>2026-09-14T07:25:16.512789</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,23 +21,25 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 98.64 
-L 375.84 98.64 
-L 375.84 0 
+   <path d="M 0 92.88 
+L 326.88 92.88 
+L 326.88 0 
 L 0 0 
-L 0 98.64 
+L 0 92.88 
 z
 " style="fill: none"/>
   </g>
   <g id="axes_1">
-   <g id="patch_2">
-    <path d="M 135.504 78.48 
-C 195.408 88.2 277.776 82.368 345.168 73.62 
-" clip-path="url(#pee35d3ea9f)" style="fill: none; opacity: 0.8; stroke: #445b73; stroke-width: 1.5; stroke-linejoin: miter; stroke-linecap: round"/>
+   <g id="line2d_1">
+    <path d="M 110.88 67.68 
+L 164.16 70.56 
+L 227.52 69.12 
+L 296.64 60.48 
+" clip-path="url(#pb9b4afd46c)" style="fill: none; stroke: #445b73; stroke-opacity: 0.9; stroke-width: 5.2; stroke-linecap: round"/>
    </g>
    <g id="text_1">
     <!-- Benedict J. -->
-    <g style="fill: #445b73" transform="translate(8.208 53.369) scale(0.55 -0.55)">
+    <g style="fill: #445b73" transform="translate(10.08 51.145) scale(0.47 -0.47)">
      <defs>
       <path id="Z003-MediumItalic-42" d="M 576 6 
 C 742 6 749 6 947 0 
@@ -294,8 +296,8 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pee35d3ea9f">
-   <rect x="0.72" y="0.72" width="374.4" height="97.2"/>
+  <clipPath id="pb9b4afd46c">
+   <rect x="1.44" y="1.44" width="324" height="90"/>
   </clipPath>
  </defs>
 </svg>

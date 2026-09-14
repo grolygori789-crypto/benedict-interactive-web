@@ -26,9 +26,9 @@ export const productCatalog: readonly ProductCatalogItem[] = [
     platform: 'Android',
     status: 'development',
     heroAsset: '/products/bearagnostic/dr-bear.png',
-    heroAlt: 'Dr. Bear holding a tablet',
-    heroWidth: 1478,
-    heroHeight: 1536,
+    heroAlt: 'Dr. Bear giving a thumbs-up while holding a tablet',
+    heroWidth: 1254,
+    heroHeight: 1254,
   },
 ] as const;
 
