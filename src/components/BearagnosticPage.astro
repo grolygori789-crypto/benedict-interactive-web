@@ -203,13 +203,16 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
               decoding="async"
             />
             <div class="pro-card-footer">
-              <span class="pro-card-dot"></span>
-              <span>{commerce.lifetime}</span>
+              <span class="pro-card-plan">
+                <span class="pro-card-dot"></span>
+                <span>{commerce.lifetime}</span>
+              </span>
+              <span class="pro-card-provider">
+                <span class="pro-provider-dot"></span>
+                <span>Ko-fi</span>
+              </span>
             </div>
           </div>
-          <span class="orbit-chip orbit-chip-one">Ko-fi</span>
-          <span class="orbit-chip orbit-chip-two">AUTO</span>
-          <span class="orbit-chip orbit-chip-three">PRO</span>
         </div>
       </div>
     </section>
@@ -442,27 +445,26 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
   }
   .pro-visual-card {
     position: absolute; inset-inline-start: 50%; inset-block-start: 50%; width: min(82%, 430px); aspect-ratio: 0.78; overflow: hidden;
-    border: 1px solid rgba(47, 107, 164, 0.12); border-radius: 40px; background:
-      radial-gradient(circle at 72% 16%, rgba(255, 215, 134, 0.28), transparent 25%),
-      radial-gradient(circle at 20% 75%, rgba(70, 198, 238, 0.24), transparent 31%),
-      linear-gradient(155deg, rgba(255,255,255,0.98), rgba(242,250,255,0.95) 55%, rgba(255,248,234,0.96));
-    box-shadow: 0 34px 80px rgba(39, 89, 138, 0.17); transform: translate(-50%, -50%) rotate(1.2deg);
+    border: 1px solid rgba(47, 107, 164, 0.11); border-radius: 40px; background:
+      radial-gradient(circle at 72% 16%, rgba(255, 215, 134, 0.26), transparent 25%),
+      radial-gradient(circle at 20% 75%, rgba(70, 198, 238, 0.22), transparent 31%),
+      linear-gradient(155deg, rgba(255,255,255,0.99), rgba(242,250,255,0.96) 55%, rgba(255,248,234,0.97));
+    box-shadow: 0 30px 72px rgba(39, 89, 138, 0.15), 0 8px 24px rgba(67, 118, 164, 0.06);
+    transform: translate(-50%, -50%) rotate(0.65deg);
   }
   .pro-card-topline { position: absolute; z-index: 3; inset-block-start: 1.25rem; inset-inline: 1.35rem; display: flex; justify-content: space-between; align-items: center; color: #64809c; font-size: 0.62rem; font-weight: 850; letter-spacing: 0.13em; }
   .pro-card-badge { display: grid; min-width: 48px; min-height: 28px; place-items: center; border-radius: 999px; color: #166ebf; background: rgba(232,246,255,0.96); border: 1px solid rgba(37,126,205,0.12); }
   .pro-card-glow { position: absolute; inset: 18% 8% 18%; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.96), rgba(57, 185, 233, 0.16) 45%, transparent 72%); }
   .pro-visual-card img { position: absolute; z-index: 2; inset-inline-start: 50%; inset-block-end: 7%; width: 94%; height: auto; object-fit: contain; transform: translateX(-50%); }
-  .pro-card-footer { position: absolute; z-index: 4; inset-inline: 1.25rem; inset-block-end: 1.2rem; display: flex; align-items: center; gap: 0.48rem; color: #506f8e; font-size: 0.75rem; font-weight: 760; }
-  .pro-card-dot { width: 8px; height: 8px; border-radius: 50%; background: #31b58b; box-shadow: 0 0 0 5px rgba(49,181,139,0.1); }
-  .orbit-chip {
-    position: absolute; z-index: 6; display: grid; place-items: center; min-width: 62px; min-height: 34px; padding-inline: 0.72rem;
-    border: 1px solid rgba(34, 91, 145, 0.1); border-radius: 999px; background: rgba(255,255,255,0.91);
-    box-shadow: 0 14px 32px rgba(39, 89, 138, 0.11); color: #426787; font-size: 0.66rem; font-weight: 850; letter-spacing: 0.08em;
-    backdrop-filter: blur(9px);
+  .pro-card-footer {
+    position: absolute; z-index: 4; inset-inline: 1.25rem; inset-block-end: 1.2rem; display: flex; align-items: center;
+    justify-content: space-between; gap: 0.9rem; color: #506f8e; font-size: 0.75rem; font-weight: 760;
   }
-  .orbit-chip-one { inset-inline-start: 0; inset-block-start: 16%; color: #dc4269; }
-  .orbit-chip-two { inset-inline-end: 1%; inset-block-start: 29%; color: #128a71; }
-  .orbit-chip-three { inset-inline-start: 3%; inset-block-end: 16%; color: #316fd0; }
+  .pro-card-plan, .pro-card-provider { display: inline-flex; align-items: center; min-width: 0; }
+  .pro-card-plan { gap: 0.48rem; }
+  .pro-card-dot { width: 8px; height: 8px; flex: 0 0 auto; border-radius: 50%; background: #31b58b; box-shadow: 0 0 0 5px rgba(49,181,139,0.1); }
+  .pro-card-provider { gap: 0.38rem; color: #73869a; font-size: 0.64rem; font-weight: 760; letter-spacing: 0.055em; white-space: nowrap; }
+  .pro-provider-dot { width: 5px; height: 5px; flex: 0 0 auto; border-radius: 50%; background: #e95e7d; box-shadow: 0 0 0 3px rgba(233,94,125,0.08); }
 
   .purchase-journey {
     padding-block: clamp(5.2rem, 8vw, 7.5rem);
@@ -574,10 +576,6 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
     .pro-primary-button { min-height: 52px; }
     .pro-visual { min-height: min(118vw, 470px); }
     .pro-visual-card { width: min(82%, 350px); border-radius: 31px; }
-    .orbit-chip { min-width: 56px; min-height: 31px; font-size: 0.6rem; }
-    .orbit-chip-one { inset-inline-start: 0; inset-block-start: 13%; }
-    .orbit-chip-two { inset-inline-end: 0; inset-block-start: 28%; }
-    .orbit-chip-three { inset-inline-start: 2%; inset-block-end: 13%; }
 
     .purchase-journey { padding-block: 4.6rem; }
     .journey-heading h2 { font-size: clamp(2.35rem, 10.5vw, 3.5rem); line-height: 1.05; }
@@ -605,13 +603,13 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
     .pro-visual { min-height: 390px; }
     .pro-visual-card { width: min(84%, 320px); }
     .pro-card-topline { inset-inline: 1rem; inset-block-start: 1rem; }
-    .pro-card-footer { inset-inline: 1rem; inset-block-end: 1rem; }
+    .pro-card-footer { inset-inline: 1rem; inset-block-end: 1rem; gap: 0.65rem; }
+    .pro-card-provider { font-size: 0.6rem; }
     .pro-lifetime-pill { font-size: 0.69rem; }
   }
 
   @media (max-width: 350px) {
     .pro-visual { min-height: 350px; }
-    .orbit-chip { min-width: 50px; padding-inline: 0.55rem; }
     .payment-method-note { grid-template-columns: 1fr; }
   }
 
@@ -623,7 +621,7 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
     .bear-page .bear-phone-hero { animation: bear-phone-float 6s ease-in-out infinite; }
     .bear-character-hero img, .pro-visual-card { transition: transform 280ms ease; }
     .bear-showcase:hover .bear-character-hero img { transform: translateY(-3px); }
-    .pro-visual:hover .pro-visual-card { transform: translate(-50%, -50%) rotate(0.5deg) translateY(-3px); }
+    .pro-visual:hover .pro-visual-card { transform: translate(-50%, -50%) rotate(0.35deg) translateY(-3px); }
     .restore-link { transition: transform 180ms ease, border-color 180ms ease; }
   }
 
