@@ -142,8 +142,31 @@ const ui = getLegalUi(locale);
     const counter = document.querySelector('#message-count');
     const copyButton = document.querySelector('#copy-message');
     const status = document.querySelector('#form-status');
+    const directEmailLinks = document.querySelectorAll('a[href^="mailto:"]');
 
     const MAX_MESSAGE = 5000;
+
+    const prefersNativeMail = () => {
+      const mobileHint = navigator.userAgentData?.mobile;
+      if (typeof mobileHint === 'boolean') return mobileHint;
+      return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    };
+
+    const buildGmailComposeUrl = (subject = '', body = '') => {
+      const params = new URLSearchParams({ view: 'cm', fs: '1', to: contactEmail });
+      if (subject) params.set('su', subject);
+      if (body) params.set('body', body);
+      return `https://mail.google.com/mail/?${params.toString()}`;
+    };
+
+    const openDesktopComposer = (url) => {
+      const opened = window.open(url, '_blank');
+      if (opened) {
+        opened.opener = null;
+      } else {
+        window.location.href = url;
+      }
+    };
 
     const rawEditorText = () => (editor?.innerText || '').replace(/\n{3,}/g, '\n\n').trim();
 
@@ -241,6 +264,14 @@ const ui = getLegalUi(locale);
       });
     });
 
+    directEmailLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        if (prefersNativeMail()) return;
+        event.preventDefault();
+        openDesktopComposer(buildGmailComposeUrl());
+      });
+    });
+
     copyButton?.addEventListener('click', async () => {
       const text = prepareMessage();
       if (!text) return;
@@ -270,6 +301,12 @@ const ui = getLegalUi(locale);
       const mailSubject = `[${topic}] ${subject}`;
       const subjectOnly = `mailto:${contactEmail}?subject=${encodeURIComponent(mailSubject)}`;
       const href = `${subjectOnly}&body=${encodeURIComponent(body)}`;
+
+      if (!prefersNativeMail()) {
+        const gmailUrl = buildGmailComposeUrl(mailSubject, body);
+        openDesktopComposer(gmailUrl);
+        return;
+      }
 
       if (href.length > 7000 && navigator.clipboard) {
         navigator.clipboard.writeText(body).catch(() => undefined);
@@ -346,24 +383,25 @@ const ui = getLegalUi(locale);
   .studio-mark {
     position: relative;
     display: grid;
-    width: 150px;
-    height: 150px;
+    width: clamp(184px, 15vw, 214px);
+    height: clamp(184px, 15vw, 214px);
     place-items: center;
+    justify-self: center;
     isolation: isolate;
   }
 
   .studio-glow {
     position: absolute;
     z-index: -1;
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(36, 171, 240, 0.15), rgba(36,171,240,0.04) 48%, transparent 72%);
   }
 
   .studio-mark img {
-    width: 108px;
-    height: 108px;
+    width: clamp(136px, 10.6vw, 154px);
+    height: clamp(136px, 10.6vw, 154px);
     object-fit: contain;
     filter: drop-shadow(0 19px 28px rgba(35, 89, 139, 0.10));
   }
@@ -588,6 +626,8 @@ const ui = getLegalUi(locale);
   @media (max-width: 920px) {
     .contact-stage { grid-template-columns: 1fr; }
     .contact-studio { grid-template-columns: 145px minmax(0, 1fr); grid-template-rows: auto; gap: 1.2rem; align-items: center; }
+    .studio-mark { width: 150px; height: 150px; justify-self: start; }
+    .studio-mark img { width: 108px; height: 108px; }
     .studio-copy { align-self: center; }
   }
 

@@ -47,7 +47,7 @@ Reusable public-site responsibilities:
 - `ProductsPage.astro` — locale-aware multi-product showroom composition backed by stable product metadata.
 - `BearagnosticPage.astro` — locale-aware Bearagnostic composition, including a commerce-ready planned-state slot that can later receive live purchase UI without redesigning the surrounding page.
 - `SupportPage.astro` — locale-aware customer support composition and public tester-program preview/status.
-- `ContactPage.astro` — locale-aware Benedict Interactive contact surface and local message composer. The composer prepares a draft in the visitor's browser and hands it to the visitor's email application; it does not claim a server-side send and does not persist message content on the website.
+- `ContactPage.astro` — locale-aware Benedict Interactive contact surface and local message composer. The composer prepares a draft in the visitor's browser, opens Gmail Web Compose on desktop-class browsers to avoid unreliable protocol-handler loops, and keeps native `mailto:` handoff on mobile devices. It does not claim a server-side send and does not persist message content on the website.
 - `LegalDocumentPage.astro` — shared editorial renderer for Privacy, Terms, Software License, and Legal & Rights documents. English legal text is the current authoritative version; localized routes explicitly identify that status.
 - `ProductCard.astro` — older reusable product-card component; retain until a deliberate cleanup confirms no route needs it.
 
