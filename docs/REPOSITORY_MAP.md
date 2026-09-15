@@ -50,7 +50,7 @@ Reusable public-site responsibilities:
 - `AnalyticsClient.astro` — privacy-minded first-party interaction instrumentation. It emits only approved aggregate product events, uses no cookies/localStorage/fingerprinting, and derives product identity from the canonical product catalog.
 - `HomePage.astro` — locale-aware Home composition and responsive founder/product storytelling.
 - `ProductsPage.astro` — locale-aware multi-product showroom composition backed by stable product metadata.
-- `BearagnosticPage.astro` — locale-aware Bearagnostic composition, including a commerce-ready planned-state slot that can later receive live purchase UI without redesigning the surrounding page.
+- `BearagnosticPage.astro` — locale-aware Bearagnostic composition, including the bright responsive Upgrade to Pro presentation, staged Ko-fi purchase guidance, restore guidance, and the existing fail-closed commerce state. Live payment remains disabled until the P0 Ko-fi entitlement backend and launch gates are complete.
 - `SupportPage.astro` — locale-aware customer support composition and public tester-program preview/status.
 - `ContactPage.astro` — locale-aware Benedict Interactive contact surface and local message composer. The composer prepares a draft in the visitor's browser, opens Gmail Web Compose on desktop-class browsers to avoid unreliable protocol-handler loops, and keeps native `mailto:` handoff on mobile devices. It does not claim a server-side send and does not persist message content on the website.
 - `LegalDocumentPage.astro` — shared editorial renderer for Privacy, Terms, Software License, and Legal & Rights documents. It renders the selected locale natively, including RTL behavior through the site locale metadata; non-English pages carry a localized notice that the English version remains the authoritative reference if wording differs.
@@ -66,6 +66,7 @@ Do not put prices, payment secrets, entitlement state, user data, or mutable bac
 ## `src/i18n/`
 
 - `content.ts` — locale registry, native names, route helpers, direction metadata, and canonical transcreated product/site copy for all 16 supported locales.
+- `commerce.ts` — localized Bearagnostic purchase-guidance UI copy for all 16 supported locales, including staged Upgrade to Pro labels, the Ko-fi purchase journey, payment-method guidance, and restore messaging. It contains no price, payment secret, or mutable entitlement truth.
 - `legal.ts` — localized Contact/Legal interface labels, the authoritative English legal-document content, and locale-aware legal-document selection.
 - `legal-documents.ts` — reader-first localized legal copy for the 15 non-English supported locales. Translations preserve the English document structure and legal meaning while using natural, locale-appropriate language; the localized notice states that the English version remains the authoritative reference if wording differs.
 
