@@ -1,57 +1,219 @@
 ---
 import { site } from '../data/site';
 import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
+import { getLegalUi } from '../i18n/legal';
 
 interface Props { locale: LocaleCode; }
 const { locale } = Astro.props;
 const copy = getLocaleContent(locale);
+const legalUi = getLegalUi(locale);
 const year = new Date().getFullYear();
 const homePath = localizedPath(locale, '/');
 ---
 
 <footer class="bi-footer">
-  <div class="bi-footer-inner">
-    <div class="bi-footer-brand">
-      <a href={`${homePath}#home`} aria-label={`${site.name} home`}>
-        <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" />
-        <span><strong>BENEDICT</strong><small>INTERACTIVE</small></span>
-      </a>
-      <p>{copy.common.footerLine}</p>
+  <div class="bi-footer-shell">
+    <div class="bi-footer-main">
+      <div class="bi-footer-brand">
+        <a class="bi-footer-lockup" href={`${homePath}#home`} aria-label={`${site.name} home`}>
+          <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="lazy" decoding="async" />
+          <span><strong>BENEDICT</strong><small>INTERACTIVE</small></span>
+        </a>
+        <p>{copy.common.footerLine}</p>
+        <span class="bi-footer-tagline">{site.tagline}</span>
+      </div>
+
+      <nav class="bi-footer-column" aria-label={legalUi.explore}>
+        <strong>{legalUi.explore}</strong>
+        <a href={`${homePath}#home`}>{copy.nav.home}</a>
+        <a href={localizedPath(locale, '/products')}>{copy.nav.products}</a>
+        <a href={localizedPath(locale, '/support')}>{copy.nav.support}</a>
+        <a href={localizedPath(locale, '/contact')}>{legalUi.contact}</a>
+      </nav>
+
+      <nav class="bi-footer-column" aria-label={legalUi.legalGroup}>
+        <strong>{legalUi.legalGroup}</strong>
+        <a href={localizedPath(locale, '/privacy')}>{legalUi.privacy}</a>
+        <a href={localizedPath(locale, '/terms')}>{legalUi.terms}</a>
+        <a href={localizedPath(locale, '/license')}>{legalUi.softwareLicense}</a>
+        <a href={localizedPath(locale, '/legal')}>{legalUi.legalRights}</a>
+      </nav>
+
+      <div class="bi-footer-column bi-footer-studio">
+        <strong>{legalUi.studio}</strong>
+        <span>{site.name}</span>
+        <span>{site.location}</span>
+        <a class="bi-footer-email" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+      </div>
     </div>
-    <nav class="bi-footer-nav" aria-label={copy.nav.menu}>
-      <a href={localizedPath(locale, '/products')}>{copy.nav.products}</a>
-      <a href={`${homePath}#philosophy`}>{copy.nav.philosophy}</a>
-      <a href={localizedPath(locale, '/support')}>{copy.nav.support}</a>
-    </nav>
-    <div class="bi-footer-meta"><small>© {year} Benedict Interactive</small></div>
+
+    <div class="bi-footer-bottom">
+      <small>© {year} Benedict Interactive. {legalUi.allRightsReserved}</small>
+      <div class="bi-footer-quicklinks">
+        <a href={localizedPath(locale, '/privacy')}>{legalUi.privacy}</a>
+        <span aria-hidden="true">·</span>
+        <a href={localizedPath(locale, '/terms')}>{legalUi.terms}</a>
+      </div>
+    </div>
   </div>
 </footer>
 
 <style>
-  .bi-footer { padding:0.8rem 1rem 1.35rem; background:#f8fbff; }
-  .bi-footer-inner { display:grid; grid-template-columns:minmax(220px,1fr) auto minmax(220px,1fr); gap:1.4rem; align-items:center; width:min(1240px,100%); margin-inline:auto; padding:1.35rem 0.25rem 0.45rem; border-block-start:1px solid #dce7f0; }
-  .bi-footer-brand > a { display:inline-flex; gap:0.58rem; align-items:center; color:#10213a; text-decoration:none; }
-  .bi-footer-brand img { width:38px; height:38px; object-fit:contain; }
-  .bi-footer-brand span { display:grid; line-height:1; }
-  .bi-footer-brand strong { font-size:0.76rem; letter-spacing:0.12em; }
-  .bi-footer-brand small { margin-top:0.18rem; color:#537291; font-size:0.44rem; font-weight:740; letter-spacing:0.28em; }
+  .bi-footer {
+    padding: clamp(1.2rem, 3vw, 2.4rem) 1rem 1.25rem;
+    background:
+      radial-gradient(circle at 8% 0%, rgba(49, 173, 241, 0.08), transparent 18rem),
+      radial-gradient(circle at 94% 100%, rgba(132, 110, 236, 0.055), transparent 20rem),
+      #f8fbff;
+  }
+
+  .bi-footer-shell {
+    width: min(1240px, 100%);
+    margin-inline: auto;
+    overflow: hidden;
+    border: 1px solid rgba(34, 79, 120, 0.09);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.74);
+    box-shadow: 0 22px 60px rgba(31, 77, 119, 0.055);
+    backdrop-filter: blur(12px);
+  }
+
+  .bi-footer-main {
+    display: grid;
+    grid-template-columns: minmax(260px, 1.45fr) repeat(3, minmax(130px, 0.72fr));
+    gap: clamp(1.4rem, 3.5vw, 3.2rem);
+    align-items: start;
+    padding: clamp(1.55rem, 3.4vw, 2.65rem);
+  }
+
+  .bi-footer-lockup {
+    display: inline-flex;
+    gap: 0.68rem;
+    align-items: center;
+    width: fit-content;
+    color: #10213a;
+    text-decoration: none;
+  }
+
+  .bi-footer-lockup img { width: 44px; height: 44px; object-fit: contain; }
+  .bi-footer-lockup span { display: grid; line-height: 1; }
+  .bi-footer-lockup strong { font-size: 0.83rem; letter-spacing: 0.12em; }
+  .bi-footer-lockup small { margin-top: 0.2rem; color: #537291; font-size: 0.46rem; font-weight: 740; letter-spacing: 0.28em; }
+
   .bi-footer-brand p {
-    margin:0.45rem 0 0;
-    color:#8090a3;
+    max-width: 29rem;
+    margin: 0.78rem 0 0;
+    color: #6f8298;
     font-family: var(--font-body);
-    font-size:0.7rem;
-    line-height: var(--type-ui-leading);
+    font-size: 0.78rem;
+    line-height: 1.6;
   }
-  .bi-footer-nav { display:flex; gap:1.15rem; flex-wrap:wrap; justify-content:center; }
-  .bi-footer-nav a {
-    color:#61748a;
+
+  .bi-footer-tagline {
+    display: inline-flex;
+    margin-top: 0.62rem;
+    color: #2d7fbe;
     font-family: var(--font-body);
-    font-size:0.7rem;
-    font-weight:680;
-    line-height: var(--type-ui-leading);
-    text-decoration:none;
+    font-size: 0.68rem;
+    font-weight: 760;
+    letter-spacing: 0.01em;
   }
-  .bi-footer-nav a:hover { color:#167bd4; }
-  .bi-footer-meta { justify-self:end; color:#8b99a9; font-size:0.7rem; line-height: var(--type-ui-leading); }
-  @media (max-width:760px) { .bi-footer-inner { grid-template-columns:1fr; justify-items:start; gap:0.9rem; } .bi-footer-nav { justify-content:flex-start; gap:0.8rem 1rem; } .bi-footer-meta { justify-self:start; } }
+
+  .bi-footer-column {
+    display: grid;
+    align-content: start;
+    gap: 0.62rem;
+    min-width: 0;
+  }
+
+  .bi-footer-column > strong {
+    margin-bottom: 0.16rem;
+    color: #193755;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 820;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  .bi-footer-column a,
+  .bi-footer-column span {
+    width: fit-content;
+    max-width: 100%;
+    color: #667a90;
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    line-height: 1.45;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .bi-footer-column a:hover { color: #137fdc; }
+  .bi-footer-email { color: #2188dd !important; font-weight: 710; }
+
+  .bi-footer-bottom {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+    padding: 0.8rem clamp(1.55rem, 3.4vw, 2.65rem);
+    border-block-start: 1px solid rgba(35, 78, 118, 0.08);
+    color: #8a99aa;
+    background: rgba(248, 251, 255, 0.68);
+    font-family: var(--font-body);
+    font-size: 0.67rem;
+    line-height: 1.45;
+  }
+
+  .bi-footer-quicklinks { display: inline-flex; gap: 0.48rem; align-items: center; }
+  .bi-footer-quicklinks a { color: #71859a; text-decoration: none; }
+  .bi-footer-quicklinks a:hover { color: #167bd4; }
+
+  @media (max-width: 920px) {
+    .bi-footer-main {
+      grid-template-columns: minmax(250px, 1.4fr) repeat(2, minmax(135px, 0.8fr));
+    }
+
+    .bi-footer-studio {
+      grid-column: 2 / -1;
+      grid-template-columns: repeat(3, minmax(0, auto));
+      gap: 0.5rem 1rem;
+      align-items: center;
+    }
+
+    .bi-footer-studio > strong { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 680px) {
+    .bi-footer { padding-inline: 0.58rem; }
+    .bi-footer-shell { border-radius: 25px; }
+    .bi-footer-main {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.6rem 1rem;
+      padding: 1.35rem;
+    }
+
+    .bi-footer-brand { grid-column: 1 / -1; }
+    .bi-footer-lockup img { width: 40px; height: 40px; }
+    .bi-footer-studio {
+      grid-column: 1 / -1;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      padding-top: 0.25rem;
+    }
+
+    .bi-footer-bottom {
+      display: grid;
+      justify-content: start;
+      gap: 0.45rem;
+      padding: 0.95rem 1.35rem 1.05rem;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .bi-footer-main { grid-template-columns: 1fr; }
+    .bi-footer-brand,
+    .bi-footer-studio { grid-column: auto; }
+  }
 </style>

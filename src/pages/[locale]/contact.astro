@@ -1,0 +1,13 @@
+---
+import ContactPage from '../../components/ContactPage.astro';
+import { defaultLocale, localeCodes, type LocaleCode } from '../../i18n/content';
+
+export function getStaticPaths() {
+  return localeCodes
+    .filter((locale) => locale !== defaultLocale)
+    .map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const { locale } = Astro.props as { locale: LocaleCode };
+---
+<ContactPage locale={locale} />

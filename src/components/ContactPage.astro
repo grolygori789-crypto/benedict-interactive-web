@@ -1,0 +1,631 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import AccentHeading from './AccentHeading.astro';
+import { site } from '../data/site';
+import { localizedPath, type LocaleCode } from '../i18n/content';
+import { getLegalUi } from '../i18n/legal';
+
+interface Props { locale: LocaleCode; }
+const { locale } = Astro.props;
+const ui = getLegalUi(locale);
+---
+
+<SiteLayout title={ui.contact} description={ui.contactLead} locale={locale}>
+  <div class="contact-page">
+    <section class="contact-hero shell" aria-labelledby="contact-title">
+      <p class="section-label">{ui.contactKicker}</p>
+      <AccentHeading as="h1" id="contact-title" class="contact-title" text={ui.contactTitle} />
+      <p class="contact-lead">{ui.contactLead}</p>
+    </section>
+
+    <section class="contact-stage shell" aria-label={ui.contactKicker}>
+      <aside class="contact-card contact-studio">
+        <div class="studio-mark" aria-hidden="true">
+          <span class="studio-glow"></span>
+          <img src="/brand/benedict-mark.png" alt="" width="609" height="754" loading="eager" decoding="async" />
+        </div>
+        <div class="studio-copy">
+          <p class="studio-kicker">{ui.studio}</p>
+          <h2>Benedict Interactive</h2>
+          <p class="studio-note">{site.tagline}</p>
+
+          <dl class="contact-facts">
+            <div>
+              <dt>{ui.email}</dt>
+              <dd><a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></dd>
+            </div>
+            <div>
+              <dt>{ui.location}</dt>
+              <dd>{site.location}</dd>
+            </div>
+          </dl>
+
+          <a class="direct-email" href={`mailto:${site.contactEmail}`}>
+            {ui.directEmail}<span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </aside>
+
+      <div class="contact-card composer-card">
+        <div class="composer-head">
+          <div>
+            <p class="composer-kicker">{ui.contact}</p>
+            <h2>{ui.composerTitle}</h2>
+          </div>
+          <span class="recipient-chip"><i aria-hidden="true"></i>{site.contactEmail}</span>
+        </div>
+
+        <p class="composer-note">
+          {ui.composerNote}
+          <a href={localizedPath(locale, '/privacy')}>{ui.privacy}</a>
+        </p>
+
+        <form
+          class="contact-form"
+          id="benedict-contact-form"
+          novalidate
+          data-copy-message={ui.copyMessage}
+          data-copied={ui.copied}
+          data-link-prompt={ui.linkPrompt}
+          data-message-label={ui.message}
+        >
+          <div class="field-grid">
+            <label class="field">
+              <span>{ui.name}</span>
+              <input name="name" autocomplete="name" maxlength="100" required />
+            </label>
+
+            <label class="field">
+              <span>{ui.yourEmail}</span>
+              <input name="email" type="email" autocomplete="email" maxlength="200" required />
+            </label>
+
+            <label class="field">
+              <span>{ui.topic}</span>
+              <select name="topic" required>
+                <option value={ui.productSupport}>{ui.productSupport}</option>
+                <option value={ui.business}>{ui.business}</option>
+                <option value={ui.feedback}>{ui.feedback}</option>
+                <option value={ui.other}>{ui.other}</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>{ui.subject}</span>
+              <input name="subject" maxlength="180" required />
+            </label>
+          </div>
+
+          <div class="message-field">
+            <div class="message-label-row">
+              <span>{ui.message}</span>
+              <span class="message-count" id="message-count">0 / 5000</span>
+            </div>
+
+            <div class="editor-shell">
+              <div class="editor-toolbar" role="toolbar" aria-label={ui.message}>
+                <button type="button" data-command="bold" aria-label={ui.bold} title={ui.bold}><strong>B</strong></button>
+                <button type="button" data-command="italic" aria-label={ui.italic} title={ui.italic}><em>I</em></button>
+                <span class="toolbar-divider" aria-hidden="true"></span>
+                <button type="button" data-command="insertUnorderedList" aria-label={ui.bullets} title={ui.bullets}>•≡</button>
+                <button type="button" data-command="createLink" aria-label={ui.link} title={ui.link}>↗</button>
+              </div>
+              <div
+                class="message-editor"
+                id="message-editor"
+                role="textbox"
+                aria-multiline="true"
+                aria-required="true"
+                contenteditable="true"
+                data-placeholder={ui.message}
+              ></div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="send-button" type="submit">
+              {ui.sendViaEmail}<span aria-hidden="true">→</span>
+            </button>
+            <button class="copy-button" type="button" id="copy-message">
+              {ui.copyMessage}
+            </button>
+            <span class="form-status" id="form-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script define:vars={{ contactEmail: site.contactEmail }}>
+    const form = document.querySelector('#benedict-contact-form');
+    const editor = document.querySelector('#message-editor');
+    const counter = document.querySelector('#message-count');
+    const copyButton = document.querySelector('#copy-message');
+    const status = document.querySelector('#form-status');
+
+    const MAX_MESSAGE = 5000;
+
+    const rawEditorText = () => (editor?.innerText || '').replace(/\n{3,}/g, '\n\n').trim();
+
+    const serializeNode = (node) => {
+      if (node.nodeType === Node.TEXT_NODE) return node.textContent || '';
+      if (!(node instanceof HTMLElement)) return '';
+
+      const tag = node.tagName.toLowerCase();
+      const content = Array.from(node.childNodes).map(serializeNode).join('');
+
+      if (tag === 'br') return '\n';
+      if (tag === 'strong' || tag === 'b') return `**${content}**`;
+      if (tag === 'em' || tag === 'i') return `_${content}_`;
+      if (tag === 'li') return `• ${content.trim()}\n`;
+      if (tag === 'a') {
+        const href = node.getAttribute('href') || '';
+        return href ? `${content} (${href})` : content;
+      }
+      if (tag === 'p' || tag === 'div') return `${content}\n`;
+      return content;
+    };
+
+    const formattedEditorText = () => {
+      if (!editor) return '';
+      return Array.from(editor.childNodes)
+        .map(serializeNode)
+        .join('')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
+    };
+
+    const syncCounter = () => {
+      if (!editor || !counter) return;
+      const length = rawEditorText().length;
+      counter.textContent = `${length} / ${MAX_MESSAGE}`;
+      editor.toggleAttribute('data-over-limit', length > MAX_MESSAGE);
+      if (length <= MAX_MESSAGE) editor.removeAttribute('aria-invalid');
+    };
+
+    const prepareMessage = () => {
+      if (!(form instanceof HTMLFormElement)) return '';
+      const data = new FormData(form);
+      const name = String(data.get('name') || '').trim();
+      const email = String(data.get('email') || '').trim();
+      const topic = String(data.get('topic') || '').trim();
+      const subject = String(data.get('subject') || '').trim();
+      const message = formattedEditorText();
+
+      return [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Topic: ${topic}`,
+        `Subject: ${subject}`,
+        '',
+        'Message:',
+        message,
+        '',
+        '—',
+        'Prepared on the Benedict Interactive contact page.',
+      ].join('\n');
+    };
+
+    const validateEditor = () => {
+      if (!editor) return false;
+      const length = rawEditorText().length;
+      if (!length || length > MAX_MESSAGE) {
+        editor.setAttribute('aria-invalid', 'true');
+        editor.focus();
+        return false;
+      }
+      return true;
+    };
+
+    editor?.addEventListener('input', syncCounter);
+    syncCounter();
+
+    form?.querySelectorAll('[data-command]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLButtonElement) || !editor) return;
+        editor.focus();
+        const command = button.dataset.command;
+        if (!command) return;
+
+        if (command === 'createLink') {
+          const promptText = form?.getAttribute('data-link-prompt') || 'Enter a web address (https://…)';
+          const raw = window.prompt(promptText, 'https://');
+          if (!raw) return;
+          let url = raw.trim();
+          if (!/^https?:\/\//i.test(url)) url = `https://${url.replace(/^\/+/, '')}`;
+          document.execCommand('createLink', false, url);
+        } else {
+          document.execCommand(command, false);
+        }
+        syncCounter();
+      });
+    });
+
+    copyButton?.addEventListener('click', async () => {
+      const text = prepareMessage();
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        const copied = form?.getAttribute('data-copied') || 'Copied';
+        if (status) status.textContent = copied;
+        if (copyButton instanceof HTMLButtonElement) {
+          const original = form?.getAttribute('data-copy-message') || copyButton.textContent || '';
+          copyButton.textContent = copied;
+          window.setTimeout(() => { copyButton.textContent = original; }, 1500);
+        }
+      } catch {
+        if (status) status.textContent = contactEmail;
+      }
+    });
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!(form instanceof HTMLFormElement)) return;
+      if (!form.reportValidity() || !validateEditor()) return;
+
+      const data = new FormData(form);
+      const topic = String(data.get('topic') || '').trim();
+      const subject = String(data.get('subject') || '').trim();
+      const body = prepareMessage();
+      const mailSubject = `[${topic}] ${subject}`;
+      const subjectOnly = `mailto:${contactEmail}?subject=${encodeURIComponent(mailSubject)}`;
+      const href = `${subjectOnly}&body=${encodeURIComponent(body)}`;
+
+      if (href.length > 7000 && navigator.clipboard) {
+        navigator.clipboard.writeText(body).catch(() => undefined);
+        if (status) status.textContent = form?.getAttribute('data-copied') || 'Copied';
+        window.location.href = subjectOnly;
+        return;
+      }
+
+      window.location.href = href;
+    });
+  </script>
+</SiteLayout>
+
+<style>
+  .contact-page {
+    overflow: clip;
+    background:
+      radial-gradient(circle at 8% 8%, rgba(55, 176, 244, 0.09), transparent 22rem),
+      radial-gradient(circle at 92% 32%, rgba(139, 116, 237, 0.065), transparent 24rem);
+  }
+
+  .shell { width: min(calc(100% - clamp(2rem, 6vw, 5rem)), 1180px); margin-inline: auto; }
+
+  .contact-hero {
+    width: min(calc(100% - clamp(2rem, 6vw, 5rem)), 1040px);
+    padding-block: clamp(4.6rem, 7.5vw, 6.8rem) clamp(2.4rem, 4vw, 3.5rem);
+    text-align: center;
+  }
+
+  :global(.contact-title) {
+    max-width: 13ch;
+    margin-inline: auto;
+    font-size: clamp(3.15rem, 5.6vw, 5rem);
+    line-height: 1.01;
+    letter-spacing: var(--type-heading-tracking, -0.045em);
+    text-wrap: balance;
+  }
+
+  .contact-lead {
+    max-width: 760px;
+    margin: 1.2rem auto 0;
+    color: #647a93;
+    font-size: clamp(1rem, 1.35vw, 1.14rem);
+    line-height: var(--type-body-leading, 1.72);
+  }
+
+  .contact-stage {
+    display: grid;
+    grid-template-columns: minmax(285px, 0.72fr) minmax(0, 1.55fr);
+    gap: clamp(1rem, 2.4vw, 1.7rem);
+    align-items: stretch;
+    padding-block-end: clamp(4.5rem, 7vw, 6.7rem);
+  }
+
+  .contact-card {
+    min-width: 0;
+    border: 1px solid rgba(28, 69, 107, 0.085);
+    border-radius: clamp(29px, 3vw, 38px);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 24px 68px rgba(29, 80, 126, 0.075);
+  }
+
+  .contact-studio {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    padding: clamp(1.45rem, 3vw, 2.15rem);
+    background:
+      radial-gradient(circle at 16% 6%, rgba(40, 174, 243, 0.115), transparent 13rem),
+      linear-gradient(160deg, rgba(255,255,255,.98), rgba(246,251,255,.94));
+  }
+
+  .studio-mark {
+    position: relative;
+    display: grid;
+    width: 150px;
+    height: 150px;
+    place-items: center;
+    isolation: isolate;
+  }
+
+  .studio-glow {
+    position: absolute;
+    z-index: -1;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(36, 171, 240, 0.15), rgba(36,171,240,0.04) 48%, transparent 72%);
+  }
+
+  .studio-mark img {
+    width: 108px;
+    height: 108px;
+    object-fit: contain;
+    filter: drop-shadow(0 19px 28px rgba(35, 89, 139, 0.10));
+  }
+
+  .studio-copy { align-self: end; }
+  .studio-kicker,
+  .composer-kicker {
+    margin: 0 0 0.55rem;
+    color: #3583c5;
+    font-family: var(--font-body);
+    font-size: 0.67rem;
+    font-weight: 820;
+    letter-spacing: 0.095em;
+    text-transform: uppercase;
+  }
+
+  .studio-copy h2,
+  .composer-head h2 {
+    margin: 0;
+    color: #112640;
+    font-size: clamp(1.9rem, 2.8vw, 2.65rem);
+    line-height: 1.06;
+    letter-spacing: var(--type-heading-tracking, -0.035em);
+  }
+
+  .studio-note {
+    margin: 0.72rem 0 0;
+    color: #6e8196;
+    line-height: 1.6;
+  }
+
+  .contact-facts {
+    display: grid;
+    gap: 0.8rem;
+    margin: 1.45rem 0 0;
+  }
+
+  .contact-facts div {
+    padding: 0.92rem 1rem;
+    border: 1px solid rgba(33, 92, 143, 0.08);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.76);
+  }
+
+  .contact-facts dt {
+    color: #8a99aa;
+    font-size: 0.62rem;
+    font-weight: 760;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-facts dd {
+    margin: 0.3rem 0 0;
+    color: #274c70;
+    font-size: 0.82rem;
+    font-weight: 690;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-facts a { color: #147fd8; text-decoration: none; }
+
+  .direct-email {
+    display: inline-flex;
+    gap: 0.55rem;
+    align-items: center;
+    margin-top: 1.2rem;
+    color: #147bcf;
+    font-size: 0.78rem;
+    font-weight: 760;
+    text-decoration: none;
+  }
+
+  .composer-card { padding: clamp(1.35rem, 3vw, 2.25rem); }
+
+  .composer-head {
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  .recipient-chip {
+    display: inline-flex;
+    gap: 0.48rem;
+    align-items: center;
+    max-width: 100%;
+    padding: 0.52rem 0.7rem;
+    color: #396b96;
+    border: 1px solid #d9eaf5;
+    border-radius: 999px;
+    background: #f6fbff;
+    font-size: 0.66rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .recipient-chip i { width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: #2da8e8; box-shadow: 0 0 0 4px rgba(45,168,232,.09); }
+
+  .composer-note {
+    margin: 0.85rem 0 0;
+    color: #75879b;
+    font-size: 0.74rem;
+    line-height: 1.55;
+  }
+  .composer-note a { color: #247fc8; }
+
+  .contact-form { margin-top: 1.35rem; }
+  .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+
+  .field { display: grid; gap: 0.42rem; min-width: 0; }
+  .field > span,
+  .message-label-row > span:first-child {
+    color: #3c5b78;
+    font-size: 0.7rem;
+    font-weight: 760;
+  }
+
+  .field input,
+  .field select {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.74rem 0.9rem;
+    color: #17344f;
+    border: 1px solid #dbe7f0;
+    border-radius: 15px;
+    outline: 0;
+    background: #fbfdff;
+    font: inherit;
+    font-size: 0.88rem;
+    transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .message-editor:focus {
+    border-color: #68b9ee;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(31, 145, 224, 0.105);
+  }
+
+  .message-field { margin-top: 1rem; }
+  .message-label-row { display: flex; align-items: center; justify-content: space-between; gap: 0.7rem; margin-bottom: 0.42rem; }
+  .message-count { color: #9aa7b5; font-size: 0.62rem; }
+
+  .editor-shell {
+    overflow: hidden;
+    border: 1px solid #dbe7f0;
+    border-radius: 19px;
+    background: #fbfdff;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+  }
+
+  .editor-shell:focus-within { border-color: #68b9ee; box-shadow: 0 0 0 4px rgba(31,145,224,.105); }
+
+  .editor-toolbar {
+    display: flex;
+    gap: 0.38rem;
+    align-items: center;
+    min-height: 48px;
+    padding: 0.45rem 0.55rem;
+    border-block-end: 1px solid #e5edf4;
+    background: rgba(246,250,254,.9);
+  }
+
+  .editor-toolbar button {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    color: #456984;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    background: transparent;
+    font: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+  .editor-toolbar button:hover,
+  .editor-toolbar button:focus-visible { color: #0f70bf; border-color: #d5e8f5; background: #fff; outline: none; }
+  .toolbar-divider { width: 1px; height: 20px; margin-inline: 0.1rem; background: #dce7ef; }
+
+  .message-editor {
+    min-height: 210px;
+    max-height: 420px;
+    padding: 1rem;
+    overflow: auto;
+    color: #193752;
+    border: 0;
+    outline: 0;
+    font-size: 0.9rem;
+    line-height: 1.72;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .message-editor:empty::before { color: #a2afbc; content: attr(data-placeholder); pointer-events: none; }
+  .message-editor[aria-invalid="true"],
+  .message-editor[data-over-limit] { background: rgba(255, 244, 244, 0.65); box-shadow: inset 0 0 0 1px rgba(212, 69, 69, 0.45); }
+  .message-editor a { color: #137dce; }
+
+  .form-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; margin-top: 1.05rem; }
+  .send-button,
+  .copy-button {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.48rem;
+    padding: 0.68rem 1.05rem;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 770;
+    cursor: pointer;
+  }
+  .send-button { color: #fff; border: 0; background: linear-gradient(135deg,#087ff0,#22a8f5); box-shadow: 0 13px 30px rgba(17,129,235,.20); }
+  .copy-button { color: #286ba4; border: 1px solid #d1e3f0; background: #fff; }
+  .send-button:hover { transform: translateY(-1px); }
+  .form-status { min-height: 1.2em; color: #4a7fa8; font-size: 0.7rem; }
+
+  @media (max-width: 920px) {
+    .contact-stage { grid-template-columns: 1fr; }
+    .contact-studio { grid-template-columns: 145px minmax(0, 1fr); grid-template-rows: auto; gap: 1.2rem; align-items: center; }
+    .studio-copy { align-self: center; }
+  }
+
+  @media (max-width: 680px) {
+    .shell { width: min(calc(100% - 1.15rem), 620px); }
+    .contact-hero { padding-block: 3.4rem 2.35rem; }
+    :global(.contact-title) { max-width: 12ch; font-size: clamp(2.65rem, 11.8vw, 3.9rem); line-height: 1.045; }
+    .contact-card { border-radius: 27px; }
+    .contact-studio { grid-template-columns: 112px minmax(0, 1fr); gap: 0.95rem; padding: 1.25rem; }
+    .studio-mark { width: 106px; height: 118px; }
+    .studio-glow { width: 118px; height: 118px; }
+    .studio-mark img { width: 82px; height: 82px; }
+    .studio-copy h2, .composer-head h2 { font-size: clamp(1.72rem, 7vw, 2.2rem); }
+    .contact-facts { grid-template-columns: 1fr; gap: 0.55rem; }
+    .composer-card { padding: 1.2rem; }
+    .composer-head { display: grid; }
+    .recipient-chip { width: fit-content; }
+    .field-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+    .message-editor { min-height: 190px; }
+    .form-actions { display: grid; grid-template-columns: 1fr 1fr; }
+    .form-status { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 430px) {
+    .contact-studio { grid-template-columns: 1fr; }
+    .studio-mark { width: 100px; height: 100px; }
+    .studio-copy { width: 100%; }
+    .contact-facts div { padding: 0.82rem 0.88rem; }
+    .editor-toolbar { overflow-x: auto; }
+    .editor-toolbar button { width: 42px; height: 42px; flex: 0 0 auto; }
+    .form-actions { grid-template-columns: 1fr; }
+    .send-button, .copy-button { width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .field input,
+    .field select,
+    .editor-shell,
+    .send-button { transition: none; }
+  }
+</style>
