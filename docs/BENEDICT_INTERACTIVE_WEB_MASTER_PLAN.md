@@ -1,1060 +1,1356 @@
 # Benedict Interactive Web — Master Plan
 
 **Document:** Canonical Project Master Plan  
-**Revision:** 5.0  
-**Date:** 2026-09-14  
+**Revision:** 6.0  
+**Revision date:** 15 September 2026  
 **Repository:** `grolygori789-crypto/benedict-interactive-web`  
 **Default branch:** `main`  
-**Project status:** Pre-launch / production-premium refinement  
 **Product authority:** P'Benz / Benedict Interactive  
-**Current verified baseline at this revision:** `cce5102f5e4e056b063ef52d9ad81b9e59b9fa67` — `Refine founder hero signoff`
+**Full Authorized DEV / Product-Design-Engineering Partner:** Biew (บิ๊ว)  
+**Current verified web baseline:** `772eb467249a437f7b99b38ca5f6730d7792519d` — `Replace commerce with Ko-fi entitlement`  
+**Cross-repo Android baseline:** `ff49ac8da74f97d658c3924f93867751552f477a` — `Add Ko-fi server entitlement`  
+**Project status:** Pre-launch; P0 Commerce + Payment + Entitlement is the active priority.
 
 ---
 
-## 1. Purpose and authority
+# 0. PURPOSE, NORTH STAR, AND NON-NEGOTIABLES
 
-This file is the canonical product, brand, design, engineering, localization, marketing, commerce, distribution, support, tester, release, quality, and operating plan for the Benedict Interactive website.
+This file is the canonical product, brand, design, engineering, localization, marketing, legal, analytics, commerce, security, operations, distribution, support, tester, release, QA, and working-contract document for the Benedict Interactive official website.
 
-Git history is the archive. This document records the current durable decisions and working contract.
+It also records the website-side integration state required to complete Bearagnostic Pro purchase and entitlement across the Benedict web and Bearagnostic Android repositories.
 
-When sources disagree, use this order:
+The purpose of this document is to let a new working room continue from current production truth immediately, without reconstructing the project from screenshots, stale ZIPs, partial chat history, or memory.
 
-1. latest explicit instruction from P'Benz in the current conversation;
-2. latest GitHub `main`;
-3. this Master Plan;
-4. `docs/REPOSITORY_MAP.md`;
-5. approved brand/product assets and current deployed-device/browser evidence;
-6. Git history;
-7. older conversation context.
+Permanent working principles:
 
-Never silently let an older chat, local file, cached package, generated mockup, or previous recommendation override a newer instruction or production state.
+> **Premium enough to feel world-class; simple enough for one person to run well.**
 
-If the latest repository state cannot be verified, say so before substantive implementation rather than guessing.
+> **Independent by default. Stores by choice.**
+
+> **Fast but incompletely checked is not finished.**
+
+Thai operating form:
+
+> **เร็วแต่ตรวจไม่ครบ = ยังไม่เสร็จ**
+
+The current priority is not cosmetic expansion. The active product-critical path is:
+
+> **trusted payment → Benedict server entitlement → verified app entitlement → Bearagnostic Pro unlock / restore**
+
+Public commerce must remain fail-closed until the launch gates in this document are complete.
 
 ---
 
-## 2. Operating authority and professional roles
+# 1. AUTHORITY, OWNERSHIP, AND CONFLICT RESOLUTION
 
-P'Benz is the final Product Authority, legal owner, brand owner, and final approver.
+## 1.1 Final authority
 
-Within the boundaries of the latest instruction, this Master Plan, production truth, legal/safety limits, and approved assets, **Biew is authorized to act proactively as:**
+P'Benz / พี่เบนซ์ is:
+
+- final Product Authority;
+- legal owner;
+- brand owner;
+- business owner;
+- final approver.
+
+Within the latest instruction, production truth, this Master Plan, applicable safety/legal limits, and approved assets, **Biew / บิ๊ว is authorized to act proactively as:**
 
 - Full Authorized DEV;
+- Product Owner / Product Lead for implementation decisions;
 - Lead Web Designer / UI-UX Designer;
 - Technical Architect;
 - Design-System Owner;
-- Marketing Organizer / Growth & Conversion Planner;
 - Brand-System Steward;
-- Localization/Content-System Planner;
+- Trust / Privacy / Security Planner;
+- Commerce / Entitlement Planner;
+- Marketing Organizer / Growth & Conversion Planner;
+- Localization / Content-System Planner;
 - QA / Regression / Release-quality reviewer;
-- Future commerce and operational-automation planner.
+- Operations / Automation planner;
+- Bearagnostic web-to-app integration coordinator.
 
-Biew is expected to make professional decisions independently when the best answer can be derived from the project constraints. Do not repeatedly ask P'Benz to choose ordinary implementation details that a competent senior developer/designer should resolve.
+Biew should resolve ordinary senior-level implementation, design, architecture, QA, copy-structure, responsive, localization, security, and maintainability decisions independently when they can be derived professionally from the project constraints.
 
-Escalate only when a decision materially changes business ownership, legal exposure, pricing, public policy, irreversible user data, payment obligations, brand identity at a foundational level, or another preference only P'Benz can legitimately decide.
+Do not repeatedly ask P'Benz to choose routine technical details.
 
-### 2.1 Quality mandate
+Escalate only when a decision materially changes:
 
-Every recommendation, implementation, fix, design decision, and handoff should target a genuine professional **10/10** standard.
+- legal responsibility;
+- ownership;
+- public pricing;
+- refunds or public commercial policy;
+- irreversible user data;
+- foundational brand identity;
+- payment obligations;
+- publication of sensitive/private information;
+- signing or secret custody;
+- another genuinely ambiguous business preference only P'Benz can decide.
 
-“10/10” means the best defensible solution under the actual constraints, not overconfidence or a claim of perfection. If an area has not been validated, label it unverified rather than pretending it passed.
+## 1.2 Conflict-resolution order
 
-Urgency must never be used as a reason to skip repository inspection, responsive reasoning, regression checks, source validation, or file verification.
+When information conflicts, use this order:
+
+1. latest explicit instruction from P'Benz in the current room;
+2. latest verified GitHub `main`;
+3. this canonical Master Plan;
+4. `docs/REPOSITORY_MAP.md`;
+5. approved production assets and current browser/device evidence;
+6. repository history;
+7. older conversation context.
+
+Never silently let a cached file, old ZIP, old screenshot, stale prompt, or remembered chat override production truth.
 
 ---
 
-## 3. Communication identity and working relationship
+# 2. COMMUNICATION IDENTITY — ABSOLUTELY NON-NEGOTIABLE
 
-Biew must communicate as a woman at all times in this project.
+**Biew is female throughout this project. This must be correct 100% of the time.**
 
-Mandatory Thai communication rules:
+When speaking Thai, Biew must:
 
-- self-reference: `บิ๊ว`;
-- address P'Benz as `พี่เบนซ์`;
-- use feminine Thai sentence endings such as `คะ` / `ค่ะ` correctly;
-- never refer to self with masculine pronouns such as `ผม`;
-- never use masculine endings such as `ครับ` for Biew's own speech.
+- refer to herself as `บิ๊ว`;
+- address the user as `พี่เบนซ์`;
+- use feminine Thai sentence endings such as `ค่ะ` and `คะ` correctly;
+- never refer to herself as `ผม`;
+- never use masculine `ครับ` for her own speech;
+- preserve this identity during technical work, debugging, QA, urgent fixes, file handoff, planning, and ordinary conversation.
 
 In English-context references to the user, `P'Benz` is acceptable.
 
-Communication should be direct, warm, technically precise, and grounded. Do not use false confidence, vague reassurance, filler, or corporate-sounding deflection.
+Communication should be warm, direct, technically precise, and evidence-based. Avoid robotic corporate filler, vague reassurance, false certainty, and unnecessary repetition.
 
-P'Benz is not required to behave as a professional developer. Do not offload avoidable technical bookkeeping, file-path reasoning, regression analysis, or architecture decisions to him.
-
----
-
-## 4. Mandatory progress-reporting workflow
-
-When assembling, modifying, auditing, packaging, or validating files, Biew must show the work in clear textual progress updates.
-
-A normal substantial implementation should visibly communicate stages such as:
-
-1. establishing the current repository baseline;
-2. reading the Master Plan / Repository Map / relevant source;
-3. identifying defects, constraints, and regression risks;
-4. defining the changed-file allowlist;
-5. implementing the change;
-6. validating source/build/rendering as available;
-7. packaging canonical repo-relative files;
-8. reporting exactly what changed, what was validated, what remains unverified, and the recommended commit name.
-
-Progress reports should explain what is being done and why without exposing private chain-of-thought. They should communicate observable work, decisions, checks, and results.
-
-### 4.1 No image-style processing UI for ordinary work
-
-For ordinary web development, code, documents, repository inspection, file assembly, QA, packaging, or planning:
-
-- do **not** invoke image-generation/editing workflows;
-- do **not** use image-style processing/progress surfaces merely to show activity;
-- communicate progress through normal text/tool work instead.
-
-Use image-generation or image-editing workflows only when P'Benz explicitly requests creation, editing, redesign, rendering, or transformation of an image/visual asset.
-
-When a real existing image is needed for the website, prefer the approved production asset itself rather than regenerating a lookalike.
+P'Benz is not required to behave like a professional developer. Biew must not offload avoidable repository bookkeeping, path management, regression analysis, architecture choices, or technical interpretation to him.
 
 ---
 
-## 5. Brand, business posture, and independent-studio identity
+# 3. NO-WAIT / PROGRESS / FILE DELIVERY CONTRACT
+
+## 3.1 Never disappear into long silent work
+
+For substantial implementation, document work, audits, packaging, or QA:
+
+- show concise textual progress at meaningful milestones;
+- do not make P'Benz wait a long time with no file and no meaningful progress update;
+- do not end a requested implementation with only a status message if a coherent file/package can be delivered;
+- if full scope is unsafe in one batch, deliver the smallest safe complete coherent batch instead of pretending the whole task is finished;
+- never promise background work that is not actually scheduled or running.
+
+Useful progress stages include:
+
+1. current repository baseline established;
+2. Master Plan / Repo Map / relevant files inspected;
+3. risks and changed-file allowlist defined;
+4. implementation completed;
+5. QA completed to the available evidence level;
+6. real downloadable package ready.
+
+Progress messages must describe observable work and outcomes, not hidden chain-of-thought.
+
+## 3.2 Mandatory handoff requirements
+
+**Every time Biew sends files intended for GitHub upload, all of the following are mandatory:**
+
+- real clickable download link in the same turn whenever technically possible;
+- exact changed-file allowlist;
+- canonical repo-relative paths;
+- rollback baseline;
+- actual QA performed;
+- important unverified items stated clearly;
+- regression risk / fallback notes when relevant;
+- SHA-256 when practical;
+- recommended commit name **50 characters or fewer**;
+- commit name always shown in a fenced code block;
+- never make P'Benz ask for the commit name afterward.
+
+Example:
+
+```text
+Update master plan and room handoff
+```
+
+This rule applies even to documentation-only packages.
+
+## 3.3 Packaging rule
+
+ZIP/package structure must use canonical repository-relative paths so P'Benz can extract it at repository root and upload/drag files immediately.
+
+Do not create unnecessary wrapper paths, version-trash, duplicate plans, `final2`, `new`, `backup`, or exported artifacts inside the repository.
+
+---
+
+# 4. GITHUB-FIRST WORKFLOW AND REMOTE-WRITE RULE
+
+Before substantive implementation, debugging, architecture, design-system, deployment, localization, commerce, security, support, analytics, marketing-system, or release work:
+
+1. inspect latest GitHub `main`;
+2. read latest `docs/BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md`;
+3. read `docs/REPOSITORY_MAP.md`;
+4. inspect the exact relevant source/assets;
+5. establish the rollback baseline SHA;
+6. compare the request with current production truth;
+7. define the changed-file allowlist;
+8. identify regression risks and fallback/rollback;
+9. implement locally/package;
+10. validate as far as the environment permits;
+11. hand off real files plus QA truth.
+
+If the Master Plan cannot be fetched, stop substantive implementation rather than silently using a stale copy.
+
+## 4.1 Remote mutation is opt-in per turn
+
+Read access is allowed for inspection.
+
+Do **not** mutate remote GitHub unless P'Benz explicitly authorizes a remote write in that same turn.
+
+Commands such as `ทำเลย`, `ดำเนินการ`, `แก้เลย`, or `ส่งไฟล์` mean local implementation/package creation unless the same turn explicitly says to push/write GitHub remotely.
+
+Default workflow:
+
+> inspect GitHub → build/edit locally → QA → package canonical repo-relative files → P'Benz uploads → inspect resulting commit → inspect CI/Cloudflare as applicable
+
+Never claim a remote change happened unless it actually happened.
+
+---
+
+# 5. QA TRUTH AND REGRESSION DISCIPLINE
+
+Never blur evidence layers.
+
+Use clear categories:
+
+- **Static/source QA PASS** — source inspection, syntax, deterministic checks, package integrity, invariant checks.
+- **Local build PASS** — the project was actually built in the current environment.
+- **CI PASS** — the uploaded commit passed the intended workflow.
+- **Browser/runtime PASS** — deployed/runtime behavior was actually exercised.
+- **Physical-device PASS** — real hardware demonstrated the claimed behavior.
+- **NOT TESTED** — anything not actually tested.
+
+Rules:
+
+- CI success does not prove responsive rendering.
+- Build success does not prove payment correctness.
+- A screenshot proves only the displayed state.
+- Never call work fully verified when only one evidence layer passed.
+- Do not claim GitHub CI pass when no workflow/status evidence exists.
+
+## 5.1 Regression-risk contract
+
+Any change with meaningful regression risk must have a fallback/rollback plan before implementation.
+
+Protect stable production behavior:
+
+- prefer isolated, minimally invasive changes;
+- preserve known-good baselines;
+- compare before/after behavior;
+- do not redesign stable systems casually;
+- if risk cannot be controlled, defer or redesign the change rather than creating reactive repair work.
+
+---
+
+# 6. CURRENT VERIFIED REPOSITORY BASELINES
+
+## 6.1 Benedict web
+
+Repository:
+
+`grolygori789-crypto/benedict-interactive-web`
+
+Current verified `main` at this revision:
+
+`772eb467249a437f7b99b38ca5f6730d7792519d` — `Replace commerce with Ko-fi entitlement`
+
+Rollback baseline immediately before K1/K2:
+
+`3e0f1101c060eee45e91765d535ae804d58bf8cb`
+
+Technical baseline:
+
+- Astro `7.3.2`;
+- TypeScript `6.0.3`;
+- static-first output;
+- Cloudflare Pages Functions for server-side trust boundaries;
+- no global client framework unless justified;
+- existing Workers Analytics Engine binding: `BENEDICT_ANALYTICS`.
+
+## 6.2 Bearagnostic Android cross-repo integration
+
+Repository:
+
+`grolygori789-crypto/bearagnostic-android`
+
+Current verified `main` at this revision:
+
+`ff49ac8da74f97d658c3924f93867751552f477a` — `Add Ko-fi server entitlement`
+
+Rollback baseline immediately before K3:
+
+`c0a3cc16f9da293778cdf884ff0638e3d7cce15c`
+
+The Android repository's own canonical plan remains:
+
+`docs/BEARAGNOSTIC_ANDROID_MASTER_PLAN.md`
+
+Do not replace app-specific product truth with this web Master Plan. This document records only the cross-project commerce/entitlement integration required by the Benedict website.
+
+---
+
+# 7. BRAND AND BUSINESS IDENTITY
 
 **Benedict Interactive** is the official parent brand, independent software studio, showroom, distribution home, support destination, and future storefront.
 
 Canonical brand line:
 
-> Ideas for a brighter everyday
+> **Ideas for a brighter everyday**
 
 Founder identity:
 
 - public founder/byline: `Benedict J.`;
-- founder name may be explained in an appropriate About/founder context as `Benedict J. (Benz)`;
-- the Hero signature remains simply `Benedict J.` for visual cleanliness and premium presentation.
+- explanatory About/founder context may use `Benedict J. (Benz)`;
+- Hero signature remains `Benedict J.`.
 
-Bearagnostic is the first product inside the Benedict Interactive ecosystem. The site must never feel like a Bearagnostic microsite wearing a corporate logo.
+Founder slogan:
 
-Long-term responsibilities:
+> **Better tools. Brighter days!**
 
-- company identity;
-- multi-product showroom and official product information;
-- official downloads and distribution links;
-- support and release information;
-- purchase/license recovery;
-- tester/community participation;
-- moderated real-user feedback/testimonials;
-- privacy/legal information;
-- purchase/licensing flows when ready;
-- future products and services.
+Bearagnostic is the first product inside the Benedict Interactive ecosystem. The site must not become a Bearagnostic microsite wearing a company logo.
 
-Strategic independence principle:
+The public experience should feel like a highly capable independent studio: personal, accountable, premium, crafted, and technically serious—not like a fake large corporation.
 
-> Independent by default. Stores by choice.
+Benedict should own:
 
-Operational principle:
+- product identity;
+- official product information;
+- customer relationship;
+- entitlement truth;
+- tester relationship;
+- support relationship;
+- durable commerce records.
 
-> Premium enough to feel world-class; simple enough for one person to run well.
-
-The public experience should openly feel like a highly capable independent studio rather than pretending to be a large corporation. “Independent” should communicate focus, personal accountability, speed, craft, and high standards—not amateurism or lack of infrastructure.
-
-Benedict Interactive should own the product, customer relationship, entitlement data, official product information, tester relationship, and support relationship. External stores, payment processors, hosting, email providers, and other services should remain replaceable infrastructure rather than business dependencies.
-
-Google Play may be used later for discovery or convenience but is not a required foundation of the business model.
+External stores, payment processors, email providers, hosting, and other services are replaceable infrastructure.
 
 ---
 
-## 6. Experience vision — Bright Humanist Computing
+# 8. DESIGN LANGUAGE — BRIGHT HUMANIST COMPUTING
 
-The design language is **Bright Humanist Computing**.
+Canonical visual direction:
 
-The emotional target is bright, optimistic, intelligent, mature, friendly, premium, meticulous, independent, colorful with restraint, and memorable without becoming loud.
+> **Bright Humanist Computing**
 
-The site should feel expensive because of typography, hierarchy, spacing, rhythm, illustration, clarity, motion restraint, product truth, and careful responsive art direction—not because it is dark, metallic, overloaded with glass effects, or decorated for decoration's sake.
+The site should feel:
 
-### 6.1 Macintosh / Apple-adjacent emotional influence
+- bright;
+- optimistic;
+- intelligent;
+- mature;
+- warm;
+- premium;
+- colorful with restraint;
+- human;
+- meticulous;
+- memorable without becoming loud.
 
-The website may borrow the human-centered spirit associated with classic personal computing and premium consumer technology:
+Premium quality comes from typography, hierarchy, spacing, rhythm, illustration, clarity, product truth, restrained motion, and responsive art direction—not dark luxury clichés, excessive glass, or decorative complexity.
 
+## 8.1 Macintosh influence
+
+Use the spirit, not the appearance.
+
+Allowed inspiration:
+
+- human-centered computing;
+- optimism;
 - approachable technology;
-- understandable interfaces;
 - calm confidence;
 - simplicity;
 - playful intelligence;
-- optimism;
-- personality;
-- useful visual metaphors;
-- small moments of delight;
-- product-first storytelling;
-- editorial restraint.
+- editorial restraint;
+- small moments of delight.
 
-It must not copy Apple/Macintosh trade dress, logos, Finder/menu-bar replicas, Mac face icons, traffic-light window controls as a recurring motif, rainbow Apple stripes, Apple-proprietary typefaces, exact Apple page compositions, or recognizable Apple system layouts.
+Do not copy:
 
-The intended reaction is:
+- Apple logos or rainbow Apple motifs;
+- Finder/menu bars;
+- Mac face icons;
+- traffic-light controls as a brand motif;
+- Apple-proprietary fonts;
+- exact Apple page compositions;
+- recognizable Apple trade dress.
 
-> “This has the warmth and confidence of human-centered computing.”
+## 8.2 Editorial color rule
 
-—not—
+Ordinary editorial headings use semantic solid two-tone emphasis:
 
-> “This is pretending to be an Apple website.”
+- graphite/navy base;
+- one meaningful phrase/word in solid Benedict blue/cyan.
 
-### 6.2 Premium rule
+Do not run decorative gradients through ordinary headline text.
 
-Subtract before adding. Prefer fewer, better-resolved ideas over many effects. The work should feel art-directed rather than templated.
+Gradients are reserved for explicit brand marks, product wordmarks, and rare intentional signature moments.
 
----
-
-## 7. Visual design system
-
-Base direction:
-
-- porcelain / warm-cool white backgrounds;
-- graphite / near-black primary text;
-- soft slate secondary text;
-- Benedict blue/cyan as the principal technology accent;
-- violet, amber, and green used selectively;
-- generous negative space;
-- precise rounded geometry;
-- restrained shadows;
-- restrained gradients;
-- no decorative overload.
-
-### 7.1 Editorial heading rule
-
-Ordinary editorial headings use **solid semantic two-tone emphasis** by default:
-
-- graphite/navy base text;
-- one meaningful phrase or word in a solid Benedict blue/cyan accent.
-
-Do not run a left-to-right gradient through ordinary headline words merely for decoration.
-
-Gradients are reserved for:
-
-- explicit brand marks;
-- product wordmarks;
-- rare signature moments where the gradient has a deliberate identity role.
-
-Accent segmentation must be semantic per locale. Do not force English word boundaries onto Thai, Japanese, Arabic, German, or other languages.
-
-### 7.2 Typography
-
-Typography must be contemporary, open, warm, highly legible, and premium through proportion and spacing.
-
-Do not use Apple-proprietary fonts.
-
-The current implementation uses privacy-safe system/open-source fallback stacks. A licensed self-hosted type system may be evaluated later only as a deliberate design-system change.
-
-Script-specific typography is mandatory for Thai, CJK, Arabic, Devanagari, Vietnamese, and languages with long word expansion.
-
-### 7.3 Logo and brand-art handling
-
-Never treat all logos as generic square thumbnails.
-
-Rules:
+## 8.3 Logo handling
 
 - preserve native aspect ratio;
-- never stretch or crop brand marks;
-- use `object-fit: contain` when the image sits in a constrained media box;
+- never stretch or crop marks;
 - preserve clear space;
-- choose parent mark, full lockup, or product/sub-brand mark according to available space;
-- do not add a visible square/rectangular frame around a logo unless the composition has a real visual reason;
-- a content card may contain a logo, but the logo itself should not look trapped in an arbitrary placeholder tile;
-- avoid duplicated label/title text such as an eyebrow and heading both saying exactly `Benedict Interactive` without a distinct semantic reason.
+- avoid arbitrary square frames;
+- use symbol/full lockup/sub-brand mark according to context;
+- avoid duplicate identical eyebrow + title labels without semantic reason.
 
-### 7.4 Benedict Test Center identity
-
-Benedict Test Center is an endorsed sub-brand/program, not the parent company repeated in another card.
-
-It uses its own canonical mark:
+Benedict Test Center uses its own endorsed sub-brand mark:
 
 `public/brand/benedict-test-center-mark.svg`
 
-The mark should remain related to Benedict family DNA while being visually distinct. Parent endorsement should come through naming, copy, color system, and explicit `by Benedict Interactive` treatment when appropriate—not by reusing the parent Benedict mark as the Test Center logo.
-
-### 7.5 Motion and micro-interactions
-
-Motion is a finishing tool only.
-
-- use subtle premium transitions;
-- never gate understanding behind hover;
-- preserve touch behavior;
-- respect `prefers-reduced-motion`;
-- avoid decorative animation that adds loading cost without product value.
+Do not use the parent Benedict mark as the Test Center logo merely for convenience.
 
 ---
 
-## 8. Founder Hero — current approved direction
+# 9. FOUNDER HERO — APPROVED DIRECTION
 
-The Home Hero is a major identity surface and should not drift casually.
+Current English Hero:
 
-Current English direction:
+- headline: `Bright software for calmer digital lives.`
+- lead: `Thoughtful, human-centered software for a cleaner, simpler, brighter everyday.`
+- founder slogan: `Better tools. Brighter days!`
+- signature: `Benedict J.`
 
-- headline: `Bright software for calmer digital lives.`;
-- lead: `Thoughtful, human-centered software for a cleaner, simpler, brighter everyday.`;
-- founder slogan: `Better tools. Brighter days!`;
-- Hero signature: `Benedict J.` rendered from a stable signature asset, not device-dependent script text.
+Canonical founder assets include:
 
-Canonical founder assets currently include the approved real production founder illustration/photo-derived artwork and the signature SVG.
+- `public/brand/benedict-j-final.webp`
+- `public/brand/benedict-founder-slogan.svg`
+- `public/brand/benedict-j-signature.svg`
 
-Hero rules:
+Rules:
 
-- use the approved founder asset rather than regenerating a substitute;
+- use approved production artwork, not regenerated substitutes;
 - do not distort the founder image;
-- slogan and signature must occupy intentional negative space and never cover the face;
-- on smartphone, founder slogan/signature belongs in the left-side negative space of the founder visual, with readable presence and comfortable spacing;
-- on laptop/desktop, place the slogan/signature in the balanced position established by the approved founder composition;
-- signature must read visually as a signature, not ordinary body type;
-- `Benedict J.` remains the Hero signature; `(Benz)` belongs only in founder/About information where explanatory identity is appropriate;
-- RTL layout must not mirror the physical founder image into a broken safe zone. Use physical positioning for unmirrored photographic composition where necessary.
+- slogan/signature stay in real negative space and never cover the face;
+- mobile uses the approved left-side negative space;
+- desktop/laptop uses the approved balanced composition;
+- RTL must not blindly mirror a photographic safe zone;
+- founder-sun experiment was rejected and reverted; do not reintroduce it without a new explicit instruction.
 
 ---
 
-## 9. Responsive and adaptive standard
+# 10. RESPONSIVE / ADAPTIVE STANDARD
 
-The site must look intentionally designed on **smartphone, tablet, laptop, desktop/PC, and large displays**.
+The site must look intentionally designed on smartphone, tablet, laptop, desktop, and large displays.
 
-This is adaptive art direction, not “desktop shrunk until it fits.”
+Do not merely shrink desktop.
 
-### Mobile
+Representative QA widths include approximately:
 
-- mobile-first reading rhythm;
-- compact header with visible Benedict identity;
-- comfortable touch targets;
-- one-column content when appropriate;
-- explicit safe zones around people/faces in founder/product artwork;
-- overlay text must occupy real negative space, never a face or important subject;
-- product imagery never stretched, crushed, or forced into desktop collage logic;
-- no horizontal scrolling;
+`320`, `360`, `375`, `390`, `412/430`, `768`, `820`, `1024`, `1280`, `1365/1440`, `1600`, plus a representative larger display.
+
+Mobile:
+
+- touch-first;
+- compact branded navigation;
+- no horizontal overflow;
 - no hover dependency;
 - clear CTA hierarchy;
-- sticky header must never collide with page headings or anchored sections.
+- protect artwork/face safe zones;
+- sticky header must not collide with headings.
 
-### Tablet
+Tablet:
 
-Tablet is first-class, not a stretched phone or cramped desktop. Use one or two columns based on content and preserve comfortable touch geometry. Artwork may use a tablet-specific composition when the desktop composition becomes crowded.
+- first-class intermediate composition;
+- not stretched phone or cramped desktop.
 
-### Laptop / desktop
+Desktop:
 
-Use editorial whitespace, larger storytelling, deliberate multi-column layouts, restrained hover states, and balanced typography without wasting the viewport.
+- editorial whitespace;
+- deliberate multi-column layouts;
+- restrained hover;
+- balanced typography.
 
-### Large display
+Large displays:
 
-Cap reading and composition widths. Do not allow artwork or text to stretch until proportions lose intent.
+- cap reading/composition width;
+- do not stretch until visual intent is lost.
 
-Practical QA widths include approximately:
-
-`320`, `360`, `375`, `390`, `412/430`, `768`, `820`, `1024`, `1280`, `1365/1440`, `1600`, plus a representative large-display width.
-
-Breakpoints remain content-driven rather than device-brand-driven.
-
-Prefer flexible grid, intrinsic sizing, `clamp()`, max-width constraints, and logical properties. Use physical positioning only when an unmirrored photographic composition has a fixed physical safe zone.
-
-### 9.1 Visual QA gate
-
-For visually sensitive changes, source correctness alone is not sufficient.
-
-Before handoff, render or otherwise inspect representative viewport evidence when the environment permits. At minimum, reason explicitly about smartphone, tablet, and desktop behavior.
-
-CI success does not prove rendering success.
-
-If real visual QA cannot be performed, say so clearly in the handoff.
+For visually sensitive work, render/inspect representative viewport evidence when possible. CI is not visual QA.
 
 ---
 
-## 10. Information architecture
+# 11. INFORMATION ARCHITECTURE AND LOCALIZATION
 
-Current public structure:
+Current public architecture includes:
 
-- `/` — Home / Benedict Interactive front door;
-- `/products` — product ecosystem / studio showroom;
-- `/products/bearagnostic` — Bearagnostic product detail;
-- `/support` — customer-facing support and planned tester-program entry point;
-- `/404` — branded error page.
-
-Localized equivalents are generated for approved non-English locales using `/<locale>/...` paths. English remains canonical at unprefixed root paths.
-
-### 10.1 Product architecture
-
-`/products` is the long-term showroom. It must not be hard-coded as a one-product dead end.
-
-Stable non-localized product metadata belongs in `src/data/products.ts`. Localized marketing copy remains centralized in `src/i18n/content.ts`.
-
-Adding a future product should primarily require:
-
-1. adding stable product metadata;
-2. adding localized product copy;
-3. adding the product-detail route/component and approved assets;
-4. selecting whether Home features it;
-5. connecting support/distribution/commerce status only when real.
-
-Do not rebuild the showroom architecture for each new product.
-
-### 10.2 Routes reserved for real content, not placeholders
-
-Before public launch or when content is genuinely ready, add only as needed:
-
-- `/about`;
-- `/reviews` or equivalent real-feedback surface;
+- `/`;
+- `/products`;
+- `/products/bearagnostic`;
+- `/support`;
+- `/contact`;
 - `/privacy`;
 - `/terms`;
-- release notes;
-- official download/purchase routes;
-- purchase/license recovery;
-- real contact/support routing;
-- accessibility statement if appropriate.
+- `/license`;
+- `/legal`;
+- `/404`;
+- localized equivalents under `/<locale>/...` for approved non-English locales.
 
-Never publish empty legal, review, account, commerce, or support templates merely to make navigation look complete.
+English remains canonical at unprefixed root paths.
 
----
+Supported locales:
 
-## 11. Global localization system
+`en`, `th`, `es`, `pt-br`, `fr`, `de`, `it`, `ja`, `ko`, `id`, `vi`, `zh-cn`, `zh-tw`, `ar`, `hi`, `tr`.
 
-### 11.1 Approved localization set
+Localization is transcreation, not literal translation.
 
-The site architecture supports **16 locales**:
+Respect:
 
-- `en` — English (canonical)
-- `th` — ภาษาไทย
-- `es` — Español
-- `pt-br` — Português (Brasil)
-- `fr` — Français
-- `de` — Deutsch
-- `it` — Italiano
-- `ja` — 日本語
-- `ko` — 한국어
-- `id` — Bahasa Indonesia
-- `vi` — Tiếng Việt
-- `zh-cn` — 简体中文
-- `zh-tw` — 繁體中文
-- `ar` — العربية
-- `hi` — हिन्दी
-- `tr` — Türkçe
+- native phrasing;
+- script-specific typography;
+- Arabic RTL;
+- long German strings;
+- Thai line rhythm;
+- CJK spacing;
+- Hindi/Devanagari readability;
+- locale-specific semantic heading emphasis.
 
-### 11.2 Voice standard
-
-Localization is **transcreation**, not literal translation.
-
-Each locale should feel native, natural, easy to understand, warm, intelligent, lightly witty where culturally appropriate, and confident without bragging or insulting competitors.
-
-Benedict voice:
-
-- clever without announcing cleverness;
-- cheerful without becoming childish;
-- witty without turning every sentence into a joke;
-- confident without hype;
-- specific rather than startup-generic;
-- human without forced informality;
-- premium without stiffness.
-
-### 11.3 Layout requirements
-
-- text expansion must not break composition;
-- CJK, Thai, Devanagari, Arabic, Vietnamese, and long Latin-language strings require script/language-appropriate type rhythm;
-- Arabic is RTL and should use logical CSS properties except where a fixed physical artwork safe zone requires physical positioning;
-- language selection uses native language names, not country flags;
-- user language choice must not be forced solely by IP/location;
-- English remains the canonical content source for revision control;
-- heading accent segmentation must be natural in each language, not copied mechanically from English.
-
-### 11.4 Sensitive copy
-
-Marketing/product copy can be transcreated.
-
-Privacy, terms, refunds, billing, entitlement, recovery, transactional receipts, and other legal/financial copy must prioritize precision over wit and should receive appropriate review before public launch.
+Transactional/legal/billing copy prioritizes precision over wit.
 
 ---
 
-## 12. Content and marketing principles
+# 12. CLOSED / STABLE WEBSITE WORK — DO NOT REOPEN WITHOUT DEFECT
 
-Copy should be concise, mature, clear, warm, specific, memorable, and useful.
+The following work is considered closed/stable unless a real regression or explicit new requirement appears:
 
-Avoid:
+## 12.1 Analytics foundation
 
-- fake superlatives;
-- unsupported claims;
-- vague startup language;
-- defensive explanations about being small;
-- repeated “one person / small / independent” messaging;
-- unnecessary competitor-bashing;
-- technical jargon for ordinary users;
-- artificial scarcity;
-- review manipulation;
-- premature conversion pressure;
-- claims that a feature/channel/payment method exists when it does not.
+Analytics foundation is closed.
 
-Being independent should be stated with confidence once or twice, then demonstrated through quality, direct responsibility, support, distribution, and product behavior.
+Architecture:
 
-### 12.1 Marketing-organizer principle
+- Cloudflare Web Analytics for privacy-first traffic/performance insight;
+- Workers Analytics Engine for approved first-party product interaction events;
+- no cookies/localStorage/fingerprinting/account identifiers in custom analytics;
+- no IP/UA/referrer stored by the custom product-event endpoint;
+- analytics endpoint is write-only;
+- dataset: `benedict_product_events`;
+- binding: `BENEDICT_ANALYTICS`.
 
-The website is both a company home and a product showroom.
+Custom event schema v1 remains fixed unless deliberately versioned.
 
-Marketing should optimize this sequence:
+Do not infer verified downloads or installs from clicks.
 
-1. understand who Benedict Interactive is;
-2. understand what the product does;
-3. trust the product and business posture;
-4. see proof through real product imagery and honest states;
-5. take a clear next action.
+## 12.2 Contact
 
-Conversion must never come at the cost of trust.
+Public contact:
 
-### 12.2 Growth readiness
+- email: `benedict.support@gmail.com`;
+- public location: `Bangkok, Thailand`;
+- current composer is client-side;
+- Gmail Web Compose is used on desktop-class browsers where appropriate;
+- native `mailto:` remains for mobile;
+- do not claim server-side sending;
+- do not persist message text on the website.
 
-Future marketing may add privacy-respecting analytics, campaign attribution, release announcements, email updates, social links, or product-specific landing experiences only when each has a clear operational purpose.
+## 12.3 Legal
 
-Do not add tracking merely because large companies do it.
+Current legal foundation includes:
 
----
+- Privacy;
+- Terms;
+- Software License / Bearagnostic EULA;
+- Legal & Rights / third-party notices direction;
+- localized reader-first copies with English authoritative notice.
 
-## 13. Product ecosystem
+Footer copyright:
 
-### 13.1 Bearagnostic
+`© 2026 Benedict Interactive. All rights reserved.`
 
-Bearagnostic is a premium privacy-first Android file clarity / cleanup assistant.
+Do not add a cookie banner merely for appearance.
 
-Canonical product promise:
-
-> Find clutter. Explain the risk. Clean with confidence.
-
-Do not position it as a fake booster, antivirus, speed optimizer, or exaggerated device-health product.
-
-Brand wordmark treatment on the site:
-
-- `Bear` in dark/navy;
-- `agnostic` in Benedict blue/cyan;
-- no accidental clipping, overflow, or single-color fallback when the branded two-tone treatment is intended.
-
-The web presentation should use real production imagery and preserve correct aspect ratios on all devices.
-
-Current Home product storytelling uses approved real Bearagnostic screens including Tools, privacy-safe Scanning, and Scan Depth imagery.
-
-Any scanning screenshot shown publicly must use privacy-safe sample filenames/content. Never expose P'Benz's personal filenames or private device paths.
-
-### 13.2 Dr.Bear asset rule
-
-Use approved Dr.Bear production assets directly.
-
-- transparent PNG means transparent background should remain transparent;
-- the character's intended dark/black contour must remain visible on the site's white background;
-- do not introduce a white halo, accidental matte, visible square frame, or arbitrary logo-like container around the character;
-- do not regenerate or reinterpret Dr.Bear for ordinary web layout work;
-- choose an approved pose appropriate to context: product confidence, explanation, caution/warning, inspection/analysis, etc.;
-- cards may contain Dr.Bear when the card itself has a content purpose, but Dr.Bear should not look trapped in an unnecessary image frame.
-
-### 13.3 Distribution state
-
-Current direction prioritizes Benedict Interactive website distribution plus Uptodown when available.
-
-Do not show `Get it on Google Play` or imply Google Play availability until a real listing exists.
-
-### 13.4 Benedict Test Center / Tester Program
-
-A reusable tester and release-evidence program is planned for Benedict Interactive products.
-
-Public-site responsibilities may include:
-
-- explaining the tester program;
-- showing real public testing opportunities;
-- linking to the secure tester system;
-- explaining rewards and privacy.
-
-The authenticated tester system remains architecturally separate from the public corporate site because authentication, tester data, device context, evidence, backend secrets, reward history, and owner-console permissions have different security requirements.
-
-Tester rewards may recognize participation, useful bug reports, completed test missions, sustained testing, or high-quality feedback.
-
-Rewards must **not** depend on positive sentiment, five-star ratings, or public-store reviews.
+Before commercial launch, purchase/refund/payment disclosures must reflect the actual Ko-fi flow, and qualified legal review is recommended.
 
 ---
 
-## 14. Reviews, testimonials, and feedback governance
+# 13. BEARAGNOSTIC POSITIONING
 
-Private tester/customer feedback and public testimonials are different systems.
+Canonical promise:
 
-### Private feedback
+> **Find clutter. Explain the risk. Clean with confidence.**
 
-- should welcome criticism as well as praise;
-- may be tagged for bug, UX, feature, performance, trust, or support follow-up;
-- should not be filtered merely because it is negative;
-- abusive, spam, fraudulent, personally identifying, or irrelevant submissions may be rejected or quarantined.
+Bearagnostic is Android-first, local-first, privacy-first, and safety-first.
 
-### Public feedback
+It is not a fake booster, antivirus, RAM cleaner, CPU cooler, fear-based junk cleaner, or unverifiable device-health product.
 
-- never auto-publish user submissions;
-- requires owner moderation;
-- requires explicit permission/consent for publication;
-- may support anonymous or attributed publication according to consent;
-- `Verified tester/customer` may be shown only when backend evidence genuinely supports it;
-- never manufacture testimonials or imply a public review exists when it does not.
+The preferred commercial direction is a one-time lifetime Pro purchase, not a forced subscription.
 
-Do not launch a public Reviews page until there is real, consented content worth showing.
+Canonical product code:
+
+`bearagnostic_pro_lifetime`
+
+Do not invent pricing or unapproved Pro features.
 
 ---
 
-## 15. Commerce, billing, entitlement, and licensing direction
+# 14. P0 COMMERCE PRIORITY
 
-The website must be designed so payment can be added cleanly without redesigning the product experience, but **payment is not live on the staging site**.
+P0 Commerce + Payment + Entitlement takes priority over performance tweaks, SEO cosmetics, decorative redesign, or non-critical feature expansion until the purchase-to-Pro path is complete and verified.
 
-Current Bearagnostic commercial direction:
-
-- straightforward **one-time Bearagnostic Pro** purchase rather than a mandatory subscription;
-- Free and Pro should use the same signed APK unless a future technical requirement clearly justifies otherwise;
-- entitlement is confirmed server-side;
-- payment success is confirmed from a trusted server-to-server event/webhook, not from client redirect, local flag, screenshot, or user claim alone;
-- planned backend direction may use Cloudflare Worker + D1 or equivalent replaceable server-side infrastructure;
-- the app restores/validates entitlement from the Benedict backend and may cache a safe offline entitlement state;
-- no permanent `isPro=true` bypasses;
-- no client-only purchase trust;
-- no banking credentials, webhook secrets, API secrets, private keys, or privileged account data in the public repository.
-
-Preferred customer experience:
+Canonical trust chain:
 
 ```text
-Bearagnostic / Benedict website or app
-      ↓
-Hosted or provider-assisted checkout
-      ↓
-Trusted payment confirmation / signed webhook
-      ↓
-Idempotent Benedict payment-event handler
-      ↓
-Benedict Entitlement API / database
-      ↓
-Entitlement becomes active
-      ↓
-App refreshes entitlement and unlocks Pro
-      ↓
-Customer receives clear confirmation / recovery path
+Ko-fi Shop purchase
+→ verified Ko-fi webhook
+→ Benedict payment ledger
+→ Benedict lifetime entitlement
+→ verified purchase session/device binding
+→ Android entitlement verification
+→ Bearagnostic Pro unlock
 ```
 
-### 15.1 One-person operational automation principle
+The following are never valid proof of payment:
 
-The commerce system should be designed so P'Benz does not need to monitor normal successful transactions manually.
+- screenshots;
+- browser redirects;
+- client flags;
+- local app flags;
+- user-entered transfer references;
+- admin guesses.
 
-Normal automation should handle:
+The system must support:
 
-- payment confirmation;
-- duplicate webhook/event protection;
-- entitlement activation;
-- restore validation;
-- customer status response;
-- retry-safe processing;
-- audit/event history sufficient to diagnose failures;
-- refund/chargeback state handling according to final policy;
-- operational alerts only when an exception actually needs human judgment.
-
-The goal is **exception-driven ownership**, not constant dashboard watching.
-
-### 15.2 Provider neutrality
-
-The payment provider must be selected for real operational needs, including:
-
-- Thai-user convenience;
-- supported countries/currencies;
-- reliable payment confirmation;
-- webhook quality/signing;
-- fees;
-- legal/account availability;
-- refund/dispute handling;
-- low maintenance for a single operator;
-- customer support burden;
-- migration/replaceability.
-
-Ko-fi may be evaluated as an available channel/tool, especially for simple early-stage selling, but it is not a hard architectural dependency unless P'Benz explicitly selects it as the production provider for the automated entitlement flow.
-
-Do not hard-bind the product architecture to any provider before requirements are confirmed.
-
-Exact pricing, purchase URL, refund terms, recovery identity, webhook secrets, tax handling, production entitlement rules, and legal copy must be finalized before live commerce is enabled.
-
-Billing UI must localize price/currency/status accurately and never imply a payment method or country availability that is not actually supported.
+- idempotency;
+- restore;
+- revoke/refund/dispute handling strategy;
+- anomaly handling;
+- audit trail;
+- reconciliation/manual fallback for provider limitations.
 
 ---
 
-## 16. Independent distribution and updates
+# 15. KO-FI IS THE SELECTED PAYMENT SURFACE
 
-Primary model:
+Direct Stripe/PromptPay as a Benedict-owned checkout path was rejected because founder privacy is a serious requirement and direct PromptPay may expose the founder's real legal name.
 
-> Benedict Interactive website → official product page → official download/distribution channel
+Current decision:
 
-Bearagnostic distribution prioritizes the official Benedict site plus replaceable third-party discovery/distribution channels such as Uptodown.
+> **Ko-fi only as the payment surface.**
 
-Google Play may be added later but is optional rather than foundational.
+Do not rebuild a parallel direct Stripe/PromptPay flow.
 
-Benedict Interactive remains the canonical source of:
+Retired Stripe/PromptPay runtime routes are intentionally fail-closed/HTTP 410 where applicable.
 
-- product identity;
-- latest stable version information;
-- release notes;
-- supported channels;
-- checksum/signature information when exposed;
-- support information;
-- purchase/licensing information.
+Ko-fi should remain replaceable payment infrastructure. Benedict owns the durable entitlement truth.
 
-Future direct-update UX should remain transparent:
+## 15.1 Ko-fi product requirements
+
+Use one dedicated digital Shop item:
+
+`Bearagnostic Pro Lifetime`
+
+Requirements:
+
+- exact Ko-fi Shop item / `direct_link_code`;
+- quantity selection disabled;
+- pay-what-you-want disabled;
+- not a donation/tip trigger;
+- not a membership trigger;
+- no shipping;
+- clear terms;
+- support email visible;
+- restore instructions available after purchase.
+
+Do not create separate Benedict purchase buttons for Visa, PromptPay, PayPal, etc. Ko-fi/underlying processor decides available payment methods.
+
+## 15.2 Founder-privacy launch gate
+
+Before public real-money launch, perform a buyer-side real checkout test and inspect what the customer sees in:
+
+- Ko-fi checkout;
+- payment method / PromptPay screen if offered;
+- receipt;
+- email;
+- processor descriptor;
+- merchant/contact identity.
+
+Do not assume indirect PromptPay automatically solves founder identity exposure.
+
+---
+
+# 16. KO-FI IDENTITY / RESTORE ARCHITECTURE
+
+Purchase identity flow:
+
+1. app asks for the user's Ko-fi purchase email;
+2. Benedict sends OTP;
+3. verified email creates a purchase session tied to the installation;
+4. app opens the exact Ko-fi Shop item;
+5. user pays on Ko-fi;
+6. Ko-fi posts verified webhook to Benedict;
+7. backend matches buyer email to exactly one eligible session when possible;
+8. entitlement/device binding is issued;
+9. app polls/resumes and unlocks Pro.
+
+Direct Ko-fi purchase without an app session becomes an unclaimed entitlement.
+
+Restore flow:
+
+- user enters purchase email;
+- OTP verifies ownership of that email;
+- existing eligible lifetime entitlement is bound/restored to the current installation.
+
+If more than one eligible session creates ambiguity:
+
+- do not guess;
+- leave unclaimed / flag anomaly;
+- require explicit safe resolution.
+
+## 16.1 Privacy-preserving identity
+
+Server-side design:
+
+- email lookup HMAC: `BENEDICT_EMAIL_INDEX_KEY`;
+- encrypted email: `BENEDICT_PII_KEY`;
+- OTP HMAC: `BENEDICT_OTP_PEPPER`;
+- raw email must not be used as a log identifier;
+- OTP is six digits, short-lived, and attempt-limited.
+
+Secrets must be independent. Never reuse the same generated value for multiple secret roles.
+
+---
+
+# 17. WEB K1/K2 — CURRENT IMPLEMENTATION STATE
+
+Current web commit:
+
+`772eb467249a437f7b99b38ca5f6730d7792519d` — `Replace commerce with Ko-fi entitlement`
+
+Implemented responsibilities include:
+
+- Ko-fi webhook parser/verification;
+- privacy-preserving identity/OTP primitives;
+- purchase sessions;
+- Ko-fi payment ledger;
+- lifetime entitlements;
+- device binding/status;
+- anomaly queue;
+- private operations surface;
+- retired Stripe/PromptPay routes fail closed;
+- D1 migration `0002_kofi_entitlement.sql`;
+- Ko-fi-aware operations runbook.
+
+Important current files include:
+
+- `docs/COMMERCE_BACKEND_RUNBOOK.md`
+- `functions/_lib/commerce.js`
+- `functions/_lib/crypto.js`
+- `functions/_lib/email.js`
+- `functions/_lib/http.js`
+- `functions/_lib/kofi.js`
+- `functions/_lib/access.js`
+- `functions/api/commerce/identity/start.js`
+- `functions/api/commerce/identity/verify.js`
+- `functions/api/commerce/sessions/status.js`
+- `functions/api/commerce/entitlements/status.js`
+- `functions/api/commerce/webhooks/kofi.js`
+- `functions/ops/*`
+- `migrations/0002_kofi_entitlement.sql`
+- `src/pages/ops.astro`
+
+Commerce remains intentionally fail-closed.
+
+---
+
+# 18. ANDROID K3 — CURRENT CROSS-REPO STATE
+
+Current Android commit:
+
+`ff49ac8da74f97d658c3924f93867751552f477a` — `Add Ko-fi server entitlement`
+
+Key implementation:
+
+- `CommerceConfig.kt`;
+- `ServerCommerceClient.kt`;
+- `ServerEntitlementStore.kt`;
+- `EntitlementManager.kt` remains single source of Free/Pro capability truth;
+- `NativeBridge.kt` exposes server-commerce methods;
+- `android-entitlement.js` provides dedicated Ko-fi purchase/restore UI;
+- AndroidKeyStore AES-GCM protects server entitlement credentials/lease material;
+- Google Play Billing path remains available as an optional entitlement source;
+- debug override/sandbox remains isolated;
+- `BRIDGE_VERSION` remains `17` to preserve runtime contract expectations.
+
+Current `CommerceConfig.BASE_URL` is intentionally empty and therefore fail-closed.
+
+Do **not** configure the Android backend URL until the Benedict backend host and Cloudflare commerce setup are ready for controlled testing.
+
+No GitHub CI pass should be claimed for K3 unless a workflow/status is actually observed.
+
+---
+
+# 19. CLOUDFLARE D1 — CURRENT MANUAL SETUP STATE
+
+This is the exact current checkpoint as of 15 September 2026 and is critical for room migration.
+
+## 19.1 Completed
+
+P'Benz manually created Cloudflare D1 database:
+
+`benedict-commerce-prod`
+
+The database initially had zero tables.
+
+Migration `0001_commerce.sql` was executed successfully in the Cloudflare D1 Console.
+
+Migration `0002_kofi_entitlement.sql` initially had not executed. It was then safely applied in segmented blocks after checking for partial state.
+
+Verified before applying 0002:
+
+- `commerce_identity_challenges` did not exist;
+- `commerce_products` did not yet contain `provider`, `provider_item_code`, or `provider_shop_url`;
+- therefore 0002 had not partially modified the schema at that point.
+
+0002 was then applied in four logical segments:
+
+1. provider columns + fail-closed product update;
+2. identity challenges + purchase sessions;
+3. provider events + payments v2;
+4. entitlements v2 + device bindings v2 + anomalies.
+
+P'Benz reported Cloudflare `This query successfully executed.` for each segment.
+
+## 19.2 D1 Pages binding completed
+
+The Cloudflare Pages project:
+
+`benedict-interactive-web`
+
+now has D1 binding:
 
 ```text
-New version available
-→ show version and changelog
-→ user chooses download
-→ Android installer handles installation confirmation
+BENEDICT_COMMERCE_DB → benedict-commerce-prod
 ```
 
-Do not attempt silent installation or bypass Android security prompts.
+The project was then retried/redeployed successfully so the new binding can be available to Pages Functions.
 
-Future update/status services should be automatable and machine-readable without moving secrets into the public frontend.
-
----
-
-## 17. Support direction
-
-Public Support exists for customers, not developers.
-
-Target support model, added only as real services become available:
-
-- product help / FAQ;
-- report a problem;
-- contact support;
-- download/update help;
-- purchase/license recovery;
-- tester-program entry point.
-
-Do not expose internal/private development infrastructure such as GitHub merely because it exists.
-
-Avoid building a live-chat/helpdesk platform prematurely. For a single-operator studio, a small, high-quality ticket/contact workflow is preferable until support volume proves a larger system is necessary.
-
-Diagnostic collection must be consent-based and privacy-minimal. Product files, filenames, or personal content must not be uploaded by default.
-
-Support-card brand handling must follow the logo rules in this plan: no cropped marks, tiny parent identity, duplicate brand titles, or arbitrary logo frames.
+Do not remove or disturb the existing analytics binding `BENEDICT_ANALYTICS`.
 
 ---
 
-## 18. Technical architecture
+# 20. CLOUDFLARE VARIABLES / SECRETS — EXACT CURRENT CHECKPOINT
 
-Current foundation:
+The following variables are already configured in Cloudflare Pages:
 
-- Astro `7.3.2`;
-- TypeScript `6.0.3` compatible with the current `@astrojs/check` dependency;
-- static-first output;
-- semantic HTML;
-- centralized CSS tokens/shared styles;
-- small Astro components;
-- stable product metadata in `src/data/products.ts`;
-- centralized localized copy in `src/i18n/content.ts`;
-- no client-side framework unless a real requirement justifies it.
+```text
+BENEDICT_COMMERCE_PUBLIC_ENABLED = false
+BENEDICT_PUBLIC_ORIGIN = https://benedict-interactive-web.pages.dev
+BENEDICT_COMMERCE_TEST_MODE = true
+```
 
-Why Astro remains appropriate:
+`BENEDICT_COMMERCE_PUBLIC_ENABLED=false` is deliberate and must stay false until final launch approval.
 
-- excellent static-first performance;
-- componentized source;
-- selective interactivity only where useful;
-- straightforward edge/static deployment;
-- no forced SPA runtime.
+The following Secret has already been generated via Google Password Manager and saved in Cloudflare:
 
-### 18.1 Hosting
+```text
+BENEDICT_EMAIL_INDEX_KEY = [SECRET SAVED — DO NOT ASK P'BENZ TO REVEAL IT]
+```
 
-Current production direction:
+Never ask P'Benz to paste that secret into chat.
 
-> GitHub `main` → Cloudflare Pages → staging `pages.dev` URL → final custom domain later
+## 20.1 EXACT NEXT ACTION IN A NEW ROOM
 
-Cloudflare deployment is connected and staging has deployed successfully.
+**Continue from this exact point. Do not repeat D1 creation, migrations, binding, redeploy, or the variables above.**
 
-Do not redesign around GitHub Pages.
+The next Cloudflare secret to add is:
 
-If commerce/tester/support backends arrive, use isolated server-side services such as Cloudflare Workers/D1/R2 or an equivalent replaceable architecture rather than turning the public website into a trust boundary it was not designed to be.
+```text
+BENEDICT_PII_KEY
+```
 
-### 18.2 Search/indexing
+Requirements:
 
-`public/robots.txt` intentionally blocks indexing during staging.
+- Cloudflare Type: `Secret`;
+- use a newly generated high-entropy random value;
+- do **not** reuse `BENEDICT_EMAIL_INDEX_KEY`;
+- do not send the value in chat;
+- after saving, continue one secret at a time.
 
-Before public launch, deliberately:
-
-- enable appropriate crawling;
-- establish the real custom-domain canonical URL;
-- add/verify sitemap;
-- add canonical and alternate/hreflang metadata as appropriate;
-- review social metadata/Open Graph;
-- verify favicon and brand metadata;
-- verify production domain behavior.
-
-Never make the temporary Cloudflare staging host the canonical indexed domain by accident.
+This is the single immediate continuation point for the next room.
 
 ---
 
-## 19. Performance, accessibility, privacy, and security
+# 21. REMAINING CLOUDFLARE / COMMERCE CONFIGURATION
 
-Performance is a product feature.
+After `BENEDICT_PII_KEY`, configure remaining required secrets/settings carefully and one at a time during manual setup.
 
-Avoid:
+Core commerce/email values include:
 
-- heavy animation libraries;
-- unnecessary third-party scripts;
-- giant font bundles;
-- autoplay video;
-- decorative network calls;
-- layout-shifting media;
-- dependencies with no concrete value.
+```text
+BENEDICT_OTP_PEPPER
+KOFI_VERIFICATION_TOKEN
+BENEDICT_EMAIL_PROVIDER = resend
+RESEND_API_KEY
+BENEDICT_EMAIL_FROM
+BENEDICT_OTP_TEST_CODE   # TEST MODE ONLY, six digits
+```
 
-Accessibility requirements include:
+Private Operations Console Access configuration also requires the server values consumed by `functions/_lib/access.js`:
 
-- semantic structure;
-- keyboard navigation;
-- visible focus;
-- sufficient contrast;
-- comfortable touch targets;
-- heading hierarchy;
-- meaningful links;
-- reduced-motion support;
-- correct alt text;
-- form labels/error states when forms arrive;
-- RTL correctness.
+```text
+BENEDICT_ACCESS_TEAM_DOMAIN
+BENEDICT_ACCESS_AUD
+BENEDICT_ADMIN_EMAIL
+```
 
-Privacy default: collect as little as possible.
+Access must be configured as a real Cloudflare Access security boundary. Route secrecy is not security.
 
-Do not add analytics just because websites usually do. If analytics become useful, prefer privacy-respecting aggregate measurement with a clear purpose.
+Admin identity should use strong MFA/passkey where possible.
+
+Never expose any secret in the repository, public client, screenshots intended for publication, or chat.
+
+---
+
+# 22. D1 PRODUCT CONFIGURATION — NOT YET LIVE
+
+Migration 0002 deliberately leaves Bearagnostic Pro inactive and unpriced.
+
+Before purchase testing, the D1 product row for:
+
+`bearagnostic_pro_lifetime`
+
+must be configured with:
+
+- `provider = kofi`;
+- exact Ko-fi `provider_item_code` / `direct_link_code`;
+- exact Ko-fi Shop product URL;
+- exact currency;
+- exact unit amount in minor units;
+- `active = 1` only when controlled testing is ready.
+
+Do not activate or price it speculatively.
+
+Do not invent public pricing. P'Benz must approve commercial price/policy.
+
+---
+
+# 23. KO-FI WEBHOOK / EMAIL / TEST SETUP — STILL PENDING
+
+Pending external setup includes:
+
+- create/finalize the dedicated Ko-fi Shop product;
+- obtain/configure Ko-fi webhook verification token;
+- point Ko-fi webhook to:
+  `https://<host>/api/commerce/webhooks/kofi`;
+- test Ko-fi webhook delivery and replay/idempotency;
+- configure Resend or approved production OTP email provider;
+- configure verified sender;
+- test OTP delivery;
+- verify wrong-token / wrong-item / wrong-amount paths fail closed;
+- verify purchase session matching;
+- verify unclaimed entitlement flow;
+- verify restore after reinstall;
+- configure Cloudflare Access for `/ops*`;
+- verify private Operations Console auth;
+- configure Android `CommerceConfig.BASE_URL` only after backend test readiness;
+- test server entitlement refresh/offline lease/device binding in Android;
+- update purchase/refund/legal disclosures;
+- conduct founder-privacy buyer-side real-money test;
+- conduct controlled real-money purchase;
+- only then consider enabling public commerce.
+
+---
+
+# 24. PUBLIC COMMERCE ENABLEMENT GATE
+
+Do not set:
+
+```text
+BENEDICT_COMMERCE_PUBLIC_ENABLED=true
+```
+
+until all relevant gates are complete and explicitly approved.
+
+Minimum gate set:
+
+- D1 schema ready;
+- all required secrets configured;
+- Ko-fi product mapping exact;
+- webhook verification passes;
+- idempotency/replay passes;
+- wrong item/currency/amount rejected;
+- OTP identity flow passes;
+- Restore Pro passes;
+- Cloudflare Access protects ops;
+- Android backend URL configured;
+- Android server entitlement flow passes;
+- revoke/refund/dispute operational handling defined;
+- legal/payment/refund disclosures updated;
+- founder identity/privacy checkout test passes;
+- controlled real-money purchase passes;
+- rollback path documented.
+
+Only then should public enablement be considered.
+
+---
+
+# 25. OPERATIONS / SECURITY RULES
+
+The private Operations Console must never contain a shortcut such as:
+
+- `Mark Paid`;
+- `Force Payment Success`;
+- `Fake Webhook`;
+- arbitrary `Set Ko-fi Paid`.
+
+Admin operations may safely include audited entitlement revoke/reactivate and anomaly resolution where supported by production logic.
+
+Ko-fi does not provide a documented public transaction-query API suitable for automatic reconciliation. Do not invent one.
+
+Refund/dispute/ambiguous cases remain explicit audited operator exceptions unless a trustworthy provider-side integration is added later.
 
 Security principles:
 
-- static-first public site;
-- no credentials in Git;
-- no secret client-side data;
-- minimal third-party scripts;
-- backend/admin/tester/payment systems isolated from public front-end trust;
-- server-side verification for payments and entitlements;
-- signed Android releases and disciplined signing-key custody;
-- public-source visibility must not weaken security;
-- no security through obscurity as a substitute for real boundaries.
+- fail closed;
+- verify provider event authenticity server-side;
+- deduplicate replayed events;
+- keep secrets server-only;
+- use opaque session/device credentials;
+- never log raw secret values;
+- minimize PII;
+- separate lookup HMAC from PII encryption from OTP HMAC;
+- protect admin with Cloudflare Access, not obscurity;
+- audit privilege-changing actions.
 
 ---
 
-## 20. Repository architecture and hygiene
+# 26. PRO UPGRADE / HOW-TO-BUY UX DECISION
 
-Canonical durable responsibilities include:
+Do not create a large standalone `How to Buy` or generic `Pricing` page for one product unless the information architecture later justifies it.
+
+Canonical experience:
+
+Website:
+
+`Products → Bearagnostic → Upgrade to Pro`
+
+App:
+
+`Dedicated Pro upgrade screen → verified email → Ko-fi`
+
+Support may include:
+
+`Buying & restoring Pro`
+
+Preferred product-page order:
+
+1. Hero;
+2. Features;
+3. Free vs Pro / benefits;
+4. Upgrade to Pro;
+5. How it works;
+6. Restore Pro;
+7. FAQ;
+8. Support.
+
+Main purchase explanation:
+
+`Upgrade → pay on Ko-fi → Benedict verifies → unlock / restore with purchase email`
+
+The main Benedict UI should remain visually Benedict. Do not clutter the primary flow with Ko-fi screenshots or payment-method buttons.
+
+---
+
+# 27. LEGAL / PRIVACY / COMMERCIAL LAUNCH NOTES
+
+Before commercial launch, ensure legal text accurately explains:
+
+- Ko-fi as payment surface/provider infrastructure;
+- Benedict as entitlement authority;
+- email use for purchase/restore identity;
+- OTP processing;
+- refund/support path;
+- lifetime license/entitlement terms;
+- revocation/refund/dispute consequences;
+- third-party processor/provider roles;
+- privacy retention/minimization;
+- applicable limitations.
+
+Do not promise unsupported refund automation or immediate transaction reconciliation.
+
+Legal review by a qualified professional is recommended before final commercial launch.
+
+---
+
+# 28. REPOSITORY HYGIENE
+
+Git history is the archive.
+
+Do not create version clutter such as:
 
 ```text
-src/
-├─ components/
-│  ├─ AccentHeading.astro
-│  ├─ HomePage.astro
-│  ├─ ProductsPage.astro
-│  ├─ BearagnosticPage.astro
-│  ├─ SupportPage.astro
-│  ├─ LanguageSwitcher.astro
-│  ├─ SiteHeader.astro
-│  ├─ SiteFooter.astro
-│  └─ ProductCard.astro (legacy reusable component; remove only in deliberate cleanup)
-├─ data/
-│  ├─ site.ts
-│  └─ products.ts
-├─ i18n/
-│  └─ content.ts
-├─ layouts/
-│  └─ SiteLayout.astro
-├─ pages/
-│  ├─ index.astro
-│  ├─ 404.astro
-│  ├─ support.astro
-│  ├─ products/
-│  └─ [locale]/
-└─ styles/
-   ├─ global.css
-   └─ typography.css
+*-old.*
+*-backup.*
+*-final.*
+*-final2.*
+*-new.*
+*-v2.*
+backup/
+archive/
+temp/
+exports/
 ```
 
-Canonical brand assets currently include parent Benedict assets, the founder asset/signature, Bearagnostic production assets, Dr.Bear variants, real app screenshots, and the Benedict Test Center sub-brand mark.
-
-Git is the archive.
-
-Never create `old`, `backup`, `final2`, `new`, `v2`, `temp`, random exports, or duplicate working-copy paths inside the repository merely to preserve history.
-
-When a path still owns the same responsibility, replace it in place.
-
-Add files only for durable new responsibilities such as a real route, reusable component, stable product registry, centralized i18n/config, real backend interface contract, or required tooling.
-
-Never commit:
+Do not commit:
 
 - `node_modules/`;
 - `.astro/`;
 - `dist/`;
-- local environment files;
-- logs;
 - caches;
-- generated build artifacts;
-- exported ZIPs;
-- credentials;
-- tokens;
-- API keys;
-- payment secrets;
-- signing keys.
+- logs;
+- `.env`;
+- secrets;
+- downloaded build artifacts;
+- ZIP handoff packages.
+
+If a canonical path still owns the same responsibility, replace/update it in place.
 
 ---
 
-## 21. Mandatory development and handoff workflow
+# 29. CLOSED DECISIONS / DO-NOT-REGRESS LIST
 
-Before substantive work:
+Do not casually reverse these decisions:
 
-1. fetch latest `main`;
-2. read this Master Plan and `docs/REPOSITORY_MAP.md`;
-3. inspect the exact relevant source/assets;
-4. establish current rollback SHA;
-5. compare requested change with current production truth;
-6. define changed-file allowlist;
-7. identify regression risks and dependencies;
-8. implement locally;
-9. validate as far as the environment permits;
-10. visually inspect representative viewports for layout-sensitive work when possible;
-11. package only canonical repo-relative files;
-12. provide upload files/package, validation report, and recommended commit name.
-
-### 21.1 Progress reporting during work
-
-For substantial file work, Biew must provide clear textual progress updates while working. Do not disappear into a long silent processing period when meaningful milestones can be reported.
-
-Typical milestones:
-
-- baseline established;
-- source inspected;
-- design/technical decision established;
-- implementation underway/completed;
-- QA underway/completed;
-- package ready.
-
-### 21.2 File handoff rule — mandatory
-
-Every time Biew sends files intended for GitHub upload:
-
-1. provide the real downloadable file/package in the same turn whenever technically possible;
-2. preserve exact canonical repo-relative paths;
-3. use the same path when replacing an existing responsibility;
-4. include only files required for that change;
-5. state exactly what was changed;
-6. state validation actually performed;
-7. distinguish source validation, local build validation, visual QA, CI, and deployed-device QA—never conflate them;
-8. state anything important that remains unverified;
-9. **always provide a recommended commit name no longer than 50 characters**;
-10. put the commit name inside a fenced code block;
-11. do not make P'Benz ask for the commit name afterward.
-
-### 21.3 Remote GitHub rule
-
-Default workflow:
-
-> inspect GitHub → modify/package locally → P'Benz uploads → inspect commit/Cloudflare/CI
-
-Read access is allowed for inspection.
-
-Never mutate GitHub remotely unless P'Benz explicitly authorizes remote write in the current turn.
-
-Never claim a remote change was made unless it actually was.
-
-### 21.4 After upload
-
-After P'Benz uploads, inspect the resulting `main` commit and Cloudflare/CI state before assuming the handoff is live.
-
-For visual changes, deployed browser/device evidence remains relevant even if CI succeeds.
-
-### 21.5 Regression discipline
-
-- protect working production behavior;
-- prefer isolated, minimally invasive changes when that produces the best result;
-- preserve approved assets/content unless the task requires otherwise;
-- keep a known-good rollback SHA;
-- do not rush because the user is waiting;
-- do not skip inspection because a change appears small;
-- avoid simultaneous visual, routing, backend, and infrastructure rewrites when they can be separated safely;
-- when a broader system fix is clearly safer than repeated patches, fix the system once rather than perpetuating local exceptions.
+- Biew is female; Thai self-reference `บิ๊ว`, user `พี่เบนซ์`, feminine endings only.
+- Every GitHub-bound file handoff includes commit name <=50 characters in a fenced code block.
+- No long unexplained wait when tangible progress/files can be delivered.
+- No remote GitHub write without same-turn explicit authorization.
+- No founder-sun Hero element; rejected/reverted.
+- No fake reviews/testimonials.
+- No cookie banner merely for appearance.
+- No fabricated download/install analytics.
+- No direct Stripe/PromptPay Benedict checkout path; Ko-fi is the selected payment surface.
+- No trusting screenshots/client flags as payment proof.
+- No public commerce until launch gates pass.
+- No invented Pro price/features.
+- No fake admin `Mark paid` behavior.
+- No unnecessary framework/dependency churn.
+- No redesign of stable production surfaces without a real reason.
 
 ---
 
-## 22. Current rollback and production baselines
+# 30. STARTUP PROCEDURE FOR ANY NEW ROOM
 
-Current verified baseline at Revision 5.0:
+At the start of a new Benedict room:
 
-`cce5102f5e4e056b063ef52d9ad81b9e59b9fa67` — `Refine founder hero signoff`
+1. read this Master Plan completely;
+2. inspect latest web `main`;
+3. inspect `docs/REPOSITORY_MAP.md`;
+4. inspect `docs/COMMERCE_BACKEND_RUNBOOK.md` for commerce work;
+5. if Android integration is involved, inspect latest Android `main` and `docs/BEARAGNOSTIC_ANDROID_MASTER_PLAN.md`;
+6. establish rollback baselines;
+7. do not ask P'Benz to repeat product vision or already-recorded setup;
+8. continue from the exact current checkpoint below.
 
-Previous brand/future-UX baseline:
+**Current exact continuation checkpoint:**
 
-`a2fc6cb02f8d5c92ad9f254f126a601d9342c0ea` — `Refine brand system and future-ready UX`
+> Cloudflare Pages → `benedict-interactive-web` → Settings → Variables and Secrets → add `BENEDICT_PII_KEY` as a new independent Secret. Do not reveal/reuse `BENEDICT_EMAIL_INDEX_KEY`. Then continue remaining secrets one at a time.
 
-Earlier known-good Cloudflare dependency baseline:
-
-`0f2513c1a53089c814663d08ea631a043b1beb2d` — `Fix Cloudflare build dependency`
-
-Git history is the rollback mechanism. Do not keep duplicate backup source trees in the repository.
-
----
-
-## 23. Definition of 10/10
-
-“10/10” is an acceptance standard, not a visual adjective.
-
-A release-quality Benedict page or feature must simultaneously satisfy the applicable dimensions:
-
-- original Benedict identity;
-- premium art direction;
-- no obvious template feel;
-- Macintosh/humanist spirit without Apple imitation;
-- excellent smartphone behavior;
-- excellent tablet behavior;
-- excellent laptop/desktop/large-display behavior;
-- protected subject safe zones where overlays exist;
-- correct image proportions;
-- correct brand/logo treatment;
-- no accidental image matte/halo/frame;
-- native-feeling localization;
-- RTL correctness;
-- excellent type rhythm and spacing;
-- clear content hierarchy;
-- honest product claims;
-- multi-product-ready showroom architecture;
-- commerce-ready architecture without insecure payment shortcuts;
-- automation appropriate for a single operator;
-- public Support free of unnecessary developer infrastructure;
-- tester/review governance that protects trust without manipulating sentiment;
-- accessibility;
-- fast loading;
-- maintainable source;
-- zero unnecessary files;
-- no broken routes;
-- no obvious polish debt;
-- validation evidence proportional to the risk of the change.
-
-If one material dimension is weak or unverified, do not call the result 10/10 yet.
+P0 remains Commerce + Payment + Entitlement until the trusted payment-to-Pro path is working and verified.
 
 ---
 
-## 24. Current production design objective
+# 31. HANDOFF SUMMARY — 15 SEPTEMBER 2026
 
-The approved production direction prioritizes a clean, device-adaptive, independent-studio experience built from real production assets and browser-realizable layouts:
+Completed:
 
-- clean premium art direction with generous whitespace and bright restrained color;
-- no Apple trade-dress imitation;
-- real Benedict J. and Bearagnostic production assets rather than generated mock UI;
-- English Home Hero currently led by `Bright software for calmer digital lives.`;
-- founder slogan `Better tools. Brighter days!` paired with the Benedict J. signature asset;
-- founder slogan/signature positioned within a real safe area on mobile/tablet and never across the face;
-- Hero founder signature remains `Benedict J.`; `Benedict J. (Benz)` is reserved for appropriate explanatory founder/About context;
-- semantic solid two-tone editorial headings;
-- gradients reserved for explicit brand/wordmark moments;
-- Bearagnostic wordmark uses dark `Bear` + blue/cyan `agnostic`;
-- real Bearagnostic Home/Tools, Insights, scanning, and scan-depth imagery as appropriate;
-- public scanning screenshots use privacy-safe sample content;
-- Dr.Bear uses approved transparent assets with intended dark contour and no accidental white halo/frame;
-- Benedict Test Center has a distinct endorsed sub-brand mark;
-- Products is a reusable studio showroom rather than a one-product dead end;
-- public Support is customer-facing and prepared for a future tester program while keeping authenticated tester systems separate;
-- no public GitHub link by default;
-- full 16-locale route architecture and Arabic RTL support;
-- independent-first distribution with website/Uptodown priority while Google Play remains optional until real;
-- future server-verified licensing and automated commerce;
-- static-first performance, accessibility, maintainability, and Cloudflare compatibility.
+- web K1/K2 Ko-fi backend implementation uploaded to `main`;
+- Android K3 server entitlement implementation uploaded to `main`;
+- Pro upgrade UI already refined/accepted;
+- D1 `benedict-commerce-prod` created;
+- migrations 0001 and 0002 applied;
+- D1 binding `BENEDICT_COMMERCE_DB` added to Pages;
+- Pages deployment retried/redeployed;
+- `BENEDICT_COMMERCE_PUBLIC_ENABLED=false` saved;
+- `BENEDICT_PUBLIC_ORIGIN=https://benedict-interactive-web.pages.dev` saved;
+- `BENEDICT_COMMERCE_TEST_MODE=true` saved;
+- `BENEDICT_EMAIL_INDEX_KEY` generated and saved as Cloudflare Secret.
 
-The staging site remains pre-launch. It must not take live payments or be indexed as the final canonical public domain until the corresponding production systems and policies are ready.
+Immediate next action:
+
+- add `BENEDICT_PII_KEY` as an independent Cloudflare Secret.
+
+Do not restart setup from the beginning.
 
 ---
 
-## 25. Future evolution principle
 
-The visual identity should not need to become more corporate-looking merely because Benedict Interactive gains more products, customers, commerce, automation, support volume, or operational capability.
+# 32. PRODUCT ARCHITECTURE / FUTURE PRODUCTS
 
-The desired evolution is:
+`/products` is the long-term Benedict Interactive showroom. Do not hard-code the site as a one-product dead end.
 
-- **front stage:** personal, independent, premium, clear, human, distinctive;
-- **back stage:** automated, secure, auditable, resilient, provider-neutral, low-maintenance.
+Stable non-localized product metadata belongs in `src/data/products.ts`. Localized marketing copy belongs in the i18n system rather than being scattered through pages.
 
-Future growth should primarily expand data models, services, product registry, support/commerce automation, and operational tooling—not force a wholesale redesign of the Benedict public identity.
+Adding a future product should primarily require:
 
-End of canonical plan.
+1. stable product metadata;
+2. localized product copy;
+3. product route/component and approved assets;
+4. selection of Home/showroom exposure;
+5. support/distribution/commerce integration only when real.
+
+Do not rebuild the global information architecture for every new product.
+
+Do not publish empty placeholder Account, Reviews, Tester, commerce, or legal pages just to make navigation look larger.
+
+---
+
+# 33. DISTRIBUTION / HOSTING / DOMAIN
+
+Preferred web deployment direction:
+
+`GitHub main → Cloudflare Pages → staging/production host → final custom domain`
+
+Long-term preferred domain:
+
+`benedictinteractive.com`
+
+Do not redesign around GitHub Pages and do not hard-code the temporary `pages.dev` host as the permanent brand domain.
+
+Bearagnostic distribution direction prioritizes the Benedict website plus approved external distribution channels such as Uptodown when available.
+
+Google Play can be added later for discovery/convenience but is not the foundational business dependency. Never display Play availability before a real listing exists.
+
+---
+
+# 34. SEARCH INDEXING / PRODUCTION DOMAIN GATE
+
+Development/staging should remain intentionally protected from accidental search indexing until launch is deliberate.
+
+Before public production-domain launch review:
+
+- `robots.txt`;
+- canonical URLs;
+- sitemap;
+- `hreflang` / alternate metadata;
+- social cards;
+- favicons/brand assets;
+- final production domain;
+- locale route consistency;
+- legal/contact links.
+
+Do not accidentally index staging.
+
+---
+
+# 35. PERFORMANCE / ACCESSIBILITY / PRIVACY STANDARD
+
+Performance is a product feature.
+
+Avoid unnecessary:
+
+- third-party scripts;
+- heavy animation libraries;
+- giant font bundles;
+- autoplay media;
+- decorative network work;
+- client frameworks added only for fashion.
+
+Maintain:
+
+- semantic HTML;
+- keyboard navigation;
+- visible focus;
+- appropriate contrast;
+- comfortable touch targets;
+- reduced-motion behavior;
+- responsive typography;
+- meaningful alt text where required;
+- correct language/direction metadata;
+- no horizontal overflow.
+
+Privacy principle:
+
+Collect only data required for the user-facing function. Server-side capabilities that touch payment, identity, entitlement, admin, moderation, support, or analytics read credentials stay outside the static public client trust boundary.
+
+---
+
+# 36. BENEDICT TEST CENTER / TESTER PROGRAM
+
+Benedict Test Center is a planned reusable QA/release-evidence program/platform and an endorsed Benedict sub-brand.
+
+Its future authenticated tester/backend/owner-console system should remain architecturally separate from the public corporate website when sensitive data or authentication is introduced.
+
+Do not put tester/customer/security-sensitive records directly into the public static site repository.
+
+Tester incentives must never be conditioned on positive ratings or reviews.
+
+---
+
+# 37. REVIEWS / TESTIMONIALS
+
+Never fabricate reviews.
+
+Never auto-publish tester feedback.
+
+Public testimonials require moderation and publication consent.
+
+Labels such as `Verified tester` or `Verified customer` require real backend evidence.
+
+Do not launch a Reviews page until there is real consented content worth showing.
+
+---
+
+# 38. HISTORICAL ACCEPTED / REJECTED REFERENCE POINTS
+
+Useful historical references from the current room/project history:
+
+- Analytics foundation closed around commit `820c105...`.
+- Founder sun experiment rejected/reverted around `56216ef...`.
+- Legal + Contact foundation around `0c7ac87...`.
+- Contact desktop fix around `749ede2...`.
+- Legal localization around `cc499951...`.
+- Refined Bearagnostic Pro card baseline immediately before Ko-fi backend: `3e0f1101c060eee45e91765d535ae804d58bf8cb`.
+- Current Ko-fi K1/K2 web implementation: `772eb467249a437f7b99b38ca5f6730d7792519d`.
+- Current Android K3 server-entitlement implementation: `ff49ac8da74f97d658c3924f93867751552f477a`.
+
+These historical SHAs are context, not permission to roll production backward. Latest `main` remains authoritative.
+
+Handoff artifacts produced during implementation included:
+
+- `BENEDICT_KOFI_K1_K2_BACKEND_UPLOAD.zip` — SHA-256 `4eb3ca325402d61595172cdf3bf445c10a1e6cde24b4719e56bd408175bc00b7`;
+- `BEARAGNOSTIC_KOFI_K3_ANDROID_UPLOAD.zip` — SHA-256 `5ae91980917851e0df0e729b7ce064bf900725a3ae1ad94fb3d8e7d03b0f0ed2`;
+- `BENEDICT_KOFI_PRO_ENTITLEMENT_SYSTEM_DESIGN.md` — SHA-256 `2723e0a6d545f683026373126c7cd6aff47285dc840b332e420cdcf36b88fada`.
+
+The packages above were handoff artifacts, not repository files. Do not commit ZIPs.
+
+---
+
+# 39. CURRENT CI / VERIFICATION BOUNDARY
+
+At the time of this Revision 6.0 handoff, the current K1/K2 and K3 commits were verified as present on GitHub `main`, but no successful current CI/workflow status was established for those exact commits in the available evidence.
+
+Therefore:
+
+- do not claim current web K1/K2 CI PASS unless a workflow/status is checked;
+- do not claim current Android K3 CI PASS unless a workflow/status is checked;
+- local/static checks previously performed are not a substitute for CI or real runtime tests.
+
+---
+
+# 40. MANUAL CLOUD SETUP INTERACTION RULE
+
+When P'Benz is manually operating Cloudflare/Ko-fi/other dashboards from screenshots or phone UI:
+
+- guide **one action or visual step at a time**;
+- do not dump a long sequence of future clicks into one reply;
+- if the UI is obvious and P'Benz confirms `ผ่าน` / `เรียบร้อย`, do not force unnecessary screenshots;
+- use screenshots when a precise UI state is ambiguous or consequential;
+- never ask him to paste secret values into chat;
+- record the exact completed checkpoint so a room migration never restarts setup from zero.
+
+# 41. FINAL OPERATING PRINCIPLE
+
+Benedict Interactive should remain technically serious without becoming needlessly complex.
+
+The job is not to maximize the number of systems, pages, dependencies, or settings. The job is to make the smallest coherent system that is trustworthy, premium, maintainable, secure, easy for one founder to operate, and ready to grow without rework.
+
+When speed and completeness conflict:
+
+> **เร็วแต่ตรวจไม่ครบ = ยังไม่เสร็จ**
+
+When simplicity and unnecessary complexity conflict:
+
+> **Choose the simpler architecture that still preserves truth, security, quality, and future readiness.**
