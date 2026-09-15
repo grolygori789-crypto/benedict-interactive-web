@@ -21,13 +21,14 @@ This file records the durable responsibility of committed paths so the repositor
 | `BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md` | Canonical product/design/technical/commerce/localization/tester/support plan |
 | `REPOSITORY_MAP.md` | Canonical path ownership map |
 | `ROOM_MIGRATION_PROMPT.md` | Clean-room project handoff prompt |
-| `COMMERCE_BACKEND_RUNBOOK.md` | Operational setup, security gates, bindings, Stripe/PromptPay webhook setup, and launch checklist for the P0 commerce/entitlement backend |
+| `COMMERCE_BACKEND_RUNBOOK.md` | Operational setup, security gates, Ko-fi webhook/OTP configuration, and launch checklist for the P0 commerce/entitlement backend |
 
 Do not add daily notes, scratchpads, exported ZIPs, or duplicate plans here.
 
 ## `migrations/`
 
-- `migrations/0001_commerce.sql` — initial D1 commerce schema for products, orders, verified payments, entitlements, device bindings, webhook idempotency, and admin audit history. The seeded Bearagnostic Pro product is disabled and unpriced by default.
+- `migrations/0001_commerce.sql` — historical initial commerce foundation; preserved because it may already be applied.
+- `migrations/0002_kofi_entitlement.sql` — Ko-fi payment-event ledger, privacy-preserving identity challenges, purchase sessions, lifetime entitlements, device bindings, anomaly queue, and provider configuration. It disables the product by default after migration.
 
 ## `public/`
 
@@ -134,20 +135,22 @@ Cloudflare Pages Functions are the narrow server-side trust boundary for capabil
 - `functions/_lib/http.js` — shared server response, validation, public-commerce safety-gate, origin, and D1 helpers.
 - `functions/_lib/crypto.js` — Web Crypto helpers for high-entropy identifiers, SHA-256 hashing, HMAC signing, and constant-time signature comparison.
 - `functions/_lib/access.js` — Cloudflare Access JWT validation for the private operator surface, including signature, issuer, audience, expiry, and exact admin-email checks.
-- `functions/_lib/stripe.js` — direct Stripe REST/PromptPay Checkout adapter and raw-body webhook signature verification. Stripe secrets remain server-side environment secrets.
-- `functions/_lib/commerce.js` — server-authoritative order/payment/entitlement state transitions, device binding, webhook idempotency, refund handling, and admin auditing.
-- `functions/api/commerce/orders.js` — public checkout creation. Price and sellability come only from D1; browser-provided amounts are never trusted.
-- `functions/api/commerce/orders/[orderId].js` — private-to-the-purchaser order-status endpoint using the opaque order token.
-- `functions/api/commerce/entitlements/claim.js` — binds a fulfilled entitlement to an Android-generated device ID/secret without storing either value in plaintext.
-- `functions/api/commerce/entitlements/status.js` — server entitlement status for a previously bound device.
-- `functions/api/commerce/webhooks/stripe.js` — verified Stripe webhook ingestion. Successful verified payment fulfills the order and creates exactly one Pro entitlement; full refund transitions the entitlement to refunded.
+- `functions/_lib/stripe.js` — retired-provider fail-closed stub; direct Stripe/PromptPay commerce is no longer a Benedict payment path.
+- `functions/_lib/kofi.js` — Ko-fi form-payload parser, verification-token validation, canonical event fingerprinting, and amount normalization.
+- `functions/_lib/email.js` — replaceable server-only OTP delivery adapter with controlled test mode and production Resend support.
+- `functions/_lib/commerce.js` — server-authoritative Ko-fi event processing, OTP identity, purchase sessions, payment/entitlement/device transitions, restore, anomaly handling, and admin auditing.
+- `functions/api/commerce/identity/start.js` / `verify.js` — verified-email OTP entry point for purchase sessions and Restore Pro.
+- `functions/api/commerce/sessions/status.js` — opaque purchase-session polling used while Ko-fi confirmation is pending.
+- `functions/api/commerce/entitlements/status.js` — device-credential entitlement verification and renewable offline lease window.
+- `functions/api/commerce/webhooks/kofi.js` — verified Ko-fi payment-event ingestion and idempotent lifetime entitlement fulfillment.
+- legacy `orders`, `claim`, and Stripe webhook routes are HTTP 410 fail-closed stubs.
 - `functions/ops/_middleware.js` — mandatory Access authentication/authorization and private/noindex security headers for all `/ops/*` requests.
 - `functions/ops/[[path]].js` — authenticated pass-through route so the private middleware also protects the static `/ops` console.
-- `functions/ops/api/*` — operator-only overview, product sale configuration, Stripe reconciliation, entitlement revoke/reactivate, and audit-backed operations.
+- `functions/ops/api/*` — operator-only overview, Ko-fi product configuration, entitlement revoke/reactivate, and audit-backed operations. Automatic Ko-fi transaction reconciliation is deliberately unavailable because Ko-fi has no documented public transaction-query API.
 
 The public analytics endpoint must remain write-only. Analytics read credentials, SQL/API tokens, dashboards, moderation/admin data, payment logic, entitlement state, and other privileged operations must never be exposed in the public client or analytics endpoint.
 
-Commerce is fail-closed. `BENEDICT_COMMERCE_PUBLIC_ENABLED` must remain false until production D1, Stripe, Access, abuse controls, Android server-entitlement integration, legal/privacy updates, and real-money QA are approved. The seed product also starts inactive and without a price.
+Commerce is fail-closed. `BENEDICT_COMMERCE_PUBLIC_ENABLED` must remain false until D1 migration, Ko-fi verification, OTP delivery, Access, abuse controls, Android server-entitlement integration, legal/privacy updates, founder-privacy testing, and real-money QA are approved. Migration 0002 also forces the product inactive and unpriced.
 
 The current Contact composer is intentionally client-side and does not submit message content to a Pages Function. Do not add a fake “sent” state. Direct server-side contact delivery may be added later only with a real provider/domain configuration, abuse protection, a clear privacy update, and a protected server-side trust boundary.
 
@@ -186,11 +189,11 @@ Workers Analytics Engine is an event-analysis layer, not the permanent business 
 
 The P0 commerce path is:
 
-`server-created order -> Stripe PromptPay Checkout -> verified Stripe webhook -> server fulfillment -> Pro entitlement -> device claim/status -> Android EntitlementManager`
+`verified email -> Ko-fi Shop -> verified Ko-fi payment webhook -> Benedict lifetime entitlement -> verified device binding/status -> Android EntitlementManager`
 
-Payment confirmation is provider evidence, not a screenshot, client flag, browser callback, or admin guess. There is deliberately no admin “Mark paid” action. Manual reconciliation asks Stripe for the real Checkout status and only fulfills if Stripe reports payment as paid.
+Payment confirmation is a verified Ko-fi payment webhook, not a screenshot, client flag, browser callback, or admin guess. There is deliberately no admin “Mark paid” action. Ko-fi has no documented public transaction-query API, so refund/dispute and ambiguous cases remain explicit audited operator exceptions rather than fake automated reconciliation.
 
-The current backend foundation uses a D1 binding named `BENEDICT_COMMERCE_DB`. Stripe and Access configuration remain environment/server secrets. External providers are replaceable infrastructure; Benedict owns the durable order and entitlement state.
+The backend uses a D1 binding named `BENEDICT_COMMERCE_DB`. Ko-fi verification, email/PII/OTP keys, email-provider credentials, and Access configuration remain server secrets. Benedict owns durable payment and entitlement truth; Ko-fi remains replaceable payment infrastructure.
 
 ## Brand architecture rule
 

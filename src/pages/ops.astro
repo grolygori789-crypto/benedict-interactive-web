@@ -147,7 +147,7 @@ const title = 'Benedict Operations';
       <section class="hero">
         <div>
           <h1>Commerce <span>Control.</span></h1>
-          <p>Orders, verified payments, Pro entitlements, Stripe reconciliation, and audit history. No public navigation points here.</p>
+          <p>Verified Ko-fi payments, Pro entitlements, anomaly review, and audit history. No public navigation points here.</p>
         </div>
         <button class="refresh" id="refresh" type="button">Refresh data</button>
       </section>
@@ -155,18 +155,27 @@ const title = 'Benedict Operations';
       <div class="notice" id="notice" role="status"></div>
 
       <section class="grid">
-        <div class="card pad summary"><small>Orders</small><strong id="count-orders">—</strong><span class="muted">all recorded states</span></div>
+        <div class="card pad summary"><small>Payments</small><strong id="count-orders">—</strong><span class="muted">verified Ko-fi records</span></div>
         <div class="card pad summary"><small>Active Pro</small><strong id="count-active">—</strong><span class="muted">server entitlements</span></div>
-        <div class="card pad summary"><small>Pending</small><strong id="count-pending">—</strong><span class="muted">awaiting verified payment</span></div>
+        <div class="card pad summary"><small>Exceptions</small><strong id="count-pending">—</strong><span class="muted">open anomaly cases</span></div>
         <div class="card pad summary"><small>Public checkout</small><strong id="public-enabled">—</strong><span class="muted">environment safety gate</span></div>
 
         <section class="card pad product">
           <h2>Bearagnostic Pro sale configuration</h2>
-          <p class="muted">Price is stored server-side. Public checkout cannot trust a browser-provided amount.</p>
+          <p class="muted">Ko-fi product identity, currency and exact amount are stored server-side. The app/browser cannot declare a payment paid.</p>
           <form id="product-form">
             <div class="product-grid">
-              <label>Price (THB)
-                <input id="price" type="number" min="1" step="0.01" placeholder="Not configured" />
+              <label>Price
+                <input id="price" type="number" min="0.01" step="0.01" placeholder="Not configured" />
+              </label>
+              <label>Currency
+                <input id="currency" type="text" maxlength="3" placeholder="USD" />
+              </label>
+              <label>Ko-fi direct link code
+                <input id="item-code" type="text" maxlength="160" placeholder="Exact direct_link_code" />
+              </label>
+              <label>Ko-fi Shop product URL
+                <input id="shop-url" type="url" maxlength="500" placeholder="https://ko-fi.com/s/..." />
               </label>
               <label>Sale state
                 <span class="toggle-line"><input id="active" type="checkbox" /> Product active</span>
@@ -180,18 +189,18 @@ const title = 'Benedict Operations';
         </section>
 
         <section class="card pad orders">
-          <h2>Recent orders</h2>
-          <div class="table-wrap"><table><thead><tr><th>Order</th><th>Email</th><th>Status</th><th>Amount</th><th>Created</th><th>Action</th></tr></thead><tbody id="orders-body"></tbody></table></div>
+          <h2>Recent verified payments</h2>
+          <div class="table-wrap"><table><thead><tr><th>Payment</th><th>Status</th><th>Amount</th><th>Transaction</th><th>Created</th></tr></thead><tbody id="orders-body"></tbody></table></div>
         </section>
 
         <section class="card pad entitlements">
           <h2>Recent entitlements</h2>
-          <div class="table-wrap"><table><thead><tr><th>Entitlement</th><th>Order</th><th>Status</th><th>Issued</th><th>Action</th></tr></thead><tbody id="entitlements-body"></tbody></table></div>
+          <div class="table-wrap"><table><thead><tr><th>Entitlement</th><th>Claim</th><th>Status</th><th>Issued</th><th>Action</th></tr></thead><tbody id="entitlements-body"></tbody></table></div>
         </section>
 
         <section class="card pad events">
-          <h2>Stripe webhook events</h2>
-          <div class="table-wrap"><table><thead><tr><th>Type</th><th>Status</th><th>Order</th><th>Received</th></tr></thead><tbody id="events-body"></tbody></table></div>
+          <h2>Ko-fi webhook events</h2>
+          <div class="table-wrap"><table><thead><tr><th>Type</th><th>Status</th><th>Transaction</th><th>Received</th></tr></thead><tbody id="events-body"></tbody></table></div>
         </section>
 
         <section class="card pad audit">
@@ -200,7 +209,7 @@ const title = 'Benedict Operations';
         </section>
       </section>
 
-      <p class="footnote">Payment state is never changed to paid from this console. “Reconcile” asks Stripe for the real Checkout status and only fulfills an order when Stripe reports the payment as paid.</p>
+      <p class="footnote">There is no “Mark paid” control. Ko-fi payment truth comes only from the verified webhook. Ko-fi does not expose a documented transaction-query API, so refund/dispute exceptions must be verified operationally and recorded through audited controls.</p>
     </main>
 
 
@@ -228,8 +237,10 @@ const title = 'Benedict Operations';
         .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
         .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
       const when = (value) => value ? new Date(Number(value)).toLocaleString() : '—';
-      const money = (amount, currency = 'thb') => Number.isFinite(Number(amount))
-        ? new Intl.NumberFormat('th-TH', { style: 'currency', currency: String(currency).toUpperCase() }).format(Number(amount) / 100)
+      const zeroDecimalCurrencies = new Set(['JPY','KRW','VND']);
+      const minorFactor = (currency) => zeroDecimalCurrencies.has(String(currency || '').toUpperCase()) ? 1 : 100;
+      const money = (amount, currency = 'usd') => Number.isFinite(Number(amount))
+        ? new Intl.NumberFormat(undefined, { style: 'currency', currency: String(currency).toUpperCase() }).format(Number(amount) / minorFactor(currency))
         : '—';
       const badge = (status) => `<span class="status ${escapeHtml(status)}">${escapeHtml(status || 'unknown')}</span>`;
 
@@ -255,32 +266,35 @@ const title = 'Benedict Operations';
       function render(data) {
         latest = data;
         $('admin-identity').textContent = data.admin?.email ? `Signed in as ${data.admin.email}` : 'Protected by Cloudflare Access';
-        const orderCount = (data.orderCounts || []).reduce((sum, row) => sum + Number(row.count || 0), 0);
-        const activeCount = Number((data.entitlementCounts || []).find((row) => row.status === 'active')?.count || 0);
-        const pendingCount = (data.orderCounts || []).filter((row) => ['created','payment_pending'].includes(row.status)).reduce((sum, row) => sum + Number(row.count || 0), 0);
-        $('count-orders').textContent = String(orderCount);
+        const paymentCount = (data.payments || []).length;
+        const activeCount = (data.entitlements || []).filter((row) => row.status === 'active').length;
+        const exceptionCount = (data.anomalies || []).filter((row) => row.status === 'open').length;
+        $('count-orders').textContent = String(paymentCount);
         $('count-active').textContent = String(activeCount);
-        $('count-pending').textContent = String(pendingCount);
+        $('count-pending').textContent = String(exceptionCount);
         $('public-enabled').textContent = data.publicCommerceEnabled ? 'ON' : 'OFF';
 
         const product = data.product || {};
-        $('price').value = Number.isFinite(Number(product.unit_amount)) && product.unit_amount !== null ? (Number(product.unit_amount) / 100).toFixed(2) : '';
+        $('price').value = Number.isFinite(Number(product.unit_amount)) && product.unit_amount !== null
+          ? (Number(product.unit_amount) / minorFactor(product.currency)).toFixed(minorFactor(product.currency) === 1 ? 0 : 2) : '';
+        $('currency').value = String(product.currency || '').toUpperCase();
+        $('item-code').value = product.provider_item_code || '';
+        $('shop-url').value = product.provider_shop_url || '';
         $('active').checked = Boolean(product.active);
 
-        $('orders-body').innerHTML = (data.orders || []).map((order) => `
+        $('orders-body').innerHTML = (data.payments || []).map((payment) => `
           <tr>
-            <td title="${escapeHtml(order.id)}">${escapeHtml(order.id.slice(0, 16))}…</td>
-            <td>${escapeHtml(order.recovery_email)}</td>
-            <td>${badge(order.status)}</td>
-            <td>${escapeHtml(money(order.amount, order.currency))}</td>
-            <td>${escapeHtml(when(order.created_at))}</td>
-            <td>${order.provider_checkout_id ? `<button class="tiny-button" data-reconcile="${escapeHtml(order.id)}">Reconcile</button>` : '—'}</td>
-          </tr>`).join('') || `<tr><td colspan="6" class="empty">No orders yet.</td></tr>`;
+            <td title="${escapeHtml(payment.id)}">${escapeHtml(payment.id.slice(0, 16))}…</td>
+            <td>${badge(payment.status)}</td>
+            <td>${escapeHtml(money(payment.amount_minor, payment.currency))}</td>
+            <td>${escapeHtml(payment.provider_transaction_id || '—')}</td>
+            <td>${escapeHtml(when(payment.created_at))}</td>
+          </tr>`).join('') || `<tr><td colspan="5" class="empty">No verified Ko-fi payments yet.</td></tr>`;
 
         $('entitlements-body').innerHTML = (data.entitlements || []).map((ent) => `
           <tr>
             <td title="${escapeHtml(ent.id)}">${escapeHtml(ent.id.slice(0, 16))}…</td>
-            <td title="${escapeHtml(ent.order_id)}">${escapeHtml(ent.order_id.slice(0, 14))}…</td>
+            <td>${escapeHtml(ent.claim_state || 'unclaimed')}</td>
             <td>${badge(ent.status)}</td>
             <td>${escapeHtml(when(ent.issued_at))}</td>
             <td>${ent.status === 'active'
@@ -291,7 +305,7 @@ const title = 'Benedict Operations';
           </tr>`).join('') || `<tr><td colspan="5" class="empty">No entitlements yet.</td></tr>`;
 
         $('events-body').innerHTML = (data.webhooks || []).map((event) => `
-          <tr><td>${escapeHtml(event.event_type)}</td><td>${badge(event.status)}</td><td>${escapeHtml(event.order_id || '—')}</td><td>${escapeHtml(when(event.received_at))}</td></tr>`
+          <tr><td>${escapeHtml(event.event_type)}</td><td>${badge(event.processing_status)}</td><td>${escapeHtml(event.transaction_id || '—')}</td><td>${escapeHtml(when(event.received_at))}</td></tr>`
         ).join('') || `<tr><td colspan="4" class="empty">No webhook events yet.</td></tr>`;
 
         $('audit-body').innerHTML = (data.audit || []).map((row) => `
@@ -310,11 +324,12 @@ const title = 'Benedict Operations';
       $('product-form').addEventListener('submit', async (event) => {
         event.preventDefault();
         const price = $('price').value.trim();
-        const unitAmount = price ? Math.round(Number(price) * 100) : null;
+        const currency = $('currency').value.trim().toUpperCase();
+        const unitAmount = price ? Math.round(Number(price) * minorFactor(currency)) : null;
         try {
           await api('/ops/api/product', {
             method: 'POST',
-            body: JSON.stringify({ unitAmount, active: $('active').checked, reason: $('product-reason').value }),
+            body: JSON.stringify({ unitAmount, currency: $('currency').value.trim().toLowerCase(), providerItemCode: $('item-code').value.trim(), providerShopUrl: $('shop-url').value.trim(), active: $('active').checked, reason: $('product-reason').value }),
           });
           show('Sale configuration saved.');
           await load();
@@ -322,18 +337,6 @@ const title = 'Benedict Operations';
       });
 
       document.addEventListener('click', async (event) => {
-        const reconcile = event.target.closest('[data-reconcile]');
-        if (reconcile) {
-          reconcile.disabled = true;
-          try {
-            const result = await api(`/ops/api/orders/${encodeURIComponent(reconcile.dataset.reconcile)}/reconcile`, { method: 'POST', body: '{}' });
-            show(`Stripe reconciliation complete: ${result.stripe?.paymentStatus || 'checked'}.`);
-            await load();
-          } catch (error) { show(error.message, 'error'); }
-          finally { reconcile.disabled = false; }
-          return;
-        }
-
         const entitlementButton = event.target.closest('[data-entitlement]');
         if (entitlementButton) {
           const action = entitlementButton.dataset.action;

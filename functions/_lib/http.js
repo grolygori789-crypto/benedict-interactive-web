@@ -7,6 +7,7 @@ export function jsonResponse(data, status = 200, extraHeaders = {}) {
       'content-type': 'application/json; charset=utf-8',
       'cache-control': 'no-store',
       'x-content-type-options': 'nosniff',
+      'referrer-policy': 'no-referrer',
       ...extraHeaders,
     },
   });
@@ -18,16 +19,18 @@ export function errorResponse(status, code, message = code, details = undefined)
   return jsonResponse(body, status);
 }
 
-export async function readJson(request, maxBytes = 8192) {
+export async function readTextLimited(request, maxBytes = 8192) {
   const declared = Number(request.headers.get('content-length') || 0);
   if (declared > maxBytes) throw new HttpError(413, 'payload_too_large');
   const text = await request.text();
   if (encoder.encode(text).byteLength > maxBytes) throw new HttpError(413, 'payload_too_large');
-  try {
-    return text ? JSON.parse(text) : {};
-  } catch {
-    throw new HttpError(400, 'invalid_json');
-  }
+  return text;
+}
+
+export async function readJson(request, maxBytes = 8192) {
+  const text = await readTextLimited(request, maxBytes);
+  try { return text ? JSON.parse(text) : {}; }
+  catch { throw new HttpError(400, 'invalid_json'); }
 }
 
 export class HttpError extends Error {
@@ -41,10 +44,8 @@ export class HttpError extends Error {
 }
 
 export function responseFromError(error) {
-  if (error instanceof HttpError) {
-    return errorResponse(error.status, error.code, error.message, error.details);
-  }
-  console.error('Unhandled commerce error', error);
+  if (error instanceof HttpError) return errorResponse(error.status, error.code, error.message, error.details);
+  console.error('Unhandled commerce error', error?.name || 'Error');
   return errorResponse(500, 'internal_error', 'The request could not be completed.');
 }
 
@@ -68,6 +69,15 @@ export function cleanLocale(value) {
   return /^[a-z]{2}(?:-[a-z]{2})?$/.test(locale) ? locale : 'en';
 }
 
+export function commerceRuntimeEnabled(env) {
+  return String(env?.BENEDICT_COMMERCE_PUBLIC_ENABLED || '').toLowerCase() === 'true' ||
+    String(env?.BENEDICT_COMMERCE_TEST_MODE || '').toLowerCase() === 'true';
+}
+
+export function requireCommerceRuntimeEnabled(env) {
+  if (!commerceRuntimeEnabled(env)) throw new HttpError(503, 'commerce_not_enabled', 'Commerce is not enabled yet.');
+}
+
 export function requirePublicCommerceEnabled(env) {
   if (String(env?.BENEDICT_COMMERCE_PUBLIC_ENABLED || '').toLowerCase() !== 'true') {
     throw new HttpError(503, 'commerce_not_enabled', 'Commerce is not enabled yet.');
@@ -86,14 +96,9 @@ export function requirePublicOrigin(env) {
   const raw = String(env?.BENEDICT_PUBLIC_ORIGIN || '').trim();
   if (!raw) throw new HttpError(503, 'public_origin_unconfigured');
   let parsed;
-  try {
-    parsed = new URL(raw);
-  } catch {
-    throw new HttpError(503, 'public_origin_invalid');
-  }
-  if (parsed.protocol !== 'https:' && parsed.hostname !== 'localhost') {
-    throw new HttpError(503, 'public_origin_insecure');
-  }
+  try { parsed = new URL(raw); }
+  catch { throw new HttpError(503, 'public_origin_invalid'); }
+  if (parsed.protocol !== 'https:' && parsed.hostname !== 'localhost') throw new HttpError(503, 'public_origin_insecure');
   return parsed.origin;
 }
 
@@ -102,14 +107,9 @@ export function assertBrowserOrigin(request, env) {
   if (!origin) return;
   const expected = requirePublicOrigin(env);
   let parsed;
-  try {
-    parsed = new URL(origin).origin;
-  } catch {
-    throw new HttpError(403, 'origin_rejected');
-  }
+  try { parsed = new URL(origin).origin; }
+  catch { throw new HttpError(403, 'origin_rejected'); }
   if (parsed !== expected) throw new HttpError(403, 'origin_rejected');
 }
 
-export function nowMs() {
-  return Date.now();
-}
+export function nowMs() { return Date.now(); }
