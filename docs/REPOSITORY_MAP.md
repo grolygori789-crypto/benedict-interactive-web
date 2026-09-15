@@ -21,8 +21,13 @@ This file records the durable responsibility of committed paths so the repositor
 | `BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md` | Canonical product/design/technical/commerce/localization/tester/support plan |
 | `REPOSITORY_MAP.md` | Canonical path ownership map |
 | `ROOM_MIGRATION_PROMPT.md` | Clean-room project handoff prompt |
+| `COMMERCE_BACKEND_RUNBOOK.md` | Operational setup, security gates, bindings, Stripe/PromptPay webhook setup, and launch checklist for the P0 commerce/entitlement backend |
 
 Do not add daily notes, scratchpads, exported ZIPs, or duplicate plans here.
+
+## `migrations/`
+
+- `migrations/0001_commerce.sql` — initial D1 commerce schema for products, orders, verified payments, entitlements, device bindings, webhook idempotency, and admin audit history. The seeded Bearagnostic Pro product is disabled and unpriced by default.
 
 ## `public/`
 
@@ -107,7 +112,11 @@ Localized static routes:
 
 English remains unprefixed. Non-English localized routes are generated from the approved locale registry.
 
-Do not add public Reviews, Commerce, Account, or Tester routes until they have real content/behavior and the security model is ready.
+Private operator surface:
+
+- `src/pages/ops.astro` — Benedict Operations console. It is intentionally absent from public navigation and search indexing. Security does not depend on route secrecy: `functions/ops/*` requires a validated Cloudflare Access JWT and the configured single-admin email before the static console or its API can be reached.
+
+Do not add public Reviews, Account, or Tester routes until they have real content/behavior and the security model is ready. Public purchase UI should remain disabled until the P0 commerce backend, Android entitlement integration, policy updates, abuse controls, and real-money QA are complete.
 
 ## `src/styles/`
 
@@ -118,11 +127,26 @@ Keep typographic rules centralized in `typography.css` rather than scattering la
 
 ## `functions/`
 
-Cloudflare Pages Functions are the narrow server-side trust boundary for small public-site capabilities that cannot be expressed safely in the static bundle.
+Cloudflare Pages Functions are the narrow server-side trust boundary for capabilities that cannot be expressed safely in the static bundle.
 
 - `functions/api/analytics.js` — write-only first-party product-event ingestion endpoint for Cloudflare Workers Analytics Engine. It validates a small allowlist of aggregate events and deliberately does not store IP addresses, user-agent strings, referrers, cookies, local-storage identifiers, account identifiers, or arbitrary payload fields.
+- `functions/_lib/http.js` — shared server response, validation, public-commerce safety-gate, origin, and D1 helpers.
+- `functions/_lib/crypto.js` — Web Crypto helpers for high-entropy identifiers, SHA-256 hashing, HMAC signing, and constant-time signature comparison.
+- `functions/_lib/access.js` — Cloudflare Access JWT validation for the private operator surface, including signature, issuer, audience, expiry, and exact admin-email checks.
+- `functions/_lib/stripe.js` — direct Stripe REST/PromptPay Checkout adapter and raw-body webhook signature verification. Stripe secrets remain server-side environment secrets.
+- `functions/_lib/commerce.js` — server-authoritative order/payment/entitlement state transitions, device binding, webhook idempotency, refund handling, and admin auditing.
+- `functions/api/commerce/orders.js` — public checkout creation. Price and sellability come only from D1; browser-provided amounts are never trusted.
+- `functions/api/commerce/orders/[orderId].js` — private-to-the-purchaser order-status endpoint using the opaque order token.
+- `functions/api/commerce/entitlements/claim.js` — binds a fulfilled entitlement to an Android-generated device ID/secret without storing either value in plaintext.
+- `functions/api/commerce/entitlements/status.js` — server entitlement status for a previously bound device.
+- `functions/api/commerce/webhooks/stripe.js` — verified Stripe webhook ingestion. Successful verified payment fulfills the order and creates exactly one Pro entitlement; full refund transitions the entitlement to refunded.
+- `functions/ops/_middleware.js` — mandatory Access authentication/authorization and private/noindex security headers for all `/ops/*` requests.
+- `functions/ops/[[path]].js` — authenticated pass-through route so the private middleware also protects the static `/ops` console.
+- `functions/ops/api/*` — operator-only overview, product sale configuration, Stripe reconciliation, entitlement revoke/reactivate, and audit-backed operations.
 
-The public analytics endpoint must remain write-only. Analytics read credentials, SQL/API tokens, dashboards, moderation/admin data, payment logic, entitlement state, and other privileged operations must never be exposed in the public client or this endpoint.
+The public analytics endpoint must remain write-only. Analytics read credentials, SQL/API tokens, dashboards, moderation/admin data, payment logic, entitlement state, and other privileged operations must never be exposed in the public client or analytics endpoint.
+
+Commerce is fail-closed. `BENEDICT_COMMERCE_PUBLIC_ENABLED` must remain false until production D1, Stripe, Access, abuse controls, Android server-entitlement integration, legal/privacy updates, and real-money QA are approved. The seed product also starts inactive and without a price.
 
 The current Contact composer is intentionally client-side and does not submit message content to a Pages Function. Do not add a fake “sent” state. Direct server-side contact delivery may be added later only with a real provider/domain configuration, abuse protection, a clear privacy update, and a protected server-side trust boundary.
 
@@ -157,6 +181,16 @@ double1 = count (`1`)
 
 Workers Analytics Engine is an event-analysis layer, not the permanent business archive. Its vendor retention window must be rechecked before launch and before any long-term dashboard is treated as historical truth. If multi-year download history becomes a business requirement, add a server-side daily rollup/export layer rather than introducing visitor identifiers.
 
+## Commerce / entitlement foundation
+
+The P0 commerce path is:
+
+`server-created order -> Stripe PromptPay Checkout -> verified Stripe webhook -> server fulfillment -> Pro entitlement -> device claim/status -> Android EntitlementManager`
+
+Payment confirmation is provider evidence, not a screenshot, client flag, browser callback, or admin guess. There is deliberately no admin “Mark paid” action. Manual reconciliation asks Stripe for the real Checkout status and only fulfills if Stripe reports payment as paid.
+
+The current backend foundation uses a D1 binding named `BENEDICT_COMMERCE_DB`. Stripe and Access configuration remain environment/server secrets. External providers are replaceable infrastructure; Benedict owns the durable order and entitlement state.
+
 ## Brand architecture rule
 
 Benedict Interactive is the parent identity. Products and operational programs may have their own distinct marks while retaining Benedict family DNA. Do not reuse the parent Benedict mark as the logo for a separate product or program merely for convenience. Use parent-brand endorsement through naming, copy, and visual system rather than duplicate logos.
@@ -165,7 +199,7 @@ Editorial headings use semantic solid-color emphasis by default: graphite/navy b
 
 ## Future backend boundary
 
-Payment, entitlement, tester authentication, moderation/admin, support-ticket data, analytics read credentials, webhook handlers, and any future server-side contact-delivery credentials do **not** belong in the static public-site trust boundary. When implemented, keep secrets and privileged operations in isolated server-side services (for example Cloudflare Workers/D1/R2/Analytics Engine or an equivalent replaceable backend).
+Payment, entitlement, tester authentication, moderation/admin, support-ticket data, analytics read credentials, webhook handlers, and future server-side contact-delivery credentials belong only in isolated server-side services or Pages Functions backed by protected bindings (for example Cloudflare Workers/D1/R2/Analytics Engine or an equivalent replaceable backend). Secrets and privileged operations never belong in the static public-site trust boundary.
 
 ## Overwrite policy
 

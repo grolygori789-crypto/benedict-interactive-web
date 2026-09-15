@@ -1,0 +1,382 @@
+---
+const title = 'Benedict Operations';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <title>{title}</title>
+    <style>
+      :root {
+        font-family: Inter, ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+        color: #17314d;
+        background: #f5f9fc;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 0 0, rgba(61, 183, 245, .12), transparent 26rem),
+          radial-gradient(circle at 100% 10%, rgba(122, 105, 231, .08), transparent 30rem),
+          #f7fafc;
+      }
+      button, input { font: inherit; }
+      button { cursor: pointer; }
+      .shell { width: min(calc(100% - 2rem), 1440px); margin-inline: auto; }
+      header {
+        position: sticky; top: 0; z-index: 20;
+        border-bottom: 1px solid rgba(42, 77, 111, .08);
+        background: rgba(247, 250, 252, .86);
+        backdrop-filter: blur(18px);
+      }
+      .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; }
+      .brand { display: flex; align-items: center; gap: .8rem; }
+      .mark {
+        display: grid; width: 46px; height: 46px; place-items: center;
+        border-radius: 15px; background: rgba(255,255,255,.78);
+        box-shadow: 0 12px 28px rgba(23, 136, 240, .12);
+      }
+      .mark img { width: 36px; height: 36px; object-fit: contain; }
+      .brand strong { display: block; font-size: .94rem; }
+      .brand span { display: block; margin-top: .12rem; color: #7a8da1; font-size: .67rem; }
+      .identity { color: #6f8396; font-size: .72rem; text-align: right; }
+      main { padding: clamp(2rem, 5vw, 4.5rem) 0 5rem; }
+      .hero { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; }
+      .hero h1 { margin: 0; font-size: clamp(2.4rem, 5vw, 4.7rem); line-height: .98; letter-spacing: -.055em; }
+      .hero h1 span { color: #1688f3; }
+      .hero p { max-width: 620px; margin: .8rem 0 0; color: #6c8197; line-height: 1.65; }
+      .refresh {
+        border: 1px solid #d9e6f0; border-radius: 999px; padding: .72rem 1rem;
+        background: rgba(255,255,255,.9); color: #27557a; font-weight: 750;
+      }
+      .notice {
+        display: none; margin: 0 0 1.2rem; padding: .85rem 1rem;
+        border: 1px solid #f0cf91; border-radius: 16px; background: #fff9eb; color: #7a5a21;
+        font-size: .8rem; line-height: 1.5;
+      }
+      .notice.show { display: block; }
+      .grid { display: grid; gap: 1rem; grid-template-columns: repeat(12, minmax(0, 1fr)); }
+      .card {
+        min-width: 0; border: 1px solid rgba(34, 72, 108, .08); border-radius: 24px;
+        background: rgba(255,255,255,.92); box-shadow: 0 18px 46px rgba(30, 74, 113, .055);
+      }
+      .pad { padding: 1.15rem; }
+      .summary { grid-column: span 3; }
+      .summary small { color: #8395a7; font-weight: 750; text-transform: uppercase; letter-spacing: .07em; }
+      .summary strong { display: block; margin-top: .45rem; font-size: 2rem; letter-spacing: -.04em; color: #163a58; }
+      .product { grid-column: span 4; }
+      .orders { grid-column: span 8; }
+      .entitlements { grid-column: span 7; }
+      .events { grid-column: span 5; }
+      .audit { grid-column: span 12; }
+      h2 { margin: 0 0 .8rem; font-size: 1rem; letter-spacing: -.02em; }
+      .muted { color: #8092a5; font-size: .75rem; }
+      .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+      label { display: grid; gap: .35rem; color: #6b8095; font-size: .72rem; font-weight: 700; }
+      input[type="number"], input[type="text"] {
+        width: 100%; min-height: 42px; padding: .65rem .75rem; color: #17314d;
+        border: 1px solid #dbe6ee; border-radius: 12px; background: #fbfdff; outline: none;
+      }
+      input:focus { border-color: #46a9ec; box-shadow: 0 0 0 3px rgba(70,169,236,.12); }
+      .toggle-line { display: flex; align-items: center; gap: .55rem; min-height: 42px; }
+      .save {
+        margin-top: .8rem; border: 0; border-radius: 12px; padding: .72rem .9rem;
+        background: #1788ef; color: white; font-weight: 800;
+      }
+      .table-wrap { overflow: auto; border-radius: 16px; border: 1px solid #e7eef4; }
+      table { width: 100%; border-collapse: collapse; min-width: 680px; font-size: .72rem; }
+      th, td { padding: .66rem .7rem; border-bottom: 1px solid #edf2f6; text-align: left; white-space: nowrap; }
+      th { position: sticky; top: 0; color: #8293a4; background: #f8fbfd; font-size: .62rem; text-transform: uppercase; letter-spacing: .06em; }
+      tr:last-child td { border-bottom: 0; }
+      .status { display: inline-flex; align-items: center; gap: .35rem; padding: .24rem .46rem; border-radius: 999px; background: #eef5fa; font-weight: 780; }
+      .status.active, .status.fulfilled, .status.succeeded, .status.processed { color: #0f7958; background: #eaf8f2; }
+      .status.refunded, .status.revoked, .status.failed, .status.error { color: #a04141; background: #fff0f0; }
+      .tiny-button { border: 1px solid #dbe6ee; border-radius: 9px; padding: .4rem .55rem; background: #fff; color: #336489; font-weight: 750; }
+      .tiny-button.danger { color: #a23c47; }
+      .empty { padding: 1rem; color: #8b9baa; text-align: center; }
+      .footnote { margin-top: 1.4rem; color: #8798a9; font-size: .68rem; line-height: 1.6; }
+      dialog {
+        width: min(calc(100% - 1.5rem), 460px); padding: 0; border: 1px solid #dce7ef;
+        border-radius: 24px; color: #17314d; background: #fff; box-shadow: 0 30px 100px rgba(19, 55, 88, .24);
+      }
+      dialog::backdrop { background: rgba(16, 36, 56, .28); backdrop-filter: blur(5px); }
+      .dialog-body { padding: 1.2rem; }
+      .dialog-body h2 { margin-bottom: .4rem; font-size: 1.25rem; }
+      .dialog-body p { margin: 0 0 .9rem; color: #72879b; font-size: .78rem; line-height: 1.55; }
+      textarea {
+        width: 100%; min-height: 110px; resize: vertical; padding: .75rem; color: #17314d;
+        border: 1px solid #dbe6ee; border-radius: 13px; background: #fbfdff; font: inherit; outline: none;
+      }
+      textarea:focus { border-color: #46a9ec; box-shadow: 0 0 0 3px rgba(70,169,236,.12); }
+      .dialog-actions { display: flex; justify-content: flex-end; gap: .55rem; margin-top: .9rem; }
+      .dialog-actions button { border-radius: 11px; padding: .65rem .85rem; font-weight: 780; }
+      .dialog-cancel { border: 1px solid #dbe6ee; background: #fff; color: #557089; }
+      .dialog-confirm { border: 0; background: #173d5f; color: #fff; }
+      @media (max-width: 980px) {
+        .summary { grid-column: span 6; }
+        .product, .orders, .entitlements, .events, .audit { grid-column: span 12; }
+      }
+      @media (max-width: 620px) {
+        .shell { width: min(calc(100% - 1rem), 100%); }
+        .topbar { padding: .75rem 0; }
+        .identity { display: none; }
+        .hero { display: block; }
+        .refresh { margin-top: 1rem; }
+        .summary { grid-column: span 12; }
+        .product-grid { grid-template-columns: 1fr; }
+        .card { border-radius: 20px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="shell topbar">
+        <div class="brand">
+          <div class="mark"><img src="/brand/benedict-mark.png" alt="" width="609" height="754" /></div>
+          <div><strong>Benedict Operations</strong><span>Private commerce control room</span></div>
+        </div>
+        <div class="identity" id="admin-identity">Protected by Cloudflare Access</div>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <h1>Commerce <span>Control.</span></h1>
+          <p>Orders, verified payments, Pro entitlements, Stripe reconciliation, and audit history. No public navigation points here.</p>
+        </div>
+        <button class="refresh" id="refresh" type="button">Refresh data</button>
+      </section>
+
+      <div class="notice" id="notice" role="status"></div>
+
+      <section class="grid">
+        <div class="card pad summary"><small>Orders</small><strong id="count-orders">—</strong><span class="muted">all recorded states</span></div>
+        <div class="card pad summary"><small>Active Pro</small><strong id="count-active">—</strong><span class="muted">server entitlements</span></div>
+        <div class="card pad summary"><small>Pending</small><strong id="count-pending">—</strong><span class="muted">awaiting verified payment</span></div>
+        <div class="card pad summary"><small>Public checkout</small><strong id="public-enabled">—</strong><span class="muted">environment safety gate</span></div>
+
+        <section class="card pad product">
+          <h2>Bearagnostic Pro sale configuration</h2>
+          <p class="muted">Price is stored server-side. Public checkout cannot trust a browser-provided amount.</p>
+          <form id="product-form">
+            <div class="product-grid">
+              <label>Price (THB)
+                <input id="price" type="number" min="1" step="0.01" placeholder="Not configured" />
+              </label>
+              <label>Sale state
+                <span class="toggle-line"><input id="active" type="checkbox" /> Product active</span>
+              </label>
+            </div>
+            <label style="margin-top:.7rem">Audit reason
+              <input id="product-reason" type="text" maxlength="500" value="Update Bearagnostic Pro sale configuration" />
+            </label>
+            <button class="save" type="submit">Save configuration</button>
+          </form>
+        </section>
+
+        <section class="card pad orders">
+          <h2>Recent orders</h2>
+          <div class="table-wrap"><table><thead><tr><th>Order</th><th>Email</th><th>Status</th><th>Amount</th><th>Created</th><th>Action</th></tr></thead><tbody id="orders-body"></tbody></table></div>
+        </section>
+
+        <section class="card pad entitlements">
+          <h2>Recent entitlements</h2>
+          <div class="table-wrap"><table><thead><tr><th>Entitlement</th><th>Order</th><th>Status</th><th>Issued</th><th>Action</th></tr></thead><tbody id="entitlements-body"></tbody></table></div>
+        </section>
+
+        <section class="card pad events">
+          <h2>Stripe webhook events</h2>
+          <div class="table-wrap"><table><thead><tr><th>Type</th><th>Status</th><th>Order</th><th>Received</th></tr></thead><tbody id="events-body"></tbody></table></div>
+        </section>
+
+        <section class="card pad audit">
+          <h2>Admin audit log</h2>
+          <div class="table-wrap"><table><thead><tr><th>Time</th><th>Actor</th><th>Action</th><th>Entity</th><th>Reason</th></tr></thead><tbody id="audit-body"></tbody></table></div>
+        </section>
+      </section>
+
+      <p class="footnote">Payment state is never changed to paid from this console. “Reconcile” asks Stripe for the real Checkout status and only fulfills an order when Stripe reports the payment as paid.</p>
+    </main>
+
+
+    <dialog id="action-dialog">
+      <form id="action-form" method="dialog" class="dialog-body">
+        <h2 id="action-title">Confirm entitlement action</h2>
+        <p id="action-copy">Every manual entitlement change is written to the audit log.</p>
+        <label>Reason
+          <textarea id="action-reason" maxlength="500" required placeholder="Explain why this change is necessary."></textarea>
+        </label>
+        <div class="dialog-actions">
+          <button type="button" class="dialog-cancel" id="action-cancel">Cancel</button>
+          <button type="submit" class="dialog-confirm" id="action-confirm">Confirm</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const notice = $('notice');
+      let latest = null;
+      let pendingEntitlementAction = null;
+
+      const escapeHtml = (value) => String(value ?? '')
+        .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+      const when = (value) => value ? new Date(Number(value)).toLocaleString() : '—';
+      const money = (amount, currency = 'thb') => Number.isFinite(Number(amount))
+        ? new Intl.NumberFormat('th-TH', { style: 'currency', currency: String(currency).toUpperCase() }).format(Number(amount) / 100)
+        : '—';
+      const badge = (status) => `<span class="status ${escapeHtml(status)}">${escapeHtml(status || 'unknown')}</span>`;
+
+      function show(message, tone = 'info') {
+        notice.textContent = message;
+        notice.classList.add('show');
+        notice.style.borderColor = tone === 'error' ? '#efb0b0' : '#f0cf91';
+        notice.style.background = tone === 'error' ? '#fff2f2' : '#fff9eb';
+        window.setTimeout(() => notice.classList.remove('show'), 5500);
+      }
+
+      async function api(url, options = {}) {
+        const response = await fetch(url, {
+          credentials: 'same-origin',
+          headers: { 'content-type': 'application/json', ...(options.headers || {}) },
+          ...options,
+        });
+        const body = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(body?.message || body?.error || `HTTP ${response.status}`);
+        return body;
+      }
+
+      function render(data) {
+        latest = data;
+        $('admin-identity').textContent = data.admin?.email ? `Signed in as ${data.admin.email}` : 'Protected by Cloudflare Access';
+        const orderCount = (data.orderCounts || []).reduce((sum, row) => sum + Number(row.count || 0), 0);
+        const activeCount = Number((data.entitlementCounts || []).find((row) => row.status === 'active')?.count || 0);
+        const pendingCount = (data.orderCounts || []).filter((row) => ['created','payment_pending'].includes(row.status)).reduce((sum, row) => sum + Number(row.count || 0), 0);
+        $('count-orders').textContent = String(orderCount);
+        $('count-active').textContent = String(activeCount);
+        $('count-pending').textContent = String(pendingCount);
+        $('public-enabled').textContent = data.publicCommerceEnabled ? 'ON' : 'OFF';
+
+        const product = data.product || {};
+        $('price').value = Number.isFinite(Number(product.unit_amount)) && product.unit_amount !== null ? (Number(product.unit_amount) / 100).toFixed(2) : '';
+        $('active').checked = Boolean(product.active);
+
+        $('orders-body').innerHTML = (data.orders || []).map((order) => `
+          <tr>
+            <td title="${escapeHtml(order.id)}">${escapeHtml(order.id.slice(0, 16))}…</td>
+            <td>${escapeHtml(order.recovery_email)}</td>
+            <td>${badge(order.status)}</td>
+            <td>${escapeHtml(money(order.amount, order.currency))}</td>
+            <td>${escapeHtml(when(order.created_at))}</td>
+            <td>${order.provider_checkout_id ? `<button class="tiny-button" data-reconcile="${escapeHtml(order.id)}">Reconcile</button>` : '—'}</td>
+          </tr>`).join('') || `<tr><td colspan="6" class="empty">No orders yet.</td></tr>`;
+
+        $('entitlements-body').innerHTML = (data.entitlements || []).map((ent) => `
+          <tr>
+            <td title="${escapeHtml(ent.id)}">${escapeHtml(ent.id.slice(0, 16))}…</td>
+            <td title="${escapeHtml(ent.order_id)}">${escapeHtml(ent.order_id.slice(0, 14))}…</td>
+            <td>${badge(ent.status)}</td>
+            <td>${escapeHtml(when(ent.issued_at))}</td>
+            <td>${ent.status === 'active'
+              ? `<button class="tiny-button danger" data-entitlement="${escapeHtml(ent.id)}" data-action="revoke">Revoke</button>`
+              : ent.status === 'revoked'
+                ? `<button class="tiny-button" data-entitlement="${escapeHtml(ent.id)}" data-action="reactivate">Reactivate</button>`
+                : 'Refunded'}</td>
+          </tr>`).join('') || `<tr><td colspan="5" class="empty">No entitlements yet.</td></tr>`;
+
+        $('events-body').innerHTML = (data.webhooks || []).map((event) => `
+          <tr><td>${escapeHtml(event.event_type)}</td><td>${badge(event.status)}</td><td>${escapeHtml(event.order_id || '—')}</td><td>${escapeHtml(when(event.received_at))}</td></tr>`
+        ).join('') || `<tr><td colspan="4" class="empty">No webhook events yet.</td></tr>`;
+
+        $('audit-body').innerHTML = (data.audit || []).map((row) => `
+          <tr><td>${escapeHtml(when(row.created_at))}</td><td>${escapeHtml(row.actor_email)}</td><td>${escapeHtml(row.action)}</td><td>${escapeHtml(`${row.entity_type}:${row.entity_id}`)}</td><td>${escapeHtml(row.reason || '—')}</td></tr>`
+        ).join('') || `<tr><td colspan="5" class="empty">No admin actions yet.</td></tr>`;
+      }
+
+      async function load() {
+        $('refresh').disabled = true;
+        try { render(await api('/ops/api/overview')); }
+        catch (error) { show(error.message, 'error'); }
+        finally { $('refresh').disabled = false; }
+      }
+
+      $('refresh').addEventListener('click', load);
+      $('product-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const price = $('price').value.trim();
+        const unitAmount = price ? Math.round(Number(price) * 100) : null;
+        try {
+          await api('/ops/api/product', {
+            method: 'POST',
+            body: JSON.stringify({ unitAmount, active: $('active').checked, reason: $('product-reason').value }),
+          });
+          show('Sale configuration saved.');
+          await load();
+        } catch (error) { show(error.message, 'error'); }
+      });
+
+      document.addEventListener('click', async (event) => {
+        const reconcile = event.target.closest('[data-reconcile]');
+        if (reconcile) {
+          reconcile.disabled = true;
+          try {
+            const result = await api(`/ops/api/orders/${encodeURIComponent(reconcile.dataset.reconcile)}/reconcile`, { method: 'POST', body: '{}' });
+            show(`Stripe reconciliation complete: ${result.stripe?.paymentStatus || 'checked'}.`);
+            await load();
+          } catch (error) { show(error.message, 'error'); }
+          finally { reconcile.disabled = false; }
+          return;
+        }
+
+        const entitlementButton = event.target.closest('[data-entitlement]');
+        if (entitlementButton) {
+          const action = entitlementButton.dataset.action;
+          const label = action === 'revoke' ? 'Revoke' : 'Reactivate';
+          pendingEntitlementAction = {
+            entitlementId: entitlementButton.dataset.entitlement,
+            action,
+            button: entitlementButton,
+          };
+          $('action-title').textContent = `${label} entitlement?`;
+          $('action-copy').textContent = `${label} requires a reason and will be written to the permanent admin audit log.`;
+          $('action-confirm').textContent = label;
+          $('action-reason').value = '';
+          $('action-dialog').showModal();
+        }
+      });
+
+      $('action-cancel').addEventListener('click', () => {
+        pendingEntitlementAction = null;
+        $('action-dialog').close();
+      });
+
+      $('action-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!pendingEntitlementAction) return;
+        const reason = $('action-reason').value.trim();
+        if (reason.length < 3) { show('Please enter a clear reason.', 'error'); return; }
+        const current = pendingEntitlementAction;
+        current.button.disabled = true;
+        $('action-confirm').disabled = true;
+        try {
+          await api(`/ops/api/entitlements/${encodeURIComponent(current.entitlementId)}/status`, {
+            method: 'POST', body: JSON.stringify({ action: current.action, reason }),
+          });
+          $('action-dialog').close();
+          show(`Entitlement ${current.action} action completed.`);
+          pendingEntitlementAction = null;
+          await load();
+        } catch (error) { show(error.message, 'error'); }
+        finally { current.button.disabled = false; $('action-confirm').disabled = false; }
+      });
+
+      load();
+    </script>
+  </body>
+</html>
