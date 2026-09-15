@@ -2,7 +2,7 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AccentHeading from './AccentHeading.astro';
 import { site } from '../data/site';
-import { localizedPath, type LocaleCode } from '../i18n/content';
+import { localeMeta, localizedPath, type LocaleCode } from '../i18n/content';
 import { getLegalDocument, getLegalUi, type LegalDocumentKey } from '../i18n/legal';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 
 const { locale, document } = Astro.props;
 const ui = getLegalUi(locale);
-const page = getLegalDocument(document);
+const page = getLegalDocument(document, locale);
 const isEnglish = locale === 'en';
 const documentLabel = document === 'privacy'
   ? ui.privacy
@@ -69,7 +69,7 @@ const documentLabel = document === 'privacy'
           </aside>
         )}
 
-        <article class="legal-article" lang="en">
+        <article class="legal-article" lang={localeMeta[locale].htmlLang}>
           {page.sections.map((section) => (
             <section id={section.id} class="legal-section">
               <h2>{section.heading}</h2>
@@ -82,17 +82,6 @@ const documentLabel = document === 'privacy'
             </section>
           ))}
 
-          {document === 'privacy' && (
-            <section class="provider-links" aria-label="Privacy references">
-              <h2>Privacy references</h2>
-              <p>
-                For more detail about relevant third-party services, see
-                <a href="https://developers.cloudflare.com/web-analytics/about/" rel="noopener noreferrer" target="_blank">Cloudflare Web Analytics</a>
-                and
-                <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a>.
-              </p>
-            </section>
-          )}
         </article>
       </main>
     </div>
@@ -206,19 +195,16 @@ const documentLabel = document === 'privacy'
   }
 
   .legal-section { scroll-margin-top: 7rem; }
-  .legal-section + .legal-section,
-  .provider-links { margin-top: clamp(1.8rem, 3vw, 2.55rem); padding-top: clamp(1.8rem, 3vw, 2.55rem); border-block-start: 1px solid #e6edf3; }
+  .legal-section + .legal-section { margin-top: clamp(1.8rem, 3vw, 2.55rem); padding-top: clamp(1.8rem, 3vw, 2.55rem); border-block-start: 1px solid #e6edf3; }
 
-  .legal-section h2,
-  .provider-links h2 {
+  .legal-section h2 {
     margin: 0;
     color: #153550;
     font-size: clamp(1.35rem, 2.2vw, 1.85rem);
     line-height: 1.16;
     letter-spacing: -0.025em;
   }
-  .legal-section h2::before,
-  .provider-links h2::before {
+  .legal-section h2::before {
     display: inline-block;
     width: 0.46rem;
     height: 0.46rem;
@@ -230,8 +216,7 @@ const documentLabel = document === 'privacy'
     vertical-align: 0.13em;
   }
 
-  .legal-section p,
-  .provider-links p {
+  .legal-section p {
     max-width: 74ch;
     margin: 0.78rem 0 0;
     color: #647991;
@@ -241,7 +226,6 @@ const documentLabel = document === 'privacy'
   .legal-section ul { display: grid; gap: 0.58rem; margin: 0.9rem 0 0; padding-inline-start: 1.25rem; color: #647991; }
   .legal-section li { padding-inline-start: 0.22rem; font-size: 0.9rem; line-height: 1.7; }
   .legal-section li::marker { color: var(--legal-accent); }
-  .provider-links a { margin-inline: 0.25em; color: var(--legal-accent); font-weight: 720; }
 
   @media (max-width: 920px) {
     .legal-layout { grid-template-columns: 1fr; }
@@ -264,9 +248,7 @@ const documentLabel = document === 'privacy'
     .legal-index nav a { flex: 0 0 auto; max-width: 220px; border: 1px solid #e2ebf2; background: #fbfdff; }
     .legal-index-contact { margin-top: 0.55rem; }
     .legal-article { padding: 1.3rem; border-radius: 27px; }
-    .legal-section + .legal-section,
-    .provider-links { margin-top: 1.55rem; padding-top: 1.55rem; }
-    .legal-section p,
-    .provider-links p { font-size: 0.88rem; line-height: 1.75; }
+    .legal-section + .legal-section { margin-top: 1.55rem; padding-top: 1.55rem; }
+    .legal-section p { font-size: 0.88rem; line-height: 1.75; }
   }
 </style>

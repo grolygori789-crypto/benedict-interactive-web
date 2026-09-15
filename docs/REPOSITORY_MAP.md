@@ -48,7 +48,7 @@ Reusable public-site responsibilities:
 - `BearagnosticPage.astro` — locale-aware Bearagnostic composition, including a commerce-ready planned-state slot that can later receive live purchase UI without redesigning the surrounding page.
 - `SupportPage.astro` — locale-aware customer support composition and public tester-program preview/status.
 - `ContactPage.astro` — locale-aware Benedict Interactive contact surface and local message composer. The composer prepares a draft in the visitor's browser, opens Gmail Web Compose on desktop-class browsers to avoid unreliable protocol-handler loops, and keeps native `mailto:` handoff on mobile devices. It does not claim a server-side send and does not persist message content on the website.
-- `LegalDocumentPage.astro` — shared editorial renderer for Privacy, Terms, Software License, and Legal & Rights documents. English legal text is the current authoritative version; localized routes explicitly identify that status.
+- `LegalDocumentPage.astro` — shared editorial renderer for Privacy, Terms, Software License, and Legal & Rights documents. It renders the selected locale natively, including RTL behavior through the site locale metadata; non-English pages carry a localized notice that the English version remains the authoritative reference if wording differs.
 - `ProductCard.astro` — older reusable product-card component; retain until a deliberate cleanup confirms no route needs it.
 
 ## `src/data/`
@@ -61,7 +61,8 @@ Do not put prices, payment secrets, entitlement state, user data, or mutable bac
 ## `src/i18n/`
 
 - `content.ts` — locale registry, native names, route helpers, direction metadata, and canonical transcreated product/site copy for all 16 supported locales.
-- `legal.ts` — localized Contact/Legal interface labels plus the current authoritative English legal-document content. Legal body copy is intentionally not machine-transcreated across all locales; non-English legal routes disclose that the English document is authoritative until reviewed translations exist.
+- `legal.ts` — localized Contact/Legal interface labels, the authoritative English legal-document content, and locale-aware legal-document selection.
+- `legal-documents.ts` — reader-first localized legal copy for the 15 non-English supported locales. Translations preserve the English document structure and legal meaning while using natural, locale-appropriate language; the localized notice states that the English version remains the authoritative reference if wording differs.
 
 Do not scatter translations through page files when the content belongs to the same localized responsibility.
 

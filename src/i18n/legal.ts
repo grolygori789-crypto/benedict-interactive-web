@@ -1,4 +1,5 @@
 import type { LocaleCode } from './content';
+import { localizedLegalDocuments } from './legal-documents';
 
 export type LegalDocumentKey = 'privacy' | 'terms' | 'license' | 'legal';
 
@@ -77,7 +78,7 @@ const en: LegalUiCopy = {
   bullets: 'Bullets',
   link: 'Link',
   linkPrompt: 'Enter a web address (https://…)',
-  legalLanguageNotice: 'This legal document is currently published in English as the authoritative version.',
+  legalLanguageNotice: 'This page is available in multiple languages. If a translation differs from the English version, the English version is the authoritative reference.',
   lastUpdated: 'Last updated',
   onThisPage: 'On this page',
   questions: 'Questions about this document?',
@@ -93,7 +94,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     email: 'อีเมล', location: 'ที่ตั้ง', directEmail: 'ส่งอีเมลถึง Benedict Interactive', composerTitle: 'เขียนข้อความ', composerNote: 'พิมพ์ข้อความที่นี่ แล้วส่งต่อผ่านแอปอีเมลของคุณ เว็บไซต์จะไม่จัดเก็บข้อความนี้',
     name: 'ชื่อ', yourEmail: 'อีเมลของคุณ', topic: 'หัวข้อ', subject: 'ชื่อเรื่อง', message: 'ข้อความ', productSupport: 'ช่วยเหลือผลิตภัณฑ์', business: 'ธุรกิจ', feedback: 'ข้อเสนอแนะ', other: 'อื่นๆ',
     sendViaEmail: 'ส่งผ่านอีเมล', copyMessage: 'คัดลอกข้อความ', copied: 'คัดลอกแล้ว', bold: 'ตัวหนา', italic: 'ตัวเอียง', bullets: 'รายการหัวข้อ', link: 'ลิงก์', linkPrompt: 'ใส่ที่อยู่เว็บ (https://…)',
-    legalLanguageNotice: 'เอกสารกฎหมายฉบับนี้เผยแพร่เป็นภาษาอังกฤษ โดยฉบับภาษาอังกฤษเป็นฉบับที่ใช้อ้างอิง', lastUpdated: 'ปรับปรุงล่าสุด', onThisPage: 'เนื้อหาในหน้านี้', questions: 'มีคำถามเกี่ยวกับเอกสารนี้?', allRightsReserved: 'สงวนลิขสิทธิ์และสิทธิ์ทั้งหมด',
+    legalLanguageNotice: 'คำแปลนี้จัดทำเพื่อให้อ่านเข้าใจได้สะดวก หากข้อความใดแตกต่างจากฉบับภาษาอังกฤษ ให้ยึดฉบับภาษาอังกฤษเป็นฉบับอ้างอิง', lastUpdated: 'ปรับปรุงล่าสุด', onThisPage: 'เนื้อหาในหน้านี้', questions: 'มีคำถามเกี่ยวกับเอกสารนี้?', allRightsReserved: 'สงวนลิขสิทธิ์และสิทธิ์ทั้งหมด',
   },
   es: {
     ...en,
@@ -101,7 +102,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Contacta con Benedict Interactive', contactTitle: 'Hablemos. Sin complicaciones.', contactLead: 'Ayuda de producto, comentarios, consultas comerciales o un simple saludo — escríbenos directamente.',
     email: 'Correo', location: 'Ubicación', directEmail: 'Escribir a Benedict Interactive', composerTitle: 'Escribe un mensaje', composerNote: 'Redáctalo aquí y continúa en tu app de correo. El sitio no guarda el mensaje.',
     name: 'Nombre', yourEmail: 'Tu correo', topic: 'Tema', subject: 'Asunto', message: 'Mensaje', productSupport: 'Soporte de producto', business: 'Negocios', feedback: 'Comentarios', other: 'Otro', sendViaEmail: 'Enviar por correo', copyMessage: 'Copiar mensaje', copied: 'Copiado', bold: 'Negrita', italic: 'Cursiva', bullets: 'Viñetas', link: 'Enlace', linkPrompt: 'Introduce una dirección web (https://…)',
-    legalLanguageNotice: 'Este documento legal se publica actualmente en inglés como versión autorizada.', lastUpdated: 'Última actualización', onThisPage: 'En esta página', questions: '¿Preguntas sobre este documento?', allRightsReserved: 'Todos los derechos reservados.',
+    legalLanguageNotice: 'Esta traducción se ofrece para facilitar la lectura. Si hubiera alguna diferencia con la versión en inglés, prevalece la versión en inglés.', lastUpdated: 'Última actualización', onThisPage: 'En esta página', questions: '¿Preguntas sobre este documento?', allRightsReserved: 'Todos los derechos reservados.',
   },
   'pt-br': {
     ...en,
@@ -109,7 +110,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Fale com a Benedict Interactive', contactTitle: 'Vamos conversar. Sem complicação.', contactLead: 'Suporte de produto, feedback, assuntos comerciais ou só um oi — fale diretamente com a Benedict Interactive.',
     email: 'E-mail', location: 'Localização', directEmail: 'Enviar e-mail para a Benedict Interactive', composerTitle: 'Escreva uma mensagem', composerNote: 'Escreva aqui e continue no seu app de e-mail. O site não armazena a mensagem.',
     name: 'Nome', yourEmail: 'Seu e-mail', topic: 'Assunto', subject: 'Título', message: 'Mensagem', productSupport: 'Suporte do produto', business: 'Negócios', feedback: 'Feedback', other: 'Outro', sendViaEmail: 'Enviar por e-mail', copyMessage: 'Copiar mensagem', copied: 'Copiado', bold: 'Negrito', italic: 'Itálico', bullets: 'Marcadores', link: 'Link', linkPrompt: 'Digite um endereço da web (https://…)',
-    legalLanguageNotice: 'Este documento jurídico está publicado atualmente em inglês como versão oficial.', lastUpdated: 'Última atualização', onThisPage: 'Nesta página', questions: 'Dúvidas sobre este documento?', allRightsReserved: 'Todos os direitos reservados.',
+    legalLanguageNotice: 'Esta tradução é oferecida para facilitar a leitura. Se houver alguma diferença em relação à versão em inglês, prevalece a versão em inglês.', lastUpdated: 'Última atualização', onThisPage: 'Nesta página', questions: 'Dúvidas sobre este documento?', allRightsReserved: 'Todos os direitos reservados.',
   },
   fr: {
     ...en,
@@ -117,7 +118,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Contacter Benedict Interactive', contactTitle: 'Parlons simplement.', contactLead: 'Aide produit, retour, demande professionnelle ou simple bonjour — écrivez directement à Benedict Interactive.',
     email: 'E-mail', location: 'Localisation', directEmail: 'Écrire à Benedict Interactive', composerTitle: 'Rédiger un message', composerNote: 'Rédigez ici puis continuez dans votre application e-mail. Le site ne stocke pas le message.',
     name: 'Nom', yourEmail: 'Votre e-mail', topic: 'Sujet', subject: 'Objet', message: 'Message', productSupport: 'Assistance produit', business: 'Professionnel', feedback: 'Retour', other: 'Autre', sendViaEmail: 'Envoyer par e-mail', copyMessage: 'Copier le message', copied: 'Copié', bold: 'Gras', italic: 'Italique', bullets: 'Puces', link: 'Lien', linkPrompt: 'Saisissez une adresse web (https://…)',
-    legalLanguageNotice: 'Ce document juridique est actuellement publié en anglais, qui constitue la version de référence.', lastUpdated: 'Dernière mise à jour', onThisPage: 'Sur cette page', questions: 'Une question sur ce document ?', allRightsReserved: 'Tous droits réservés.',
+    legalLanguageNotice: 'Cette traduction est fournie pour faciliter la lecture. En cas de différence avec la version anglaise, la version anglaise fait foi.', lastUpdated: 'Dernière mise à jour', onThisPage: 'Sur cette page', questions: 'Une question sur ce document ?', allRightsReserved: 'Tous droits réservés.',
   },
   de: {
     ...en,
@@ -125,7 +126,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Benedict Interactive kontaktieren', contactTitle: 'Sag hallo. Ganz unkompliziert.', contactLead: 'Produkthilfe, Feedback, geschäftliche Anfragen oder einfach ein Hallo — direkt an Benedict Interactive.',
     email: 'E-Mail', location: 'Standort', directEmail: 'E-Mail an Benedict Interactive', composerTitle: 'Nachricht schreiben', composerNote: 'Hier verfassen und anschließend in deiner E-Mail-App fortfahren. Die Website speichert die Nachricht nicht.',
     name: 'Name', yourEmail: 'Deine E-Mail', topic: 'Thema', subject: 'Betreff', message: 'Nachricht', productSupport: 'Produktsupport', business: 'Geschäftlich', feedback: 'Feedback', other: 'Sonstiges', sendViaEmail: 'Per E-Mail senden', copyMessage: 'Nachricht kopieren', copied: 'Kopiert', bold: 'Fett', italic: 'Kursiv', bullets: 'Aufzählung', link: 'Link', linkPrompt: 'Webadresse eingeben (https://…)',
-    legalLanguageNotice: 'Dieses Rechtsdokument wird derzeit auf Englisch als maßgebliche Fassung veröffentlicht.', lastUpdated: 'Zuletzt aktualisiert', onThisPage: 'Auf dieser Seite', questions: 'Fragen zu diesem Dokument?', allRightsReserved: 'Alle Rechte vorbehalten.',
+    legalLanguageNotice: 'Diese Übersetzung dient der leichteren Verständlichkeit. Bei Abweichungen von der englischen Fassung ist die englische Fassung maßgeblich.', lastUpdated: 'Zuletzt aktualisiert', onThisPage: 'Auf dieser Seite', questions: 'Fragen zu diesem Dokument?', allRightsReserved: 'Alle Rechte vorbehalten.',
   },
   it: {
     ...en,
@@ -133,7 +134,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Contatta Benedict Interactive', contactTitle: 'Parliamone. Senza complicazioni.', contactLead: 'Assistenza prodotto, feedback, richieste commerciali o anche solo un saluto — scrivi direttamente a Benedict Interactive.',
     email: 'Email', location: 'Sede', directEmail: 'Scrivi a Benedict Interactive', composerTitle: 'Scrivi un messaggio', composerNote: 'Scrivi qui e continua nella tua app email. Il sito non memorizza il messaggio.',
     name: 'Nome', yourEmail: 'La tua email', topic: 'Argomento', subject: 'Oggetto', message: 'Messaggio', productSupport: 'Supporto prodotto', business: 'Business', feedback: 'Feedback', other: 'Altro', sendViaEmail: 'Invia via email', copyMessage: 'Copia messaggio', copied: 'Copiato', bold: 'Grassetto', italic: 'Corsivo', bullets: 'Elenco', link: 'Link', linkPrompt: 'Inserisci un indirizzo web (https://…)',
-    legalLanguageNotice: 'Questo documento legale è attualmente pubblicato in inglese come versione autorevole.', lastUpdated: 'Ultimo aggiornamento', onThisPage: 'In questa pagina', questions: 'Domande su questo documento?', allRightsReserved: 'Tutti i diritti riservati.',
+    legalLanguageNotice: 'Questa traduzione è fornita per facilitarne la lettura. In caso di differenze rispetto alla versione inglese, prevale la versione inglese.', lastUpdated: 'Ultimo aggiornamento', onThisPage: 'In questa pagina', questions: 'Domande su questo documento?', allRightsReserved: 'Tutti i diritti riservati.',
   },
   ja: {
     ...en,
@@ -141,7 +142,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Benedict Interactive へ連絡', contactTitle: '気軽に話しかけてください。', contactLead: '製品サポート、フィードバック、ビジネスのお問い合わせ、ちょっとしたご挨拶まで、Benedict Interactive へ直接どうぞ。',
     email: 'メール', location: '所在地', directEmail: 'Benedict Interactive にメール', composerTitle: 'メッセージを書く', composerNote: 'ここで作成し、メールアプリで送信を続けます。Webサイトは本文を保存しません。',
     name: 'お名前', yourEmail: 'メールアドレス', topic: '種類', subject: '件名', message: 'メッセージ', productSupport: '製品サポート', business: 'ビジネス', feedback: 'フィードバック', other: 'その他', sendViaEmail: 'メールで送る', copyMessage: 'メッセージをコピー', copied: 'コピーしました', bold: '太字', italic: '斜体', bullets: '箇条書き', link: 'リンク', linkPrompt: 'Webアドレスを入力してください（https://…）',
-    legalLanguageNotice: 'この法的文書は現在、英語版を正式版として公開しています。', lastUpdated: '最終更新', onThisPage: 'このページの内容', questions: 'この文書についてのご質問', allRightsReserved: 'All rights reserved.',
+    legalLanguageNotice: 'この翻訳は内容を分かりやすくするために提供しています。英語版と内容に差異がある場合は、英語版を基準とします。', lastUpdated: '最終更新', onThisPage: 'このページの内容', questions: 'この文書についてのご質問', allRightsReserved: 'すべての権利を留保します。',
   },
   ko: {
     ...en,
@@ -149,7 +150,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Benedict Interactive 문의', contactTitle: '편하게 이야기해 주세요.', contactLead: '제품 지원, 의견, 비즈니스 문의 또는 간단한 인사까지 Benedict Interactive에 직접 보내 주세요.',
     email: '이메일', location: '위치', directEmail: 'Benedict Interactive에 이메일', composerTitle: '메시지 작성', composerNote: '여기에서 작성한 뒤 이메일 앱에서 계속합니다. 웹사이트는 메시지를 저장하지 않습니다.',
     name: '이름', yourEmail: '이메일 주소', topic: '주제', subject: '제목', message: '메시지', productSupport: '제품 지원', business: '비즈니스', feedback: '피드백', other: '기타', sendViaEmail: '이메일로 보내기', copyMessage: '메시지 복사', copied: '복사됨', bold: '굵게', italic: '기울임', bullets: '글머리 기호', link: '링크', linkPrompt: '웹 주소를 입력하세요 (https://…)',
-    legalLanguageNotice: '이 법적 문서는 현재 영어판을 기준 문서로 게시하고 있습니다.', lastUpdated: '최종 업데이트', onThisPage: '이 페이지에서', questions: '이 문서에 대한 문의', allRightsReserved: '모든 권리 보유.',
+    legalLanguageNotice: '이 번역은 내용을 쉽게 확인할 수 있도록 제공됩니다. 영어판과 내용이 다른 경우에는 영어판을 기준으로 합니다.', lastUpdated: '최종 업데이트', onThisPage: '이 페이지에서', questions: '이 문서에 대한 문의', allRightsReserved: '모든 권리 보유.',
   },
   id: {
     ...en,
@@ -157,7 +158,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Hubungi Benedict Interactive', contactTitle: 'Mari ngobrol. Tetap sederhana.', contactLead: 'Bantuan produk, masukan, pertanyaan bisnis, atau sekadar menyapa — langsung ke Benedict Interactive.',
     email: 'Email', location: 'Lokasi', directEmail: 'Email Benedict Interactive', composerTitle: 'Tulis pesan', composerNote: 'Tulis di sini lalu lanjutkan di aplikasi email Anda. Situs tidak menyimpan pesan.',
     name: 'Nama', yourEmail: 'Email Anda', topic: 'Topik', subject: 'Subjek', message: 'Pesan', productSupport: 'Dukungan produk', business: 'Bisnis', feedback: 'Masukan', other: 'Lainnya', sendViaEmail: 'Kirim lewat email', copyMessage: 'Salin pesan', copied: 'Disalin', bold: 'Tebal', italic: 'Miring', bullets: 'Poin', link: 'Tautan', linkPrompt: 'Masukkan alamat web (https://…)',
-    legalLanguageNotice: 'Dokumen hukum ini saat ini diterbitkan dalam bahasa Inggris sebagai versi yang berlaku.', lastUpdated: 'Terakhir diperbarui', onThisPage: 'Di halaman ini', questions: 'Pertanyaan tentang dokumen ini?', allRightsReserved: 'Hak cipta dilindungi.',
+    legalLanguageNotice: 'Terjemahan ini disediakan agar lebih mudah dibaca. Jika ada perbedaan dengan versi bahasa Inggris, versi bahasa Inggris menjadi acuan.', lastUpdated: 'Terakhir diperbarui', onThisPage: 'Di halaman ini', questions: 'Pertanyaan tentang dokumen ini?', allRightsReserved: 'Hak cipta dilindungi.',
   },
   vi: {
     ...en,
@@ -165,7 +166,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Liên hệ Benedict Interactive', contactTitle: 'Cứ nhắn nhé. Thật đơn giản.', contactLead: 'Hỗ trợ sản phẩm, góp ý, trao đổi kinh doanh hay chỉ muốn chào một tiếng — gửi thẳng đến Benedict Interactive.',
     email: 'Email', location: 'Địa điểm', directEmail: 'Email Benedict Interactive', composerTitle: 'Viết tin nhắn', composerNote: 'Soạn tại đây rồi tiếp tục trong ứng dụng email của bạn. Trang web không lưu nội dung.',
     name: 'Tên', yourEmail: 'Email của bạn', topic: 'Chủ đề', subject: 'Tiêu đề', message: 'Tin nhắn', productSupport: 'Hỗ trợ sản phẩm', business: 'Kinh doanh', feedback: 'Góp ý', other: 'Khác', sendViaEmail: 'Gửi qua email', copyMessage: 'Sao chép tin nhắn', copied: 'Đã sao chép', bold: 'Đậm', italic: 'Nghiêng', bullets: 'Danh sách', link: 'Liên kết', linkPrompt: 'Nhập địa chỉ web (https://…)',
-    legalLanguageNotice: 'Tài liệu pháp lý này hiện được công bố bằng tiếng Anh và bản tiếng Anh là bản có giá trị tham chiếu.', lastUpdated: 'Cập nhật lần cuối', onThisPage: 'Trong trang này', questions: 'Câu hỏi về tài liệu này?', allRightsReserved: 'Bảo lưu mọi quyền.',
+    legalLanguageNotice: 'Bản dịch này được cung cấp để bạn dễ đọc hơn. Nếu có điểm khác với bản tiếng Anh, bản tiếng Anh sẽ là bản tham chiếu.', lastUpdated: 'Cập nhật lần cuối', onThisPage: 'Trong trang này', questions: 'Câu hỏi về tài liệu này?', allRightsReserved: 'Bảo lưu mọi quyền.',
   },
   'zh-cn': {
     ...en,
@@ -173,7 +174,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: '联系 Benedict Interactive', contactTitle: '来聊聊，简单一点。', contactLead: '产品支持、建议反馈、商务咨询，或只是打个招呼，都可以直接联系 Benedict Interactive。',
     email: '邮箱', location: '地点', directEmail: '给 Benedict Interactive 发邮件', composerTitle: '写消息', composerNote: '在这里撰写，然后在你的邮件应用中继续。网站不会保存消息内容。',
     name: '姓名', yourEmail: '你的邮箱', topic: '主题', subject: '标题', message: '消息', productSupport: '产品支持', business: '商务', feedback: '反馈', other: '其他', sendViaEmail: '通过邮件发送', copyMessage: '复制消息', copied: '已复制', bold: '粗体', italic: '斜体', bullets: '项目符号', link: '链接', linkPrompt: '输入网址（https://…）',
-    legalLanguageNotice: '本法律文件目前以英文发布，英文版本为权威版本。', lastUpdated: '最后更新', onThisPage: '本页内容', questions: '对此文件有疑问？', allRightsReserved: '保留所有权利。',
+    legalLanguageNotice: '本译文用于方便阅读。如译文与英文版本存在差异，以英文版本为准。', lastUpdated: '最后更新', onThisPage: '本页内容', questions: '对此文件有疑问？', allRightsReserved: '保留所有权利。',
   },
   'zh-tw': {
     ...en,
@@ -181,7 +182,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: '聯絡 Benedict Interactive', contactTitle: '聊聊吧，簡單就好。', contactLead: '產品支援、意見回饋、商務洽詢，或只是打聲招呼，都可以直接聯絡 Benedict Interactive。',
     email: '電子郵件', location: '地點', directEmail: '寄信給 Benedict Interactive', composerTitle: '撰寫訊息', composerNote: '在這裡撰寫，再到你的郵件 App 繼續。網站不會儲存訊息內容。',
     name: '姓名', yourEmail: '你的電子郵件', topic: '主題', subject: '標題', message: '訊息', productSupport: '產品支援', business: '商務', feedback: '意見回饋', other: '其他', sendViaEmail: '透過郵件傳送', copyMessage: '複製訊息', copied: '已複製', bold: '粗體', italic: '斜體', bullets: '項目符號', link: '連結', linkPrompt: '輸入網址（https://…）',
-    legalLanguageNotice: '本法律文件目前以英文發布，英文版本為具效力的參考版本。', lastUpdated: '最後更新', onThisPage: '本頁內容', questions: '對此文件有疑問？', allRightsReserved: '保留所有權利。',
+    legalLanguageNotice: '本譯文是為了方便閱讀。如譯文與英文版本有任何差異，以英文版本為準。', lastUpdated: '最後更新', onThisPage: '本頁內容', questions: '對此文件有疑問？', allRightsReserved: '保留所有權利。',
   },
   ar: {
     ...en,
@@ -189,7 +190,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'تواصل مع Benedict Interactive', contactTitle: 'قل مرحبًا. ببساطة.', contactLead: 'دعم المنتج أو الملاحظات أو الاستفسارات التجارية أو مجرد تحية — تواصل مباشرة مع Benedict Interactive.',
     email: 'البريد الإلكتروني', location: 'الموقع', directEmail: 'راسل Benedict Interactive', composerTitle: 'اكتب رسالة', composerNote: 'اكتب هنا ثم تابع في تطبيق البريد لديك. لا يخزن الموقع الرسالة.',
     name: 'الاسم', yourEmail: 'بريدك الإلكتروني', topic: 'الموضوع', subject: 'العنوان', message: 'الرسالة', productSupport: 'دعم المنتج', business: 'الأعمال', feedback: 'ملاحظات', other: 'أخرى', sendViaEmail: 'إرسال بالبريد', copyMessage: 'نسخ الرسالة', copied: 'تم النسخ', bold: 'عريض', italic: 'مائل', bullets: 'نقاط', link: 'رابط', linkPrompt: 'أدخل عنوان ويب (https://…)',
-    legalLanguageNotice: 'يُنشر هذا المستند القانوني حاليًا باللغة الإنجليزية باعتبارها النسخة المعتمدة.', lastUpdated: 'آخر تحديث', onThisPage: 'في هذه الصفحة', questions: 'أسئلة حول هذا المستند؟', allRightsReserved: 'جميع الحقوق محفوظة.',
+    legalLanguageNotice: 'تُقدَّم هذه الترجمة لتسهيل القراءة. وإذا وُجد اختلاف بينها وبين النسخة الإنجليزية، فتُعتمد النسخة الإنجليزية كمرجع.', lastUpdated: 'آخر تحديث', onThisPage: 'في هذه الصفحة', questions: 'أسئلة حول هذا المستند؟', allRightsReserved: 'جميع الحقوق محفوظة.',
   },
   hi: {
     ...en,
@@ -197,7 +198,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Benedict Interactive से संपर्क करें', contactTitle: 'नमस्ते कहिए। सरल रखें।', contactLead: 'उत्पाद सहायता, सुझाव, व्यावसायिक पूछताछ या सिर्फ नमस्ते — सीधे Benedict Interactive को लिखें।',
     email: 'ईमेल', location: 'स्थान', directEmail: 'Benedict Interactive को ईमेल करें', composerTitle: 'संदेश लिखें', composerNote: 'यहाँ लिखें और फिर अपने ईमेल ऐप में आगे बढ़ें। वेबसाइट संदेश को संग्रहीत नहीं करती।',
     name: 'नाम', yourEmail: 'आपका ईमेल', topic: 'विषय', subject: 'शीर्षक', message: 'संदेश', productSupport: 'उत्पाद सहायता', business: 'व्यवसाय', feedback: 'प्रतिक्रिया', other: 'अन्य', sendViaEmail: 'ईमेल से भेजें', copyMessage: 'संदेश कॉपी करें', copied: 'कॉपी किया गया', bold: 'बोल्ड', italic: 'इटैलिक', bullets: 'बुलेट', link: 'लिंक', linkPrompt: 'वेब पता दर्ज करें (https://…)',
-    legalLanguageNotice: 'यह कानूनी दस्तावेज़ फिलहाल अंग्रेज़ी में आधिकारिक संस्करण के रूप में प्रकाशित है।', lastUpdated: 'अंतिम अपडेट', onThisPage: 'इस पेज पर', questions: 'इस दस्तावेज़ के बारे में प्रश्न?', allRightsReserved: 'सर्वाधिकार सुरक्षित।',
+    legalLanguageNotice: 'यह अनुवाद पढ़ने में सुविधा के लिए दिया गया है। यदि इसमें और अंग्रेज़ी संस्करण में कोई अंतर हो, तो अंग्रेज़ी संस्करण को संदर्भ माना जाएगा।', lastUpdated: 'अंतिम अपडेट', onThisPage: 'इस पेज पर', questions: 'इस दस्तावेज़ के बारे में प्रश्न?', allRightsReserved: 'सर्वाधिकार सुरक्षित।',
   },
   tr: {
     ...en,
@@ -205,7 +206,7 @@ export const legalUi: Record<LocaleCode, LegalUiCopy> = {
     contactKicker: 'Benedict Interactive ile iletişim', contactTitle: 'Merhaba deyin. Basit kalsın.', contactLead: 'Ürün desteği, geri bildirim, iş görüşmesi ya da sadece bir merhaba — doğrudan Benedict Interactive’e yazın.',
     email: 'E-posta', location: 'Konum', directEmail: 'Benedict Interactive’e e-posta gönder', composerTitle: 'Mesaj yazın', composerNote: 'Burada yazın, ardından e-posta uygulamanızda devam edin. Web sitesi mesajı saklamaz.',
     name: 'Ad', yourEmail: 'E-posta adresiniz', topic: 'Konu', subject: 'Başlık', message: 'Mesaj', productSupport: 'Ürün desteği', business: 'İş', feedback: 'Geri bildirim', other: 'Diğer', sendViaEmail: 'E-posta ile gönder', copyMessage: 'Mesajı kopyala', copied: 'Kopyalandı', bold: 'Kalın', italic: 'İtalik', bullets: 'Madde işaretleri', link: 'Bağlantı', linkPrompt: 'Web adresi girin (https://…)',
-    legalLanguageNotice: 'Bu yasal belge şu anda bağlayıcı sürüm olarak İngilizce yayımlanmaktadır.', lastUpdated: 'Son güncelleme', onThisPage: 'Bu sayfada', questions: 'Bu belgeyle ilgili sorunuz mu var?', allRightsReserved: 'Tüm hakları saklıdır.',
+    legalLanguageNotice: 'Bu çeviri, metni daha kolay okuyabilmeniz için sunulur. İngilizce sürümle arasında fark olması halinde İngilizce sürüm esas alınır.', lastUpdated: 'Son güncelleme', onThisPage: 'Bu sayfada', questions: 'Bu belgeyle ilgili sorunuz mu var?', allRightsReserved: 'Tüm hakları saklıdır.',
   },
 };
 
@@ -564,4 +565,5 @@ export const legalDocuments: Record<LegalDocumentKey, LegalDocument> = {
   },
 };
 
-export const getLegalDocument = (key: LegalDocumentKey): LegalDocument => legalDocuments[key];
+export const getLegalDocument = (key: LegalDocumentKey, locale: LocaleCode = 'en'): LegalDocument =>
+  locale === 'en' ? legalDocuments[key] : localizedLegalDocuments[locale][key];
