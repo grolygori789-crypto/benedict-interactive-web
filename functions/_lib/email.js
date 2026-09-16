@@ -31,7 +31,20 @@ function copyFor(locale, purpose, code) {
 }
 
 export async function sendOtpEmail(env, { email, code, purpose, locale }) {
-  if (isTestMode(env)) return { delivery: 'test' };
+  if (isTestMode(env)) {
+    const liveTestEnabled =
+      String(env?.BENEDICT_EMAIL_TEST_DELIVERY || '').toLowerCase() === 'true';
+
+    const allowedRecipient =
+      String(env?.BENEDICT_EMAIL_TEST_RECIPIENT || '').trim().toLowerCase();
+
+    const normalizedRecipient =
+      String(email || '').trim().toLowerCase();
+
+    if (!liveTestEnabled || !allowedRecipient || normalizedRecipient !== allowedRecipient) {
+      return { delivery: 'test' };
+    }
+  }
 
   const provider = String(env?.BENEDICT_EMAIL_PROVIDER || '').trim().toLowerCase();
   if (provider !== 'resend') throw new HttpError(503, 'email_provider_unconfigured');
