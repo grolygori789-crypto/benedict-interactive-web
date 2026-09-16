@@ -1,7 +1,6 @@
-\
 # Benedict Interactive — Room Migration / Immigration Prompt
 
-**Revision:** 7.0  
+**Revision:** 7.1  
 **Date:** 16 September 2026  
 **Purpose:** Complete clean-room handoff so a new ChatGPT room can continue immediately from the latest Benedict Interactive + Bearagnostic commerce state without asking P'Benz to repeat completed work.
 
@@ -55,7 +54,11 @@ Master Plan: `docs/BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md`
 Repository map: `docs/REPOSITORY_MAP.md`  
 Commerce runbook: `docs/COMMERCE_BACKEND_RUNBOOK.md`
 
-Current verified web baseline at this handoff:
+Current verified repository `main` before this local handoff update:
+
+`489e9248f1763a77a529c5c1c3b42ff2ee4764f2` — `Update master plan and room handoff`
+
+Current commerce runtime code baseline:
 
 `0ea8190c6fcc180db9cd63284af69a385fc7a2b6` — `Allow live OTP email in test mode`
 
@@ -177,7 +180,7 @@ Analytics dataset: `benedict_product_events`
 
 No fake analytics/install claims. No fake reviews. No cookie banner merely for appearance.
 
-Current public support email remains `benedict.support@gmail.com` until branded inbound routing is completed. Public location remains `Bangkok, Thailand`.
+Current public support email remains `benedict.support@gmail.com` until branded inbound routing is completed. Approved pre-launch branded target: `support@benedictinteractive.com`, but do not replace public copy until inbound routing and reply-from identity are both proven. Public location remains `Bangkok, Thailand`.
 
 Supported locales remain:
 
@@ -353,7 +356,7 @@ Sender:
 
 `Benedict Interactive <no-reply@benedictinteractive.com>`
 
-Branded inbound email is **not** configured yet. Preferred later direction is Cloudflare Email Routing such as `support@benedictinteractive.com` forwarding to existing Gmail. Do not turn Resend receiving on or alter MX casually.
+Branded inbound email is **not** configured yet. Approved pre-launch direction is Cloudflare Email Routing for `support@benedictinteractive.com` forwarding to existing Gmail. `no-reply@benedictinteractive.com` remains transactional-only. Do not turn Resend receiving on or alter MX casually. The public Gmail address remains in use until inbound + reply identity are proven.
 
 ## 16. LIVE EMAIL TEST PATCH — CURRENT `main`
 
@@ -399,52 +402,84 @@ Ko-fi built-in test fixtures reuse transaction ID `00000000-1111-2222-3333-44444
 
 ## 18. QA PASSED IN THIS ROOM — DO NOT ASK TO REPEAT
 
-Verified runtime evidence through 16 September 2026:
+Foundation already proven before the latest hardening sequence:
 
-- Ko-fi Donation test reached backend and was correctly ignored as irrelevant;
-- transaction-ID collision protection triggered on repeated Ko-fi fixture;
-- controlled synthetic exact Shop Order path exercised payment/entitlement logic;
-- controlled Restore returned HTTP 200, `purpose=restore`, active entitlement, `isPro=true`, device credential and offline lease;
-- custom apex domain active and usable;
-- `www` accessible and observed normalizing to apex;
-- Resend sending records verified;
-- real OTP request from `https://benedictinteractive.com` returned HTTP 201, `ok=true`, `delivery='sent'`;
-- actual email arrived from `Benedict Interactive <no-reply@benedictinteractive.com>`;
-- OTP verify returned HTTP 200, `ok=true`, `purpose='purchase'`, created `ses_...` purchase session;
-- session/device secrets were intentionally not printed to console;
-- pre-payment `/api/commerce/sessions/status` returned HTTP 200, `state='open'`, `isPro=false`.
+- Ko-fi Donation event reached backend and was correctly ignored;
+- controlled synthetic exact Shop Order exercised payment/entitlement logic;
+- controlled Restore returned HTTP 200, active entitlement, `isPro=true`, device credential and offline lease;
+- custom apex domain active and usable; `www` observed normalizing to apex;
+- Resend sending verified;
+- one real OTP request from `https://benedictinteractive.com` returned HTTP 201 / `delivery='sent'` and the email actually arrived from `Benedict Interactive <no-reply@benedictinteractive.com>`;
+- actual OTP verify returned HTTP 200 / `purpose='purchase'` and created a purchase session;
+- pre-payment session status returned HTTP 200 / `state='open'` / `isPro=false`.
 
-Do not ask P'Benz to repeat domain, DNS, Resend verification, live OTP delivery, or this pre-payment session check unless new evidence shows a regression.
+Hardening completed on 16 September 2026:
+
+1. wrong Ko-fi verification token → HTTP 403 `kofi_verification_failed` — PASS;
+2. wrong Shop item → `ignored`, D1 `different_shop_item` — PASS;
+3. wrong amount → `quarantined`, D1 `amount_mismatch` — PASS;
+4. wrong currency → `quarantined`, D1 `currency_mismatch` — PASS;
+5. exact replay → first `fulfilled`, second `replay`, no duplicate entitlement — PASS;
+6. tampered replay / transaction-ID collision → second payload `quarantined` — PASS;
+7. unsupported quantity → `quarantined / unsupported_quantity` — PASS;
+8. multiple-item cart → `quarantined / unsupported_cart_structure` — PASS;
+9. missing buyer email → `quarantined / buyer_email_missing` — PASS;
+10. missing transaction ID → `quarantined / transaction_id_missing` — PASS;
+11. subscription payment → `ignored / subscription_not_supported` — PASS;
+12. D1 provider-event audit matched expected statuses/anomaly codes — PASS;
+13. D1 payment/entitlement isolation audit proved rejected/ignored/quarantined cases did not create entitlement — PASS;
+14. duplicate lifetime purchase using the same email → first fulfilled, second `duplicate_purchase` — PASS;
+15. D1 duplicate-purchase audit proved two payments but only one active lifetime entitlement — PASS;
+16. ambiguous purchase-session test → two verified sessions for one email + one valid payment resulted in both sessions `ambiguous`, entitlement `active / unclaimed`, `device_bindings=0` — PASS.
+
+Important #16 note: the first browser helper incorrectly used GET for `/api/commerce/sessions/status`, producing HTTP 405 because the endpoint is POST-only. This was a QA-script method mistake, **not** a production defect. D1 was then queried directly and proved the intended ambiguous-session state.
+
+Do **not** ask P'Benz to repeat any of the above unless new evidence shows regression.
 
 ## 19. EXACT CONTINUATION CHECKPOINT — START HERE
 
-**The next room must start from commerce hardening before real money. Do not restart setup.**
+**The next room must start here. Do not restart setup and do not re-run Hardening #1–#16.**
 
-Public commerce remains:
+Current safe state:
 
 ```text
 BENEDICT_COMMERCE_PUBLIC_ENABLED = false
+BENEDICT_COMMERCE_TEST_MODE = true
 ```
 
-Current high-priority next gates:
+### Exact next action
 
-1. controlled replay/idempotency test;
-2. wrong-item rejection;
-3. wrong-amount rejection;
-4. wrong-currency rejection if not already explicitly covered;
-5. verify unclaimed-entitlement behavior without creating ambiguity;
-6. deliberate cleanup plan for synthetic QA records/anomalies after hardening;
-7. complete/verify Cloudflare Access for private ops;
-8. inspect latest Android repo, then configure `CommerceConfig.BASE_URL` only when web hardening is ready;
-9. Android real-device server entitlement + offline lease + restore-after-reinstall QA;
-10. resolve approved Email+OTP server-decides Buy/Restore UX gap;
-11. update Privacy/Terms/purchase/refund disclosures;
-12. define audited refund/dispute/revoke procedure;
-13. buyer-side founder-privacy checkout inspection;
-14. one controlled real-money 249 THB purchase proving Ko-fi → webhook → entitlement → Android Pro unlock;
-15. only after final review, disable TEST MODE/test-only variables and consider public enablement.
+**Hardening Test #17 — OTP Challenge Replay is NOT RUN yet.**
 
-Do not create unnecessary additional successful synthetic purchases for the same test identity. One good synthetic entitlement is enough unless a specific test requires another isolated case.
+Start with this test tomorrow:
+
+- create one synthetic TEST MODE purchase identity challenge;
+- P'Benz locally enters the existing six-digit `BENEDICT_OTP_TEST_CODE` when prompted;
+- verify the challenge successfully once;
+- submit the exact same challenge/code a second time;
+- expected second response: HTTP 409, `ok=false`, `error='challenge_already_used'`;
+- no Ko-fi Verification Token is needed for #17;
+- never ask P'Benz to reveal the OTP test code in chat.
+
+After #17, continue identity hardening (wrong OTP / attempt count / lockout, and other safe identity edge cases), then finish web hardening before moving into Android K3 real-device integration.
+
+Remaining launch path after hardening:
+
+1. plan FK-safe cleanup of synthetic QA records only after the evidence is no longer needed;
+2. complete/verify Cloudflare Access on `/ops*`;
+3. inspect latest Android repo + Android Master Plan;
+4. configure `CommerceConfig.BASE_URL` only when web hardening is ready;
+5. Android physical-device server entitlement / offline lease / device binding / restore-after-reinstall QA;
+6. implement the approved unified `Email + OTP → server determines Buy or Restore` UX before public launch;
+7. configure branded `support@benedictinteractive.com` routing + reply identity, then migrate public support copy;
+8. update Privacy/Terms/purchase/refund disclosures and audited revoke/refund/dispute procedure;
+9. perform buyer-side founder-privacy checkout inspection;
+10. perform one controlled real-money **249 THB** purchase proving Ko-fi → webhook → Benedict entitlement → Android Pro unlock;
+11. remove/disable test-only email/OTP overrides, exit TEST MODE, then consider public commerce enablement.
+
+Synthetic QA data is intentionally present in production D1 from the controlled tests. It includes provider events, anomalies, payments, entitlements, identity challenges, sessions and ambiguous-session records. Do not casually delete rows; cleanup must be FK-safe and deliberate.
+
+A Benedict Ticket / Case Number / Q&A / after-sales system has been discussed but is **deliberately deferred until the purchase/payment/entitlement system is production-ready**. Do not divert the current P0 work into that system yet.
 
 ## 20. ANDROID K3 KNOWN STATE
 
@@ -492,19 +527,26 @@ Founder-privacy buyer-side real checkout test remains mandatory.
 - No risky redesign of stable production without fallback.
 - No redoing completed Dynadot/Cloudflare domain setup, D1 migration, Resend verification, or live OTP test without regression evidence.
 - Never ask P'Benz to reveal stored secrets.
+- When a browser hardening script needs the real Ko-fi Verification Token, prompt for it locally on P'Benz's machine; never embed, print, request in chat, or store it in handoff files.
+- Do not re-run Hardening #1–#16 just because the room changed.
+- `/api/commerce/sessions/status` is POST-only; the GET 405 during Hardening #16 was a QA-script error, not a backend bug.
+- Ticket / Case Number / Q&A / broader after-sales system is deferred until commerce is production-ready.
 
 ## 23. FINAL CONTINUATION INSTRUCTION
 
-When this prompt is loaded in a new room:
+When this prompt is loaded in the new room:
 
 1. acknowledge the handoff briefly;
 2. inspect latest web `main` and canonical documents before substantive changes;
 3. do **not** ask P'Benz what has already been done;
-4. do **not** restart domain, DNS, Resend, D1, Ko-fi mapping, or OTP setup;
-5. start from Section 19 hardening gates unless P'Benz gives a newer explicit instruction;
-6. guide dashboard work one step at a time when manual UI interaction is needed;
-7. keep `BENEDICT_COMMERCE_PUBLIC_ENABLED=false`;
-8. keep P0 Commerce + Payment + Entitlement as priority until real-money + Android end-to-end is verified;
-9. for every file package, include real files and a <=50-character commit name in a fenced code block in the same response.
+4. do **not** restart domain, DNS, Resend, D1, Ko-fi mapping, OTP setup, or Hardening #1–#16;
+5. start specifically with **Hardening Test #17 — OTP Challenge Replay**, because it has not been run;
+6. guide dashboard/manual QA one step at a time when UI interaction is needed;
+7. never ask P'Benz to send verification tokens, OTP test codes, API keys, session tokens, device credentials, or his real test email in chat;
+8. keep `BENEDICT_COMMERCE_PUBLIC_ENABLED=false` and TEST MODE active until the remaining gates are complete;
+9. keep P0 Commerce + Payment + Entitlement as priority until controlled real-money + Android end-to-end is verified;
+10. do not start the deferred Ticket/Q&A/after-sales system before commerce production readiness;
+11. for every GitHub-bound file package, include the real files and a <=50-character commit name in a fenced code block in the same response;
+12. ordinary technical progress must use plain chat text — no image-generation-style processing box unless the user explicitly requested image work.
 
-The migration is successful only if P'Benz can begin useful work immediately with no re-explanation or repeated setup.
+The migration is successful only if P'Benz can resume at Hardening #17 immediately, with no re-explanation and no repetition of completed setup/tests.
