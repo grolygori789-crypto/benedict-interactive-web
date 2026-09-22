@@ -1,0 +1,474 @@
+/*
+ * Benedict Interactive — Mobile Responsive Hardening
+ *
+ * Scope: geometry, wrapping, viewport containment, and mobile ergonomics only.
+ * No product, commerce, release, entitlement, or content logic lives here.
+ *
+ * Design principle: prevent min-content expansion at the component boundary,
+ * let text wrap naturally, and reserve horizontal scrolling only for controls
+ * where it is intentional (for example the contact editor toolbar).
+ */
+
+/* ---------- Shared geometry safeguards ---------- */
+html,
+body,
+.site-shell,
+#main-content {
+  max-width: 100%;
+  min-width: 0;
+}
+
+#main-content,
+#main-content > *,
+.shell,
+.shell > * {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Long translated words, email addresses, hashes and URLs must never widen a page. */
+#main-content p,
+#main-content li,
+#main-content dd,
+#main-content dt,
+#main-content a,
+#main-content code,
+.bi-footer a,
+.bi-footer span,
+.bi-footer small {
+  overflow-wrap: anywhere;
+}
+
+pre {
+  max-width: 100%;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* AccentHeading is composed from inline spans. Keep every locale shrinkable. */
+.accent-heading,
+.accent-heading-base,
+.accent-heading-accent {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Shared chrome ---------- */
+.bi-header,
+.bi-header-inner,
+.bi-brand,
+.bi-header-actions,
+.bi-language-wrap,
+.bi-mobile-menu,
+.bi-footer,
+.bi-footer-shell,
+.bi-footer-main,
+.bi-footer-brand,
+.bi-footer-column,
+.bi-footer-studio,
+.bi-footer-bottom {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.bi-footer-email {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .bi-header {
+    padding-inline-start: max(0.5rem, env(safe-area-inset-left));
+    padding-inline-end: max(0.5rem, env(safe-area-inset-right));
+  }
+
+  .bi-header-inner {
+    width: 100%;
+  }
+
+  .bi-header-actions {
+    gap: 0.38rem;
+  }
+
+  .language-panel,
+  .bi-mobile-panel {
+    max-width: calc(100vw - 1rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .bi-brand {
+    gap: 0.5rem;
+  }
+
+  .bi-brand-copy strong {
+    font-size: 0.7rem;
+  }
+
+  .bi-brand-copy small {
+    display: none;
+  }
+
+  .language-switcher > summary {
+    min-width: 44px;
+    padding-inline: 0.42rem;
+  }
+
+  .bi-mobile-menu > summary {
+    width: 38px;
+  }
+}
+
+/* ---------- Home ---------- */
+.home-onepage,
+.home-onepage .hero,
+.home-onepage .hero-copy,
+.home-onepage .founder-visual,
+.home-onepage .product-shell,
+.home-onepage .product-copy,
+.home-onepage .device-stage,
+.home-onepage .feature-stack,
+.home-onepage .feature,
+.home-onepage .philosophy,
+.home-onepage .principles,
+.home-onepage .principles article {
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .home-onepage .micro-proof {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: start;
+    gap: 0.42rem;
+  }
+
+  .home-onepage .micro-proof > span {
+    min-width: 0;
+  }
+}
+
+/* ---------- Products showroom ---------- */
+.products-page,
+.products-page .products-showcase,
+.products-page .product-showcase,
+.products-page .product-showcase-copy,
+.products-page .bear-product-art,
+.products-page .test-center-card,
+.products-page .test-center-copy,
+.products-page .test-center-meta {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.products-page .product-status-row,
+.products-page .test-center-meta {
+  flex-wrap: wrap;
+}
+
+/* ---------- Bearagnostic product page ---------- */
+.bear-page,
+.bear-page .bear-hero,
+.bear-page .bear-hero-copy,
+.bear-page .bear-showcase,
+.bear-page .release-truth-shell,
+.bear-page .release-copy,
+.bear-page .release-facts,
+.bear-page .release-disclosure-grid,
+.bear-page .download-card,
+.bear-page .download-card-top,
+.bear-page .download-card-top > div,
+.bear-page .feature-story,
+.bear-page .feature-story-copy,
+.bear-page .feature-story-visual,
+.bear-page .pro-upgrade-shell,
+.bear-page .pro-copy,
+.bear-page .pro-benefits,
+.bear-page .pro-benefit,
+.bear-page .pro-visual,
+.bear-page .journey-heading,
+.bear-page .journey-steps,
+.bear-page .journey-step,
+.bear-page .payment-method-note,
+.bear-page .restore-strip,
+.bear-page .restore-copy,
+.bear-page .release-faq-shell,
+.bear-page .release-faq-heading,
+.bear-page .release-faq-columns,
+.bear-page .release-faq-list,
+.bear-page .release-faq-item,
+.bear-page .release-faq-item summary,
+.bear-page .release-faq-question {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.bear-page .download-card-top strong,
+.bear-page .release-facts code,
+.bear-page .release-faq-question {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 420px) {
+  .bear-page .pro-card-footer {
+    flex-wrap: wrap;
+  }
+
+  .bear-page .pro-card-provider {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 340px) {
+  .bear-page .bear-title-wordmark {
+    white-space: normal;
+  }
+}
+
+/* ---------- Support ---------- */
+.support-page,
+.support-page .support-grid,
+.support-page .support-card,
+.support-page .support-card-copy,
+.support-page .support-bear-visual,
+.support-page .support-brand-visual,
+.support-page .test-center-brand,
+.support-page .test-center-meta,
+.support-page .staging-note {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ---------- Contact ---------- */
+.contact-page,
+.contact-page .contact-stage,
+.contact-page .contact-card,
+.contact-page .contact-studio,
+.contact-page .studio-copy,
+.contact-page .contact-facts,
+.contact-page .composer-card,
+.contact-page .composer-head,
+.contact-page .recipient-chip,
+.contact-page .field-grid,
+.contact-page .field,
+.contact-page .editor-shell,
+.contact-page .message-editor,
+.contact-page .form-actions,
+.contact-page .form-status {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.contact-page .recipient-chip {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* The editor toolbar is the one deliberate horizontal scroller on tiny screens. */
+.contact-page .editor-toolbar {
+  max-width: 100%;
+  overscroll-behavior-inline: contain;
+}
+
+/* ---------- Legal documents: Privacy / Terms / License / Legal & Rights ---------- */
+/*
+ * The former mobile failure came from a min-content chain inside the index/article
+ * layout. The page-level overflow clip then hid the excess. These boundaries make
+ * both columns genuinely shrinkable before the mobile breakpoint is reached.
+ */
+.legal-page {
+  overflow: visible !important;
+}
+
+.legal-page,
+.legal-page .legal-hero,
+.legal-page .legal-layout,
+.legal-page .legal-index,
+.legal-page .legal-index-card,
+.legal-page .legal-index-brand,
+.legal-page .legal-index-brand > div,
+.legal-page .legal-index nav,
+.legal-page .legal-index nav a,
+.legal-page .legal-index-contact,
+.legal-page .legal-article-wrap,
+.legal-page .language-notice,
+.legal-page .legal-article,
+.legal-page .legal-section,
+.legal-page .legal-section h2,
+.legal-page .legal-section p,
+.legal-page .legal-section ul,
+.legal-page .legal-section li {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.legal-page .legal-layout {
+  width: min(calc(100% - clamp(2rem, 6vw, 5rem)), 1180px);
+}
+
+.legal-page .legal-index-brand > div,
+.legal-page .legal-index-contact,
+.legal-page .language-notice p,
+.legal-page .legal-section h2,
+.legal-page .legal-section p,
+.legal-page .legal-section li {
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
+.legal-page .legal-article {
+  width: 100%;
+}
+
+.legal-page .legal-section p,
+.legal-page .legal-section ul {
+  width: 100%;
+}
+
+.legal-page .legal-index nav a {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.legal-page .legal-index-contact a {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 920px) {
+  .legal-page .legal-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .legal-page .legal-index-card {
+    grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.45fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .legal-page .legal-layout,
+  .legal-page .legal-hero {
+    width: min(calc(100% - 1.15rem), 620px);
+  }
+
+  /* Replace the old horizontal chip strip with a calm, wrapping navigation grid. */
+  .legal-page .legal-index nav {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.45rem !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-block-end: 0 !important;
+  }
+
+  .legal-page .legal-index nav a {
+    width: 100%;
+    max-width: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0.62rem 0.72rem;
+    border: 1px solid #e2ebf2;
+    border-radius: 12px;
+    background: #fbfdff;
+    line-height: 1.35;
+  }
+
+  .legal-page .legal-index-title {
+    margin-block-end: 0.52rem;
+  }
+
+  .legal-page .legal-index-contact {
+    margin-block-start: 0.78rem;
+  }
+
+  .legal-page .legal-article {
+    padding: clamp(1.05rem, 4vw, 1.3rem);
+  }
+
+  .legal-page .legal-section h2 {
+    font-size: clamp(1.3rem, 6.1vw, 1.62rem);
+    line-height: 1.22;
+  }
+
+  .legal-page .legal-section p,
+  .legal-page .legal-section li {
+    line-height: 1.72;
+  }
+}
+
+@media (max-width: 430px) {
+  .legal-page .legal-index nav {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .legal-page .legal-index-card {
+    padding: 0.95rem;
+  }
+
+  .legal-page .legal-article {
+    border-radius: 24px;
+  }
+
+  .legal-page .legal-meta-row {
+    gap: 0.38rem 0.48rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .legal-page .legal-hero {
+    padding-block-start: 2.8rem;
+  }
+
+  .legal-page .legal-article {
+    padding: 1rem;
+  }
+
+  .legal-page .legal-index-brand {
+    gap: 0.58rem;
+  }
+}
+
+/* Direction-safe finishing for Arabic / RTL. */
+html[dir="rtl"] .legal-page .legal-index nav a,
+html[dir="rtl"] .legal-page .legal-index-contact,
+html[dir="rtl"] .legal-page .legal-section {
+  text-align: start;
+}
+
+/* ---------- Smallest supported viewport guard ---------- */
+@media (max-width: 340px) {
+  .shell,
+  .legal-page .legal-layout,
+  .legal-page .legal-hero {
+    width: min(calc(100% - 0.8rem), 100%);
+  }
+
+  .button,
+  .pro-primary-button,
+  .restore-link,
+  .send-button,
+  .copy-button {
+    max-width: 100%;
+  }
+}
