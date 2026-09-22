@@ -2,12 +2,14 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AccentHeading from './AccentHeading.astro';
 import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
+import { getBearagnosticReleaseCopy } from '../i18n/bearagnostic-release';
 
 interface Props { locale: LocaleCode; }
 const { locale } = Astro.props;
 const copy = getLocaleContent(locale);
 const page = copy.support;
 const products = copy.products;
+const launch = getBearagnosticReleaseCopy(locale);
 ---
 
 <SiteLayout title={copy.nav.support} description={page.metaDescription} locale={locale}>
@@ -35,7 +37,7 @@ const products = copy.products;
         <div class="support-card-copy">
           <p class="section-label">Android</p>
           <h2>{page.bearTitle}</h2>
-          <p>{page.bearBody}</p>
+          <p>{launch.supportBody}</p>
           <a class="text-link" href={localizedPath(locale, '/products/bearagnostic')}>
             {copy.common.viewProduct}<span aria-hidden="true">→</span>
           </a>
@@ -74,7 +76,7 @@ const products = copy.products;
 
     <aside class="staging-note shell">
       <span class="status-dot" aria-hidden="true"></span>
-      <p>{page.stagingNote}</p>
+      <p>{launch.supportAvailability}</p>
     </aside>
   </div>
 </SiteLayout>

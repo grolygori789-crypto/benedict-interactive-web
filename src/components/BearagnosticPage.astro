@@ -3,12 +3,19 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import AccentHeading from './AccentHeading.astro';
 import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
 import { getCommerceCopy } from '../i18n/commerce';
+import { legalUi } from '../i18n/legal';
+import { bearagnosticRelease, getBearagnosticArtifactState } from '../data/bearagnostic-release';
+import { getBearagnosticReleaseCopy } from '../i18n/bearagnostic-release';
 
 interface Props { locale: LocaleCode; }
 const { locale } = Astro.props;
 const copy = getLocaleContent(locale);
 const page = copy.bear;
 const commerce = getCommerceCopy(locale);
+const legal = legalUi[locale];
+const launch = getBearagnosticReleaseCopy(locale);
+const artifactState = getBearagnosticArtifactState();
+const downloadVerified = artifactState.status === 'verified';
 
 const featureMedia = [
   {
@@ -39,7 +46,7 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
       <div class="bear-hero-copy">
         <p class="section-label">{page.kicker}</p>
         <div class="product-status-row">
-          <span class="status-pill">{copy.common.inDevelopment}</span>
+          <span class="status-pill status-ready">{launch.status}</span>
           <span>Android</span>
         </div>
 
@@ -84,6 +91,64 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
             />
           </div>
         </figure>
+      </div>
+    </section>
+
+    <section class="release-truth" aria-labelledby="release-truth-title" data-artifact-state={artifactState.status}>
+      <div class="shell release-truth-shell">
+        <div class="release-copy">
+          <p class="section-label">{launch.releaseKicker}</p>
+          <h2 id="release-truth-title">{launch.releaseTitle}</h2>
+          <p>{launch.releaseLead}</p>
+
+          <dl class="release-facts">
+            <div><dt>{launch.versionLabel}</dt><dd>{bearagnosticRelease.versionName}</dd></div>
+            <div><dt>{launch.buildLabel}</dt><dd>B{bearagnosticRelease.versionCode}</dd></div>
+            <div class="release-hash"><dt>{launch.shaLabel}</dt><dd><code>{bearagnosticRelease.apkSha256}</code></dd></div>
+            <div><dt>{launch.appLanguagesLabel}</dt><dd>{bearagnosticRelease.appLanguages.join(' · ')}</dd></div>
+          </dl>
+
+          <div class="release-disclosure-grid">
+            <article><strong>{launch.appLanguagesLabel}</strong><p>{launch.appLanguagesBody}</p></article>
+            <article><strong>{launch.websiteLanguagesLabel}</strong><p>{launch.websiteLanguagesBody}</p></article>
+            <article><strong>{launch.distributionLabel}</strong><p>{launch.distributionBody}</p></article>
+          </div>
+        </div>
+
+        <aside class="download-card">
+          <div class="download-card-top">
+            <span class="download-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" /></svg>
+            </span>
+            <div>
+              <span class="download-file-label">APK</span>
+              <strong>{bearagnosticRelease.apkFilename}</strong>
+            </div>
+          </div>
+
+          {downloadVerified ? (
+            <a class="download-button" href={bearagnosticRelease.publicPath} download data-analytics="bearagnostic-download">
+              <span>{launch.downloadCta}</span><span aria-hidden="true">↓</span>
+            </a>
+          ) : (
+            <span class="download-button is-disabled" aria-disabled="true">
+              <span>{launch.downloadPending}</span><span aria-hidden="true">…</span>
+            </span>
+          )}
+
+          <p class="download-integrity-note">{launch.exactBinaryNote}</p>
+
+          <nav class="download-legal-links" aria-label={legal.legalGroup}>
+            <a href={localizedPath(locale, '/privacy')}>{legal.privacy}</a>
+            <a href={localizedPath(locale, '/terms')}>{legal.terms}</a>
+            <a href={localizedPath(locale, '/license')}>{legal.softwareLicense}</a>
+          </nav>
+
+          <div class="release-notes">
+            <h3>{launch.releaseNotesTitle}</h3>
+            <ul>{launch.releaseNotes.map((note) => <li>{note}</li>)}</ul>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -152,7 +217,7 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
             <span class="pro-lifetime-pill">{commerce.lifetime}</span>
           </div>
           <AccentHeading as="h2" id="pro-title" class="commerce-title" text={page.proTitle} />
-          <p class="pro-lead">{page.proBody}</p>
+          <p class="pro-lead">{launch.proLead}</p>
 
           <div class="pro-benefits" role="list">
             {page.proPoints.map((point) => (
@@ -169,12 +234,12 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
             <div class="pro-action-status">
               <span class="status-dot" aria-hidden="true"></span>
               <div>
-                <strong>{page.proStatus}</strong>
-                <span>{commerce.comingSoon}</span>
+                <strong>{launch.proStatusTitle}</strong>
+                <span>{launch.proStatusBody}</span>
               </div>
             </div>
             <button class="pro-primary-button" type="button" disabled aria-disabled="true">
-              <span>{commerce.upgradeCta}</span>
+              <span>{launch.proCta}</span>
               <span class="button-arrow" aria-hidden="true">→</span>
             </button>
             <div class="pro-checkout-note">
@@ -183,7 +248,6 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
               </span>
               <span>{commerce.secureCheckout}</span>
             </div>
-            <p class="fine-note">{page.proNote}</p>
           </div>
         </div>
 
@@ -263,13 +327,33 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
             <svg viewBox="0 0 24 24"><path d="M4 11a8 8 0 1 1 2.1 5.4M4 5v6h6M9 12h6" /></svg>
           </div>
           <div class="restore-copy">
-            <h3 id="restore-pro-title">{commerce.restoreTitle}</h3>
-            <p>{commerce.restoreBody}</p>
+            <h3 id="restore-pro-title">{launch.restoreTitle}</h3>
+            <p>{launch.restoreBody}</p>
           </div>
           <a class="restore-link" href={localizedPath(locale, '/support')}>
-            {commerce.restoreCta}<span aria-hidden="true">→</span>
+            {launch.restoreCta}<span aria-hidden="true">→</span>
           </a>
         </aside>
+      </div>
+    </section>
+
+    <section class="release-faq" aria-labelledby="release-faq-title">
+      <div class="shell release-faq-shell">
+        <div class="release-faq-heading">
+          <p class="section-label">{launch.faqKicker}</p>
+          <h2 id="release-faq-title">{launch.faqTitle}</h2>
+        </div>
+        <div class="release-faq-list">
+          {launch.faqItems.map((item) => (
+            <details class="release-faq-item">
+              <summary>{item.question}<span aria-hidden="true">+</span></summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+        <a class="text-link release-support-link" href={localizedPath(locale, '/support')}>
+          {launch.restoreCta}<span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
   </div>
@@ -301,6 +385,44 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
     line-height: 0.96; white-space: nowrap;
   }
   .bear-title-dark { color: #071a39; }
+  .status-ready { color: #246f56; background: #eaf8f2; border-color: rgba(36, 111, 86, 0.12); }
+
+  .release-truth {
+    padding-block: clamp(4.6rem, 7vw, 6.6rem);
+    border-block: 1px solid rgba(12, 47, 91, 0.07);
+    background:
+      radial-gradient(circle at 8% 18%, rgba(49, 174, 225, 0.1), transparent 24rem),
+      radial-gradient(circle at 92% 78%, rgba(255, 190, 89, 0.1), transparent 24rem),
+      #fbfdff;
+  }
+  .release-truth-shell { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.72fr); gap: clamp(2rem, 5vw, 4.8rem); align-items: start; }
+  .release-copy h2 { max-width: 760px; margin-block-start: 0.7rem; color: #0d2d4f; font-size: clamp(2.55rem, 4.6vw, 4.45rem); line-height: 1.03; letter-spacing: var(--type-heading-tracking, -0.045em); }
+  .release-copy > p:last-of-type { max-width: 760px; margin-block-start: 1.05rem; color: #657b93; line-height: var(--type-body-leading, 1.72); }
+  .release-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin: 1.7rem 0 0; }
+  .release-facts > div { min-width: 0; padding: 0.95rem 1rem; border: 1px solid rgba(25, 84, 143, 0.08); border-radius: 18px; background: rgba(255,255,255,0.85); }
+  .release-facts dt { color: #7b8da1; font-size: 0.72rem; font-weight: 760; letter-spacing: 0.03em; }
+  .release-facts dd { margin: 0.35rem 0 0; color: #1b456d; font-size: 0.9rem; font-weight: 780; overflow-wrap: anywhere; }
+  .release-facts code { font: 650 0.72rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #315775; }
+  .release-hash { grid-column: 1 / -1; }
+  .release-disclosure-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin-block-start: 0.75rem; }
+  .release-disclosure-grid article { min-width: 0; padding: 0.95rem 1rem; border-radius: 18px; background: rgba(241,248,255,0.75); }
+  .release-disclosure-grid strong { color: #1a527e; font-size: 0.78rem; }
+  .release-disclosure-grid p { margin-block-start: 0.4rem; color: #667d94; font-size: 0.82rem; line-height: 1.55; }
+
+  .download-card { padding: clamp(1.2rem, 2vw, 1.55rem); border: 1px solid rgba(27, 86, 144, 0.09); border-radius: 30px; background: rgba(255,255,255,0.94); box-shadow: 0 22px 60px rgba(31, 79, 124, 0.09); }
+  .download-card-top { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.85rem; align-items: center; }
+  .download-mark { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 17px; color: #217bd3; background: #eaf5ff; }
+  .download-mark svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  .download-file-label { display: block; color: #7d90a5; font-size: 0.66rem; font-weight: 850; letter-spacing: 0.12em; }
+  .download-card-top strong { display: block; margin-block-start: 0.2rem; color: #153e65; font-size: 0.9rem; overflow-wrap: anywhere; }
+  .download-button { display: flex; width: 100%; min-height: 52px; align-items: center; justify-content: space-between; gap: 1rem; margin-block-start: 1.1rem; padding-inline: 1.05rem; border-radius: 16px; color: #fff; background: linear-gradient(135deg, #247ee9, #19acd8); box-shadow: 0 12px 28px rgba(36,126,233,0.17); font-size: 0.86rem; font-weight: 820; text-decoration: none; }
+  .download-button.is-disabled { color: #6d8298; border: 1px solid rgba(31, 85, 139, 0.08); background: #f2f6fa; box-shadow: none; cursor: not-allowed; }
+  .download-integrity-note { margin-block-start: 0.8rem; color: #70849a; font-size: 0.76rem; line-height: 1.55; }
+  .download-legal-links { display: flex; flex-wrap: wrap; gap: 0.45rem 0.8rem; margin-block-start: 0.75rem; }
+  .download-legal-links a { color: #356f9f; font-size: 0.73rem; font-weight: 720; text-underline-offset: 0.18em; }
+  .release-notes { margin-block-start: 1.15rem; padding-block-start: 1.1rem; border-block-start: 1px solid rgba(21, 75, 127, 0.08); }
+  .release-notes h3 { color: #19466f; font-size: 0.9rem; }
+  .release-notes ul { display: grid; gap: 0.55rem; margin: 0.7rem 0 0; padding-inline-start: 1.15rem; color: #637b92; font-size: 0.78rem; line-height: 1.5; }
   .bear-title-blue { color: #1688f3; }
 
   .bear-page .bear-promise {
@@ -514,9 +636,23 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
   .restore-link { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 42px; padding-inline: 1rem; border-radius: 14px; color: #176ec3; background: #fff; border: 1px solid rgba(28, 101, 174, 0.1); font-size: 0.83rem; font-weight: 800; text-decoration: none; box-shadow: 0 8px 24px rgba(35, 84, 132, 0.06); }
   .restore-link:hover { border-color: rgba(28,101,174,0.22); transform: translateY(-1px); }
 
+  .release-faq { padding-block: clamp(4.8rem, 7vw, 6.8rem); background: #fff; }
+  .release-faq-shell { display: grid; grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .release-faq-heading h2 { margin-block-start: 0.7rem; color: #0e2d50; font-size: clamp(2.3rem, 4vw, 3.85rem); line-height: 1.04; letter-spacing: var(--type-heading-tracking, -0.04em); }
+  .release-faq-list { display: grid; gap: 0.7rem; }
+  .release-faq-item { border: 1px solid rgba(18, 70, 121, 0.08); border-radius: 20px; background: #fbfdff; overflow: clip; }
+  .release-faq-item summary { display: flex; min-height: 58px; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.95rem 1rem; color: #1a466e; font-size: 0.9rem; font-weight: 780; cursor: pointer; list-style: none; }
+  .release-faq-item summary::-webkit-details-marker { display: none; }
+  .release-faq-item summary span { flex: 0 0 auto; color: #2a7dca; font-size: 1.25rem; transition: transform 180ms ease; }
+  .release-faq-item[open] summary span { transform: rotate(45deg); }
+  .release-faq-item p { margin: 0; padding: 0 1rem 1rem; color: #667d94; font-size: 0.84rem; line-height: 1.62; }
+  .release-support-link { grid-column: 2; width: fit-content; margin-block-start: 0.2rem; }
+
   @media (max-width: 1120px) {
     .bear-page .bear-hero { grid-template-columns: minmax(0, 0.82fr) minmax(470px, 1.18fr); gap: 2.6rem; }
     .bear-title-wordmark { font-size: clamp(3.35rem, 5.25vw, 4.8rem); }
+    .release-truth-shell { grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr); gap: 2.4rem; }
+    .release-disclosure-grid { grid-template-columns: 1fr; }
     .pro-upgrade-shell { grid-template-columns: minmax(0, 1fr) minmax(350px, 0.72fr); gap: 3rem; }
     .pro-benefits { grid-template-columns: 1fr; }
     .pro-benefit { grid-template-columns: 30px minmax(0,1fr); }
@@ -529,6 +665,9 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
     .feature-story { grid-template-columns: minmax(0, 0.8fr) minmax(390px, 1.2fr); gap: 2rem; }
     .bear-showcase { width: min(100%, 740px); min-height: 565px; margin-inline: auto; }
 
+    .release-truth-shell, .release-faq-shell { grid-template-columns: 1fr; }
+    .download-card { max-width: 720px; }
+    .release-support-link { grid-column: auto; }
     .pro-upgrade-shell { grid-template-columns: 1fr; gap: 2.2rem; }
     .pro-copy { max-width: 820px; }
     .pro-benefits { grid-template-columns: repeat(3, minmax(0,1fr)); }
@@ -567,6 +706,15 @@ const stepIcons = ['spark', 'wallet', 'shield', 'unlock'] as const;
     .bear-character-hero { inset-inline-start: -2%; width: 78%; }
     .bear-page .bear-phone-hero { inset-inline-end: 0; inset-block-end: 5%; width: min(34%, 175px); border-radius: 24px; }
     .bear-page .bear-phone-hero .phone-screen { border-radius: 18px; }
+
+    .release-truth { padding-block: 4.2rem; }
+    .release-copy h2 { font-size: clamp(2.35rem, 10.5vw, 3.5rem); line-height: 1.05; }
+    .release-facts { grid-template-columns: 1fr; }
+    .release-hash { grid-column: auto; }
+    .release-disclosure-grid { grid-template-columns: 1fr; }
+    .download-card { border-radius: 24px; }
+    .release-faq { padding-block: 4.4rem; }
+    .release-faq-heading h2 { font-size: clamp(2.25rem, 10vw, 3.35rem); }
 
     .pro-upgrade { padding-block: 4.7rem; }
     .pro-kicker-row { align-items: flex-start; }
