@@ -1,34 +1,59 @@
-# Benedict Interactive — Bearagnostic Showcase V4
+# Benedict Interactive — Bearagnostic Showcase V5
 
 ## Production baseline
-- `main`: `af549eff3a645104ce4f9fdc986d99d45976e117`
-- Existing showcase CSS blob on that baseline: `98d07122e1d4db70abafd9886848eaa955289f9b`
+- Repository: `grolygori789-crypto/benedict-interactive-web`
+- `main`: `fd7e37ed670e97094e2c98094ac3e71d217d61fc`
+- Production showcase CSS blob before V5: `27c9258ff30eb9044e0c45c7ff5d0bb81494a084`
 
-## Exact fixes in this patch
-1. **Hero** now uses the exact approved PNG supplied by the owner:
-   `public/products/bearagnostic/showcase/dr-bear-hero-approved.png`
-   - no regeneration
-   - no recomposite
-   - no WebP conversion
-   - transparent PNG preserved byte-for-byte
-2. **See what is actually there / desktop** now uses a true two-object stage above 920px:
-   - real scan UI = independent left/center object
-   - Dr. Bear = independent right object
-   - no bounding-box overlap on desktop
-3. Tablet/mobile rules at 920px and below are intentionally left as the V3 composition.
+## V5 fixes
+
+### 1. Master Hero — approved source, web-optimised runtime
+The runtime hero is generated **only** from the owner-approved PNG composition.
+No pose, hand, tablet, face, UI, or composition is changed.
+
+Approved PNG source SHA-256:
+`1f4508bf00b6e9f300a04fab10aaba99faacfaccd2f5d712a0150111719841da`
+
+Live WebP:
+`public/products/bearagnostic/showcase/dr-bear-hero-approved.webp`
+
+- 1366 × 1151
+- alpha preserved exactly
+- ~272 KB instead of ~1.66 MB PNG
+- decoded RGB PSNR against source: ~40.82 dB
+
+The existing PNG may remain in the repository unused; V5 CSS loads the optimised WebP.
+
+### 2. “See what is actually there” — complete visual redesign
+The previous desktop layout used independent browser-positioned objects and could look disconnected.
+V5 removes that risk.
+
+For viewport widths **681px and above**:
+- the real, privacy-sanitised B93 scan screen and Dr. Bear are art-directed into a single locked product-stage asset
+- the objects cannot overlap or drift independently
+- the stage scales as one composition
+- 681–980px uses a one-column story layout so the visual receives enough width
+- 981px+ uses a weighted text/product split tuned for premium product-launch presentation
+
+For **680px and below**:
+- the existing compact mobile composition is intentionally retained
+
+New stage asset:
+`public/products/bearagnostic/showcase/scan-stage-desktop.webp`
 
 ## Upload from repository root
-Only these files are required:
+Only these 3 files are required:
 
 ```text
 src/styles/bearagnostic-showcase.css
-public/products/bearagnostic/showcase/dr-bear-hero-approved.png
+public/products/bearagnostic/showcase/dr-bear-hero-approved.webp
+public/products/bearagnostic/showcase/scan-stage-desktop.webp
 ```
 
-`SiteLayout.astro` is **not** included because production already imports `bearagnostic-showcase.css`.
+No Android source, commerce logic, release logic, legal pages, support flow, or `BearagnosticPage.astro` is changed.
 
 ## Rollback
-Restore the previous `src/styles/bearagnostic-showcase.css`. The new PNG can remain unused or be deleted.
+Restore the previous `src/styles/bearagnostic-showcase.css`. The two new WebP files may remain unused or be deleted later.
 
-## Suggested commit
-`Fix Bearagnostic showcase geometry`
+## Commit name
+`Polish Bearagnostic product stage`

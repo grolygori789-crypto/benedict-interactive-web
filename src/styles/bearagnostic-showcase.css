@@ -1,5 +1,5 @@
 /*
- * Benedict Interactive — Bearagnostic Showcase V4
+ * Benedict Interactive — Bearagnostic Showcase V5
  * Baseline: main af549eff3a645104ce4f9fdc986d99d45976e117
  *
  * Refinements in V3:
@@ -84,7 +84,7 @@
   width: min(111%, 780px);
   aspect-ratio: 1366 / 1151;
   margin: 0;
-  background: url('/products/bearagnostic/showcase/dr-bear-hero-approved.png') center bottom / contain no-repeat;
+  background: url('/products/bearagnostic/showcase/dr-bear-hero-approved.webp') center bottom / contain no-repeat;
   filter: drop-shadow(0 30px 30px rgba(20,56,92,.11));
 }
 
@@ -483,53 +483,103 @@
 }
 
 
-/* ---------- V4 desktop stage correction ----------
- * Desktop must show the real scan UI and Dr. Bear as two independent objects.
- * No overlap above 920px. Mobile/tablet rules below 920px remain unchanged.
+/* ---------- V5 locked product-stage composition ----------
+ * >= 681px: the scan screen + Dr. Bear are one pre-composed art-directed stage.
+ * This removes browser-dependent collision risk entirely while preserving the
+ * already-good compact mobile composition at 680px and below.
  */
-@media (min-width: 921px) {
+@media (min-width: 681px) {
   .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    display: grid !important;
-    grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr) !important;
-    gap: clamp(1rem, 2.2vw, 2.1rem) !important;
-    align-items: center !important;
-    min-height: clamp(520px, 46vw, 640px) !important;
-    padding: 1.25rem 0 1rem !important;
+    display: block !important;
+    width: 100%;
+    min-height: 0 !important;
+    aspect-ratio: 1400 / 960;
+    margin: 0 auto;
+    overflow: visible !important;
+    isolation: isolate;
+    border: 1px solid rgba(29,100,160,.055);
+    border-radius: 42px;
+    background:
+      radial-gradient(circle at 47% 48%, rgba(255,255,255,.99) 0 20%, rgba(229,247,255,.68) 47%, rgba(219,243,254,.25) 66%, transparent 82%),
+      linear-gradient(148deg, rgba(255,255,255,.92), rgba(243,250,255,.74));
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.96),
+      0 24px 60px rgba(28,76,119,.05);
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-visual::before {
+    z-index: 2 !important;
+    inset: 2.5% 2.5% 1.5% 2.5% !important;
+    border-radius: 0 !important;
+    background: url('/products/bearagnostic/showcase/scan-stage-desktop.webp') center / contain no-repeat !important;
+    filter: none !important;
+    content: "";
+    pointer-events: none;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-visual::after {
+    z-index: 1 !important;
+    inset: auto 10% 4% 10% !important;
+    width: auto !important;
+    height: 8% !important;
+    aspect-ratio: auto !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: radial-gradient(ellipse, rgba(26,78,121,.09), transparent 70%) !important;
+    box-shadow: none !important;
+    filter: blur(8px);
+    content: "";
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-primary,
   .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    position: relative !important;
-    inset: auto !important;
-    margin: 0 !important;
+    display: none !important;
+  }
+}
+
+/* Tablet / compact desktop: let the product stage breathe full-width below copy. */
+@media (min-width: 681px) and (max-width: 980px) {
+  .bear-page .feature-stories .feature-story:first-child {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.5rem !important;
+    min-height: 0 !important;
+    padding: clamp(1.25rem, 3.5vw, 1.8rem) !important;
   }
 
-  .bear-page .feature-stories .feature-story:first-child .device-primary {
-    z-index: 5 !important;
-    width: min(100%, 292px) !important;
-    aspect-ratio: 691 / 1536;
+  .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
+    max-width: 640px;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
+    width: min(100%, 720px);
     justify-self: center;
-    align-self: center;
-    transform: rotate(-1.6deg) translateZ(0) !important;
+    border-radius: 34px;
+  }
+}
+
+/* Desktop: stronger visual weighting, closer to premium product-launch pages. */
+@media (min-width: 981px) {
+  .bear-page .feature-stories .feature-story:first-child {
+    grid-template-columns: minmax(270px, .70fr) minmax(560px, 1.30fr) !important;
+    gap: clamp(2rem, 4vw, 4.25rem) !important;
+    min-height: 640px !important;
+    padding: clamp(1.7rem, 2.8vw, 2.5rem) !important;
   }
 
-  .bear-page .feature-stories .feature-story:first-child .device-primary > img {
-    position: absolute;
-    inset: 0;
+  .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
+    max-width: 390px;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
     width: 100%;
-    height: 100%;
+    max-width: 720px;
+    justify-self: end;
   }
+}
 
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    z-index: 4 !important;
-    width: min(100%, 352px) !important;
-    justify-self: center;
-    align-self: center;
-    transform: rotate(.35deg) translateZ(0) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary::after {
-    inset-inline-end: -34%;
-    width: 42%;
+@media (min-width: 981px) and (max-width: 1120px) {
+  .bear-page .feature-stories .feature-story:first-child {
+    grid-template-columns: minmax(250px, .76fr) minmax(500px, 1.24fr) !important;
+    gap: 2rem !important;
   }
 }
