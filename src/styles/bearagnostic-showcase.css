@@ -532,7 +532,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
 /* ========================================================================== */
 /* Final feature-system integration — 02 / 03 / Why Pro                      */
-/* Baseline: main 473cddbffa90fe95713350234c19e8f13d32aa7d                  */
+/* Baseline: main 7abff315312910afc133233e32973d0c198f8679                  */
 /* ========================================================================== */
 
 /* Feature 01 mobile: Dr. Bear crosses the phone edge just enough to connect
@@ -556,12 +556,13 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 }
 
-/* FINAL V3 — feature stories 02/03 and Why Pro.
+/* FINAL V4 — production composition lock for 02 / 03 / Why Pro.
    Design contract:
-   - one primary screen is always legible,
-   - support screens create depth instead of visual clutter,
-   - Dr. Bear is a foreground guide, never a wall hiding product evidence,
-   - Pro value leads with current product truth, not payment infrastructure. */
+   - product evidence stays legible: one primary screen, two supporting layers,
+   - Dr. Bear is a deliberate foreground subject with enough visual weight,
+   - overlap creates depth but never hides the product story,
+   - Pro balances its two columns vertically instead of leaving a dead lower-right field,
+   - phone layouts are recomposed, not merely scaled down. */
 
 /* ---------- Shared 02 / 03 editorial system ---------- */
 .bear-page .feature-stories .feature-story:nth-child(2),
@@ -576,20 +577,20 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 }
 
 .bear-page .feature-stories .feature-story:nth-child(2) {
-  grid-template-columns: minmax(560px, 1.18fr) minmax(300px, .82fr) !important;
-  gap: clamp(1.45rem, 3vw, 3.2rem) !important;
+  grid-template-columns: minmax(570px, 1.2fr) minmax(300px, .8fr) !important;
+  gap: clamp(1.4rem, 2.7vw, 2.8rem) !important;
   background:
-    radial-gradient(circle at 13% 13%, rgba(111, 99, 220, .12), transparent 23rem),
-    radial-gradient(circle at 73% 85%, rgba(245, 183, 78, .075), transparent 22rem),
+    radial-gradient(circle at 12% 14%, rgba(111, 99, 220, .115), transparent 23rem),
+    radial-gradient(circle at 71% 84%, rgba(245, 183, 78, .07), transparent 22rem),
     linear-gradient(145deg, rgba(255,255,255,.997), rgba(249,247,255,.975));
 }
 
 .bear-page .feature-stories .feature-story:nth-child(3) {
-  grid-template-columns: minmax(300px, .82fr) minmax(560px, 1.18fr) !important;
-  gap: clamp(1.45rem, 3vw, 3.2rem) !important;
+  grid-template-columns: minmax(300px, .82fr) minmax(570px, 1.18fr) !important;
+  gap: clamp(1.4rem, 2.7vw, 2.8rem) !important;
   background:
-    radial-gradient(circle at 86% 14%, rgba(59, 189, 219, .12), transparent 23rem),
-    radial-gradient(circle at 62% 86%, rgba(61, 188, 145, .085), transparent 22rem),
+    radial-gradient(circle at 88% 15%, rgba(59, 189, 219, .115), transparent 23rem),
+    radial-gradient(circle at 65% 86%, rgba(61, 188, 145, .082), transparent 22rem),
     linear-gradient(145deg, rgba(255,255,255,.997), rgba(244,252,250,.975));
 }
 
@@ -610,8 +611,8 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   position: relative !important;
   display: block !important;
   width: 100% !important;
-  max-width: 720px !important;
-  min-height: 600px !important;
+  max-width: 735px !important;
+  min-height: 610px !important;
   margin-inline: auto !important;
   overflow: visible !important;
   isolation: isolate !important;
@@ -621,7 +622,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 .bear-page .feature-stories .feature-story-visual-3::before {
   position: absolute !important;
   z-index: -2 !important;
-  inset: 5% -1% 1% !important;
+  inset: 4% -2% 0 !important;
   display: block !important;
   border-radius: 50% !important;
   content: "" !important;
@@ -630,17 +631,17 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
 .bear-page .feature-stories .feature-story-visual-2::before {
   background:
-    radial-gradient(ellipse at 44% 48%,
-      rgba(255,255,255,.995) 0 28%,
-      rgba(237,232,255,.55) 48%,
-      rgba(255,237,201,.18) 67%,
+    radial-gradient(ellipse at 43% 49%,
+      rgba(255,255,255,.996) 0 28%,
+      rgba(237,232,255,.54) 48%,
+      rgba(255,237,201,.17) 67%,
       transparent 80%) !important;
 }
 
 .bear-page .feature-stories .feature-story-visual-3::before {
   background:
-    radial-gradient(ellipse at 58% 47%,
-      rgba(255,255,255,.995) 0 28%,
+    radial-gradient(ellipse at 59% 47%,
+      rgba(255,255,255,.996) 0 28%,
       rgba(217,248,245,.56) 48%,
       rgba(205,242,231,.20) 68%,
       transparent 80%) !important;
@@ -659,38 +660,38 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 }
 
 /* ---------- 02 — Understand before deleting ----------
-   Older Files is the primary evidence card.
-   Two phones stay recognisable behind it.
-   New Dr. Bear has no floating folder/warning graphic, so the UI remains clean. */
+   Older Files is the primary proof surface. The two phones are separated enough
+   to read as distinct views. The clean mascot intentionally contains no floating
+   warning/folder art, so nothing competes with the real product UI. */
 .bear-page .feature-stories .feature-story-visual-2 .device-primary {
   z-index: 1 !important;
-  inset-block-start: 2% !important;
+  inset-block-start: 1% !important;
   inset-inline-start: 0 !important;
-  width: min(28%, 202px) !important;
-  transform: rotate(-2.4deg) !important;
-  opacity: .91;
+  width: min(24%, 176px) !important;
+  transform: rotate(-2.25deg) !important;
+  opacity: .9;
 }
 
 .bear-page .feature-stories .feature-story-visual-2 .device-secondary {
   z-index: 2 !important;
   inset-block-start: 0 !important;
-  inset-inline-start: 29% !important;
-  width: min(28%, 202px) !important;
-  transform: rotate(2deg) !important;
+  inset-inline-start: 25.5% !important;
+  width: min(24%, 176px) !important;
+  transform: rotate(1.75deg) !important;
   opacity: .96;
 }
 
 .bear-page .feature-stories .feature-story-visual-2 .device-tertiary {
   z-index: 5 !important;
-  inset-inline-start: 3% !important;
-  inset-block-end: 1% !important;
-  width: min(40%, 288px) !important;
+  inset-inline-start: 2% !important;
+  inset-block-end: 0 !important;
+  width: min(43%, 316px) !important;
   max-height: none !important;
   overflow: hidden !important;
   border-radius: 28px !important;
-  transform: rotate(-.35deg) !important;
+  transform: rotate(-.28deg) !important;
   box-shadow:
-    0 32px 72px rgba(36, 66, 111, .145),
+    0 34px 76px rgba(36, 66, 111, .145),
     0 9px 24px rgba(36, 66, 111, .055) !important;
 }
 
@@ -701,48 +702,49 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 .bear-page .feature-stories .feature-story-visual-2::after {
   position: absolute;
   z-index: 8;
-  inset-inline-end: -1%;
-  inset-block-end: -2%;
-  width: 50%;
-  height: 68%;
+  inset-inline-end: -5.5%;
+  inset-block-end: -3.5%;
+  width: 60%;
+  height: 76%;
   background: url('/products/bearagnostic/showcase/dr-bear-understand.webp') center bottom / contain no-repeat;
-  filter: drop-shadow(0 28px 25px rgba(35,54,94,.13));
+  filter: drop-shadow(0 30px 27px rgba(35,54,94,.135));
   content: "";
   pointer-events: none;
 }
 
 /* ---------- 03 — Privacy stays close ----------
-   Insights Trend is the clear primary screen.
-   Tools + Insights remain visible as two supporting layers.
-   Dr. Bear protects the scene without swallowing the UI. */
+   Insights Trend is the primary screen and stays substantially visible.
+   Tools + Insights establish depth at left; the mascot is enlarged and moved
+   into the previously unused right-hand field with only a controlled overlap. */
 .bear-page .feature-stories .feature-story-visual-3 .device-primary {
   z-index: 1 !important;
-  inset-block-start: 7% !important;
-  inset-inline-start: 11% !important;
-  width: min(28%, 202px) !important;
-  transform: rotate(-2.6deg) !important;
+  inset-block-start: 9% !important;
+  inset-inline-start: 0 !important;
+  width: min(24%, 176px) !important;
+  transform: rotate(-2.35deg) !important;
   opacity: .88;
 }
 
 .bear-page .feature-stories .feature-story-visual-3 .device-secondary {
   z-index: 2 !important;
   inset-block-start: 3% !important;
-  inset-inline-start: 33% !important;
-  width: min(27%, 194px) !important;
-  transform: rotate(2.1deg) !important;
-  opacity: .94;
+  inset-inline-start: 19% !important;
+  width: min(24%, 176px) !important;
+  transform: rotate(1.9deg) !important;
+  opacity: .95;
 }
 
 .bear-page .feature-stories .feature-story-visual-3 .device-tertiary {
   z-index: 6 !important;
   inset-block-start: 0 !important;
-  inset-inline-end: 0 !important;
+  inset-inline-start: 27% !important;
+  inset-inline-end: auto !important;
   inset-block-end: auto !important;
-  width: min(36%, 259px) !important;
+  width: min(39%, 286px) !important;
   max-height: none !important;
   overflow: hidden !important;
   border-radius: 28px !important;
-  transform: rotate(.25deg) !important;
+  transform: rotate(.18deg) !important;
   box-shadow:
     0 34px 76px rgba(29, 83, 101, .14),
     0 10px 26px rgba(29, 83, 101, .055) !important;
@@ -755,27 +757,29 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 .bear-page .feature-stories .feature-story-visual-3::after {
   position: absolute;
   z-index: 8;
-  inset-inline-start: 0;
-  inset-block-end: -2%;
-  width: 49%;
-  height: 68%;
+  inset-inline-start: auto;
+  inset-inline-end: -12%;
+  inset-block-end: -3%;
+  width: 57%;
+  height: 74%;
   background: url('/products/bearagnostic/showcase/dr-bear-privacy.webp') center bottom / contain no-repeat;
-  filter: drop-shadow(0 27px 24px rgba(22,73,83,.13));
+  filter: drop-shadow(0 29px 26px rgba(22,73,83,.135));
   content: "";
   pointer-events: none;
 }
 
 /* ---------- Why Pro ----------
-   Align the value story and character card at the top of the same visual rhythm.
-   No empty "air pocket" above the card; 6 current Pro capabilities stay visible. */
+   The right-hand visual is now a real counterweight to the dense value copy.
+   It stretches with the grid row, centers vertically, and uses a larger card,
+   eliminating the previous dead lower-right field without decorative filler. */
 .bear-page .pro-upgrade {
-  padding-block: clamp(4.4rem, 6.5vw, 6rem) clamp(4.8rem, 7vw, 6.5rem);
+  padding-block: clamp(4rem, 5.8vw, 5.3rem) clamp(4.25rem, 6vw, 5.6rem);
 }
 
 .bear-page .pro-upgrade-shell {
-  grid-template-columns: minmax(0, 1.14fr) minmax(440px, .86fr);
-  gap: clamp(2.5rem, 4.6vw, 4.8rem);
-  align-items: start;
+  grid-template-columns: minmax(0, 1.14fr) minmax(450px, .86fr);
+  gap: clamp(2.35rem, 4.2vw, 4.4rem);
+  align-items: stretch;
 }
 
 .bear-page .pro-copy {
@@ -783,7 +787,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 }
 
 .bear-page .pro-benefits-label {
-  margin: 1.45rem 0 .72rem;
+  margin: 1.4rem 0 .72rem;
   color: #566b82;
   font-size: .72rem;
   font-weight: 850;
@@ -808,8 +812,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   padding: .95rem .92rem 1rem;
   border: 1px solid rgba(54, 96, 141, .085);
   border-radius: 21px;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.95), rgba(248,252,255,.85));
+  background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(248,252,255,.85));
   box-shadow:
     0 14px 34px rgba(37,74,119,.05),
     inset 0 1px 0 rgba(255,255,255,.96);
@@ -847,10 +850,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   stroke-linejoin: round;
 }
 
-.bear-page .pro-benefit-copy {
-  display: block;
-  min-width: 0;
-}
+.bear-page .pro-benefit-copy { display: block; min-width: 0; }
 
 .bear-page .pro-benefit-copy strong {
   display: block;
@@ -903,9 +903,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   stroke-linejoin: round;
 }
 
-.bear-page .pro-safety-copy {
-  min-width: 0;
-}
+.bear-page .pro-safety-copy { min-width: 0; }
 
 .bear-page .pro-safety-copy strong {
   display: block;
@@ -929,17 +927,9 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   box-shadow: 0 18px 44px rgba(34,74,114,.06);
 }
 
-.bear-page .pro-action-status {
-  align-items: flex-start;
-}
-
-.bear-page .pro-action-status div {
-  gap: .2rem;
-}
-
-.bear-page .pro-action-status strong {
-  font-size: .94rem;
-}
+.bear-page .pro-action-status { align-items: flex-start; }
+.bear-page .pro-action-status div { gap: .2rem; }
+.bear-page .pro-action-status strong { font-size: .94rem; }
 
 .bear-page .pro-action-status div span {
   max-width: 680px;
@@ -948,16 +938,18 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 }
 
 .bear-page .pro-visual {
+  position: relative;
   width: 100%;
-  min-height: 565px;
-  margin: .3rem 0 0;
-  align-self: start;
+  min-height: 700px;
+  height: 100%;
+  margin: 0;
+  align-self: stretch;
 }
 
 .bear-page .pro-visual::before {
-  inset: -5% -7% 0;
+  inset: 2% -10% 2%;
   background:
-    radial-gradient(circle at 51% 43%,
+    radial-gradient(circle at 51% 50%,
       rgba(255,255,255,.998),
       rgba(82,194,235,.20) 39%,
       rgba(103,90,213,.12) 58%,
@@ -966,79 +958,70 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 }
 
 .bear-page .pro-visual-card {
-  inset-block-start: 0 !important;
-  width: min(100%, 540px);
+  inset-block-start: 50% !important;
+  width: min(114%, 610px);
   aspect-ratio: 1 / 1;
-  border-radius: 44px;
+  border-radius: 46px;
   background:
     radial-gradient(circle at 74% 18%, rgba(255,218,147,.23), transparent 24%),
     radial-gradient(circle at 16% 72%, rgba(75,201,238,.20), transparent 31%),
     radial-gradient(circle at 65% 62%, rgba(111,93,220,.09), transparent 32%),
     linear-gradient(155deg,rgba(255,255,255,.998),rgba(244,250,255,.972) 56%,rgba(255,249,238,.978));
   box-shadow:
-    0 38px 86px rgba(42,79,123,.15),
-    0 10px 30px rgba(65,110,157,.06);
-  transform: translateX(-50%) rotate(.45deg) !important;
+    0 42px 92px rgba(42,79,123,.155),
+    0 12px 32px rgba(65,110,157,.065);
+  transform: translate(-50%, -50%) rotate(.35deg) !important;
 }
 
 .bear-page .pro-card-glow {
-  inset: 8% 1% 7%;
-  background:
-    radial-gradient(circle,rgba(255,255,255,.97),rgba(57,185,233,.10) 45%,transparent 73%);
+  inset: 7% 0 6%;
+  background: radial-gradient(circle,rgba(255,255,255,.97),rgba(57,185,233,.10) 45%,transparent 73%);
 }
 
 .bear-page .pro-visual-card img {
-  inset-block-end: -4%;
-  width: 111%;
+  inset-block-end: -5%;
+  width: 117%;
 }
 
 /* ---------- Compact laptops / landscape tablets ---------- */
 @media (max-width: 1180px) and (min-width: 981px) {
   .bear-page .feature-stories .feature-story:nth-child(2) {
-    grid-template-columns: minmax(470px, 1.08fr) minmax(280px, .92fr) !important;
-    min-height: 615px;
+    grid-template-columns: minmax(480px, 1.1fr) minmax(280px, .9fr) !important;
+    min-height: 620px;
   }
 
   .bear-page .feature-stories .feature-story:nth-child(3) {
-    grid-template-columns: minmax(280px, .92fr) minmax(470px, 1.08fr) !important;
-    min-height: 615px;
+    grid-template-columns: minmax(280px, .9fr) minmax(480px, 1.1fr) !important;
+    min-height: 620px;
   }
 
   .bear-page .feature-stories .feature-story-visual-2,
   .bear-page .feature-stories .feature-story-visual-3 {
-    min-height: 545px !important;
+    min-height: 555px !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after {
-    width: 50%;
-    height: 70%;
+    inset-inline-end: -6%;
+    width: 59%;
+    height: 75%;
   }
 
   .bear-page .feature-stories .feature-story-visual-3::after {
-    width: 50%;
-    height: 68%;
+    inset-inline-end: -11%;
+    width: 56%;
+    height: 73%;
   }
 
   .bear-page .pro-upgrade-shell {
-    grid-template-columns: minmax(0, 1fr) minmax(390px, .76fr);
-    gap: 2.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(400px, .78fr);
+    gap: 2.35rem;
   }
 
-  .bear-page .pro-benefits {
-    grid-template-columns: repeat(2, minmax(0,1fr));
-  }
+  .bear-page .pro-benefits { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .bear-page .pro-benefit { min-height: 112px; }
 
-  .bear-page .pro-benefit {
-    min-height: 112px;
-  }
-
-  .bear-page .pro-visual {
-    min-height: 510px;
-  }
-
-  .bear-page .pro-visual-card {
-    width: min(100%, 470px);
-  }
+  .bear-page .pro-visual { min-height: 650px; }
+  .bear-page .pro-visual-card { width: min(108%, 510px); }
 }
 
 /* ---------- Portrait tablets ---------- */
@@ -1046,7 +1029,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   .bear-page .feature-stories .feature-story:nth-child(2),
   .bear-page .feature-stories .feature-story:nth-child(3) {
     grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
+    gap: 1.2rem !important;
     min-height: 0;
   }
 
@@ -1064,57 +1047,48 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
   .bear-page .feature-stories .feature-story-visual-2,
   .bear-page .feature-stories .feature-story-visual-3 {
-    width: min(100%, 670px) !important;
-    min-height: 555px !important;
+    width: min(100%, 680px) !important;
+    min-height: 560px !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after {
-    width: 49%;
-    height: 69%;
+    inset-inline-end: -5%;
+    width: 58%;
+    height: 73%;
   }
 
   .bear-page .feature-stories .feature-story-visual-3::after {
-    width: 49%;
-    height: 67%;
+    inset-inline-end: -8%;
+    width: 55%;
+    height: 71%;
   }
 
   .bear-page .pro-upgrade-shell {
     grid-template-columns: 1fr;
-    gap: 2.1rem;
+    gap: 1.8rem;
+    align-items: start;
   }
 
-  .bear-page .pro-copy {
-    max-width: 840px;
-  }
-
-  .bear-page .pro-benefits {
-    grid-template-columns: repeat(3, minmax(0,1fr));
-  }
-
-  .bear-page .pro-benefit {
-    min-height: 124px;
-  }
+  .bear-page .pro-benefits { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .bear-page .pro-benefit { min-height: 128px; }
 
   .bear-page .pro-visual {
     width: min(100%, 650px);
-    min-height: 525px;
-    margin: 0 auto;
+    min-height: 540px;
+    height: auto;
+    margin-inline: auto;
   }
 
-  .bear-page .pro-visual-card {
-    width: min(88%, 500px);
-  }
+  .bear-page .pro-visual-card { width: min(94%, 515px); }
 }
 
-/* ---------- Phones ----------
-   Two screens max: one clear primary + one supporting layer.
-   This avoids the miniature three-screen pileup that failed visually. */
+/* ---------- Phones: deliberate two-screen compositions ---------- */
 @media (max-width: 680px) {
   .bear-page .feature-stories .feature-story:nth-child(2),
   .bear-page .feature-stories .feature-story:nth-child(3) {
     grid-template-columns: 1fr !important;
     min-height: 0 !important;
-    gap: .9rem !important;
+    gap: .85rem !important;
     padding: clamp(1rem, 4.6vw, 1.25rem) !important;
     border-radius: 29px !important;
   }
@@ -1131,16 +1105,16 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     position: relative !important;
     display: block !important;
     width: 100% !important;
-    max-width: 400px !important;
-    min-height: min(124vw, 470px) !important;
-    margin: .1rem auto 0 !important;
+    max-width: 410px !important;
+    min-height: min(128vw, 480px) !important;
+    margin: .08rem auto 0 !important;
     padding: 0 !important;
     isolation: isolate !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::before,
   .bear-page .feature-stories .feature-story-visual-3::before {
-    inset: 6% -7% 0 !important;
+    inset: 5% -7% 0 !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-secondary,
@@ -1148,96 +1122,95 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     display: none !important;
   }
 
-  /* 02 mobile: Older Files is the readable main screen. */
+  /* 02 mobile: Older Files remains primary, one phone proves app context. */
   .bear-page .feature-stories .feature-story-visual-2 .device-primary {
     z-index: 2 !important;
     inset-block-start: 0 !important;
     inset-inline-start: auto !important;
-    inset-inline-end: 2% !important;
-    width: min(34%, 136px) !important;
-    transform: rotate(1.4deg) !important;
+    inset-inline-end: 1% !important;
+    width: min(31%, 128px) !important;
+    transform: rotate(1.25deg) !important;
     opacity: .9;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-tertiary {
     z-index: 5 !important;
-    inset-block-start: 6% !important;
-    inset-inline-start: 1% !important;
+    inset-block-start: 5% !important;
+    inset-inline-start: 0 !important;
     inset-inline-end: auto !important;
     inset-block-end: auto !important;
-    width: min(55%, 220px) !important;
-    transform: rotate(-.25deg) !important;
+    width: min(56%, 230px) !important;
+    transform: rotate(-.2deg) !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after {
     z-index: 8;
-    inset-inline-end: -7%;
-    inset-block-end: -2%;
-    width: 60%;
-    height: 58%;
+    inset-inline-end: -10%;
+    inset-block-end: -3%;
+    width: 66%;
+    height: 64%;
   }
 
-  /* 03 mobile: Insights Trend remains readable; Tools becomes the support layer. */
+  /* 03 mobile: the Trend screen is readable, Tools is context, Bear protects at right. */
   .bear-page .feature-stories .feature-story-visual-3 .device-primary {
     z-index: 2 !important;
     inset-block-start: 7% !important;
-    inset-inline-start: 1% !important;
-    width: min(32%, 128px) !important;
-    transform: rotate(-1.4deg) !important;
+    inset-inline-start: 0 !important;
+    width: min(31%, 128px) !important;
+    transform: rotate(-1.25deg) !important;
     opacity: .9;
   }
 
   .bear-page .feature-stories .feature-story-visual-3 .device-tertiary {
     z-index: 6 !important;
     inset-block-start: 0 !important;
-    inset-inline-end: 0 !important;
-    inset-inline-start: auto !important;
+    inset-inline-start: 1% !important;
+    inset-inline-end: auto !important;
     inset-block-end: auto !important;
-    width: min(54%, 216px) !important;
-    transform: rotate(.15deg) !important;
+    width: min(55%, 226px) !important;
+    transform: rotate(.12deg) !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-3::after {
     z-index: 8;
-    inset-inline-start: -8%;
-    inset-block-end: -2%;
-    width: 58%;
-    height: 58%;
+    inset-inline-start: auto;
+    inset-inline-end: -12%;
+    inset-block-end: -3%;
+    width: 65%;
+    height: 63%;
   }
 
   .bear-page .pro-upgrade {
-    padding-block: 4.3rem 4.9rem;
+    padding-block: 4.1rem 4.6rem;
   }
 
-  .bear-page .pro-benefits {
-    grid-template-columns: repeat(2, minmax(0,1fr));
+  .bear-page .pro-upgrade-shell {
+    align-items: start;
   }
 
-  .bear-page .pro-benefit {
-    min-height: 0;
-  }
+  .bear-page .pro-benefits { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .bear-page .pro-benefit { min-height: 0; }
 
   .bear-page .pro-visual {
-    min-height: min(110vw, 440px);
+    min-height: min(112vw, 450px);
+    height: auto;
     margin-block-start: 0;
   }
 
   .bear-page .pro-visual-card {
-    width: min(96%, 410px);
+    width: min(96%, 420px);
     border-radius: 34px;
   }
 
   .bear-page .pro-visual-card img {
-    width: 111%;
+    width: 112%;
     inset-block-end: -4%;
   }
 }
 
 /* ---------- Narrow phones ---------- */
 @media (max-width: 520px) {
-  .bear-page .pro-benefits {
-    grid-template-columns: 1fr;
-  }
+  .bear-page .pro-benefits { grid-template-columns: 1fr; }
 
   .bear-page .pro-benefit {
     grid-template-columns: 42px minmax(0,1fr);
@@ -1245,26 +1218,19 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     border-radius: 18px;
   }
 
-  .bear-page .pro-benefit-icon {
-    width: 42px;
-    height: 42px;
-  }
+  .bear-page .pro-benefit-icon { width: 42px; height: 42px; }
 }
 
 @media (max-width: 430px) {
   .bear-page .feature-stories .feature-story-visual-2,
   .bear-page .feature-stories .feature-story-visual-3 {
-    min-height: 420px !important;
+    min-height: 425px !important;
   }
 
-  .bear-page .feature-stories .feature-story-visual-2::after {
-    width: 60%;
-    height: 59%;
-  }
-
+  .bear-page .feature-stories .feature-story-visual-2::after,
   .bear-page .feature-stories .feature-story-visual-3::after {
-    width: 59%;
-    height: 58%;
+    width: 64%;
+    height: 62%;
   }
 
   .bear-page .pro-safety-strip {
@@ -1272,41 +1238,35 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     padding: .85rem;
   }
 
-  .bear-page .pro-safety-icon {
-    width: 42px;
-    height: 42px;
-  }
+  .bear-page .pro-safety-icon { width: 42px; height: 42px; }
 
-  .bear-page .pro-visual {
-    min-height: 392px;
-  }
-
-  .bear-page .pro-visual-card {
-    width: min(97%, 365px);
-  }
+  .bear-page .pro-visual { min-height: 400px; }
+  .bear-page .pro-visual-card { width: min(97%, 370px); }
 }
 
 @media (max-width: 360px) {
   .bear-page .feature-stories .feature-story-visual-2,
   .bear-page .feature-stories .feature-story-visual-3 {
-    min-height: 375px !important;
+    min-height: 382px !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-primary,
   .bear-page .feature-stories .feature-story-visual-3 .device-primary {
-    width: 31% !important;
+    width: 30% !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-tertiary,
   .bear-page .feature-stories .feature-story-visual-3 .device-tertiary {
-    width: 53% !important;
+    width: 54% !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after,
   .bear-page .feature-stories .feature-story-visual-3::after {
-    width: 58%;
+    width: 62%;
+    height: 60%;
   }
 }
+
 
 /* ---------- RTL stability ---------- */
 :global(html[dir="rtl"]) .bear-page .feature-stories .feature-story-visual-2 .device-primary,
@@ -1326,6 +1286,6 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 
   .bear-page .pro-visual:hover .pro-visual-card {
-    transform: translateX(-50%) rotate(.2deg) translateY(-3px) !important;
+    transform: translate(-50%, calc(-50% - 3px)) rotate(.18deg) !important;
   }
 }
