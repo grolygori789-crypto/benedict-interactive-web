@@ -1320,14 +1320,20 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 }
 
 /* ========================================================================== 
-   FINAL DESKTOP BALANCE PASS — release truth + Pro visual
+   FINAL PRODUCTION BALANCE PASS — release truth + Pro visual
    2026-09-23
-   Fixes structural balance instead of filling empty space with decoration.
+   Scope:
+   - preserve the approved desktop card size for One Verified Build,
+   - remove the empty middle by giving release notes a real content panel,
+   - remove the Pro mascot frame on desktop and enlarge Dr. Bear ~14%,
+   - preserve the approved mobile 02/03 fan-card composition from main.
    ========================================================================== */
 
-/* One verified build: let the proof/download column carry the upper story,
-   then let the three disclosure cards span the full section width. This removes
-   the dead lower-right quadrant without inventing content or stretching cards. */
+/* One Verified Build — desktop/laptop.
+   Keep the established card footprint, but use the available vertical space
+   intentionally. Release notes become a substantial lower information panel
+   immediately after the integrity/legal cluster, so the middle never reads as
+   an accidental blank void. */
 @media (min-width: 981px) {
   .bear-page .release-truth-shell {
     display: grid !important;
@@ -1360,22 +1366,63 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   .bear-page .release-facts {
     grid-column: 1;
     grid-row: 4;
-    margin-block-start: 1.55rem !important;
+    margin-block-start: 1.45rem !important;
   }
 
   .bear-page .download-card {
     grid-column: 2;
     grid-row: 1 / span 4;
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
+    align-self: stretch !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100% !important;
     padding: clamp(1.35rem, 2vw, 1.7rem) !important;
   }
 
+  .bear-page .download-card-top {
+    flex: 0 0 auto;
+  }
+
+  .bear-page .download-button {
+    flex: 0 0 auto;
+    margin-block-start: 1rem !important;
+  }
+
+  .bear-page .download-integrity-note {
+    flex: 0 0 auto;
+    margin-block-start: .78rem !important;
+    line-height: 1.58 !important;
+  }
+
+  .bear-page .download-legal-links {
+    flex: 0 0 auto;
+    margin-block-start: .72rem !important;
+  }
+
   .bear-page .download-card .release-notes {
-    margin-block-start: auto !important;
-    padding-block-start: 1.2rem !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 0 !important;
+    margin-block-start: 1.05rem !important;
+    padding: clamp(1.05rem, 1.7vw, 1.35rem) !important;
+    border: 1px solid rgba(29, 83, 137, .075) !important;
+    border-radius: 20px !important;
+    background:
+      radial-gradient(circle at 90% 8%, rgba(68, 176, 228, .075), transparent 11rem),
+      linear-gradient(145deg, rgba(247, 251, 255, .94), rgba(255, 255, 255, .88)) !important;
+  }
+
+  .bear-page .download-card .release-notes h3 {
+    font-size: .92rem !important;
+  }
+
+  .bear-page .download-card .release-notes ul {
+    gap: .66rem !important;
+    margin-block-start: .72rem !important;
+    font-size: .79rem !important;
+    line-height: 1.52 !important;
   }
 
   .bear-page .release-disclosure-grid {
@@ -1390,78 +1437,97 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     min-height: 118px;
     padding: 1.05rem 1.15rem !important;
     border: 1px solid rgba(25, 84, 143, .07);
-    background:
-      linear-gradient(145deg, rgba(247,251,255,.94), rgba(255,255,255,.88));
+    background: linear-gradient(145deg, rgba(247,251,255,.94), rgba(255,255,255,.88));
     box-shadow: 0 12px 30px rgba(35,84,132,.035);
   }
 }
 
-/* Why Pro: the card itself is the visual anchor. No oversized ellipse, no
-   decorative filler. A portrait card naturally counterbalances the denser copy
-   and uses the right column vertically without creating an artificial blob. */
-.bear-page .pro-upgrade-shell {
-  grid-template-columns: minmax(0, 1.15fr) minmax(430px, .85fr) !important;
-  gap: clamp(2.6rem, 4.6vw, 4.9rem) !important;
-  align-items: stretch !important;
+/* Go deeper / Pro — desktop/laptop.
+   The mascot itself becomes the visual anchor. There is no frame, border,
+   poster card, or artificial shape around Dr. Bear. A restrained radial light
+   and natural drop shadow give separation from the section background. */
+@media (min-width: 981px) {
+  .bear-page .pro-upgrade-shell {
+    grid-template-columns: minmax(0, 1.15fr) minmax(420px, .85fr) !important;
+    gap: clamp(2.6rem, 4.6vw, 4.9rem) !important;
+    align-items: center !important;
+  }
+
+  .bear-page .pro-visual {
+    position: relative !important;
+    display: flex !important;
+    width: 100% !important;
+    min-height: 560px !important;
+    height: auto !important;
+    align-self: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    isolation: isolate !important;
+  }
+
+  .bear-page .pro-visual::before {
+    display: block !important;
+    position: absolute !important;
+    z-index: -1 !important;
+    inset: 7% -8% 5% !important;
+    border-radius: 50% !important;
+    background:
+      radial-gradient(circle at 52% 49%,
+        rgba(255,255,255,.98) 0 28%,
+        rgba(68,188,232,.13) 48%,
+        rgba(104,91,211,.055) 62%,
+        transparent 76%) !important;
+    content: "" !important;
+    pointer-events: none !important;
+  }
+
+  .bear-page .pro-visual-card {
+    position: relative !important;
+    inset: auto !important;
+    width: min(100%, 540px) !important;
+    aspect-ratio: auto !important;
+    min-height: 0 !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .bear-page .pro-card-topline,
+  .bear-page .pro-card-glow,
+  .bear-page .pro-card-footer {
+    display: none !important;
+  }
+
+  .bear-page .pro-visual-card img {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 114% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    transform: none !important;
+    filter: drop-shadow(0 30px 34px rgba(34, 78, 122, .14)) !important;
+  }
 }
 
-.bear-page .pro-visual {
-  position: relative !important;
-  display: flex !important;
-  width: 100% !important;
-  min-height: 0 !important;
-  height: 100% !important;
-  align-self: stretch !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  isolation: isolate;
-}
-
-.bear-page .pro-visual::before {
-  display: none !important;
-  content: none !important;
-}
-
-.bear-page .pro-visual-card {
-  position: relative !important;
-  inset: auto !important;
-  width: min(100%, 540px) !important;
-  aspect-ratio: .75 !important;
-  margin: 0 auto !important;
-  overflow: hidden !important;
-  border: 1px solid rgba(47,107,164,.11) !important;
-  border-radius: 42px !important;
-  background:
-    radial-gradient(circle at 74% 17%, rgba(255,218,147,.23), transparent 24%),
-    radial-gradient(circle at 16% 72%, rgba(75,201,238,.19), transparent 31%),
-    radial-gradient(circle at 64% 61%, rgba(111,93,220,.085), transparent 31%),
-    linear-gradient(155deg, rgba(255,255,255,.998), rgba(244,250,255,.975) 56%, rgba(255,249,238,.98)) !important;
-  box-shadow:
-    0 36px 82px rgba(42,79,123,.145),
-    0 10px 30px rgba(65,110,157,.055),
-    inset 0 1px 0 rgba(255,255,255,.96) !important;
-  transform: rotate(.18deg) !important;
-}
-
-.bear-page .pro-card-glow {
-  inset: 14% 5% 14% !important;
-  border-radius: 44% !important;
-  background:
-    radial-gradient(circle at 52% 47%, rgba(255,255,255,.96), rgba(57,185,233,.105) 46%, transparent 72%) !important;
-}
-
-.bear-page .pro-visual-card img {
-  inset-block-end: 3.2% !important;
-  width: 118% !important;
-}
-
-/* Compact desktop / landscape tablet. */
+/* Compact desktop / landscape tablet: preserve the same premium composition
+   while protecting copy/card proportions on narrower screens. */
 @media (max-width: 1180px) and (min-width: 981px) {
   .bear-page .release-truth-shell {
     grid-template-columns: minmax(0, 1.05fr) minmax(330px, .8fr) !important;
     column-gap: 2.5rem !important;
+  }
+
+  .bear-page .download-card .release-notes {
+    padding: 1rem 1.08rem !important;
   }
 
   .bear-page .pro-upgrade-shell {
@@ -1470,21 +1536,20 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 
   .bear-page .pro-visual {
-    padding: 0 !important;
+    min-height: 510px !important;
   }
 
   .bear-page .pro-visual-card {
     width: min(100%, 465px) !important;
-    aspect-ratio: .72 !important;
   }
 
   .bear-page .pro-visual-card img {
-    width: 116% !important;
+    width: 114% !important;
   }
 }
 
-/* Tablet and below return to a normal document flow. The card becomes shorter
-   when stacked so it never creates excessive vertical scroll. */
+/* Tablet and below: retain the already-approved stacked document flow and the
+   existing Pro card treatment; only desktop/laptop uses the frameless mascot. */
 @media (max-width: 980px) {
   .bear-page .release-truth-shell {
     grid-template-columns: 1fr !important;
@@ -1495,8 +1560,18 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 
   .bear-page .download-card {
-    display: block;
-    min-height: 0;
+    display: block !important;
+    min-height: 0 !important;
+  }
+
+  .bear-page .download-card .release-notes {
+    display: block !important;
+    margin-block-start: 1.15rem !important;
+    padding-block-start: 1.1rem !important;
+    border-inline: 0 !important;
+    border-block-end: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
   }
 
   .bear-page .release-disclosure-grid {
@@ -1555,17 +1630,14 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 }
 
-/* Hover polish must follow the new non-absolute card geometry. */
-@media (prefers-reduced-motion: no-preference) {
+/* Desktop hover follows the frameless geometry; touch layouts keep their
+   existing non-hover behavior. */
+@media (min-width: 981px) and (prefers-reduced-motion: no-preference) {
   .bear-page .pro-visual-card {
-    transition: transform 240ms ease, box-shadow 240ms ease;
+    transition: transform 240ms ease !important;
   }
 
   .bear-page .pro-visual:hover .pro-visual-card {
-    transform: translateY(-3px) rotate(.08deg) !important;
-    box-shadow:
-      0 40px 88px rgba(42,79,123,.155),
-      0 12px 34px rgba(65,110,157,.06),
-      inset 0 1px 0 rgba(255,255,255,.96) !important;
+    transform: translateY(-3px) !important;
   }
 }
