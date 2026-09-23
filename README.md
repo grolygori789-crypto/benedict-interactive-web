@@ -1,80 +1,54 @@
-# Benedict Interactive Web
+# Benedict Interactive — Bearagnostic Showcase V2
 
-Official website source for **Benedict Interactive**.
+## Baseline
+Built against repository `grolygori789-crypto/benedict-interactive-web`:
 
-**Repository:** `grolygori789-crypto/benedict-interactive-web`  
-**Status:** Pre-launch / production-premium refinement  
-**Canonical plan:** `docs/BENEDICT_INTERACTIVE_WEB_MASTER_PLAN.md`
+- `main`: `035342d12f940b22771db871b48038740bce5bec`
+- `src/layouts/SiteLayout.astro` blob: `66888f32c56def5bc62b3e98dbad6474ab31ed6c`
+- `src/styles/mobile-hardening.css` blob: `b859b2fa6a98f9c4a5eacd159c8d53ebdc2a664c`
 
-## Product intent
+## What changes
+This is deliberately a low-regression visual prototype.
 
-Benedict Interactive is the independent digital home for the studio, its products, support, downloads, release information, and future services.
+1. Adds `src/styles/bearagnostic-showcase.css`.
+2. Updates `src/layouts/SiteLayout.astro` only to import that stylesheet after `mobile-hardening.css`.
+3. Adds three showcase assets under `public/products/bearagnostic/showcase/`.
+4. Does **not** replace `BearagnosticPage.astro` and does not modify product/release/commerce/legal/support logic.
 
-The site should feel:
+## Visual result
+- The Bearagnostic hero uses the new Master Hero Dr. Bear.
+- The B93 Home screen supplied by the project owner has been perspective-composited into Dr. Bear's tablet.
+- The existing second hero phone is hidden to avoid duplicate product UI.
+- The first feature story becomes a premium device stage using the real B93 scan-progress screen plus the new Ultra-fast Dr. Bear art.
+- The scan screenshot has only the sensitive filename/path area replaced with neutral copy; the rest of the screenshot is preserved.
+- Product storytelling is visually ordered before release evidence. Release, Pro, purchase and FAQ sections remain intact below.
 
-- bright, optimistic, and human;
-- premium and meticulously designed;
-- colorful without becoming childish;
-- modern rather than retro;
-- influenced by the human-centered spirit of classic personal computing without copying Apple/Macintosh trade dress, UI, icons, marks, typography, or layouts.
+## Upload
+Upload the package contents from the repository root, preserving paths exactly.
 
-Bearagnostic is one product inside the Benedict Interactive ecosystem, not the identity of the whole website.
+Changed / new files:
 
-## Stack
-
-- Astro
-- TypeScript
-- Static-first output
-- Component-scoped Astro UI
-- Centralized design tokens in `src/styles/global.css`
-- Cloudflare Pages for current pre-launch staging deployment
-
-The first foundation deliberately keeps dependencies small. Add libraries only when a concrete requirement justifies them.
-
-## Local development
-
-Requires Node.js `22.12.0` or newer supported by the project.
-
-```bash
-npm install
-npm run dev
+```text
+src/layouts/SiteLayout.astro
+src/styles/bearagnostic-showcase.css
+public/products/bearagnostic/showcase/dr-bear-hero-real-ui.webp
+public/products/bearagnostic/showcase/dr-bear-ultra-fast-scanning.webp
+public/products/bearagnostic/showcase/app-scan-progress-sanitized.webp
 ```
 
-Quality check:
+## Rollback
+To revert the prototype safely:
 
-```bash
-npm run verify
-```
+1. Restore the previous `src/layouts/SiteLayout.astro` (remove the `bearagnostic-showcase.css` import).
+2. Delete `src/styles/bearagnostic-showcase.css`.
+3. The three showcase assets may be deleted or left unused; they do not affect runtime logic.
 
-Production build:
+No Android / B93 source is touched.
 
-```bash
-npm run build
-```
+## Suggested commit
+`Prototype Bearagnostic showcase`
 
-## Repository discipline
+## Web asset optimisation
 
-Git history is the archive. The working tree is not.
+The approved PNG source artwork was converted to high-quality WebP for the website upload. The three live assets total roughly 545 KB instead of roughly 3.8 MB as PNG, while preserving transparency on both Dr. Bear illustrations. This keeps the prototype much lighter on mobile.
 
-Never create files such as:
-
-- `home-final.astro`
-- `home-v2.astro`
-- `new-header.astro`
-- `styles-old.css`
-- `backup/`
-- ad-hoc exports or temporary screenshots
-
-When a canonical file can be updated, update the same path. New files are created only when they have a new, durable responsibility.
-
-Generated folders such as `node_modules`, `.astro`, and `dist` must never be committed.
-
-Read the complete rules in the Master Plan before substantive work.
-
-## Deployment status
-
-Cloudflare Pages is the current pre-launch staging deployment target. The project is intentionally not bound to a permanent domain yet; the final `.com` domain can be attached later without restructuring the source tree.
-
-GitHub Pages is **not** a deployment target for this Astro project. It should remain disabled; if enabled, GitHub may try to process Astro source files with the default Jekyll pipeline.
-
-Search-engine indexing is disabled in `public/robots.txt` during development. This must be changed deliberately at public launch.
