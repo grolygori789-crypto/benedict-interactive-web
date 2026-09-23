@@ -556,42 +556,48 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 }
 
-/* Shared editorial treatment for 02 / 03. The screenshots are product evidence,
-   Dr. Bear is the emotional anchor, and the outer story card is the only frame. */
+/* FINAL V3 — feature stories 02/03 and Why Pro.
+   Design contract:
+   - one primary screen is always legible,
+   - support screens create depth instead of visual clutter,
+   - Dr. Bear is a foreground guide, never a wall hiding product evidence,
+   - Pro value leads with current product truth, not payment infrastructure. */
+
+/* ---------- Shared 02 / 03 editorial system ---------- */
 .bear-page .feature-stories .feature-story:nth-child(2),
 .bear-page .feature-stories .feature-story:nth-child(3) {
   position: relative;
   min-height: 650px;
   overflow: hidden;
-  border-color: rgba(28, 91, 153, .085);
+  border-color: rgba(28, 91, 153, .082);
   box-shadow:
-    0 30px 76px rgba(29, 67, 107, .075),
-    inset 0 1px 0 rgba(255,255,255,.96);
+    0 30px 78px rgba(29, 67, 107, .074),
+    inset 0 1px 0 rgba(255,255,255,.97);
 }
 
 .bear-page .feature-stories .feature-story:nth-child(2) {
   grid-template-columns: minmax(560px, 1.18fr) minmax(300px, .82fr) !important;
-  gap: clamp(1.2rem, 2.5vw, 2.6rem) !important;
+  gap: clamp(1.45rem, 3vw, 3.2rem) !important;
   background:
-    radial-gradient(circle at 16% 15%, rgba(114, 101, 221, .13), transparent 24rem),
-    radial-gradient(circle at 75% 84%, rgba(246, 184, 76, .085), transparent 23rem),
-    linear-gradient(145deg, rgba(255,255,255,.995), rgba(249,247,255,.97));
+    radial-gradient(circle at 13% 13%, rgba(111, 99, 220, .12), transparent 23rem),
+    radial-gradient(circle at 73% 85%, rgba(245, 183, 78, .075), transparent 22rem),
+    linear-gradient(145deg, rgba(255,255,255,.997), rgba(249,247,255,.975));
 }
 
 .bear-page .feature-stories .feature-story:nth-child(3) {
   grid-template-columns: minmax(300px, .82fr) minmax(560px, 1.18fr) !important;
-  gap: clamp(1.4rem, 2.8vw, 2.8rem) !important;
+  gap: clamp(1.45rem, 3vw, 3.2rem) !important;
   background:
-    radial-gradient(circle at 84% 15%, rgba(63, 190, 219, .13), transparent 24rem),
-    radial-gradient(circle at 62% 86%, rgba(61, 190, 145, .095), transparent 23rem),
-    linear-gradient(145deg, rgba(255,255,255,.995), rgba(244,252,250,.97));
+    radial-gradient(circle at 86% 14%, rgba(59, 189, 219, .12), transparent 23rem),
+    radial-gradient(circle at 62% 86%, rgba(61, 188, 145, .085), transparent 22rem),
+    linear-gradient(145deg, rgba(255,255,255,.997), rgba(244,252,250,.975));
 }
 
 .bear-page .feature-stories .feature-story:nth-child(2) .feature-story-copy,
 .bear-page .feature-stories .feature-story:nth-child(3) .feature-story-copy {
   position: relative;
-  z-index: 10;
-  max-width: 410px;
+  z-index: 12;
+  max-width: 430px;
 }
 
 .bear-page .feature-stories .feature-story:nth-child(2) .feature-story-copy h3,
@@ -613,22 +619,31 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
 .bear-page .feature-stories .feature-story-visual-2::before,
 .bear-page .feature-stories .feature-story-visual-3::before {
-  display: block !important;
   position: absolute !important;
   z-index: -2 !important;
-  inset: 4% -2% 0 !important;
+  inset: 5% -1% 1% !important;
+  display: block !important;
   border-radius: 50% !important;
-  box-shadow: none !important;
   content: "" !important;
-  pointer-events: none;
+  pointer-events: none !important;
 }
 
 .bear-page .feature-stories .feature-story-visual-2::before {
-  background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,.99) 0 29%, rgba(237,232,255,.58) 50%, rgba(255,237,201,.22) 67%, transparent 80%) !important;
+  background:
+    radial-gradient(ellipse at 44% 48%,
+      rgba(255,255,255,.995) 0 28%,
+      rgba(237,232,255,.55) 48%,
+      rgba(255,237,201,.18) 67%,
+      transparent 80%) !important;
 }
 
 .bear-page .feature-stories .feature-story-visual-3::before {
-  background: radial-gradient(ellipse at 50% 48%, rgba(255,255,255,.99) 0 29%, rgba(218,248,246,.60) 50%, rgba(206,243,231,.24) 68%, transparent 80%) !important;
+  background:
+    radial-gradient(ellipse at 58% 47%,
+      rgba(255,255,255,.995) 0 28%,
+      rgba(217,248,245,.56) 48%,
+      rgba(205,242,231,.20) 68%,
+      transparent 80%) !important;
 }
 
 .bear-page .feature-stories .feature-story-visual-2 .device-primary,
@@ -640,37 +655,43 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   position: absolute !important;
   margin: 0 !important;
   box-sizing: border-box !important;
+  transform-origin: center center !important;
 }
 
-/* 02 — tighter cluster, larger mascot, deliberate overlap. */
+/* ---------- 02 — Understand before deleting ----------
+   Older Files is the primary evidence card.
+   Two phones stay recognisable behind it.
+   New Dr. Bear has no floating folder/warning graphic, so the UI remains clean. */
 .bear-page .feature-stories .feature-story-visual-2 .device-primary {
   z-index: 1 !important;
-  inset-block-start: 1% !important;
-  inset-inline-start: 2% !important;
-  width: min(36%, 245px) !important;
-  transform: rotate(-3.1deg) !important;
+  inset-block-start: 2% !important;
+  inset-inline-start: 0 !important;
+  width: min(28%, 202px) !important;
+  transform: rotate(-2.4deg) !important;
+  opacity: .91;
 }
 
 .bear-page .feature-stories .feature-story-visual-2 .device-secondary {
   z-index: 2 !important;
-  inset-block-start: 6% !important;
-  inset-inline-start: 30% !important;
-  width: min(35%, 238px) !important;
-  transform: rotate(2.6deg) !important;
+  inset-block-start: 0 !important;
+  inset-inline-start: 29% !important;
+  width: min(28%, 202px) !important;
+  transform: rotate(2deg) !important;
+  opacity: .96;
 }
 
 .bear-page .feature-stories .feature-story-visual-2 .device-tertiary {
-  z-index: 4 !important;
-  inset-block-end: 0 !important;
-  inset-inline-start: 10% !important;
-  width: min(51%, 348px) !important;
+  z-index: 5 !important;
+  inset-inline-start: 3% !important;
+  inset-block-end: 1% !important;
+  width: min(40%, 288px) !important;
   max-height: none !important;
   overflow: hidden !important;
-  border-radius: 27px !important;
-  transform: rotate(-.6deg) !important;
+  border-radius: 28px !important;
+  transform: rotate(-.35deg) !important;
   box-shadow:
-    0 30px 66px rgba(36, 66, 111, .145),
-    0 8px 22px rgba(36, 66, 111, .06) !important;
+    0 32px 72px rgba(36, 66, 111, .145),
+    0 9px 24px rgba(36, 66, 111, .055) !important;
 }
 
 .bear-page .feature-stories .feature-story-visual-2 .device-tertiary img {
@@ -680,45 +701,51 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 .bear-page .feature-stories .feature-story-visual-2::after {
   position: absolute;
   z-index: 8;
-  inset-block-end: -3%;
-  inset-inline-end: -7%;
-  width: 69%;
-  height: 79%;
+  inset-inline-end: -1%;
+  inset-block-end: -2%;
+  width: 50%;
+  height: 68%;
   background: url('/products/bearagnostic/showcase/dr-bear-understand.webp') center bottom / contain no-repeat;
-  filter: drop-shadow(0 26px 24px rgba(35,54,94,.14));
+  filter: drop-shadow(0 28px 25px rgba(35,54,94,.13));
   content: "";
   pointer-events: none;
 }
 
-/* 03 — three screens remain visibly distinct behind the privacy mascot. */
+/* ---------- 03 — Privacy stays close ----------
+   Insights Trend is the clear primary screen.
+   Tools + Insights remain visible as two supporting layers.
+   Dr. Bear protects the scene without swallowing the UI. */
 .bear-page .feature-stories .feature-story-visual-3 .device-primary {
   z-index: 1 !important;
-  inset-block-start: 1% !important;
-  inset-inline-start: 7% !important;
-  width: min(36%, 242px) !important;
-  transform: rotate(-3.1deg) !important;
+  inset-block-start: 7% !important;
+  inset-inline-start: 11% !important;
+  width: min(28%, 202px) !important;
+  transform: rotate(-2.6deg) !important;
+  opacity: .88;
 }
 
 .bear-page .feature-stories .feature-story-visual-3 .device-secondary {
   z-index: 2 !important;
-  inset-block-start: 5% !important;
-  inset-inline-end: -5% !important;
-  width: min(34%, 228px) !important;
-  transform: rotate(3.2deg) !important;
+  inset-block-start: 3% !important;
+  inset-inline-start: 33% !important;
+  width: min(27%, 194px) !important;
+  transform: rotate(2.1deg) !important;
+  opacity: .94;
 }
 
 .bear-page .feature-stories .feature-story-visual-3 .device-tertiary {
-  z-index: 4 !important;
-  inset-block-end: 0 !important;
-  inset-inline-end: 8% !important;
-  width: min(43%, 292px) !important;
+  z-index: 6 !important;
+  inset-block-start: 0 !important;
+  inset-inline-end: 0 !important;
+  inset-block-end: auto !important;
+  width: min(36%, 259px) !important;
   max-height: none !important;
   overflow: hidden !important;
-  border-radius: 27px !important;
-  transform: rotate(.4deg) !important;
+  border-radius: 28px !important;
+  transform: rotate(.25deg) !important;
   box-shadow:
-    0 30px 66px rgba(29, 83, 101, .135),
-    0 8px 22px rgba(29, 83, 101, .055) !important;
+    0 34px 76px rgba(29, 83, 101, .14),
+    0 10px 26px rgba(29, 83, 101, .055) !important;
 }
 
 .bear-page .feature-stories .feature-story-visual-3 .device-tertiary img {
@@ -728,29 +755,35 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 .bear-page .feature-stories .feature-story-visual-3::after {
   position: absolute;
   z-index: 8;
-  inset-block-end: -3%;
-  inset-inline-start: -5%;
-  width: 62%;
-  height: 73%;
+  inset-inline-start: 0;
+  inset-block-end: -2%;
+  width: 49%;
+  height: 68%;
   background: url('/products/bearagnostic/showcase/dr-bear-privacy.webp') center bottom / contain no-repeat;
-  filter: drop-shadow(0 26px 23px rgba(22,73,83,.14));
+  filter: drop-shadow(0 27px 24px rgba(22,73,83,.13));
   content: "";
   pointer-events: none;
 }
 
-/* Why Pro — current production value, not roadmap or infrastructure jargon. */
+/* ---------- Why Pro ----------
+   Align the value story and character card at the top of the same visual rhythm.
+   No empty "air pocket" above the card; 6 current Pro capabilities stay visible. */
+.bear-page .pro-upgrade {
+  padding-block: clamp(4.4rem, 6.5vw, 6rem) clamp(4.8rem, 7vw, 6.5rem);
+}
+
 .bear-page .pro-upgrade-shell {
-  grid-template-columns: minmax(0, 1.12fr) minmax(470px, .88fr);
-  gap: clamp(3.2rem, 5.5vw, 6rem);
-  align-items: center;
+  grid-template-columns: minmax(0, 1.14fr) minmax(440px, .86fr);
+  gap: clamp(2.5rem, 4.6vw, 4.8rem);
+  align-items: start;
 }
 
 .bear-page .pro-copy {
-  max-width: 840px;
+  max-width: 860px;
 }
 
 .bear-page .pro-benefits-label {
-  margin: 1.55rem 0 .7rem;
+  margin: 1.45rem 0 .72rem;
   color: #566b82;
   font-size: .72rem;
   font-weight: 850;
@@ -760,26 +793,26 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
 .bear-page .pro-benefits {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: .72rem;
   margin-block-start: 0;
 }
 
 .bear-page .pro-benefit {
   display: grid;
-  grid-template-columns: 40px minmax(0,1fr);
-  gap: .76rem;
+  grid-template-columns: 38px minmax(0,1fr);
+  gap: .68rem;
   align-items: start;
   min-width: 0;
-  min-height: 108px;
-  padding: 1rem 1.02rem;
+  min-height: 124px;
+  padding: .95rem .92rem 1rem;
   border: 1px solid rgba(54, 96, 141, .085);
-  border-radius: 22px;
+  border-radius: 21px;
   background:
-    linear-gradient(145deg, rgba(255,255,255,.93), rgba(249,252,255,.83));
+    linear-gradient(145deg, rgba(255,255,255,.95), rgba(248,252,255,.85));
   box-shadow:
-    0 14px 34px rgba(37,74,119,.052),
-    inset 0 1px 0 rgba(255,255,255,.95);
+    0 14px 34px rgba(37,74,119,.05),
+    inset 0 1px 0 rgba(255,255,255,.96);
 }
 
 .bear-page .pro-benefit-1 { border-color: rgba(93,82,205,.12); }
@@ -791,10 +824,10 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
 .bear-page .pro-benefit-icon {
   display: grid;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   place-items: center;
-  border-radius: 13px;
+  border-radius: 12px;
 }
 
 .bear-page .pro-benefit-1 .pro-benefit-icon { color: #6258c2; background: linear-gradient(145deg,#f1edff,#eef4ff); }
@@ -805,8 +838,8 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 .bear-page .pro-benefit-6 .pro-benefit-icon { color: #9b6a1c; background: linear-gradient(145deg,#fff6df,#fffaf0); }
 
 .bear-page .pro-benefit-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.75;
@@ -821,48 +854,48 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
 .bear-page .pro-benefit-copy strong {
   display: block;
-  color: #183d63;
-  font-size: .89rem;
-  line-height: 1.28;
+  color: #173b61;
+  font-size: .86rem;
+  line-height: 1.26;
 }
 
 .bear-page .pro-benefit-copy small {
   display: block;
-  margin-block-start: .34rem;
+  margin-block-start: .32rem;
   color: #71859a;
-  font-size: .745rem;
+  font-size: .72rem;
   font-weight: 560;
-  line-height: 1.48;
+  line-height: 1.47;
 }
 
 .bear-page .pro-safety-strip {
   display: grid;
-  grid-template-columns: 46px minmax(0,1fr);
-  gap: .85rem;
+  grid-template-columns: 44px minmax(0,1fr);
+  gap: .82rem;
   align-items: center;
   margin-block-start: .85rem;
   padding: .9rem 1rem;
   border: 1px solid rgba(43,160,121,.10);
   border-radius: 20px;
   background:
-    radial-gradient(circle at 8% 50%, rgba(61,197,151,.105), transparent 12rem),
-    linear-gradient(135deg, rgba(241,252,248,.95), rgba(250,254,253,.92));
+    radial-gradient(circle at 8% 50%, rgba(61,197,151,.10), transparent 12rem),
+    linear-gradient(135deg, rgba(241,252,248,.96), rgba(250,254,253,.93));
   box-shadow: inset 0 1px 0 rgba(255,255,255,.96);
 }
 
 .bear-page .pro-safety-icon {
   display: grid;
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   place-items: center;
-  border-radius: 15px;
+  border-radius: 14px;
   color: #25876e;
   background: rgba(221,247,238,.95);
 }
 
 .bear-page .pro-safety-icon svg {
-  width: 23px;
-  height: 23px;
+  width: 22px;
+  height: 22px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
@@ -883,77 +916,92 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
 .bear-page .pro-safety-copy small {
   display: block;
-  margin-block-start: .26rem;
+  margin-block-start: .25rem;
   color: #6e897f;
   font-size: .75rem;
   line-height: 1.48;
 }
 
-.bear-page .pro-model-line {
-  width: fit-content;
-  max-width: 100%;
-  margin: .85rem 0 0;
-  padding: .72rem .92rem;
-  border: 1px solid rgba(197,144,57,.13);
-  border-radius: 16px;
-  color: #745826;
-  background: linear-gradient(135deg,rgba(255,249,232,.94),rgba(255,253,247,.94));
-  font-size: .8rem;
-  font-weight: 760;
-  line-height: 1.45;
-}
-
 .bear-page .pro-action-card {
-  margin-block-start: .95rem;
+  margin-block-start: .9rem;
   border-color: rgba(42,98,153,.085);
-  background: rgba(255,255,255,.80);
+  background: rgba(255,255,255,.84);
   box-shadow: 0 18px 44px rgba(34,74,114,.06);
 }
 
+.bear-page .pro-action-status {
+  align-items: flex-start;
+}
+
+.bear-page .pro-action-status div {
+  gap: .2rem;
+}
+
+.bear-page .pro-action-status strong {
+  font-size: .94rem;
+}
+
+.bear-page .pro-action-status div span {
+  max-width: 680px;
+  font-size: .78rem;
+  line-height: 1.52;
+}
+
 .bear-page .pro-visual {
-  min-height: 660px;
+  width: 100%;
+  min-height: 565px;
+  margin: .3rem 0 0;
+  align-self: start;
 }
 
 .bear-page .pro-visual::before {
-  inset: 2% -5% 0;
+  inset: -5% -7% 0;
   background:
-    radial-gradient(circle at 52% 45%, rgba(255,255,255,.995), rgba(82,194,235,.22) 38%, rgba(103,90,213,.14) 57%, rgba(255,199,103,.14) 70%, transparent 80%);
+    radial-gradient(circle at 51% 43%,
+      rgba(255,255,255,.998),
+      rgba(82,194,235,.20) 39%,
+      rgba(103,90,213,.12) 58%,
+      rgba(255,199,103,.12) 70%,
+      transparent 81%);
 }
 
 .bear-page .pro-visual-card {
-  width: min(108%, 560px);
+  inset-block-start: 0 !important;
+  width: min(100%, 540px);
   aspect-ratio: 1 / 1;
-  border-radius: 46px;
+  border-radius: 44px;
   background:
-    radial-gradient(circle at 74% 18%, rgba(255,218,147,.24), transparent 24%),
-    radial-gradient(circle at 16% 72%, rgba(75,201,238,.22), transparent 31%),
-    radial-gradient(circle at 65% 62%, rgba(111,93,220,.10), transparent 32%),
-    linear-gradient(155deg,rgba(255,255,255,.997),rgba(244,250,255,.97) 56%,rgba(255,249,238,.975));
+    radial-gradient(circle at 74% 18%, rgba(255,218,147,.23), transparent 24%),
+    radial-gradient(circle at 16% 72%, rgba(75,201,238,.20), transparent 31%),
+    radial-gradient(circle at 65% 62%, rgba(111,93,220,.09), transparent 32%),
+    linear-gradient(155deg,rgba(255,255,255,.998),rgba(244,250,255,.972) 56%,rgba(255,249,238,.978));
   box-shadow:
-    0 38px 86px rgba(42,79,123,.155),
-    0 10px 30px rgba(65,110,157,.065);
+    0 38px 86px rgba(42,79,123,.15),
+    0 10px 30px rgba(65,110,157,.06);
+  transform: translateX(-50%) rotate(.45deg) !important;
 }
 
 .bear-page .pro-card-glow {
-  inset: 10% 2% 8%;
-  background: radial-gradient(circle,rgba(255,255,255,.96),rgba(57,185,233,.11) 45%,transparent 73%);
+  inset: 8% 1% 7%;
+  background:
+    radial-gradient(circle,rgba(255,255,255,.97),rgba(57,185,233,.10) 45%,transparent 73%);
 }
 
 .bear-page .pro-visual-card img {
-  inset-block-end: -1%;
-  width: 104%;
+  inset-block-end: -4%;
+  width: 111%;
 }
 
-/* Landscape tablets / compact laptops. */
+/* ---------- Compact laptops / landscape tablets ---------- */
 @media (max-width: 1180px) and (min-width: 981px) {
   .bear-page .feature-stories .feature-story:nth-child(2) {
-    grid-template-columns: minmax(500px, 1.12fr) minmax(280px, .88fr) !important;
-    min-height: 610px;
+    grid-template-columns: minmax(470px, 1.08fr) minmax(280px, .92fr) !important;
+    min-height: 615px;
   }
 
   .bear-page .feature-stories .feature-story:nth-child(3) {
-    grid-template-columns: minmax(280px, .88fr) minmax(500px, 1.12fr) !important;
-    min-height: 610px;
+    grid-template-columns: minmax(280px, .92fr) minmax(470px, 1.08fr) !important;
+    min-height: 615px;
   }
 
   .bear-page .feature-stories .feature-story-visual-2,
@@ -962,18 +1010,22 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after {
-    width: 68%;
-    height: 77%;
+    width: 50%;
+    height: 70%;
   }
 
   .bear-page .feature-stories .feature-story-visual-3::after {
-    width: 61%;
-    height: 72%;
+    width: 50%;
+    height: 68%;
   }
 
   .bear-page .pro-upgrade-shell {
-    grid-template-columns: minmax(0,1fr) minmax(400px,.78fr);
-    gap: 2.8rem;
+    grid-template-columns: minmax(0, 1fr) minmax(390px, .76fr);
+    gap: 2.5rem;
+  }
+
+  .bear-page .pro-benefits {
+    grid-template-columns: repeat(2, minmax(0,1fr));
   }
 
   .bear-page .pro-benefit {
@@ -981,20 +1033,20 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 
   .bear-page .pro-visual {
-    min-height: 590px;
+    min-height: 510px;
   }
 
   .bear-page .pro-visual-card {
-    width: min(106%, 500px);
+    width: min(100%, 470px);
   }
 }
 
-/* Portrait tablets: copy first, visual second, generous real-estate. */
+/* ---------- Portrait tablets ---------- */
 @media (max-width: 980px) and (min-width: 681px) {
   .bear-page .feature-stories .feature-story:nth-child(2),
   .bear-page .feature-stories .feature-story:nth-child(3) {
     grid-template-columns: 1fr !important;
-    gap: 1.3rem !important;
+    gap: 1.25rem !important;
     min-height: 0;
   }
 
@@ -1007,23 +1059,32 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
   .bear-page .feature-stories .feature-story:nth-child(2) .feature-story-copy,
   .bear-page .feature-stories .feature-story:nth-child(3) .feature-story-copy {
-    max-width: 640px;
+    max-width: 650px;
   }
 
   .bear-page .feature-stories .feature-story-visual-2,
   .bear-page .feature-stories .feature-story-visual-3 {
     width: min(100%, 670px) !important;
-    min-height: 550px !important;
+    min-height: 555px !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after {
-    width: 66%;
-    height: 75%;
+    width: 49%;
+    height: 69%;
   }
 
   .bear-page .feature-stories .feature-story-visual-3::after {
-    width: 60%;
-    height: 71%;
+    width: 49%;
+    height: 67%;
+  }
+
+  .bear-page .pro-upgrade-shell {
+    grid-template-columns: 1fr;
+    gap: 2.1rem;
+  }
+
+  .bear-page .pro-copy {
+    max-width: 840px;
   }
 
   .bear-page .pro-benefits {
@@ -1031,28 +1092,30 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 
   .bear-page .pro-benefit {
-    min-height: 128px;
+    min-height: 124px;
   }
 
   .bear-page .pro-visual {
     width: min(100%, 650px);
-    min-height: 570px;
-    margin-inline: auto;
+    min-height: 525px;
+    margin: 0 auto;
   }
 
   .bear-page .pro-visual-card {
-    width: min(94%, 510px);
+    width: min(88%, 500px);
   }
 }
 
-/* Phones: two readable product screens plus a large foreground mascot. */
+/* ---------- Phones ----------
+   Two screens max: one clear primary + one supporting layer.
+   This avoids the miniature three-screen pileup that failed visually. */
 @media (max-width: 680px) {
   .bear-page .feature-stories .feature-story:nth-child(2),
   .bear-page .feature-stories .feature-story:nth-child(3) {
     grid-template-columns: 1fr !important;
     min-height: 0 !important;
     gap: .9rem !important;
-    padding: clamp(1rem,4.6vw,1.25rem) !important;
+    padding: clamp(1rem, 4.6vw, 1.25rem) !important;
     border-radius: 29px !important;
   }
 
@@ -1069,16 +1132,15 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     display: block !important;
     width: 100% !important;
     max-width: 400px !important;
-    min-height: min(120vw, 455px) !important;
-    margin: .15rem auto 0 !important;
+    min-height: min(124vw, 470px) !important;
+    margin: .1rem auto 0 !important;
     padding: 0 !important;
     isolation: isolate !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::before,
   .bear-page .feature-stories .feature-story-visual-3::before {
-    display: block !important;
-    inset: 7% -8% 0 !important;
+    inset: 6% -7% 0 !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-secondary,
@@ -1086,56 +1148,65 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     display: none !important;
   }
 
+  /* 02 mobile: Older Files is the readable main screen. */
   .bear-page .feature-stories .feature-story-visual-2 .device-primary {
     z-index: 2 !important;
     inset-block-start: 0 !important;
-    inset-inline-start: 0 !important;
-    width: min(48%, 188px) !important;
-    transform: rotate(-1.8deg) !important;
+    inset-inline-start: auto !important;
+    inset-inline-end: 2% !important;
+    width: min(34%, 136px) !important;
+    transform: rotate(1.4deg) !important;
+    opacity: .9;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-tertiary {
-    z-index: 4 !important;
-    inset-block-start: 10% !important;
-    inset-inline-end: 1% !important;
+    z-index: 5 !important;
+    inset-block-start: 6% !important;
+    inset-inline-start: 1% !important;
+    inset-inline-end: auto !important;
     inset-block-end: auto !important;
-    inset-inline-start: auto !important;
-    width: min(53%, 208px) !important;
-    transform: rotate(.8deg) !important;
+    width: min(55%, 220px) !important;
+    transform: rotate(-.25deg) !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after {
     z-index: 8;
-    inset-block-end: -3%;
-    inset-inline-end: -8%;
-    width: 70%;
-    height: 63%;
+    inset-inline-end: -7%;
+    inset-block-end: -2%;
+    width: 60%;
+    height: 58%;
   }
 
+  /* 03 mobile: Insights Trend remains readable; Tools becomes the support layer. */
   .bear-page .feature-stories .feature-story-visual-3 .device-primary {
     z-index: 2 !important;
-    inset-block-start: 0 !important;
-    inset-inline-start: 2% !important;
-    width: min(48%, 188px) !important;
-    transform: rotate(-1.6deg) !important;
+    inset-block-start: 7% !important;
+    inset-inline-start: 1% !important;
+    width: min(32%, 128px) !important;
+    transform: rotate(-1.4deg) !important;
+    opacity: .9;
   }
 
   .bear-page .feature-stories .feature-story-visual-3 .device-tertiary {
-    z-index: 4 !important;
-    inset-block-start: 9% !important;
+    z-index: 6 !important;
+    inset-block-start: 0 !important;
     inset-inline-end: 0 !important;
-    inset-block-end: auto !important;
     inset-inline-start: auto !important;
-    width: min(52%, 204px) !important;
-    transform: rotate(.8deg) !important;
+    inset-block-end: auto !important;
+    width: min(54%, 216px) !important;
+    transform: rotate(.15deg) !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-3::after {
     z-index: 8;
-    inset-block-end: -3%;
-    inset-inline-start: -9%;
-    width: 69%;
-    height: 62%;
+    inset-inline-start: -8%;
+    inset-block-end: -2%;
+    width: 58%;
+    height: 58%;
+  }
+
+  .bear-page .pro-upgrade {
+    padding-block: 4.3rem 4.9rem;
   }
 
   .bear-page .pro-benefits {
@@ -1146,28 +1217,23 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     min-height: 0;
   }
 
-  .bear-page .pro-model-line {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
   .bear-page .pro-visual {
-    min-height: min(112vw, 465px);
+    min-height: min(110vw, 440px);
+    margin-block-start: 0;
   }
 
   .bear-page .pro-visual-card {
     width: min(96%, 410px);
-    aspect-ratio: 1 / 1;
     border-radius: 34px;
   }
 
   .bear-page .pro-visual-card img {
-    width: 104%;
-    inset-block-end: -1%;
+    width: 111%;
+    inset-block-end: -4%;
   }
 }
 
-/* Narrow phones prioritise reading over grid density. */
+/* ---------- Narrow phones ---------- */
 @media (max-width: 520px) {
   .bear-page .pro-benefits {
     grid-template-columns: 1fr;
@@ -1175,7 +1241,6 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
   .bear-page .pro-benefit {
     grid-template-columns: 42px minmax(0,1fr);
-    min-height: 0;
     padding: .9rem;
     border-radius: 18px;
   }
@@ -1189,17 +1254,17 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 @media (max-width: 430px) {
   .bear-page .feature-stories .feature-story-visual-2,
   .bear-page .feature-stories .feature-story-visual-3 {
-    min-height: 410px !important;
+    min-height: 420px !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after {
-    inset-inline-end: -9%;
-    width: 69%;
+    width: 60%;
+    height: 59%;
   }
 
   .bear-page .feature-stories .feature-story-visual-3::after {
-    inset-inline-start: -10%;
-    width: 68%;
+    width: 59%;
+    height: 58%;
   }
 
   .bear-page .pro-safety-strip {
@@ -1213,7 +1278,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
   }
 
   .bear-page .pro-visual {
-    min-height: 405px;
+    min-height: 392px;
   }
 
   .bear-page .pro-visual-card {
@@ -1224,32 +1289,43 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 @media (max-width: 360px) {
   .bear-page .feature-stories .feature-story-visual-2,
   .bear-page .feature-stories .feature-story-visual-3 {
-    min-height: 370px !important;
+    min-height: 375px !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-primary,
   .bear-page .feature-stories .feature-story-visual-3 .device-primary {
-    width: 47% !important;
+    width: 31% !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-tertiary,
   .bear-page .feature-stories .feature-story-visual-3 .device-tertiary {
-    width: 51% !important;
+    width: 53% !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after,
   .bear-page .feature-stories .feature-story-visual-3::after {
-    width: 67%;
+    width: 58%;
   }
 }
 
-/* Keep directional polish stable for RTL locales. */
+/* ---------- RTL stability ---------- */
 :global(html[dir="rtl"]) .bear-page .feature-stories .feature-story-visual-2 .device-primary,
 :global(html[dir="rtl"]) .bear-page .feature-stories .feature-story-visual-3 .device-primary {
-  transform: rotate(3.1deg) !important;
+  transform: rotate(2.4deg) !important;
 }
 
 :global(html[dir="rtl"]) .bear-page .feature-stories .feature-story-visual-2 .device-secondary,
 :global(html[dir="rtl"]) .bear-page .feature-stories .feature-story-visual-3 .device-secondary {
-  transform: rotate(-3deg) !important;
+  transform: rotate(-2deg) !important;
+}
+
+/* Preserve motion polish after changing Pro card anchoring. */
+@media (prefers-reduced-motion: no-preference) {
+  .bear-page .pro-visual-card {
+    transition: transform 280ms ease;
+  }
+
+  .bear-page .pro-visual:hover .pro-visual-card {
+    transform: translateX(-50%) rotate(.2deg) translateY(-3px) !important;
+  }
 }
