@@ -1106,7 +1106,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     display: block !important;
     width: 100% !important;
     max-width: 410px !important;
-    min-height: min(128vw, 480px) !important;
+    min-height: min(145vw, 555px) !important;
     margin: .08rem auto 0 !important;
     padding: 0 !important;
     isolation: isolate !important;
@@ -1114,7 +1114,7 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 
   .bear-page .feature-stories .feature-story-visual-2::before,
   .bear-page .feature-stories .feature-story-visual-3::before {
-    inset: 5% -7% 0 !important;
+    inset: 4% -7% 0 !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-secondary,
@@ -1122,62 +1122,79 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
     display: none !important;
   }
 
-  /* 02 mobile: Older Files remains primary, one phone proves app context. */
+  /* 02 mobile — two substantial cards, fanned like a premium editorial deck.
+     Older Files leads; the second real app screen remains visibly readable behind it. */
   .bear-page .feature-stories .feature-story-visual-2 .device-primary {
     z-index: 2 !important;
-    inset-block-start: 0 !important;
-    inset-inline-start: auto !important;
-    inset-inline-end: 1% !important;
-    width: min(31%, 128px) !important;
-    transform: rotate(1.25deg) !important;
-    opacity: .9;
+    inset-block-start: 1% !important;
+    inset-inline-start: 42% !important;
+    inset-inline-end: auto !important;
+    width: min(58%, 232px) !important;
+    transform: rotate(3.2deg) !important;
+    opacity: .97 !important;
+    box-shadow:
+      0 24px 54px rgba(31, 73, 113, .12),
+      0 8px 20px rgba(31, 73, 113, .045) !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-tertiary {
     z-index: 5 !important;
-    inset-block-start: 5% !important;
-    inset-inline-start: 0 !important;
+    inset-block-start: 10% !important;
+    inset-inline-start: 2% !important;
     inset-inline-end: auto !important;
     inset-block-end: auto !important;
-    width: min(56%, 230px) !important;
-    transform: rotate(-.2deg) !important;
+    width: min(66%, 262px) !important;
+    border-radius: 27px !important;
+    transform: rotate(-1.25deg) !important;
+    box-shadow:
+      0 31px 68px rgba(34, 67, 106, .145),
+      0 10px 24px rgba(34, 67, 106, .055) !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after {
     z-index: 8;
-    inset-inline-end: -10%;
-    inset-block-end: -3%;
-    width: 66%;
-    height: 64%;
+    inset-inline-end: -4% !important;
+    inset-block-end: -1.5% !important;
+    width: 56% !important;
+    height: 54% !important;
   }
 
-  /* 03 mobile: the Trend screen is readable, Tools is context, Bear protects at right. */
+  /* 03 mobile — the trend/history view leads, with a second on-device screen
+     fanned behind it. Both remain legible enough to support the privacy story. */
   .bear-page .feature-stories .feature-story-visual-3 .device-primary {
     z-index: 2 !important;
-    inset-block-start: 7% !important;
-    inset-inline-start: 0 !important;
-    width: min(31%, 128px) !important;
-    transform: rotate(-1.25deg) !important;
-    opacity: .9;
+    inset-block-start: 1% !important;
+    inset-inline-start: 42% !important;
+    inset-inline-end: auto !important;
+    width: min(58%, 232px) !important;
+    transform: rotate(3deg) !important;
+    opacity: .97 !important;
+    box-shadow:
+      0 24px 54px rgba(24, 80, 91, .115),
+      0 8px 20px rgba(24, 80, 91, .04) !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-3 .device-tertiary {
-    z-index: 6 !important;
-    inset-block-start: 0 !important;
-    inset-inline-start: 1% !important;
+    z-index: 5 !important;
+    inset-block-start: 10% !important;
+    inset-inline-start: 2% !important;
     inset-inline-end: auto !important;
     inset-block-end: auto !important;
-    width: min(55%, 226px) !important;
-    transform: rotate(.12deg) !important;
+    width: min(66%, 262px) !important;
+    border-radius: 27px !important;
+    transform: rotate(-1.15deg) !important;
+    box-shadow:
+      0 31px 68px rgba(24, 78, 90, .135),
+      0 10px 24px rgba(24, 78, 90, .05) !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-3::after {
     z-index: 8;
-    inset-inline-start: auto;
-    inset-inline-end: -12%;
-    inset-block-end: -3%;
-    width: 65%;
-    height: 63%;
+    inset-inline-start: auto !important;
+    inset-inline-end: -4% !important;
+    inset-block-end: -1.5% !important;
+    width: 56% !important;
+    height: 54% !important;
   }
 
   .bear-page .pro-upgrade {
@@ -1224,13 +1241,24 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 @media (max-width: 430px) {
   .bear-page .feature-stories .feature-story-visual-2,
   .bear-page .feature-stories .feature-story-visual-3 {
-    min-height: 425px !important;
+    min-height: 515px !important;
+  }
+
+  .bear-page .feature-stories .feature-story-visual-2 .device-primary,
+  .bear-page .feature-stories .feature-story-visual-3 .device-primary {
+    inset-inline-start: 42% !important;
+    width: min(58%, 214px) !important;
+  }
+
+  .bear-page .feature-stories .feature-story-visual-2 .device-tertiary,
+  .bear-page .feature-stories .feature-story-visual-3 .device-tertiary {
+    width: min(65%, 242px) !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after,
   .bear-page .feature-stories .feature-story-visual-3::after {
-    width: 64%;
-    height: 62%;
+    width: 56% !important;
+    height: 53% !important;
   }
 
   .bear-page .pro-safety-strip {
@@ -1247,23 +1275,24 @@ html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-p
 @media (max-width: 360px) {
   .bear-page .feature-stories .feature-story-visual-2,
   .bear-page .feature-stories .feature-story-visual-3 {
-    min-height: 382px !important;
+    min-height: 470px !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-primary,
   .bear-page .feature-stories .feature-story-visual-3 .device-primary {
-    width: 30% !important;
+    inset-inline-start: 42% !important;
+    width: 57% !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2 .device-tertiary,
   .bear-page .feature-stories .feature-story-visual-3 .device-tertiary {
-    width: 54% !important;
+    width: 64% !important;
   }
 
   .bear-page .feature-stories .feature-story-visual-2::after,
   .bear-page .feature-stories .feature-story-visual-3::after {
-    width: 62%;
-    height: 60%;
+    width: 55% !important;
+    height: 51% !important;
   }
 }
 
