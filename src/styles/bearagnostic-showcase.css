@@ -1,12 +1,12 @@
 /*
- * Benedict Interactive — Bearagnostic Showcase V5
- * Baseline: main af549eff3a645104ce4f9fdc986d99d45976e117
+ * Benedict Interactive — Bearagnostic showcase final polish
+ * Baseline: main edcbf50aa8ea60ffa80c1105d66e1dcdfe611333
  *
- * Refinements in V3:
- * - approved corrected Master Hero asset replaces V2 hero image
- * - hero composition preserved but now uses the fixed tablet-hand artwork
- * - first feature composition refined so the real scan screen remains clearly visible on desktop
- * - mobile behaviour preserved and kept lightweight / low-regression
+ * Responsibility:
+ * - preserve the approved Bearagnostic master hero artwork
+ * - art-direct the first feature story without an inner card/panel
+ * - keep the real scan UI primary and Dr. Bear secondary
+ * - provide deliberate desktop/tablet/mobile compositions
  */
 
 /* ---------- Story order ---------- */
@@ -22,7 +22,7 @@
 .bear-page > .purchase-journey { order: 5; }
 .bear-page > .release-faq { order: 6; }
 
-/* ---------- Master Hero ---------- */
+/* ---------- Approved master hero ---------- */
 .bear-page .bear-hero {
   position: relative;
   isolation: isolate;
@@ -76,7 +76,6 @@
   filter: blur(20px);
 }
 
-/* Visible hero layer uses the approved corrected tablet-hand artwork. */
 .bear-page .bear-showcase .bear-character-hero {
   z-index: 3;
   inset-inline-start: -8%;
@@ -96,7 +95,6 @@
   opacity: 0;
 }
 
-/* Hide legacy duplicate phone; the real UI already lives inside Dr. Bear's tablet. */
 .bear-page .bear-showcase .bear-phone-hero {
   display: none !important;
 }
@@ -113,168 +111,210 @@
   backdrop-filter: blur(14px);
 }
 
-/* ---------- First feature: premium scan stage ---------- */
+/* ========================================================================== */
+/* Feature 01 — See what is actually there                                    */
+/* Outer story card remains. The visual itself has no card/panel/frame.       */
+/* ========================================================================== */
+
 .bear-page .feature-stories .feature-story:first-child {
-  position: relative;
-  min-height: 720px;
-  overflow: hidden;
-  border-color: rgba(28,113,183,.09);
+  position: relative !important;
+  grid-template-columns: minmax(280px, .72fr) minmax(610px, 1.28fr) !important;
+  gap: clamp(1.8rem, 3.5vw, 3.8rem) !important;
+  align-items: center !important;
+  min-height: 660px !important;
+  padding: clamp(1.9rem, 3vw, 2.65rem) !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(30,103,163,.085) !important;
+  border-radius: 40px !important;
   background:
-    radial-gradient(circle at 84% 18%, rgba(68,199,239,.15), transparent 25rem),
-    radial-gradient(circle at 56% 85%, rgba(62,123,246,.08), transparent 26rem),
-    linear-gradient(145deg, rgba(255,255,255,.99), rgba(244,251,255,.95));
+    radial-gradient(circle at 79% 24%, rgba(67,196,239,.125), transparent 24rem),
+    radial-gradient(circle at 62% 92%, rgba(75,131,245,.065), transparent 24rem),
+    linear-gradient(145deg, rgba(255,255,255,.995), rgba(245,251,255,.965)) !important;
   box-shadow:
-    0 34px 88px rgba(25,68,108,.09),
-    inset 0 1px 0 rgba(255,255,255,.94);
+    0 30px 76px rgba(25,68,108,.085),
+    inset 0 1px 0 rgba(255,255,255,.96) !important;
 }
 
 .bear-page .feature-stories .feature-story:first-child::before {
   position: absolute;
   inset: 1px;
   border-radius: inherit;
-  background: linear-gradient(115deg, rgba(255,255,255,.54), transparent 28% 70%, rgba(111,216,245,.08));
+  background: linear-gradient(118deg, rgba(255,255,255,.48), transparent 28% 72%, rgba(99,205,242,.055));
   content: "";
   pointer-events: none;
 }
 
 .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
-  position: relative;
-  z-index: 7;
+  position: relative !important;
+  z-index: 8 !important;
+  max-width: 390px !important;
+  align-self: center !important;
+  padding-inline-start: clamp(.1rem, .8vw, .7rem);
 }
 
 .bear-page .feature-stories .feature-story:first-child .feature-number {
-  color: #0f83d6;
-  border-color: rgba(23,138,211,.10);
-  background: rgba(25,151,224,.07);
-  box-shadow: 0 9px 22px rgba(21,123,190,.08);
+  color: #0f7fd0 !important;
+  border-color: rgba(23,138,211,.10) !important;
+  background: rgba(25,151,224,.065) !important;
+  box-shadow: 0 8px 20px rgba(21,123,190,.065) !important;
 }
 
+.bear-page .feature-stories .feature-story:first-child .feature-story-copy h3 {
+  max-width: 360px;
+  text-wrap: balance;
+}
+
+.bear-page .feature-stories .feature-story:first-child .feature-story-copy p {
+  max-width: 350px;
+}
+
+/* One shared visual field: no inner rounded rectangle, no panel, no glass card. */
 .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-  min-height: 640px;
-  overflow: visible;
-  isolation: isolate;
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 735px !important;
+  min-height: 600px !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+  justify-self: end !important;
+  overflow: visible !important;
+  isolation: isolate !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
+/* Soft shared light only — deliberately not a visual container. */
 .bear-page .feature-stories .feature-story:first-child .feature-story-visual::before {
-  z-index: -3;
-  inset: 3% -4% 2% 2%;
-  border-radius: 46px;
+  display: block !important;
+  position: absolute !important;
+  z-index: -2 !important;
+  inset: 5% -2% 1% 2% !important;
+  border: 0 !important;
+  border-radius: 50% !important;
   background:
-    radial-gradient(circle at 42% 42%, rgba(255,255,255,.99) 0 18%, rgba(228,247,255,.89) 44%, rgba(206,238,252,.43) 67%, transparent 82%);
-}
-
-.bear-page .feature-stories .feature-story:first-child .feature-story-visual::after {
-  position: absolute;
-  z-index: -2;
-  inset-inline-start: 10%;
-  inset-block-start: 14%;
-  width: min(68%, 430px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(26,151,221,.09);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 38px rgba(36,174,230,.035),
-    0 0 0 82px rgba(35,126,223,.025);
-  content: "";
+    radial-gradient(ellipse at 48% 48%, rgba(255,255,255,.96) 0 27%, rgba(227,246,255,.55) 49%, rgba(206,239,253,.22) 66%, transparent 78%) !important;
+  box-shadow: none !important;
+  content: "" !important;
   pointer-events: none;
 }
 
-/* Real scan UI — make it the primary reading object on desktop. */
+/* One grounding shadow ties phone + Dr. Bear together as a single composition. */
+.bear-page .feature-stories .feature-story:first-child .feature-story-visual::after {
+  display: block !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  inset: auto 7% 0 8% !important;
+  width: auto !important;
+  height: 8% !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: radial-gradient(ellipse, rgba(25,73,116,.13), transparent 70%) !important;
+  box-shadow: none !important;
+  filter: blur(11px);
+  content: "" !important;
+  pointer-events: none;
+}
+
+.bear-page .feature-stories .feature-story:first-child .device-primary,
+.bear-page .feature-stories .feature-story:first-child .device-secondary {
+  display: block !important;
+  position: absolute !important;
+  margin: 0 !important;
+}
+
+/* Real scan UI is the hero object. */
 .bear-page .feature-stories .feature-story:first-child .device-primary {
-  z-index: 5;
-  inset-inline-start: 3%;
-  inset-block-start: 0;
-  width: min(49%, 312px);
-  padding: 7px;
-  overflow: hidden;
-  border: 1px solid rgba(21,62,101,.10);
-  border-radius: 36px;
+  z-index: 6 !important;
+  inset: auto auto 0 8% !important;
+  width: min(38%, 270px) !important;
+  aspect-ratio: 691 / 1536 !important;
+  padding: 6px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(17,59,96,.105) !important;
+  border-radius: 34px !important;
   background:
-    #fff url('/products/bearagnostic/showcase/app-scan-progress-sanitized.webp') center top / cover no-repeat;
+    #fff url('/products/bearagnostic/showcase/app-scan-progress-sanitized.webp') center top / cover no-repeat !important;
   box-shadow:
-    0 34px 80px rgba(24,66,107,.18),
-    0 8px 24px rgba(24,66,107,.08);
-  transform: rotate(-2.4deg) translateZ(0);
+    0 34px 72px rgba(24,66,107,.155),
+    0 9px 24px rgba(24,66,107,.075) !important;
+  transform: rotate(-1deg) translateZ(0) !important;
+  transform-origin: 50% 85%;
 }
 
 .bear-page .feature-stories .feature-story:first-child .device-primary > img {
-  display: block;
-  width: 100%;
-  height: auto;
-  opacity: 0;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  opacity: 0 !important;
 }
 
 .bear-page .feature-stories .feature-story:first-child .device-primary .device-speaker {
-  z-index: 8;
+  z-index: 8 !important;
 }
 
-/* Dr. Bear supports the story but no longer blocks the scan screen on desktop. */
+/* Remove the old decorative speed streak; it competed with the actual product UI. */
+.bear-page .feature-stories .feature-story:first-child .device-primary::after {
+  display: none !important;
+}
+
+/* Dr. Bear belongs to the same scene, close enough to interact, but remains secondary. */
 .bear-page .feature-stories .feature-story:first-child .device-secondary {
-  z-index: 4;
-  inset-inline-end: -2%;
-  inset-block-end: -3%;
-  width: min(58%, 382px);
-  aspect-ratio: 1;
-  overflow: visible;
-  border: 0;
-  border-radius: 0;
-  background: url('/products/bearagnostic/showcase/dr-bear-ultra-fast-scanning.webp') center / contain no-repeat;
-  box-shadow: none;
-  transform: rotate(.5deg) translateZ(0);
+  z-index: 5 !important;
+  inset: auto -1.5% 0 auto !important;
+  width: min(57%, 405px) !important;
+  aspect-ratio: 1 !important;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: url('/products/bearagnostic/showcase/dr-bear-ultra-fast-scanning.webp') center bottom / contain no-repeat !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 24px 22px rgba(24,66,107,.10));
+  transform: none !important;
   pointer-events: none;
 }
 
 .bear-page .feature-stories .feature-story:first-child .device-secondary > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  opacity: 0 !important;
 }
 
-/* restrained speed accent */
-.bear-page .feature-stories .feature-story:first-child .device-primary::after {
-  position: absolute;
-  z-index: 8;
-  inset-inline-end: -42%;
-  inset-block-start: 34%;
-  width: 54%;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(38,179,236,0), rgba(38,179,236,.72), rgba(91,206,244,0));
-  box-shadow: 0 28px 0 rgba(38,179,236,.18);
-  content: "";
-  opacity: .58;
-  transform: rotate(-8deg);
-  pointer-events: none;
-}
-
-/* ---------- Responsive composition ---------- */
-@media (max-width: 1100px) {
-  .bear-page .bear-showcase .bear-character-hero {
-    inset-inline-start: -4%;
-    width: min(104%, 710px);
+/* ---------- Compact desktop / landscape tablet ---------- */
+@media (max-width: 1179px) and (min-width: 981px) {
+  .bear-page .feature-stories .feature-story:first-child {
+    grid-template-columns: minmax(250px, .73fr) minmax(500px, 1.27fr) !important;
+    gap: clamp(1.5rem, 2.6vw, 2.4rem) !important;
+    min-height: 570px !important;
+    padding: clamp(1.65rem, 2.5vw, 2.2rem) !important;
   }
 
-  .bear-page .feature-stories .feature-story:first-child {
-    min-height: 680px;
+  .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
+    max-width: 360px !important;
   }
 
   .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    min-height: 590px;
+    max-width: 620px !important;
+    min-height: 520px !important;
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-primary {
-    width: min(47%, 272px);
+    inset-inline-start: 7% !important;
+    width: min(36%, 225px) !important;
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    inset-inline-end: -4%;
-    width: min(60%, 360px);
+    inset-inline-end: -1% !important;
+    width: min(53%, 330px) !important;
   }
 }
 
-@media (max-width: 920px) {
+/* ---------- Portrait tablet ---------- */
+@media (max-width: 980px) and (min-width: 681px) {
   .bear-page .bear-hero::before {
     inset: 46% -18% 0 16%;
   }
@@ -299,516 +339,193 @@
     transform: translateX(50%);
   }
 
-  .bear-page .bear-showcase .bear-showcase-lockup {
-    inset-inline-end: 2%;
+  .bear-page .feature-stories .feature-story:first-child {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: clamp(1.15rem, 2.8vw, 1.65rem) !important;
+    min-height: 0 !important;
+    padding: clamp(1.35rem, 3.3vw, 1.8rem) !important;
   }
 
-  .bear-page .feature-stories .feature-story:first-child {
-    min-height: auto;
+  .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
+    max-width: 640px !important;
+    padding-inline-start: 0;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-copy h3,
+  .bear-page .feature-stories .feature-story:first-child .feature-story-copy p {
+    max-width: 620px;
   }
 
   .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    display: block;
-    width: min(100%, 620px);
-    min-height: 580px;
-    margin-inline: auto;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary,
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    position: absolute;
-    margin: 0;
+    width: min(100%, 665px) !important;
+    max-width: 665px !important;
+    min-height: clamp(500px, 67vw, 555px) !important;
+    margin-inline: auto !important;
+    justify-self: center !important;
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-primary {
-    z-index: 3;
-    inset-inline-start: 4%;
-    inset-block-start: 2%;
-    width: min(43%, 238px);
-    transform: rotate(-2deg);
+    inset-inline-start: 12% !important;
+    width: min(37%, 235px) !important;
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    z-index: 4;
-    inset-inline-end: -5%;
-    inset-block-end: -1%;
-    width: min(75%, 440px);
-    transform: rotate(.5deg);
+    inset-inline-end: 4% !important;
+    width: min(52%, 340px) !important;
   }
 }
 
+/* ---------- Phones: dedicated composition, not scaled-down desktop ---------- */
 @media (max-width: 680px) {
-  .bear-page .bear-showcase {
-    min-height: clamp(420px, 105vw, 540px);
-  }
-
-  .bear-page .bear-showcase .bear-character-hero {
-    width: min(110%, 620px);
-  }
-
-  .bear-page .bear-showcase .bear-showcase-lockup {
-    inset-block-start: 0;
-    padding: .5rem .62rem;
-    font-size: .52rem;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child {
-    padding: clamp(1rem, 4.5vw, 1.35rem);
-    border-radius: 30px;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    min-height: min(126vw, 520px);
-    margin-block-start: .8rem;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary {
-    inset-inline-start: 1%;
-    width: min(43%, 190px);
-    padding: 5px;
-    border-radius: 28px;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    inset-inline-end: -12%;
-    inset-block-end: -1%;
-    width: min(82%, 398px);
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary::after {
-    inset-inline-end: -44%;
-    width: 52%;
-  }
-}
-
-@media (max-width: 430px) {
   .bear-page .bear-hero::before {
     inset: 50% -28% 0 4%;
   }
 
   .bear-page .bear-showcase {
-    min-height: 400px;
+    min-height: clamp(400px, 105vw, 525px);
   }
 
   .bear-page .bear-showcase .bear-character-hero {
+    inset-inline-start: 50%;
     inset-block-end: 0;
-    width: min(116%, 520px);
+    width: min(112%, 590px);
+    transform: translateX(-50%);
+  }
+
+  html[dir="rtl"] .bear-page .bear-showcase .bear-character-hero {
+    transform: translateX(50%);
   }
 
   .bear-page .bear-showcase .bear-showcase-lockup {
+    inset-block-start: 0;
     inset-inline-end: 0;
     max-width: 48%;
+    padding: .5rem .62rem;
+    font-size: .52rem;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: .9rem !important;
+    min-height: 0 !important;
+    padding: clamp(1rem, 4.6vw, 1.25rem) !important;
+    border-radius: 29px !important;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
+    max-width: 100% !important;
+    padding-inline-start: 0;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-copy h3,
+  .bear-page .feature-stories .feature-story:first-child .feature-story-copy p {
+    max-width: 100%;
   }
 
   .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    min-height: 410px;
+    display: block !important;
+    width: 100% !important;
+    max-width: 390px !important;
+    min-height: min(111vw, 430px) !important;
+    margin: .25rem auto 0 !important;
+    padding: 0 !important;
+    justify-self: center !important;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-visual::before {
+    inset: 9% -8% 1% -3% !important;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-visual::after {
+    inset-inline: 0 -2% !important;
+    inset-block-end: 0 !important;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .device-primary,
+  .bear-page .feature-stories .feature-story:first-child .device-secondary {
+    position: absolute !important;
+    margin: 0 !important;
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-primary {
-    inset-inline-start: -1%;
-    width: min(44%, 160px);
+    z-index: 6 !important;
+    inset: auto auto 0 3% !important;
+    width: min(51%, 188px) !important;
+    padding: 5px !important;
+    border-radius: 27px !important;
+    transform: rotate(-.65deg) translateZ(0) !important;
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    inset-inline-end: -15%;
-    inset-block-end: -1%;
-    width: min(84%, 348px);
+    z-index: 5 !important;
+    inset: auto -3% 0 auto !important;
+    width: min(66%, 248px) !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .bear-page .bear-showcase {
+    min-height: 395px;
   }
 
-  .bear-page .feature-stories .feature-story:first-child .device-primary::after {
-    display: none;
+  .bear-page .feature-stories .feature-story:first-child {
+    border-radius: 26px !important;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
+    min-height: min(112vw, 400px) !important;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .device-primary {
+    inset-inline-start: 2% !important;
+    width: min(50%, 172px) !important;
+  }
+
+  .bear-page .feature-stories .feature-story:first-child .device-secondary {
+    inset-inline-end: -4% !important;
+    width: min(65%, 226px) !important;
   }
 }
 
 @media (max-width: 360px) {
   .bear-page .bear-showcase {
-    min-height: 370px;
-  }
-
-  .bear-page .bear-showcase .bear-character-hero {
-    width: 120%;
+    min-height: 365px;
   }
 
   .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    min-height: 375px;
+    min-height: 365px !important;
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-primary {
-    width: min(43%, 140px);
+    width: min(50%, 158px) !important;
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    inset-inline-end: -18%;
-    width: min(86%, 318px);
+    width: min(64%, 205px) !important;
   }
 }
 
-/* ---------- Motion: restrained and accessibility-safe ---------- */
+/* RTL keeps the same hierarchy while mirroring the phone's slight editorial tilt. */
+html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-primary {
+  transform: rotate(.9deg) translateZ(0) !important;
+}
+
+/* Keep motion restrained and accessibility-safe. */
 @media (prefers-reduced-motion: no-preference) {
   .bear-page .bear-showcase .bear-character-hero {
     animation: bear-showcase-breathe 7.5s ease-in-out infinite;
   }
+}
 
-  .bear-page .feature-stories .feature-story:first-child .device-primary {
-    animation: scan-device-float 7s ease-in-out infinite;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    animation: scan-bear-breathe 6.6s ease-in-out infinite;
+@media (prefers-reduced-motion: reduce) {
+  .bear-page .bear-showcase .bear-character-hero {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
 @keyframes bear-showcase-breathe {
   0%, 100% { translate: 0 0; }
   50% { translate: 0 -4px; }
-}
-
-@keyframes scan-device-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -5px; }
-}
-
-@keyframes scan-bear-breathe {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -3px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .bear-page .bear-showcase .bear-character-hero,
-  .bear-page .feature-stories .feature-story:first-child .device-primary,
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-
-/* ---------- V5 locked product-stage composition ----------
- * >= 681px: the scan screen + Dr. Bear are one pre-composed art-directed stage.
- * This removes browser-dependent collision risk entirely while preserving the
- * already-good compact mobile composition at 680px and below.
- */
-@media (min-width: 681px) {
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    display: block !important;
-    width: 100%;
-    min-height: 0 !important;
-    aspect-ratio: 1400 / 960;
-    margin: 0 auto;
-    overflow: visible !important;
-    isolation: isolate;
-    border: 1px solid rgba(29,100,160,.055);
-    border-radius: 42px;
-    background:
-      radial-gradient(circle at 47% 48%, rgba(255,255,255,.99) 0 20%, rgba(229,247,255,.68) 47%, rgba(219,243,254,.25) 66%, transparent 82%),
-      linear-gradient(148deg, rgba(255,255,255,.92), rgba(243,250,255,.74));
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.96),
-      0 24px 60px rgba(28,76,119,.05);
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual::before {
-    z-index: 2 !important;
-    inset: 2.5% 2.5% 1.5% 2.5% !important;
-    border-radius: 0 !important;
-    background: url('/products/bearagnostic/showcase/scan-stage-desktop.webp') center / contain no-repeat !important;
-    filter: none !important;
-    content: "";
-    pointer-events: none;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual::after {
-    z-index: 1 !important;
-    inset: auto 10% 4% 10% !important;
-    width: auto !important;
-    height: 8% !important;
-    aspect-ratio: auto !important;
-    border: 0 !important;
-    border-radius: 50% !important;
-    background: radial-gradient(ellipse, rgba(26,78,121,.09), transparent 70%) !important;
-    box-shadow: none !important;
-    filter: blur(8px);
-    content: "";
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary,
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    display: none !important;
-  }
-}
-
-/* Tablet / compact desktop: let the product stage breathe full-width below copy. */
-@media (min-width: 681px) and (max-width: 980px) {
-  .bear-page .feature-stories .feature-story:first-child {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 1.5rem !important;
-    min-height: 0 !important;
-    padding: clamp(1.25rem, 3.5vw, 1.8rem) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
-    max-width: 640px;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    width: min(100%, 720px);
-    justify-self: center;
-    border-radius: 34px;
-  }
-}
-
-/* Desktop: stronger visual weighting, closer to premium product-launch pages. */
-@media (min-width: 981px) {
-  .bear-page .feature-stories .feature-story:first-child {
-    grid-template-columns: minmax(270px, .70fr) minmax(560px, 1.30fr) !important;
-    gap: clamp(2rem, 4vw, 4.25rem) !important;
-    min-height: 640px !important;
-    padding: clamp(1.7rem, 2.8vw, 2.5rem) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
-    max-width: 390px;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    width: 100%;
-    max-width: 720px;
-    justify-self: end;
-  }
-}
-
-@media (min-width: 981px) and (max-width: 1120px) {
-  .bear-page .feature-stories .feature-story:first-child {
-    grid-template-columns: minmax(250px, .76fr) minmax(500px, 1.24fr) !important;
-    gap: 2rem !important;
-  }
-}
-
-/* ========================================================================== */
-/* V6 FINAL — See what is actually there                                      */
-/* Keep the outer feature-story card. Remove any inner visual card/panel.     */
-/* Phone is the primary visual; Dr. Bear supports it without obscuring UI.    */
-/* Baseline: production main edcbf50aa8ea60ffa80c1105d66e1dcdfe611333       */
-/* ========================================================================== */
-
-.bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-  position: relative !important;
-  isolation: isolate !important;
-  overflow: visible !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-.bear-page .feature-stories .feature-story:first-child .feature-story-visual::before,
-.bear-page .feature-stories .feature-story:first-child .feature-story-visual::after {
-  display: none !important;
-}
-
-/* Large desktop: product UI leads; Dr. Bear is visually substantial but secondary. */
-@media (min-width: 1180px) {
-  .bear-page .feature-stories .feature-story:first-child {
-    grid-template-columns: minmax(280px, .68fr) minmax(620px, 1.32fr) !important;
-    gap: clamp(2rem, 3.6vw, 4rem) !important;
-    min-height: 680px !important;
-    padding: clamp(1.8rem, 2.8vw, 2.5rem) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
-    max-width: 390px !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    display: block !important;
-    width: 100% !important;
-    max-width: 740px !important;
-    min-height: 650px !important;
-    aspect-ratio: auto !important;
-    justify-self: end !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary,
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    display: block !important;
-    position: absolute !important;
-    margin: 0 !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary {
-    z-index: 6 !important;
-    inset: auto auto 0 1.5% !important;
-    width: min(42%, 305px) !important;
-    aspect-ratio: 691 / 1536 !important;
-    padding: 6px !important;
-    border-radius: 34px !important;
-    transform: rotate(-1deg) translateZ(0) !important;
-    box-shadow: 0 34px 74px rgba(24,66,107,.16), 0 8px 22px rgba(24,66,107,.07) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    z-index: 5 !important;
-    inset: auto -1% 2% auto !important;
-    width: min(58%, 415px) !important;
-    aspect-ratio: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* Compact desktop / landscape tablet. */
-@media (min-width: 981px) and (max-width: 1179px) {
-  .bear-page .feature-stories .feature-story:first-child {
-    grid-template-columns: minmax(250px, .74fr) minmax(500px, 1.26fr) !important;
-    gap: clamp(1.6rem, 2.5vw, 2.4rem) !important;
-    min-height: 620px !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    display: block !important;
-    width: 100% !important;
-    max-width: 650px !important;
-    min-height: 570px !important;
-    aspect-ratio: auto !important;
-    justify-self: end !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary,
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    display: block !important;
-    position: absolute !important;
-    margin: 0 !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary {
-    z-index: 6 !important;
-    inset: auto auto 0 1% !important;
-    width: min(43%, 270px) !important;
-    aspect-ratio: 691 / 1536 !important;
-    transform: rotate(-.8deg) translateZ(0) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    z-index: 5 !important;
-    inset: auto -1% 2% auto !important;
-    width: min(58%, 360px) !important;
-    transform: none !important;
-  }
-}
-
-/* Portrait tablet: keep the big outer card, but give the visual its own breathing row. */
-@media (min-width: 681px) and (max-width: 980px) {
-  .bear-page .feature-stories .feature-story:first-child {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: clamp(1.2rem, 2.8vw, 1.8rem) !important;
-    min-height: 0 !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-copy {
-    max-width: 640px !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    display: block !important;
-    width: min(100%, 700px) !important;
-    min-height: clamp(500px, 70vw, 585px) !important;
-    aspect-ratio: auto !important;
-    margin-inline: auto !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary,
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    display: block !important;
-    position: absolute !important;
-    margin: 0 !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary {
-    z-index: 6 !important;
-    inset: auto auto 0 6% !important;
-    width: min(42%, 270px) !important;
-    aspect-ratio: 691 / 1536 !important;
-    transform: rotate(-.8deg) translateZ(0) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    z-index: 5 !important;
-    inset: auto 4% 1% auto !important;
-    width: min(55%, 360px) !important;
-    transform: none !important;
-  }
-}
-
-/* Phones: intentionally re-compose instead of shrinking desktop geometry. */
-@media (max-width: 680px) {
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    display: block !important;
-    width: 100% !important;
-    max-width: 390px !important;
-    min-height: min(112vw, 440px) !important;
-    margin: .45rem auto 0 !important;
-    padding: 0 !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary,
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    display: block !important;
-    position: absolute !important;
-    margin: 0 !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary {
-    z-index: 6 !important;
-    inset: auto auto 0 0 !important;
-    width: min(53%, 190px) !important;
-    aspect-ratio: 691 / 1536 !important;
-    padding: 5px !important;
-    border-radius: 27px !important;
-    transform: rotate(-.7deg) translateZ(0) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    z-index: 5 !important;
-    inset: auto -1% 0 auto !important;
-    width: min(70%, 260px) !important;
-    transform: none !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary::after {
-    display: none !important;
-  }
-}
-
-@media (max-width: 430px) {
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    min-height: min(116vw, 420px) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary {
-    width: min(54%, 178px) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    width: min(72%, 245px) !important;
-    inset-inline-end: -2% !important;
-  }
-}
-
-@media (max-width: 360px) {
-  .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    min-height: 378px !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-primary {
-    width: min(55%, 164px) !important;
-  }
-
-  .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    width: min(73%, 225px) !important;
-    inset-inline-end: -2% !important;
-  }
-}
-
-/* RTL mirrors the composition without changing visual priority. */
-html[dir="rtl"] .bear-page .feature-stories .feature-story:first-child .device-primary {
-  transform: rotate(.8deg) translateZ(0) !important;
 }
