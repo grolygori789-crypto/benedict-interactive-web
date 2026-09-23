@@ -1,14 +1,12 @@
 /*
- * Benedict Interactive — Bearagnostic Showcase V2
+ * Benedict Interactive — Bearagnostic Showcase V3
  * Baseline: main 035342d12f940b22771db871b48038740bce5bec
  *
- * Prototype scope:
- * - premium Master Hero treatment using approved Dr. Bear artwork
- * - premium first feature stage using real/sanitized B93 scan UI + Dr. Bear
- * - moves product storytelling ahead of release evidence visually
- *
- * This stylesheet is additive, scoped to .bear-page, and does NOT change
- * release, download, commerce, entitlement, FAQ, legal, or support logic.
+ * Refinements in V3:
+ * - approved corrected Master Hero asset replaces V2 hero image
+ * - hero composition preserved but now uses the fixed tablet-hand artwork
+ * - first feature composition refined so the real scan screen remains clearly visible on desktop
+ * - mobile behaviour preserved and kept lightweight / low-regression
  */
 
 /* ---------- Story order ---------- */
@@ -78,13 +76,13 @@
   filter: blur(20px);
 }
 
-/* Preserve the existing semantic <img>, but use the new approved hero asset as the visible layer. */
+/* Visible hero layer uses the approved corrected tablet-hand artwork. */
 .bear-page .bear-showcase .bear-character-hero {
   z-index: 3;
   inset-inline-start: -8%;
   inset-block-end: 0;
   width: min(111%, 780px);
-  aspect-ratio: 1374 / 1145;
+  aspect-ratio: 1366 / 1151;
   margin: 0;
   background: url('/products/bearagnostic/showcase/dr-bear-hero-real-ui.webp') center bottom / contain no-repeat;
   filter: drop-shadow(0 30px 30px rgba(20,56,92,.11));
@@ -98,7 +96,7 @@
   opacity: 0;
 }
 
-/* The real app screen is already composited into Dr. Bear's tablet; the old second phone would duplicate it. */
+/* Hide legacy duplicate phone; the real UI already lives inside Dr. Bear's tablet. */
 .bear-page .bear-showcase .bear-phone-hero {
   display: none !important;
 }
@@ -152,7 +150,7 @@
 }
 
 .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-  min-height: 630px;
+  min-height: 640px;
   overflow: visible;
   isolation: isolate;
 }
@@ -168,9 +166,9 @@
 .bear-page .feature-stories .feature-story:first-child .feature-story-visual::after {
   position: absolute;
   z-index: -2;
-  inset-inline-start: 11%;
-  inset-block-start: 15%;
-  width: min(72%, 430px);
+  inset-inline-start: 10%;
+  inset-block-start: 14%;
+  width: min(68%, 430px);
   aspect-ratio: 1;
   border: 1px solid rgba(26,151,221,.09);
   border-radius: 50%;
@@ -181,12 +179,12 @@
   pointer-events: none;
 }
 
-/* Existing first phone becomes the real, privacy-sanitized B93 scan screen. */
+/* Real scan UI — make it the primary reading object on desktop. */
 .bear-page .feature-stories .feature-story:first-child .device-primary {
-  z-index: 2;
-  inset-inline-start: 4%;
-  inset-block-start: 2%;
-  width: min(45%, 274px);
+  z-index: 5;
+  inset-inline-start: 3%;
+  inset-block-start: 0;
+  width: min(49%, 312px);
   padding: 7px;
   overflow: hidden;
   border: 1px solid rgba(21,62,101,.10);
@@ -196,7 +194,7 @@
   box-shadow:
     0 34px 80px rgba(24,66,107,.18),
     0 8px 24px rgba(24,66,107,.08);
-  transform: rotate(-2.1deg) translateZ(0);
+  transform: rotate(-2.4deg) translateZ(0);
 }
 
 .bear-page .feature-stories .feature-story:first-child .device-primary > img {
@@ -210,19 +208,19 @@
   z-index: 8;
 }
 
-/* Existing detail panel becomes the new scanning Dr. Bear, breaking the frame slightly. */
+/* Dr. Bear supports the story but no longer blocks the scan screen on desktop. */
 .bear-page .feature-stories .feature-story:first-child .device-secondary {
-  z-index: 5;
-  inset-inline-end: -6%;
+  z-index: 4;
+  inset-inline-end: -2%;
   inset-block-end: -3%;
-  width: min(76%, 490px);
+  width: min(58%, 382px);
   aspect-ratio: 1;
   overflow: visible;
   border: 0;
   border-radius: 0;
   background: url('/products/bearagnostic/showcase/dr-bear-ultra-fast-scanning.webp') center / contain no-repeat;
   box-shadow: none;
-  transform: rotate(.8deg) translateZ(0);
+  transform: rotate(.5deg) translateZ(0);
   pointer-events: none;
 }
 
@@ -238,9 +236,9 @@
 .bear-page .feature-stories .feature-story:first-child .device-primary::after {
   position: absolute;
   z-index: 8;
-  inset-inline-end: -52%;
-  inset-block-start: 33%;
-  width: 62%;
+  inset-inline-end: -42%;
+  inset-block-start: 34%;
+  width: 54%;
   height: 2px;
   border-radius: 999px;
   background: linear-gradient(90deg, rgba(38,179,236,0), rgba(38,179,236,.72), rgba(91,206,244,0));
@@ -259,20 +257,20 @@
   }
 
   .bear-page .feature-stories .feature-story:first-child {
-    min-height: 660px;
+    min-height: 680px;
   }
 
   .bear-page .feature-stories .feature-story:first-child .feature-story-visual {
-    min-height: 570px;
+    min-height: 590px;
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-primary {
-    width: min(44%, 242px);
+    width: min(47%, 272px);
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-secondary {
-    inset-inline-end: -8%;
-    width: min(78%, 455px);
+    inset-inline-end: -4%;
+    width: min(60%, 360px);
   }
 }
 
@@ -323,6 +321,7 @@
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-primary {
+    z-index: 3;
     inset-inline-start: 4%;
     inset-block-start: 2%;
     width: min(43%, 238px);
@@ -330,6 +329,7 @@
   }
 
   .bear-page .feature-stories .feature-story:first-child .device-secondary {
+    z-index: 4;
     inset-inline-end: -5%;
     inset-block-end: -1%;
     width: min(75%, 440px);

@@ -1,4 +1,4 @@
-# Benedict Interactive — Bearagnostic Showcase V2
+# Benedict Interactive — Bearagnostic Showcase V3
 
 ## Baseline
 Built against repository `grolygori789-crypto/benedict-interactive-web`:
@@ -8,20 +8,19 @@ Built against repository `grolygori789-crypto/benedict-interactive-web`:
 - `src/styles/mobile-hardening.css` blob: `b859b2fa6a98f9c4a5eacd159c8d53ebdc2a664c`
 
 ## What changes
-This is deliberately a low-regression visual prototype.
+This remains a low-regression visual prototype.
 
-1. Adds `src/styles/bearagnostic-showcase.css`.
-2. Updates `src/layouts/SiteLayout.astro` only to import that stylesheet after `mobile-hardening.css`.
-3. Adds three showcase assets under `public/products/bearagnostic/showcase/`.
-4. Does **not** replace `BearagnosticPage.astro` and does not modify product/release/commerce/legal/support logic.
+1. Keeps the additive `src/styles/bearagnostic-showcase.css` approach.
+2. Keeps `src/layouts/SiteLayout.astro` importing that stylesheet after `mobile-hardening.css`.
+3. Replaces the hero artwork with the approved corrected Dr. Bear tablet-hand asset.
+4. Refines the first feature-stage composition so the real scan-progress screen is visible on desktop instead of being blocked by Dr. Bear.
+5. Does **not** modify product / release / commerce / legal / support logic.
 
 ## Visual result
-- The Bearagnostic hero uses the new Master Hero Dr. Bear.
-- The B93 Home screen supplied by the project owner has been perspective-composited into Dr. Bear's tablet.
-- The existing second hero phone is hidden to avoid duplicate product UI.
-- The first feature story becomes a premium device stage using the real B93 scan-progress screen plus the new Ultra-fast Dr. Bear art.
-- The scan screenshot has only the sensitive filename/path area replaced with neutral copy; the rest of the screenshot is preserved.
-- Product storytelling is visually ordered before release evidence. Release, Pro, purchase and FAQ sections remain intact below.
+- The Bearagnostic hero now uses the corrected Dr. Bear PNG composition with the real B93 Home screen visible cleanly inside the tablet.
+- The old duplicate hero phone stays hidden.
+- The first feature story still uses the privacy-sanitized B93 scan-progress screen, but the desktop composition now prioritizes scan readability while keeping Dr. Bear as a premium supporting visual.
+- Tablet / mobile breakpoints preserve the more compact overlapping composition where it already worked well.
 
 ## Upload
 Upload the package contents from the repository root, preserving paths exactly.
@@ -37,18 +36,11 @@ public/products/bearagnostic/showcase/app-scan-progress-sanitized.webp
 ```
 
 ## Rollback
-To revert the prototype safely:
+To revert safely:
 
 1. Restore the previous `src/layouts/SiteLayout.astro` (remove the `bearagnostic-showcase.css` import).
 2. Delete `src/styles/bearagnostic-showcase.css`.
-3. The three showcase assets may be deleted or left unused; they do not affect runtime logic.
-
-No Android / B93 source is touched.
+3. The showcase assets may be deleted or left unused.
 
 ## Suggested commit
-`Prototype Bearagnostic showcase`
-
-## Web asset optimisation
-
-The approved PNG source artwork was converted to high-quality WebP for the website upload. The three live assets total roughly 545 KB instead of roughly 3.8 MB as PNG, while preserving transparency on both Dr. Bear illustrations. This keeps the prototype much lighter on mobile.
-
+`Polish Bearagnostic showcase`
