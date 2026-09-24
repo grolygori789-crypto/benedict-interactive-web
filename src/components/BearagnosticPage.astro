@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AccentHeading from './AccentHeading.astro';
+import BearagnosticStorySections45 from './BearagnosticStorySections45.astro';
 import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
 import { getCommerceCopy } from '../i18n/commerce';
 import { legalUi } from '../i18n/legal';
@@ -516,6 +517,8 @@ const faqColumns = [
               </article>
             );
           })}
+
+          <BearagnosticStorySections45 locale={locale} />
         </div>
       </div>
     </section>
