@@ -346,15 +346,17 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     .story-speed-screen img { border-radius:21px !important; }
     .story-speed-mascot { inset-inline-end:-5% !important; inset-block-end:5% !important; width:min(70%,262px) !important; }
 
-    /* Mobile-only 05: one clear hero card; the other two only peek from behind.
-       Mascot keeps its approved size and overlaps the hero card edge. */
-    .story-proof-visual { width:100% !important; max-width:410px !important; min-height:min(132vw,515px) !important; margin:-.1rem auto 0 !important; }
+    /* Mobile-only 05: verified result is the single hero.
+       The two earlier screens stay stacked on the left and only peek out enough
+       to imply the flow. The approved-size mascot anchors the right foreground
+       and overlaps the hero edge without forcing extra vertical space. */
+    .story-proof-visual { width:100% !important; max-width:410px !important; min-height:min(124vw,480px) !important; margin:-.25rem auto 0 !important; }
     .story-proof-a,.story-proof-b,.story-proof-c { padding:5px !important; border-radius:25px !important; }
     .story-proof-a img,.story-proof-b img,.story-proof-c img { border-radius:19px !important; }
-    .story-proof-a { z-index:2 !important; inset-block-start:3% !important; inset-inline-start:3% !important; inset-block-end:auto !important; width:min(52%,198px) !important; transform:rotate(-1.15deg) !important; opacity:.92 !important; }
-    .story-proof-b { z-index:3 !important; inset-block-start:2% !important; inset-inline-start:30% !important; inset-inline-end:auto !important; inset-block-end:auto !important; width:min(52%,198px) !important; transform:rotate(1deg) !important; opacity:.95 !important; }
-    .story-proof-c { z-index:6 !important; inset-inline-start:15% !important; inset-block-start:6% !important; inset-block-end:auto !important; width:min(57%,218px) !important; transform:rotate(-.15deg) !important; }
-    .story-proof-mascot { z-index:8 !important; inset-inline-end:-5% !important; inset-block-end:-1% !important; width:min(64%,244px) !important; }
+    .story-proof-a { z-index:1 !important; inset-block-start:0 !important; inset-inline-start:-6% !important; inset-block-end:auto !important; width:min(58%,218px) !important; transform:rotate(-1deg) !important; opacity:.88 !important; }
+    .story-proof-b { z-index:2 !important; inset-block-start:2% !important; inset-inline-start:0 !important; inset-inline-end:auto !important; inset-block-end:auto !important; width:min(58%,218px) !important; transform:rotate(.75deg) !important; opacity:.94 !important; }
+    .story-proof-c { z-index:6 !important; inset-inline-start:7% !important; inset-block-start:5% !important; inset-block-end:auto !important; width:min(58%,218px) !important; transform:rotate(-.12deg) !important; }
+    .story-proof-mascot { z-index:8 !important; inset-inline-end:-12% !important; inset-block-start:48% !important; inset-block-end:auto !important; width:min(64%,244px) !important; }
   }
 
   @media (max-width:430px) {
@@ -362,20 +364,14 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     .story-speed-visual { min-height:min(101vw,372px) !important; }
     .story-speed-screen { width:min(50%,174px) !important; }
     .story-speed-mascot { width:min(70%,240px) !important; }
-    .story-proof-visual { min-height:min(132vw,495px) !important; }
-    .story-proof-a,.story-proof-b { width:min(52%,188px) !important; }
-    .story-proof-c { width:min(57%,206px) !important; }
-    .story-proof-mascot { width:min(63%,221px) !important; }
+    .story-proof-visual { min-height:min(124vw,470px) !important; }
   }
 
   @media (max-width:360px) {
     .story-speed-visual { min-height:348px !important; }
     .story-speed-screen { width:min(50%,158px) !important; }
     .story-speed-mascot { width:min(69%,215px) !important; }
-    .story-proof-visual { min-height:460px !important; }
-    .story-proof-a,.story-proof-b { width:min(51%,164px) !important; }
-    .story-proof-c { width:min(57%,184px) !important; }
-    .story-proof-mascot { width:min(62%,200px) !important; }
+    .story-proof-visual { min-height:440px !important; }
   }
 
   :global(html[dir='rtl']) .story-speed-screen { transform:rotate(.8deg) !important; }
