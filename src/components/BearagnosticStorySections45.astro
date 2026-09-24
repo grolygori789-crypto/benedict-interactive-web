@@ -158,7 +158,7 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     </figure>
     <figure class="story-mascot story-speed-mascot" aria-hidden="true">
       <img
-        src="/products/bearagnostic/showcase/dr-bear-speed-runner-final.webp"
+        src="/products/bearagnostic/showcase/dr-bear-speed-runner.png"
         alt=""
         width="1536"
         height="1536"
@@ -302,10 +302,10 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
   .story-speed-mascot { z-index:8 !important; inset-inline-end:-2% !important; inset-block-end:-1% !important; width:min(66%,470px) !important; filter:drop-shadow(0 30px 27px rgba(35,54,94,.13)) !important; }
 
   /* 05: three readable proof screens, spaced deliberately; mascot overlaps only the verified screen edge. */
-  .story-proof-a { z-index:2 !important; inset-block-start:9% !important; inset-inline-start:0 !important; width:min(27%,198px) !important; transform:rotate(-1.7deg) !important; }
-  .story-proof-b { z-index:3 !important; inset-block-start:2% !important; inset-inline-start:24% !important; width:min(27%,198px) !important; transform:rotate(1.35deg) !important; }
-  .story-proof-c { z-index:6 !important; inset-block-start:8% !important; inset-inline-start:47% !important; width:min(38%,278px) !important; transform:rotate(-.2deg) !important; box-shadow:0 36px 80px rgba(31,67,108,.16),0 10px 27px rgba(31,67,108,.06) !important; }
-  .story-proof-mascot { z-index:8 !important; inset-inline-end:-5% !important; inset-block-end:-3% !important; width:min(38%,278px) !important; filter:drop-shadow(0 30px 27px rgba(35,54,94,.13)) !important; }
+  .story-proof-a { z-index:2 !important; inset-block-start:8% !important; inset-inline-start:0 !important; width:min(29%,212px) !important; transform:rotate(-1.25deg) !important; }
+  .story-proof-b { z-index:3 !important; inset-block-start:3% !important; inset-inline-start:25% !important; width:min(29%,212px) !important; transform:rotate(.8deg) !important; }
+  .story-proof-c { z-index:6 !important; inset-block-start:7% !important; inset-inline-start:50% !important; width:min(39%,286px) !important; transform:rotate(-.15deg) !important; box-shadow:0 36px 80px rgba(31,67,108,.16),0 10px 27px rgba(31,67,108,.06) !important; }
+  .story-proof-mascot { z-index:8 !important; inset-inline-end:-6% !important; inset-block-end:-4% !important; width:min(48%,350px) !important; filter:drop-shadow(0 30px 27px rgba(35,54,94,.13)) !important; }
 
   @media (max-width:1180px) and (min-width:981px) {
     .story-speed { grid-template-columns:minmax(480px,1.1fr) minmax(280px,.9fr) !important; min-height:620px !important; }
@@ -313,10 +313,10 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     .story-visual { min-height:555px !important; }
     .story-speed-screen { width:min(38%,230px) !important; }
     .story-speed-mascot { width:min(64%,385px) !important; }
-    .story-proof-a,.story-proof-b { width:min(27%,162px) !important; }
-    .story-proof-b { inset-inline-start:24% !important; }
-    .story-proof-c { width:min(38%,230px) !important; inset-inline-start:47% !important; }
-    .story-proof-mascot { width:min(38%,230px) !important; }
+    .story-proof-a,.story-proof-b { width:min(29%,174px) !important; }
+    .story-proof-b { inset-inline-start:25% !important; }
+    .story-proof-c { width:min(39%,238px) !important; inset-inline-start:50% !important; }
+    .story-proof-mascot { width:min(47%,292px) !important; inset-inline-end:-5% !important; }
   }
 
   @media (max-width:980px) and (min-width:681px) {
@@ -326,10 +326,10 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     .story-visual { width:min(100%,680px) !important; min-height:clamp(520px,70vw,585px) !important; }
     .story-speed-screen { inset-inline-start:6% !important; width:min(38%,240px) !important; }
     .story-speed-mascot { width:min(63%,400px) !important; inset-inline-end:0 !important; }
-    .story-proof-a,.story-proof-b { width:min(27%,175px) !important; }
-    .story-proof-b { inset-inline-start:24% !important; }
-    .story-proof-c { width:min(38%,250px) !important; inset-inline-start:47% !important; }
-    .story-proof-mascot { width:min(37%,245px) !important; inset-inline-end:-1% !important; }
+    .story-proof-a,.story-proof-b { width:min(29%,188px) !important; }
+    .story-proof-b { inset-inline-start:25% !important; }
+    .story-proof-c { width:min(39%,260px) !important; inset-inline-start:50% !important; }
+    .story-proof-mascot { width:min(47%,318px) !important; inset-inline-end:-4% !important; }
   }
 
   /* Smartphone: recomposed rather than scaled down. */
@@ -348,10 +348,10 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     .story-proof-visual { width:100% !important; max-width:410px !important; min-height:min(154vw,585px) !important; margin:.1rem auto 0 !important; }
     .story-proof-a,.story-proof-b,.story-proof-c { padding:5px !important; border-radius:25px !important; }
     .story-proof-a img,.story-proof-b img,.story-proof-c img { border-radius:19px !important; }
-    .story-proof-a { inset-block-start:0 !important; inset-inline-start:2% !important; width:min(42%,158px) !important; transform:rotate(-1.25deg) !important; }
-    .story-proof-b { inset-block-start:0 !important; inset-inline-start:auto !important; inset-inline-end:2% !important; width:min(42%,158px) !important; transform:rotate(1.1deg) !important; }
-    .story-proof-c { inset-inline-start:5% !important; inset-block-start:auto !important; inset-block-end:0 !important; width:min(55%,208px) !important; transform:rotate(-.3deg) !important; }
-    .story-proof-mascot { inset-inline-end:-2% !important; inset-block-end:-1% !important; width:min(47%,178px) !important; }
+    .story-proof-a { inset-block-start:0 !important; inset-inline-start:1% !important; width:min(39%,148px) !important; transform:rotate(-.8deg) !important; }
+    .story-proof-b { inset-block-start:2% !important; inset-inline-start:30% !important; inset-inline-end:auto !important; width:min(39%,148px) !important; transform:rotate(.7deg) !important; }
+    .story-proof-c { inset-inline-start:8% !important; inset-block-start:auto !important; inset-block-end:0 !important; width:min(54%,205px) !important; transform:rotate(-.2deg) !important; }
+    .story-proof-mascot { inset-inline-end:-5% !important; inset-block-end:-2% !important; width:min(56%,212px) !important; }
   }
 
   @media (max-width:430px) {
@@ -360,9 +360,9 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     .story-speed-screen { width:min(50%,174px) !important; }
     .story-speed-mascot { width:min(70%,240px) !important; }
     .story-proof-visual { min-height:min(155vw,550px) !important; }
-    .story-proof-a,.story-proof-b { width:min(42%,145px) !important; }
-    .story-proof-c { width:min(55%,192px) !important; }
-    .story-proof-mascot { width:min(47%,164px) !important; }
+    .story-proof-a,.story-proof-b { width:min(39%,136px) !important; }
+    .story-proof-c { width:min(54%,188px) !important; }
+    .story-proof-mascot { width:min(55%,192px) !important; }
   }
 
   @media (max-width:360px) {
@@ -370,9 +370,9 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     .story-speed-screen { width:min(50%,158px) !important; }
     .story-speed-mascot { width:min(69%,215px) !important; }
     .story-proof-visual { min-height:505px !important; }
-    .story-proof-a,.story-proof-b { width:min(41%,128px) !important; }
-    .story-proof-c { width:min(54%,174px) !important; }
-    .story-proof-mascot { width:min(46%,150px) !important; }
+    .story-proof-a,.story-proof-b { width:min(38%,119px) !important; }
+    .story-proof-c { width:min(53%,171px) !important; }
+    .story-proof-mascot { width:min(54%,174px) !important; }
   }
 
   :global(html[dir='rtl']) .story-speed-screen { transform:rotate(.8deg) !important; }
