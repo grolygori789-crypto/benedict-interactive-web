@@ -9,7 +9,7 @@ const copy = {
     speed: {
       kicker: 'Deep Scan · observed run',
       title: 'Fast by design. Never padded.',
-      lead: 'Speed means more when you can see the work behind it. Bearagnostic reads the accessible content it set out to read, shows the evidence, and stops when the job is done — no padded progress, no pretend waiting.',
+      lead: 'Bearagnostic finishes when the work is done — not when an animation says so. This observed Deep Scan reviewed 1,152 files across 113 folders and read 22.3 GB in 15 seconds. Actual time varies with file count, storage speed, scan mode, device performance, and accessible content.',
       evidenceTitle: 'One real run, shown as it happened.',
       evidenceBody: '1,152 files · 113 folders · 22.3 GB read · 15 s. That is an observed result on one device, not a promise for every scan.',
       note: 'Actual time varies with storage speed, file count and layout, selected scope, device performance, and accessible content.',
@@ -18,7 +18,7 @@ const copy = {
     proof: {
       kicker: 'Exact duplicates · verified cleanup',
       title: 'Proof, not promises.',
-      lead: 'Trust should survive the delete button. You choose what stays, review the destructive step, and Bearagnostic verifies the outcome before it counts a byte as reclaimed.',
+      lead: 'Exact duplicates are verified first. You choose what stays, review the selected extras, and confirm before deletion. Bearagnostic then checks what Android actually removed and counts reclaimed space only for files confirmed gone.',
       steps: [
         ['Choose what stays', 'Exact matches are verified first. Keep-one-copy protection stays in the flow.'],
         ['Review before deleting', 'Selected copies, affected groups, and reclaimable space are explicit before Delete & verify.'],
@@ -325,19 +325,12 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
 <article class="feature-story story-chapter story-speed" aria-labelledby="story-speed-title">
   <div class="feature-story-copy story-copy">
     <span class="feature-number">04</span>
-    <p class="story-kicker">{story.speed.kicker}</p>
     <h3 id="story-speed-title">{story.speed.title}</h3>
-    <p class="story-lead">{story.speed.lead}</p>
-    <div class="story-evidence-note">
-      <strong>{story.speed.evidenceTitle}</strong>
-      <span>{story.speed.evidenceBody}</span>
-    </div>
-    <p class="story-footnote">{story.speed.note}</p>
+    <p>{locale === 'en' ? story.speed.lead : `${story.speed.lead} ${story.speed.evidenceBody} ${story.speed.note}`}</p>
   </div>
 
-  <div class="feature-story-visual story-speed-visual">
-    <span class="story-speed-orbit" aria-hidden="true"></span>
-    <figure class="story-speed-screen">
+  <div class="feature-story-visual story-visual story-speed-visual">
+    <figure class="story-screen story-speed-screen">
       <img
         src="/products/bearagnostic/showcase/section-04-deep-scan-complete.webp"
         alt={story.speed.screenAlt}
@@ -347,7 +340,7 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
         decoding="async"
       />
     </figure>
-    <figure class="story-speed-bear" aria-hidden="true">
+    <figure class="story-mascot story-speed-mascot" aria-hidden="true">
       <img
         src="/products/bearagnostic/showcase/dr-bear-ultra-fast-scanning.webp"
         alt=""
@@ -361,28 +354,14 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
 </article>
 
 <article class="feature-story story-chapter story-proof" aria-labelledby="story-proof-title">
-  <div class="feature-story-copy story-copy story-proof-copy">
+  <div class="feature-story-copy story-copy">
     <span class="feature-number">05</span>
-    <p class="story-kicker">{story.proof.kicker}</p>
     <h3 id="story-proof-title">{story.proof.title}</h3>
-    <p class="story-lead">{story.proof.lead}</p>
-
-    <div class="story-proof-steps" role="list">
-      {story.proof.steps.map((step, index) => (
-        <div class="story-proof-step" role="listitem">
-          <span class="story-proof-step-number">0{index + 1}</span>
-          <span>
-            <strong>{step[0]}</strong>
-            <small>{step[1]}</small>
-          </span>
-        </div>
-      ))}
-    </div>
-    <p class="story-footnote">{story.proof.note}</p>
+    <p>{story.proof.lead} {story.proof.note}</p>
   </div>
 
-  <div class="feature-story-visual story-proof-visual">
-    <figure class="story-proof-shot story-proof-shot-a">
+  <div class="feature-story-visual story-visual story-proof-visual">
+    <figure class="story-screen story-proof-a">
       <img
         src="/products/bearagnostic/showcase/section-05-exact-duplicates.webp"
         alt={story.proof.labels[0]}
@@ -391,10 +370,8 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
         loading="lazy"
         decoding="async"
       />
-      <figcaption><span>01</span>{story.proof.labels[0]}</figcaption>
     </figure>
-
-    <figure class="story-proof-shot story-proof-shot-b">
+    <figure class="story-screen story-proof-b">
       <img
         src="/products/bearagnostic/showcase/section-05-final-review.webp"
         alt={story.proof.labels[1]}
@@ -403,10 +380,8 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
         loading="lazy"
         decoding="async"
       />
-      <figcaption><span>02</span>{story.proof.labels[1]}</figcaption>
     </figure>
-
-    <figure class="story-proof-shot story-proof-shot-c">
+    <figure class="story-screen story-proof-c">
       <img
         src="/products/bearagnostic/showcase/section-05-verified-cleanup.webp"
         alt={story.proof.labels[2]}
@@ -415,10 +390,8 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
         loading="lazy"
         decoding="async"
       />
-      <figcaption><span>03</span>{story.proof.labels[2]}</figcaption>
     </figure>
-
-    <figure class="story-proof-bear" aria-hidden="true">
+    <figure class="story-mascot story-proof-mascot" aria-hidden="true">
       <img
         src="/products/bearagnostic/showcase/dr-bear-verified-shield.webp"
         alt=""
@@ -432,530 +405,400 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
 </article>
 
 <style>
+  /*
+   * Sections 04–05 deliberately inherit the exact typography hierarchy from
+   * the production feature system: feature-number -> h3 -> body copy.
+   * Only composition and section-specific evidence art are defined here.
+   */
   .story-chapter {
-    position: relative;
-    isolation: isolate;
-  }
-
-  .story-chapter .story-copy {
-    position: relative;
-    z-index: 6;
-  }
-
-  .story-chapter .story-kicker {
-    margin: 1rem 0 0;
-    color: #2779b7;
-    font-size: 0.72rem;
-    font-weight: 820;
-    letter-spacing: 0.11em;
-    line-height: 1.35;
-    text-transform: uppercase;
-  }
-
-  .story-chapter .story-lead {
-    margin-block-start: 1rem;
-  }
-
-  .story-chapter .story-footnote {
-    margin: 1rem 0 0;
-    color: #76899d;
-    font-size: 0.78rem;
-    line-height: 1.62;
+    position: relative !important;
+    min-height: 650px !important;
+    overflow: hidden !important;
+    border-color: rgba(28, 91, 153, .082) !important;
+    box-shadow:
+      0 30px 78px rgba(29, 67, 107, .074),
+      inset 0 1px 0 rgba(255,255,255,.97) !important;
   }
 
   .story-speed {
-    grid-template-columns: minmax(285px, 0.7fr) minmax(560px, 1.3fr) !important;
-    min-height: 720px;
-    gap: clamp(2rem, 4vw, 4.2rem);
+    grid-template-columns: minmax(570px, 1.2fr) minmax(300px, .8fr) !important;
+    gap: clamp(1.4rem, 2.7vw, 2.8rem) !important;
     background:
-      radial-gradient(circle at 85% 17%, rgba(50, 181, 239, 0.13), transparent 24rem),
-      radial-gradient(circle at 58% 92%, rgba(72, 116, 244, 0.07), transparent 24rem),
-      linear-gradient(145deg, rgba(255,255,255,0.99), rgba(245,251,255,0.96));
-  }
-
-  .story-speed .feature-story-copy {
-    order: 1 !important;
-    max-width: 440px;
-  }
-
-  .story-speed .feature-number {
-    color: #0d80c9;
-    border-color: rgba(18, 139, 209, 0.11);
-    background: rgba(27, 160, 220, 0.07);
-  }
-
-  .story-evidence-note {
-    display: grid;
-    gap: 0.38rem;
-    margin-block-start: 1.25rem;
-    padding: 1rem 1.05rem;
-    border: 1px solid rgba(28, 114, 177, 0.09);
-    border-radius: 20px;
-    background: rgba(248, 253, 255, 0.84);
-    box-shadow: 0 14px 34px rgba(35, 84, 132, 0.045);
-  }
-
-  .story-evidence-note strong {
-    color: #15476f;
-    font-size: 0.86rem;
-    line-height: 1.35;
-  }
-
-  .story-evidence-note span {
-    color: #607991;
-    font-size: 0.82rem;
-    line-height: 1.58;
-  }
-
-  .story-speed-visual {
-    order: 2 !important;
-    display: block !important;
-    min-height: 650px !important;
-    overflow: visible;
-    isolation: isolate;
-  }
-
-  .story-speed-visual::before {
-    display: block;
-    z-index: -3;
-    inset: 4% 0 1% 2%;
-    border-radius: 50%;
-    background:
-      radial-gradient(ellipse at 59% 43%, rgba(255,255,255,0.99) 0 27%, rgba(222,245,255,0.74) 49%, rgba(191,231,250,0.30) 68%, transparent 80%);
-  }
-
-  .story-speed-orbit {
-    position: absolute;
-    z-index: -1;
-    inset-inline-start: 2%;
-    inset-block-end: 4%;
-    width: 74%;
-    height: 13%;
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(29, 82, 130, 0.15), transparent 69%);
-    filter: blur(12px);
-    pointer-events: none;
-  }
-
-  .story-speed-screen,
-  .story-speed-bear,
-  .story-proof-shot,
-  .story-proof-bear {
-    margin: 0;
-  }
-
-  .story-speed-screen {
-    position: absolute;
-    z-index: 5;
-    inset-block-start: 1%;
-    inset-inline-end: 2%;
-    width: min(45%, 325px);
-    overflow: hidden;
-    border-radius: 29px;
-    box-shadow: 0 30px 68px rgba(25, 74, 119, 0.15), 0 8px 22px rgba(25, 74, 119, 0.055);
-    transform: rotate(0.7deg);
-  }
-
-  .story-speed-screen img,
-  .story-proof-shot img,
-  .story-speed-bear img,
-  .story-proof-bear img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .story-speed-bear {
-    position: absolute;
-    z-index: 3;
-    inset-inline-start: -3%;
-    inset-block-end: -2%;
-    width: min(67%, 500px);
-    filter: drop-shadow(0 25px 31px rgba(24, 72, 116, 0.12));
+      radial-gradient(circle at 13% 16%, rgba(44, 177, 232, .12), transparent 23rem),
+      radial-gradient(circle at 69% 86%, rgba(72, 116, 244, .065), transparent 22rem),
+      linear-gradient(145deg, rgba(255,255,255,.997), rgba(245,251,255,.975)) !important;
   }
 
   .story-proof {
-    grid-template-columns: minmax(300px, 0.64fr) minmax(620px, 1.36fr) !important;
-    min-height: 820px;
-    gap: clamp(2rem, 4.3vw, 4.8rem);
+    grid-template-columns: minmax(300px, .82fr) minmax(570px, 1.18fr) !important;
+    gap: clamp(1.4rem, 2.7vw, 2.8rem) !important;
     background:
-      radial-gradient(circle at 14% 18%, rgba(126, 105, 230, 0.09), transparent 24rem),
-      radial-gradient(circle at 88% 84%, rgba(71, 191, 221, 0.11), transparent 25rem),
-      linear-gradient(145deg, rgba(255,255,255,0.99), rgba(248,249,255,0.97));
+      radial-gradient(circle at 88% 15%, rgba(92, 92, 214, .10), transparent 23rem),
+      radial-gradient(circle at 65% 86%, rgba(61, 188, 145, .075), transparent 22rem),
+      linear-gradient(145deg, rgba(255,255,255,.997), rgba(247,249,255,.975)) !important;
   }
 
-  .story-proof .feature-story-copy {
-    order: 1 !important;
-    max-width: 455px;
+  .story-speed .story-copy { order: 2 !important; }
+  .story-speed .story-visual { order: 1 !important; }
+  .story-proof .story-copy { order: 1 !important; }
+  .story-proof .story-visual { order: 2 !important; }
+
+  .story-copy {
+    position: relative;
+    z-index: 12;
+    max-width: 430px !important;
+  }
+
+  .story-copy h3 { text-wrap: balance; }
+
+  .story-speed .feature-number {
+    color: #0f7fd0 !important;
+    border-color: rgba(23,138,211,.10) !important;
+    background: rgba(25,151,224,.065) !important;
+    box-shadow: 0 8px 20px rgba(21,123,190,.055) !important;
   }
 
   .story-proof .feature-number {
-    color: #635ac9;
-    border-color: rgba(98, 89, 199, 0.12);
-    background: rgba(111, 95, 215, 0.07);
+    color: #635ac9 !important;
+    border-color: rgba(98,89,199,.11) !important;
+    background: rgba(111,95,215,.065) !important;
+    box-shadow: 0 8px 20px rgba(91,82,186,.05) !important;
   }
 
-  .story-proof-steps {
-    display: grid;
-    gap: 0.58rem;
-    margin-block-start: 1.25rem;
+
+  .story-visual {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 735px !important;
+    min-height: 610px !important;
+    margin-inline: auto !important;
+    overflow: visible !important;
+    isolation: isolate !important;
   }
 
-  .story-proof-step {
-    display: grid;
-    grid-template-columns: 32px minmax(0, 1fr);
-    gap: 0.68rem;
-    align-items: start;
-    padding: 0.68rem 0.72rem;
-    border: 1px solid rgba(74, 91, 155, 0.075);
-    border-radius: 16px;
-    background: rgba(255,255,255,0.68);
+  .story-visual::before {
+    position: absolute;
+    z-index: -2;
+    inset: 4% -2% 0;
+    display: block;
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
   }
 
-  .story-proof-step-number {
-    display: grid;
-    width: 32px;
-    height: 32px;
-    place-items: center;
-    border-radius: 10px;
-    color: #5e59bd;
-    background: rgba(106, 94, 214, 0.08);
-    font-size: 0.67rem;
-    font-weight: 850;
-    letter-spacing: 0.05em;
-  }
-
-  .story-proof-step > span:last-child {
-    display: grid;
-    gap: 0.18rem;
-    min-width: 0;
-  }
-
-  .story-proof-step strong {
-    color: #244765;
-    font-size: 0.83rem;
-    line-height: 1.35;
-  }
-
-  .story-proof-step small {
-    color: #708399;
-    font-size: 0.75rem;
-    line-height: 1.5;
-  }
-
-  .story-proof-visual {
-    order: 2 !important;
-    display: grid !important;
-    grid-template-columns: minmax(175px, 0.72fr) minmax(285px, 1.18fr) minmax(145px, 0.56fr) !important;
-    grid-template-rows: 1fr 1fr;
-    gap: clamp(0.75rem, 1.35vw, 1rem);
-    min-height: 740px;
-    align-items: center;
-    overflow: visible;
-    isolation: isolate;
+  .story-speed-visual::before {
+    background:
+      radial-gradient(ellipse at 45% 49%,
+        rgba(255,255,255,.996) 0 28%,
+        rgba(222,245,255,.56) 49%,
+        rgba(202,233,252,.20) 68%,
+        transparent 80%);
   }
 
   .story-proof-visual::before {
-    display: block;
-    z-index: -3;
-    inset: 3% -2% 1% 0;
-    border-radius: 46% 54% 50% 50% / 50% 44% 56% 50%;
     background:
-      radial-gradient(circle at 54% 48%, rgba(255,255,255,0.99), rgba(239,245,255,0.86) 46%, rgba(222,239,251,0.38) 70%, transparent 84%);
+      radial-gradient(ellipse at 57% 48%,
+        rgba(255,255,255,.996) 0 27%,
+        rgba(234,235,255,.54) 48%,
+        rgba(214,244,236,.18) 68%,
+        transparent 80%);
   }
 
-  .story-proof-shot {
-    position: relative;
-    overflow: visible;
-    min-width: 0;
+  .story-visual::after {
+    position: absolute;
+    z-index: -1;
+    inset: auto 5% 0 5%;
+    height: 8%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(25,73,116,.13), transparent 70%);
+    filter: blur(11px);
+    content: "";
+    pointer-events: none;
   }
 
-  .story-proof-shot img {
+  .story-screen,
+  .story-mascot {
+    position: absolute;
+    margin: 0;
+  }
+
+  .story-screen {
     overflow: hidden;
-    border-radius: 25px;
-    box-shadow: 0 25px 58px rgba(33, 67, 108, 0.11), 0 7px 20px rgba(33, 67, 108, 0.045);
+    padding: 6px;
+    border: 1px solid rgba(17,59,96,.105);
+    border-radius: 31px;
+    background: #fff;
+    box-shadow:
+      0 32px 72px rgba(24,66,107,.145),
+      0 9px 24px rgba(24,66,107,.06);
+    box-sizing: border-box;
   }
 
-  .story-proof-shot figcaption {
-    display: flex;
-    gap: 0.42rem;
-    align-items: center;
-    margin-block-start: 0.55rem;
-    color: #526e89;
-    font-size: 0.7rem;
-    font-weight: 760;
-    line-height: 1.35;
+  .story-screen img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
   }
 
-  .story-proof-shot figcaption span {
-    color: #7768cc;
-    font-size: 0.62rem;
-    font-weight: 860;
-    letter-spacing: 0.08em;
+  .story-mascot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
-  .story-proof-shot-a {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: end;
-    transform: rotate(-0.7deg);
+  /* 04 — one authentic result plus the dedicated speed mascot. */
+  .story-speed-screen {
+    z-index: 6;
+    inset-block-end: 0;
+    inset-inline-start: 4%;
+    width: min(37%, 260px);
+    transform: rotate(-.75deg);
   }
 
-  .story-proof-shot-b {
-    grid-column: 1;
-    grid-row: 2;
-    align-self: start;
-    transform: rotate(0.65deg);
+  .story-speed-mascot {
+    z-index: 5;
+    inset-inline-end: 0;
+    inset-block-end: 0;
+    width: min(58%, 414px);
+    filter: drop-shadow(0 28px 25px rgba(24,66,107,.12));
   }
 
-  .story-proof-shot-c {
-    z-index: 4;
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    width: min(100%, 390px);
-    justify-self: center;
-    align-self: center;
-    transform: rotate(0.25deg);
+  /* 05 — supporting choice/review screens lead into the verified result. */
+  .story-proof-a {
+    z-index: 1;
+    inset-block-start: 4%;
+    inset-inline-start: 0;
+    width: min(24%, 176px);
+    transform: rotate(-2.15deg);
+    opacity: .91;
   }
 
-  .story-proof-shot-c img {
-    box-shadow: 0 34px 76px rgba(33, 67, 108, 0.15), 0 10px 26px rgba(33, 67, 108, 0.055);
+  .story-proof-b {
+    z-index: 2;
+    inset-block-start: 1%;
+    inset-inline-start: 20%;
+    width: min(24%, 176px);
+    transform: rotate(1.65deg);
+    opacity: .97;
   }
 
-  .story-proof-shot-c figcaption {
-    color: #315f86;
-    font-size: 0.75rem;
+  .story-proof-c {
+    z-index: 7;
+    inset-inline-start: 25%;
+    inset-block-end: 0;
+    width: min(36%, 260px);
+    transform: rotate(-.18deg);
+    box-shadow:
+      0 36px 80px rgba(31,67,108,.16),
+      0 10px 27px rgba(31,67,108,.06);
   }
 
-  .story-proof-bear {
-    z-index: 3;
-    grid-column: 3;
-    grid-row: 1 / span 2;
-    width: min(145%, 260px);
-    justify-self: end;
-    align-self: end;
-    margin-inline-end: -18%;
-    margin-block-end: 5%;
-    filter: drop-shadow(0 24px 30px rgba(27, 69, 110, 0.12));
+  .story-proof-mascot {
+    z-index: 5;
+    inset-inline-end: 0;
+    inset-block-end: 0;
+    width: min(48%, 350px);
+    filter: drop-shadow(0 29px 26px rgba(35,54,94,.13));
   }
 
-  @media (max-width: 1160px) {
+  /* Compact desktop / landscape tablet — same production rhythm, less spread. */
+  @media (max-width: 1180px) and (min-width: 981px) {
     .story-speed {
-      grid-template-columns: minmax(270px, 0.72fr) minmax(500px, 1.28fr) !important;
+      grid-template-columns: minmax(480px, 1.1fr) minmax(280px, .9fr) !important;
+      min-height: 620px !important;
     }
 
     .story-proof {
-      grid-template-columns: minmax(285px, 0.72fr) minmax(520px, 1.28fr) !important;
+      grid-template-columns: minmax(280px, .9fr) minmax(480px, 1.1fr) !important;
+      min-height: 620px !important;
     }
 
-    .story-proof-visual {
-      grid-template-columns: minmax(165px, 0.72fr) minmax(260px, 1.2fr) !important;
-      grid-template-rows: auto auto auto;
-    }
+    .story-visual { min-height: 555px !important; }
+    .story-speed-screen { width: min(39%, 235px); }
+    .story-speed-mascot { width: min(56%, 340px); inset-inline-end: 0; }
 
-    .story-proof-shot-a { grid-column: 1; grid-row: 1; }
-    .story-proof-shot-b { grid-column: 1; grid-row: 2; }
-    .story-proof-shot-c { grid-column: 2; grid-row: 1 / span 2; }
-    .story-proof-bear {
-      grid-column: 1 / -1;
-      grid-row: 3;
-      width: min(34%, 220px);
-      justify-self: end;
-      margin: -2rem 2% 0 0;
-    }
+    .story-proof-a,
+    .story-proof-b { width: min(23%, 142px); }
+    .story-proof-b { inset-inline-start: 19%; }
+    .story-proof-c { width: min(37%, 232px); inset-inline-start: 24%; }
+    .story-proof-mascot { width: min(47%, 292px); inset-inline-end: 0; }
   }
 
-  @media (max-width: 980px) {
-    .story-chapter.story-speed,
-    .story-chapter.story-proof {
+  /* Portrait tablet — copy first, evidence second, exactly like the accepted system. */
+  @media (max-width: 980px) and (min-width: 681px) {
+    .story-speed,
+    .story-proof {
       grid-template-columns: 1fr !important;
+      gap: 1.2rem !important;
       min-height: 0 !important;
-      gap: 1.5rem;
     }
 
-    .story-speed .feature-story-copy,
-    .story-proof .feature-story-copy,
-    .story-speed-visual,
-    .story-proof-visual {
+    .story-speed .story-copy,
+    .story-proof .story-copy,
+    .story-speed .story-visual,
+    .story-proof .story-visual {
       order: initial !important;
     }
 
-    .story-speed .feature-story-copy,
-    .story-proof .feature-story-copy {
-      max-width: 720px;
-    }
+    .story-copy { max-width: 650px !important; }
 
     .story-speed-visual {
-      width: min(100%, 720px);
-      min-height: 640px !important;
-      margin-inline: auto;
-    }
-
-    .story-proof-visual {
-      width: min(100%, 760px);
-      min-height: 0;
-      margin-inline: auto;
-    }
-  }
-
-  @media (max-width: 680px) {
-    .story-chapter.story-speed,
-    .story-chapter.story-proof {
-      gap: 1.05rem;
-    }
-
-    .story-chapter .story-kicker {
-      margin-block-start: 0.85rem;
-      font-size: 0.68rem;
-    }
-
-    .story-evidence-note {
-      margin-block-start: 1rem;
-      padding: 0.9rem;
-      border-radius: 17px;
-    }
-
-    .story-speed-visual {
-      display: grid !important;
-      grid-template-columns: 1fr !important;
-      gap: 0.9rem;
-      min-height: 0 !important;
-      max-width: 365px !important;
-      padding-block-start: 0.2rem;
-    }
-
-    .story-speed-visual::before,
-    .story-speed-orbit {
-      display: none;
-    }
-
-    .story-speed-screen,
-    .story-speed-bear {
-      position: relative;
-      inset: auto;
-      width: auto;
-      transform: none;
+      width: min(100%, 665px) !important;
+      min-height: clamp(500px, 67vw, 555px) !important;
     }
 
     .story-speed-screen {
-      width: min(100%, 345px);
-      justify-self: center;
-      border-radius: 26px;
+      inset-inline-start: 9%;
+      width: min(38%, 240px);
     }
 
-    .story-speed-bear {
-      width: min(84%, 300px);
-      justify-self: center;
-      margin-block-start: -0.15rem;
-      filter: drop-shadow(0 20px 26px rgba(24, 72, 116, 0.1));
-    }
-
-    .story-proof-steps {
-      gap: 0.5rem;
-      margin-block-start: 1rem;
-    }
-
-    .story-proof-step {
-      padding: 0.62rem;
-      border-radius: 15px;
+    .story-speed-mascot {
+      inset-inline-end: 0;
+      width: min(55%, 350px);
     }
 
     .story-proof-visual {
-      display: grid !important;
+      width: min(100%, 680px) !important;
+      min-height: clamp(540px, 72vw, 610px) !important;
+    }
+
+    .story-proof-a,
+    .story-proof-b { width: min(23%, 155px); }
+    .story-proof-b { inset-inline-start: 19%; }
+    .story-proof-c { width: min(39%, 260px); inset-inline-start: 24%; }
+    .story-proof-mascot { width: min(47%, 318px); inset-inline-end: 0; }
+  }
+
+  /* Phones — dedicated composition, not a shrunken desktop collage. */
+  @media (max-width: 680px) {
+    .story-speed,
+    .story-proof {
       grid-template-columns: 1fr !important;
-      grid-template-rows: auto;
-      gap: 1rem;
-      max-width: 365px;
-      padding-block-start: 0.2rem;
+      min-height: 0 !important;
+      gap: .9rem !important;
+      padding: clamp(1rem, 4.6vw, 1.25rem) !important;
+      border-radius: 29px !important;
     }
 
-    .story-proof-visual::before {
-      display: none;
+    .story-speed .story-copy,
+    .story-proof .story-copy,
+    .story-speed .story-visual,
+    .story-proof .story-visual {
+      order: initial !important;
     }
 
-    .story-proof-shot-a,
-    .story-proof-shot-b,
-    .story-proof-shot-c,
-    .story-proof-bear {
-      grid-column: 1;
-      grid-row: auto;
-      width: min(100%, 345px);
-      justify-self: center;
-      align-self: auto;
-      margin: 0;
-      transform: none;
+    .story-copy { max-width: 100% !important; }
+
+    .story-speed-visual {
+      width: 100% !important;
+      max-width: 390px !important;
+      min-height: min(111vw, 430px) !important;
+      margin: .2rem auto 0 !important;
     }
 
-    .story-proof-shot-a { order: 1; }
-    .story-proof-shot-b { order: 2; }
-    .story-proof-shot-c { order: 3; }
-    .story-proof-bear {
-      order: 4;
-      width: min(78%, 270px);
-      margin-block-start: -0.25rem;
+    .story-speed-screen {
+      inset-inline-start: 2%;
+      width: min(49%, 188px);
+      padding: 5px;
+      border-radius: 27px;
+      transform: rotate(-.55deg);
     }
 
-    .story-proof-shot img {
-      border-radius: 24px;
-      box-shadow: 0 20px 45px rgba(33, 67, 108, 0.1);
+    .story-speed-screen img { border-radius: 21px; }
+
+    .story-speed-mascot {
+      inset-inline-end: 0;
+      inset-block-end: 0;
+      width: min(62%, 235px);
     }
 
-    .story-proof-shot-c img {
-      box-shadow: 0 25px 55px rgba(33, 67, 108, 0.13);
+    .story-proof-visual {
+      width: 100% !important;
+      max-width: 410px !important;
+      min-height: min(139vw, 535px) !important;
+      margin: .1rem auto 0 !important;
+    }
+
+    .story-proof-a,
+    .story-proof-b,
+    .story-proof-c {
+      padding: 5px;
+      border-radius: 25px;
+    }
+
+    .story-proof-a img,
+    .story-proof-b img,
+    .story-proof-c img { border-radius: 19px; }
+
+    .story-proof-a {
+      inset-block-start: 1%;
+      inset-inline-start: 0;
+      width: min(32%, 128px);
+      transform: rotate(-2deg);
+    }
+
+    .story-proof-b {
+      inset-block-start: 3%;
+      inset-inline-start: 25%;
+      width: min(32%, 128px);
+      transform: rotate(1.7deg);
+    }
+
+    .story-proof-c {
+      inset-inline-start: 8%;
+      inset-block-end: 0;
+      width: min(52%, 205px);
+      transform: rotate(-.35deg);
+    }
+
+    .story-proof-mascot {
+      inset-inline-end: 0;
+      inset-block-end: 0;
+      width: min(52%, 206px);
     }
   }
 
-  @media (max-width: 420px) {
-    .story-chapter .story-footnote {
-      font-size: 0.74rem;
-    }
+  @media (max-width: 430px) {
+    .story-speed,
+    .story-proof { border-radius: 26px !important; }
 
-    .story-proof-step {
-      grid-template-columns: 29px minmax(0,1fr);
-      gap: 0.58rem;
-    }
+    .story-speed-visual { min-height: min(112vw, 400px) !important; }
+    .story-speed-screen { width: min(49%, 172px); }
+    .story-speed-mascot { width: min(61%, 214px); }
 
-    .story-proof-step-number {
-      width: 29px;
-      height: 29px;
-      border-radius: 9px;
-      font-size: 0.62rem;
-    }
+    .story-proof-visual { min-height: min(140vw, 505px) !important; }
+    .story-proof-a,
+    .story-proof-b { width: min(32%, 116px); }
+    .story-proof-c { width: min(52%, 190px); }
+    .story-proof-mascot { width: min(51%, 190px); }
   }
 
-  :global(html[dir="rtl"]) .story-chapter .story-kicker,
-  :global(html[dir="rtl"]) .story-chapter .story-footnote,
-  :global(html[dir="rtl"]) .story-evidence-note,
-  :global(html[dir="rtl"]) .story-proof-step,
-  :global(html[dir="rtl"]) .story-proof-shot figcaption {
-    text-align: start;
+  @media (max-width: 360px) {
+    .story-speed-visual { min-height: 365px !important; }
+    .story-speed-screen { width: min(49%, 158px); }
+    .story-speed-mascot { width: min(60%, 194px); }
+
+    .story-proof-visual { min-height: 465px !important; }
+    .story-proof-a,
+    .story-proof-b { width: min(31%, 102px); }
+    .story-proof-c { width: min(52%, 175px); }
+    .story-proof-mascot { width: min(50%, 170px); }
   }
+
+  :global(html[dir="rtl"]) .story-speed-screen { transform: rotate(.75deg); }
+  :global(html[dir="rtl"]) .story-proof-a { transform: rotate(2deg); }
+  :global(html[dir="rtl"]) .story-proof-b { transform: rotate(-1.7deg); }
+  :global(html[dir="rtl"]) .story-proof-c { transform: rotate(.3deg); }
 
   @media (prefers-reduced-motion: no-preference) {
-    .story-speed-bear,
-    .story-proof-bear,
-    .story-speed-screen,
-    .story-proof-shot {
-      transition: transform 220ms ease;
-    }
-
-    .story-speed:hover .story-speed-bear { transform: translateY(-3px); }
-    .story-proof:hover .story-proof-bear { transform: translateY(-3px); }
-  }
-
-  @media (max-width: 680px) and (prefers-reduced-motion: no-preference) {
-    .story-speed:hover .story-speed-bear,
-    .story-proof:hover .story-proof-bear {
-      transform: none;
-    }
+    .story-mascot { transition: transform 240ms ease; }
+    .story-chapter:hover .story-mascot { transform: translateY(-3px); }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .story-speed-bear,
-    .story-proof-bear,
-    .story-speed-screen,
-    .story-proof-shot {
-      transition: none;
-    }
+    .story-mascot { transition: none !important; }
   }
 </style>
