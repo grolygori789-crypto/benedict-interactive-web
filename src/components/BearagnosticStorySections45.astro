@@ -405,27 +405,25 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
 </article>
 
 <style>
-  /*
-   * Sections 04–05 deliberately inherit the exact typography hierarchy from
-   * the production feature system: feature-number -> h3 -> body copy.
-   * Only composition and section-specific evidence art are defined here.
-   */
+  /* Sections 04–05: explicit production feature grammar from Sections 01–03. */
   .story-chapter {
     position: relative !important;
+    display: grid !important;
+    align-items: center !important;
     min-height: 650px !important;
+    padding: clamp(1.45rem, 3vw, 2.5rem) !important;
     overflow: hidden !important;
-    border-color: rgba(28, 91, 153, .082) !important;
-    box-shadow:
-      0 30px 78px rgba(29, 67, 107, .074),
-      inset 0 1px 0 rgba(255,255,255,.97) !important;
+    border: 1px solid rgba(17, 60, 103, .08) !important;
+    border-radius: 38px !important;
+    box-shadow: 0 30px 78px rgba(29, 67, 107, .074), inset 0 1px 0 rgba(255,255,255,.97) !important;
   }
 
   .story-speed {
     grid-template-columns: minmax(570px, 1.2fr) minmax(300px, .8fr) !important;
     gap: clamp(1.4rem, 2.7vw, 2.8rem) !important;
     background:
-      radial-gradient(circle at 13% 16%, rgba(44, 177, 232, .12), transparent 23rem),
-      radial-gradient(circle at 69% 86%, rgba(72, 116, 244, .065), transparent 22rem),
+      radial-gradient(circle at 12% 14%, rgba(43, 180, 235, .12), transparent 23rem),
+      radial-gradient(circle at 72% 86%, rgba(74, 131, 245, .065), transparent 22rem),
       linear-gradient(145deg, rgba(255,255,255,.997), rgba(245,251,255,.975)) !important;
   }
 
@@ -433,7 +431,7 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     grid-template-columns: minmax(300px, .82fr) minmax(570px, 1.18fr) !important;
     gap: clamp(1.4rem, 2.7vw, 2.8rem) !important;
     background:
-      radial-gradient(circle at 88% 15%, rgba(92, 92, 214, .10), transparent 23rem),
+      radial-gradient(circle at 88% 15%, rgba(98, 91, 210, .105), transparent 23rem),
       radial-gradient(circle at 65% 86%, rgba(61, 188, 145, .075), transparent 22rem),
       linear-gradient(145deg, rgba(255,255,255,.997), rgba(247,249,255,.975)) !important;
   }
@@ -444,27 +442,52 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
   .story-proof .story-visual { order: 2 !important; }
 
   .story-copy {
-    position: relative;
-    z-index: 12;
+    position: relative !important;
+    z-index: 12 !important;
+    min-width: 0 !important;
     max-width: 430px !important;
+    align-self: center !important;
   }
 
-  .story-copy h3 { text-wrap: balance; }
+  .story-copy .feature-number {
+    display: grid !important;
+    width: 44px !important;
+    height: 44px !important;
+    place-items: center !important;
+    border: 1px solid rgba(43, 114, 246, .1) !important;
+    border-radius: 15px !important;
+    font-size: .76rem !important;
+    font-weight: 850 !important;
+    letter-spacing: .1em !important;
+  }
 
   .story-speed .feature-number {
     color: #0f7fd0 !important;
     border-color: rgba(23,138,211,.10) !important;
     background: rgba(25,151,224,.065) !important;
-    box-shadow: 0 8px 20px rgba(21,123,190,.055) !important;
   }
 
   .story-proof .feature-number {
     color: #635ac9 !important;
     border-color: rgba(98,89,199,.11) !important;
     background: rgba(111,95,215,.065) !important;
-    box-shadow: 0 8px 20px rgba(91,82,186,.05) !important;
   }
 
+  .story-copy h3 {
+    margin: 1.2rem 0 0 !important;
+    color: inherit !important;
+    font-size: clamp(2rem, 3.3vw, 3.15rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: var(--type-heading-tracking, -0.045em) !important;
+    text-wrap: balance;
+  }
+
+  .story-copy p {
+    margin: 1rem 0 0 !important;
+    color: #667b95 !important;
+    font-size: clamp(1rem, 1.25vw, 1.1rem) !important;
+    line-height: var(--type-body-leading, 1.72) !important;
+  }
 
   .story-visual {
     position: relative !important;
@@ -478,327 +501,224 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
   }
 
   .story-visual::before {
-    position: absolute;
-    z-index: -2;
-    inset: 4% -2% 0;
-    display: block;
-    border-radius: 50%;
-    content: "";
-    pointer-events: none;
+    position: absolute !important;
+    z-index: -2 !important;
+    inset: 4% -2% 0 !important;
+    display: block !important;
+    border-radius: 50% !important;
+    content: '' !important;
+    pointer-events: none !important;
   }
 
   .story-speed-visual::before {
-    background:
-      radial-gradient(ellipse at 45% 49%,
-        rgba(255,255,255,.996) 0 28%,
-        rgba(222,245,255,.56) 49%,
-        rgba(202,233,252,.20) 68%,
-        transparent 80%);
+    background: radial-gradient(ellipse at 43% 49%, rgba(255,255,255,.996) 0 28%, rgba(227,246,255,.55) 49%, rgba(206,239,253,.22) 67%, transparent 80%) !important;
   }
 
   .story-proof-visual::before {
-    background:
-      radial-gradient(ellipse at 57% 48%,
-        rgba(255,255,255,.996) 0 27%,
-        rgba(234,235,255,.54) 48%,
-        rgba(214,244,236,.18) 68%,
-        transparent 80%);
+    background: radial-gradient(ellipse at 58% 48%, rgba(255,255,255,.996) 0 28%, rgba(237,232,255,.50) 48%, rgba(217,248,245,.18) 68%, transparent 80%) !important;
   }
 
   .story-visual::after {
-    position: absolute;
-    z-index: -1;
-    inset: auto 5% 0 5%;
-    height: 8%;
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(25,73,116,.13), transparent 70%);
-    filter: blur(11px);
-    content: "";
-    pointer-events: none;
+    position: absolute !important;
+    z-index: -1 !important;
+    inset: auto 5% 0 5% !important;
+    height: 8% !important;
+    border-radius: 50% !important;
+    background: radial-gradient(ellipse, rgba(25,73,116,.13), transparent 70%) !important;
+    filter: blur(11px) !important;
+    content: '' !important;
+    pointer-events: none !important;
   }
 
-  .story-screen,
-  .story-mascot {
-    position: absolute;
-    margin: 0;
-  }
-
+  .story-screen, .story-mascot { position: absolute !important; margin: 0 !important; box-sizing: border-box !important; }
   .story-screen {
-    overflow: hidden;
-    padding: 6px;
-    border: 1px solid rgba(17,59,96,.105);
-    border-radius: 31px;
-    background: #fff;
-    box-shadow:
-      0 32px 72px rgba(24,66,107,.145),
-      0 9px 24px rgba(24,66,107,.06);
-    box-sizing: border-box;
+    overflow: hidden !important;
+    padding: 6px !important;
+    border: 1px solid rgba(17,59,96,.105) !important;
+    border-radius: 31px !important;
+    background: #fff !important;
+    box-shadow: 0 32px 72px rgba(24,66,107,.145), 0 9px 24px rgba(24,66,107,.06) !important;
+    transform-origin: center center !important;
   }
+  .story-screen img { display: block !important; width: 100% !important; height: auto !important; border-radius: 24px !important; }
+  .story-mascot img { display: block !important; width: 100% !important; height: auto !important; object-fit: contain !important; }
 
-  .story-screen img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 24px;
-  }
-
-  .story-mascot img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  /* 04 — one authentic result plus the dedicated speed mascot. */
+  /* 04 — same visual weight as the accepted feature cards; speed mascot overlaps the phone in front. */
   .story-speed-screen {
-    z-index: 6;
-    inset-block-end: 0;
-    inset-inline-start: 4%;
-    width: min(37%, 260px);
-    transform: rotate(-.75deg);
+    z-index: 6 !important;
+    inset-inline-start: 4% !important;
+    inset-block-end: 0 !important;
+    width: min(38%, 270px) !important;
+    transform: rotate(-.8deg) !important;
   }
-
   .story-speed-mascot {
-    z-index: 5;
-    inset-inline-end: 0;
-    inset-block-end: 0;
-    width: min(58%, 414px);
-    filter: drop-shadow(0 28px 25px rgba(24,66,107,.12));
+    z-index: 8 !important;
+    inset-inline-end: 2% !important;
+    inset-block-end: -1.5% !important;
+    width: min(63%, 455px) !important;
+    filter: drop-shadow(0 30px 27px rgba(35,54,94,.13)) !important;
   }
 
-  /* 05 — supporting choice/review screens lead into the verified result. */
+  /* 05 — verified result is primary; two support screens establish the flow; mascot overlaps the hero screen. */
   .story-proof-a {
-    z-index: 1;
-    inset-block-start: 4%;
-    inset-inline-start: 0;
-    width: min(24%, 176px);
-    transform: rotate(-2.15deg);
-    opacity: .91;
+    z-index: 1 !important;
+    inset-block-start: 4% !important;
+    inset-inline-start: 0 !important;
+    width: min(24%, 176px) !important;
+    transform: rotate(-2.2deg) !important;
+    opacity: .90 !important;
   }
-
   .story-proof-b {
-    z-index: 2;
-    inset-block-start: 1%;
-    inset-inline-start: 20%;
-    width: min(24%, 176px);
-    transform: rotate(1.65deg);
-    opacity: .97;
+    z-index: 2 !important;
+    inset-block-start: 0 !important;
+    inset-inline-start: 18% !important;
+    width: min(24%, 176px) !important;
+    transform: rotate(1.7deg) !important;
+    opacity: .96 !important;
   }
-
   .story-proof-c {
-    z-index: 7;
-    inset-inline-start: 25%;
-    inset-block-end: 0;
-    width: min(36%, 260px);
-    transform: rotate(-.18deg);
-    box-shadow:
-      0 36px 80px rgba(31,67,108,.16),
-      0 10px 27px rgba(31,67,108,.06);
+    z-index: 6 !important;
+    inset-inline-start: 20% !important;
+    inset-block-end: 0 !important;
+    width: min(40%, 286px) !important;
+    transform: rotate(-.25deg) !important;
+    box-shadow: 0 36px 80px rgba(31,67,108,.16), 0 10px 27px rgba(31,67,108,.06) !important;
   }
-
   .story-proof-mascot {
-    z-index: 5;
-    inset-inline-end: 0;
-    inset-block-end: 0;
-    width: min(48%, 350px);
-    filter: drop-shadow(0 29px 26px rgba(35,54,94,.13));
+    z-index: 8 !important;
+    inset-inline-end: -1% !important;
+    inset-block-end: -2% !important;
+    width: min(56%, 410px) !important;
+    filter: drop-shadow(0 30px 27px rgba(35,54,94,.13)) !important;
   }
 
-  /* Compact desktop / landscape tablet — same production rhythm, less spread. */
   @media (max-width: 1180px) and (min-width: 981px) {
-    .story-speed {
-      grid-template-columns: minmax(480px, 1.1fr) minmax(280px, .9fr) !important;
-      min-height: 620px !important;
-    }
-
-    .story-proof {
-      grid-template-columns: minmax(280px, .9fr) minmax(480px, 1.1fr) !important;
-      min-height: 620px !important;
-    }
-
+    .story-speed { grid-template-columns: minmax(480px,1.1fr) minmax(280px,.9fr) !important; min-height: 620px !important; }
+    .story-proof { grid-template-columns: minmax(280px,.9fr) minmax(480px,1.1fr) !important; min-height: 620px !important; }
     .story-visual { min-height: 555px !important; }
-    .story-speed-screen { width: min(39%, 235px); }
-    .story-speed-mascot { width: min(56%, 340px); inset-inline-end: 0; }
-
-    .story-proof-a,
-    .story-proof-b { width: min(23%, 142px); }
-    .story-proof-b { inset-inline-start: 19%; }
-    .story-proof-c { width: min(37%, 232px); inset-inline-start: 24%; }
-    .story-proof-mascot { width: min(47%, 292px); inset-inline-end: 0; }
+    .story-speed-screen { width: min(39%, 235px) !important; }
+    .story-speed-mascot { width: min(62%, 370px) !important; inset-inline-end: 1% !important; }
+    .story-proof-a, .story-proof-b { width: min(23%, 142px) !important; }
+    .story-proof-b { inset-inline-start: 18% !important; }
+    .story-proof-c { width: min(39%, 238px) !important; inset-inline-start: 20% !important; }
+    .story-proof-mascot { width: min(55%, 330px) !important; }
   }
 
-  /* Portrait tablet — copy first, evidence second, exactly like the accepted system. */
   @media (max-width: 980px) and (min-width: 681px) {
-    .story-speed,
-    .story-proof {
+    .story-speed, .story-proof {
       grid-template-columns: 1fr !important;
       gap: 1.2rem !important;
       min-height: 0 !important;
+      padding: clamp(1.35rem, 3.3vw, 1.8rem) !important;
     }
-
-    .story-speed .story-copy,
-    .story-proof .story-copy,
-    .story-speed .story-visual,
-    .story-proof .story-visual {
-      order: initial !important;
-    }
-
+    .story-speed .story-copy, .story-proof .story-copy,
+    .story-speed .story-visual, .story-proof .story-visual { order: initial !important; }
     .story-copy { max-width: 650px !important; }
-
-    .story-speed-visual {
-      width: min(100%, 665px) !important;
-      min-height: clamp(500px, 67vw, 555px) !important;
-    }
-
-    .story-speed-screen {
-      inset-inline-start: 9%;
-      width: min(38%, 240px);
-    }
-
-    .story-speed-mascot {
-      inset-inline-end: 0;
-      width: min(55%, 350px);
-    }
-
-    .story-proof-visual {
-      width: min(100%, 680px) !important;
-      min-height: clamp(540px, 72vw, 610px) !important;
-    }
-
-    .story-proof-a,
-    .story-proof-b { width: min(23%, 155px); }
-    .story-proof-b { inset-inline-start: 19%; }
-    .story-proof-c { width: min(39%, 260px); inset-inline-start: 24%; }
-    .story-proof-mascot { width: min(47%, 318px); inset-inline-end: 0; }
+    .story-visual { width: min(100%, 680px) !important; min-height: clamp(520px, 70vw, 585px) !important; }
+    .story-speed-screen { inset-inline-start: 8% !important; width: min(38%, 240px) !important; }
+    .story-speed-mascot { inset-inline-end: 1% !important; width: min(61%, 385px) !important; }
+    .story-proof-a, .story-proof-b { width: min(23%, 155px) !important; }
+    .story-proof-b { inset-inline-start: 18% !important; }
+    .story-proof-c { width: min(40%, 268px) !important; inset-inline-start: 21% !important; }
+    .story-proof-mascot { width: min(54%, 355px) !important; inset-inline-end: 0 !important; }
   }
 
-  /* Phones — dedicated composition, not a shrunken desktop collage. */
   @media (max-width: 680px) {
-    .story-speed,
-    .story-proof {
+    .story-speed, .story-proof {
       grid-template-columns: 1fr !important;
       min-height: 0 !important;
       gap: .9rem !important;
       padding: clamp(1rem, 4.6vw, 1.25rem) !important;
       border-radius: 29px !important;
     }
-
-    .story-speed .story-copy,
-    .story-proof .story-copy,
-    .story-speed .story-visual,
-    .story-proof .story-visual {
-      order: initial !important;
-    }
-
+    .story-speed .story-copy, .story-proof .story-copy,
+    .story-speed .story-visual, .story-proof .story-visual { order: initial !important; }
     .story-copy { max-width: 100% !important; }
+    .story-copy h3 { font-size: clamp(1.75rem, 8vw, 2.55rem) !important; }
+    .story-visual::before { inset: 6% -6% 0 !important; }
 
     .story-speed-visual {
       width: 100% !important;
       max-width: 390px !important;
-      min-height: min(111vw, 430px) !important;
+      min-height: min(112vw, 430px) !important;
       margin: .2rem auto 0 !important;
     }
-
     .story-speed-screen {
-      inset-inline-start: 2%;
-      width: min(49%, 188px);
-      padding: 5px;
-      border-radius: 27px;
-      transform: rotate(-.55deg);
+      inset-inline-start: 1% !important;
+      width: min(52%, 190px) !important;
+      padding: 5px !important;
+      border-radius: 27px !important;
+      transform: rotate(-.6deg) !important;
     }
-
-    .story-speed-screen img { border-radius: 21px; }
-
+    .story-speed-screen img { border-radius: 21px !important; }
     .story-speed-mascot {
-      inset-inline-end: 0;
-      inset-block-end: 0;
-      width: min(62%, 235px);
+      inset-inline-end: -3% !important;
+      inset-block-end: -1% !important;
+      width: min(68%, 250px) !important;
     }
 
     .story-proof-visual {
       width: 100% !important;
       max-width: 410px !important;
-      min-height: min(139vw, 535px) !important;
+      min-height: min(139vw, 525px) !important;
       margin: .1rem auto 0 !important;
     }
-
-    .story-proof-a,
-    .story-proof-b,
-    .story-proof-c {
-      padding: 5px;
-      border-radius: 25px;
-    }
-
-    .story-proof-a img,
-    .story-proof-b img,
-    .story-proof-c img { border-radius: 19px; }
-
+    .story-proof-a, .story-proof-b, .story-proof-c { padding: 5px !important; border-radius: 25px !important; }
+    .story-proof-a img, .story-proof-b img, .story-proof-c img { border-radius: 19px !important; }
     .story-proof-a {
-      inset-block-start: 1%;
-      inset-inline-start: 0;
-      width: min(32%, 128px);
-      transform: rotate(-2deg);
+      inset-block-start: 1% !important;
+      inset-inline-start: 0 !important;
+      width: min(34%, 130px) !important;
+      transform: rotate(-2deg) !important;
     }
-
     .story-proof-b {
-      inset-block-start: 3%;
-      inset-inline-start: 25%;
-      width: min(32%, 128px);
-      transform: rotate(1.7deg);
+      inset-block-start: 3% !important;
+      inset-inline-start: 28% !important;
+      width: min(34%, 130px) !important;
+      transform: rotate(1.8deg) !important;
     }
-
     .story-proof-c {
-      inset-inline-start: 8%;
-      inset-block-end: 0;
-      width: min(52%, 205px);
-      transform: rotate(-.35deg);
+      inset-inline-start: 7% !important;
+      inset-block-end: 0 !important;
+      width: min(54%, 205px) !important;
+      transform: rotate(-.35deg) !important;
     }
-
     .story-proof-mascot {
-      inset-inline-end: 0;
-      inset-block-end: 0;
-      width: min(52%, 206px);
+      inset-inline-end: -3% !important;
+      inset-block-end: -1% !important;
+      width: min(59%, 220px) !important;
     }
   }
 
   @media (max-width: 430px) {
-    .story-speed,
-    .story-proof { border-radius: 26px !important; }
-
-    .story-speed-visual { min-height: min(112vw, 400px) !important; }
-    .story-speed-screen { width: min(49%, 172px); }
-    .story-speed-mascot { width: min(61%, 214px); }
-
+    .story-speed, .story-proof { border-radius: 26px !important; }
+    .story-speed-visual { min-height: min(113vw, 400px) !important; }
+    .story-speed-screen { width: min(52%, 176px) !important; }
+    .story-speed-mascot { width: min(68%, 230px) !important; }
     .story-proof-visual { min-height: min(140vw, 505px) !important; }
-    .story-proof-a,
-    .story-proof-b { width: min(32%, 116px); }
-    .story-proof-c { width: min(52%, 190px); }
-    .story-proof-mascot { width: min(51%, 190px); }
+    .story-proof-a, .story-proof-b { width: min(34%, 118px) !important; }
+    .story-proof-c { width: min(54%, 190px) !important; }
+    .story-proof-mascot { width: min(59%, 205px) !important; }
   }
 
   @media (max-width: 360px) {
     .story-speed-visual { min-height: 365px !important; }
-    .story-speed-screen { width: min(49%, 158px); }
-    .story-speed-mascot { width: min(60%, 194px); }
-
+    .story-speed-screen { width: min(52%, 160px) !important; }
+    .story-speed-mascot { width: min(67%, 205px) !important; }
     .story-proof-visual { min-height: 465px !important; }
-    .story-proof-a,
-    .story-proof-b { width: min(31%, 102px); }
-    .story-proof-c { width: min(52%, 175px); }
-    .story-proof-mascot { width: min(50%, 170px); }
+    .story-proof-a, .story-proof-b { width: min(33%, 104px) !important; }
+    .story-proof-c { width: min(54%, 176px) !important; }
+    .story-proof-mascot { width: min(58%, 182px) !important; }
   }
 
-  :global(html[dir="rtl"]) .story-speed-screen { transform: rotate(.75deg); }
-  :global(html[dir="rtl"]) .story-proof-a { transform: rotate(2deg); }
-  :global(html[dir="rtl"]) .story-proof-b { transform: rotate(-1.7deg); }
-  :global(html[dir="rtl"]) .story-proof-c { transform: rotate(.3deg); }
+  :global(html[dir="rtl"]) .story-speed-screen { transform: rotate(.8deg) !important; }
+  :global(html[dir="rtl"]) .story-proof-a { transform: rotate(2.2deg) !important; }
+  :global(html[dir="rtl"]) .story-proof-b { transform: rotate(-1.7deg) !important; }
+  :global(html[dir="rtl"]) .story-proof-c { transform: rotate(.25deg) !important; }
 
   @media (prefers-reduced-motion: no-preference) {
-    .story-mascot { transition: transform 240ms ease; }
-    .story-chapter:hover .story-mascot { transform: translateY(-3px); }
+    .story-mascot { transition: transform 240ms ease !important; }
+    .story-chapter:hover .story-mascot { transform: translateY(-3px) !important; }
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    .story-mascot { transition: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { .story-mascot { transition: none !important; } }
 </style>
