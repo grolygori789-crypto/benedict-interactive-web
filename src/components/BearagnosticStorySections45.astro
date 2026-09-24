@@ -6,316 +6,132 @@ const { locale } = Astro.props;
 
 const copy = {
   en: {
-    speed: {
-      kicker: 'Deep Scan · observed run',
-      title: 'Fast by design. Never padded.',
-      lead: 'Bearagnostic finishes when the work is done — not when an animation says so. This observed Deep Scan reviewed 1,152 files across 113 folders and read 22.3 GB in 15 seconds. Actual time varies with file count, storage speed, scan mode, device performance, and accessible content.',
-      evidenceTitle: 'One real run, shown as it happened.',
-      evidenceBody: '1,152 files · 113 folders · 22.3 GB read · 15 s. That is an observed result on one device, not a promise for every scan.',
-      note: 'Actual time varies with storage speed, file count and layout, selected scope, device performance, and accessible content.',
-      screenAlt: 'Deep Scan completion showing 1,152 files reviewed, 113 folders visited, 22.3 GB read, a 15 second duration, and Verified scan evidence.',
-    },
-    proof: {
-      kicker: 'Exact duplicates · verified cleanup',
-      title: 'Proof, not promises.',
-      lead: 'Exact duplicates are verified first. You choose what stays, review the selected extras, and confirm before deletion. Bearagnostic then checks what Android actually removed and counts reclaimed space only for files confirmed gone.',
-      steps: [
-        ['Choose what stays', 'Exact matches are verified first. Keep-one-copy protection stays in the flow.'],
-        ['Review before deleting', 'Selected copies, affected groups, and reclaimable space are explicit before Delete & verify.'],
-        ['Count what is confirmed', 'Only files Android confirms as gone are counted as removed or reclaimed.'],
-      ],
-      labels: ['Choose what stays', 'Final review', 'Verified result'],
-      note: '“0 native protections” belongs to this example run only. Android or native deletion protections may apply in other cases.',
-    },
+    speedTitle: 'Fast by design. Never padded.',
+    speedLead: 'Bearagnostic finishes when the work is done — not when an animation says so. Deep Scan reads the accessible content within the scope you choose, shows what it reviewed, and stops when the work is complete. Scan time varies by device, storage, file layout, and selected scope.',
+    speedAlt: 'Privacy-safe Deep Scan completion screen with run-specific values removed.',
+    proofTitle: 'Proof, not promises.',
+    proofLead: 'Exact duplicates are verified before cleanup. You choose what stays, review the selected extras, and confirm before deletion. Bearagnostic counts space as reclaimed only after Android confirms the selected copies are gone.',
+    proofAlt: ['Exact duplicate selection screen with run-specific details removed.','Final deletion review with run-specific values removed.','Verified duplicate cleanup result with run-specific values removed.'],
   },
   th: {
-    speed: {
-      kicker: 'Deep Scan · ผลจากการใช้งานจริง',
-      title: 'เร็วตั้งแต่การออกแบบ ไม่ถ่วงเวลาให้ดูยุ่ง',
-      lead: 'ความเร็วมีความหมายเมื่อมองเห็นงานที่เกิดขึ้นจริง Bearagnostic อ่านข้อมูลที่เข้าถึงได้ตามขอบเขต แสดงหลักฐาน และจบเมื่อทำงานเสร็จ โดยไม่ยืด progress หรือสร้างเวลารอให้ดูเหมือนกำลังทำงาน',
-      evidenceTitle: 'หนึ่งผลลัพธ์จริง แสดงตามที่เกิดขึ้น',
-      evidenceBody: '1,152 ไฟล์ · 113 โฟลเดอร์ · อ่านข้อมูล 22.3 GB · 15 วินาที นี่คือผลที่สังเกตได้จากอุปกรณ์หนึ่งเครื่อง ไม่ใช่คำสัญญาสำหรับทุกการสแกน',
-      note: 'เวลาจริงขึ้นอยู่กับความเร็วพื้นที่จัดเก็บ จำนวนและรูปแบบไฟล์ ขอบเขตที่เลือก ประสิทธิภาพอุปกรณ์ และข้อมูลที่เข้าถึงได้',
-      screenAlt: 'หน้าผล Deep Scan แสดง 1,152 ไฟล์ 113 โฟลเดอร์ อ่านข้อมูล 22.3 GB ใช้เวลา 15 วินาที และสถานะ Verified',
-    },
-    proof: {
-      kicker: 'ไฟล์ซ้ำแบบตรงกัน · ตรวจยืนยันหลังลบ',
-      title: 'พิสูจน์ให้เห็น ไม่ใช่แค่พูด',
-      lead: 'ความน่าเชื่อถือต้องอยู่ต่อหลังจากกดลบ คุณเลือกเองว่าอะไรอยู่ ตรวจทานขั้นตอนที่ลบจริง และ Bearagnostic ตรวจยืนยันผลก่อนนับแม้แต่หนึ่งไบต์ว่าได้พื้นที่คืน',
-      steps: [
-        ['เลือกสิ่งที่เก็บไว้', 'ยืนยันไฟล์ที่ตรงกันจริงก่อน และระบบยังคงป้องกันให้เหลืออย่างน้อยหนึ่งสำเนา'],
-        ['ตรวจทานก่อนลบ', 'สำเนาที่เลือก กลุ่มที่ได้รับผล และพื้นที่ที่เรียกคืนได้จะแสดงชัดก่อน Delete & verify'],
-        ['นับเฉพาะสิ่งที่ยืนยันแล้ว', 'นับไฟล์ที่ลบและพื้นที่ที่คืนได้เฉพาะเมื่อ Android ยืนยันว่าไฟล์หายไปจริง'],
-      ],
-      labels: ['เลือกสิ่งที่เก็บไว้', 'ตรวจทานครั้งสุดท้าย', 'ผลที่ยืนยันแล้ว'],
-      note: '“0 native protections” เป็นผลจากตัวอย่างครั้งนี้เท่านั้น การลบครั้งอื่นอาจมีการป้องกันจาก Android หรือระบบของอุปกรณ์',
-    },
+    speedTitle: 'เร็วตั้งแต่การออกแบบ ไม่ถ่วงเวลาให้ดูยุ่ง',
+    speedLead: 'Bearagnostic จบงานเมื่อทำเสร็จจริง ไม่ใช่เมื่อแอนิเมชันบอกว่าจบ Deep Scan อ่านข้อมูลที่เข้าถึงได้ภายในขอบเขตที่คุณเลือก แสดงสิ่งที่ตรวจ และหยุดเมื่อการทำงานเสร็จ เวลาสแกนจริงขึ้นอยู่กับอุปกรณ์ พื้นที่จัดเก็บ รูปแบบไฟล์ และขอบเขตที่เลือก',
+    speedAlt: 'หน้าผล Deep Scan ที่ซ่อนค่าจากการใช้งานเฉพาะเครื่องเพื่อความเป็นส่วนตัว',
+    proofTitle: 'พิสูจน์ให้เห็น ไม่ใช่แค่พูด',
+    proofLead: 'ไฟล์ซ้ำแบบตรงกันจะถูกตรวจยืนยันก่อนทำความสะอาด คุณเลือกเองว่าอะไรอยู่ ตรวจทานสำเนาที่เลือก และยืนยันก่อนลบ Bearagnostic จะนับพื้นที่คืนก็ต่อเมื่อ Android ยืนยันว่าไฟล์ที่เลือกหายไปจริง',
+    proofAlt: ['หน้าเลือกไฟล์ซ้ำที่ซ่อนรายละเอียดเฉพาะการใช้งาน','หน้าตรวจทานก่อนลบที่ซ่อนค่าจากการใช้งาน','หน้าผลการลบไฟล์ซ้ำที่ยืนยันแล้วและซ่อนค่าจากการใช้งาน'],
   },
   es: {
-    speed: {
-      kicker: 'Deep Scan · ejecución observada',
-      title: 'Rápido por diseño. Sin esperas de relleno.',
-      lead: 'La velocidad importa más cuando puedes ver el trabajo real. Bearagnostic lee el contenido accesible previsto, muestra la evidencia y termina cuando el trabajo está hecho, sin progreso alargado ni esperas fingidas.',
-      evidenceTitle: 'Una ejecución real, tal como ocurrió.',
-      evidenceBody: '1.152 archivos · 113 carpetas · 22,3 GB leídos · 15 s. Es un resultado observado en un dispositivo, no una promesa para cada análisis.',
-      note: 'El tiempo real varía según el almacenamiento, la cantidad y distribución de archivos, el alcance elegido, el dispositivo y el contenido accesible.',
-      screenAlt: 'Resultado de Deep Scan con 1.152 archivos, 113 carpetas, 22,3 GB leídos, 15 segundos y evidencia verificada.',
-    },
-    proof: {
-      kicker: 'Duplicados exactos · limpieza verificada',
-      title: 'Pruebas, no promesas.',
-      lead: 'La confianza debe sobrevivir al botón de borrar. Tú decides qué se queda, revisas el paso destructivo y Bearagnostic verifica el resultado antes de contar un solo byte como recuperado.',
-      steps: [['Elige qué se queda','Primero se verifican las coincidencias exactas y se mantiene la protección de conservar una copia.'],['Revisa antes de borrar','Las copias elegidas, los grupos afectados y el espacio recuperable quedan claros antes de Delete & verify.'],['Cuenta solo lo confirmado','Solo lo que Android confirma como eliminado cuenta como borrado o recuperado.']],
-      labels: ['Elige qué se queda','Revisión final','Resultado verificado'],
-      note: '“0 native protections” corresponde solo a este ejemplo; otras eliminaciones pueden activar protecciones de Android o del sistema.',
-    },
+    speedTitle: 'Rápido por diseño. Sin esperas artificiales.',
+    speedLead: 'Bearagnostic termina cuando el trabajo termina, no cuando una animación lo dice. Deep Scan lee el contenido accesible dentro del alcance elegido, muestra lo revisado y se detiene al completar el trabajo. El tiempo varía según el dispositivo, el almacenamiento, la distribución de archivos y el alcance.',
+    speedAlt: 'Resultado de Deep Scan con valores específicos de la ejecución ocultos por privacidad.',
+    proofTitle: 'Pruebas, no promesas.',
+    proofLead: 'Los duplicados exactos se verifican antes de limpiar. Tú decides qué se queda, revisas las copias seleccionadas y confirmas antes de borrar. Bearagnostic solo cuenta espacio recuperado cuando Android confirma que las copias seleccionadas ya no están.',
+    proofAlt: ['Selección de duplicados con datos de ejecución ocultos.','Revisión final con valores de ejecución ocultos.','Resultado verificado con valores de ejecución ocultos.'],
   },
   'pt-br': {
-    speed: {
-      kicker: 'Deep Scan · execução observada',
-      title: 'Rápido por design. Sem espera artificial.',
-      lead: 'Velocidade vale mais quando o trabalho fica visível. O Bearagnostic lê o conteúdo acessível previsto, mostra a evidência e termina quando o trabalho termina — sem progresso esticado nem espera de mentira.',
-      evidenceTitle: 'Uma execução real, exatamente como aconteceu.',
-      evidenceBody: '1.152 arquivos · 113 pastas · 22,3 GB lidos · 15 s. É um resultado observado em um aparelho, não uma promessa para toda análise.',
-      note: 'O tempo real varia com o armazenamento, quantidade e organização dos arquivos, escopo escolhido, aparelho e conteúdo acessível.',
-      screenAlt: 'Resultado do Deep Scan com 1.152 arquivos, 113 pastas, 22,3 GB lidos, 15 segundos e evidência verificada.',
-    },
-    proof: {
-      kicker: 'Duplicatas exatas · limpeza verificada',
-      title: 'Prova, não promessa.',
-      lead: 'A confiança precisa continuar depois do botão de apagar. Você decide o que fica, revisa a etapa destrutiva e o Bearagnostic verifica o resultado antes de contar qualquer byte como recuperado.',
-      steps: [['Escolha o que fica','As correspondências exatas são verificadas primeiro e a proteção de manter uma cópia continua ativa.'],['Revise antes de apagar','Cópias selecionadas, grupos afetados e espaço recuperável ficam explícitos antes de Delete & verify.'],['Conte só o confirmado','Só arquivos que o Android confirma como removidos contam como apagados ou recuperados.']],
-      labels: ['Escolha o que fica','Revisão final','Resultado verificado'],
-      note: '“0 native protections” vale apenas para este exemplo; outras exclusões podem envolver proteções do Android ou do sistema.',
-    },
+    speedTitle: 'Rápido por design. Sem espera artificial.',
+    speedLead: 'O Bearagnostic termina quando o trabalho termina — não quando uma animação manda. O Deep Scan lê o conteúdo acessível dentro do escopo escolhido, mostra o que revisou e para ao concluir. O tempo varia conforme aparelho, armazenamento, organização dos arquivos e escopo.',
+    speedAlt: 'Resultado do Deep Scan com valores específicos da execução ocultos por privacidade.',
+    proofTitle: 'Prova, não promessa.',
+    proofLead: 'Duplicatas exatas são verificadas antes da limpeza. Você decide o que fica, revisa as cópias selecionadas e confirma antes de excluir. O Bearagnostic só conta espaço recuperado quando o Android confirma que as cópias selecionadas realmente foram removidas.',
+    proofAlt: ['Seleção de duplicatas com dados da execução ocultos.','Revisão final com valores da execução ocultos.','Resultado verificado com valores da execução ocultos.'],
   },
   fr: {
-    speed: {
-      kicker: 'Deep Scan · exécution observée',
-      title: 'Rapide par conception. Jamais artificiellement ralenti.',
-      lead: 'La vitesse compte davantage quand le travail réel reste visible. Bearagnostic lit le contenu accessible prévu, montre les preuves et s’arrête lorsque le travail est terminé — sans progression étirée ni attente simulée.',
-      evidenceTitle: 'Une exécution réelle, telle qu’elle s’est produite.',
-      evidenceBody: '1 152 fichiers · 113 dossiers · 22,3 Go lus · 15 s. C’est un résultat observé sur un appareil, pas une promesse pour chaque analyse.',
-      note: 'La durée réelle varie selon le stockage, le nombre et l’organisation des fichiers, le périmètre choisi, l’appareil et le contenu accessible.',
-      screenAlt: 'Résultat Deep Scan affichant 1 152 fichiers, 113 dossiers, 22,3 Go lus, 15 secondes et une preuve vérifiée.',
-    },
-    proof: {
-      kicker: 'Doublons exacts · nettoyage vérifié',
-      title: 'Des preuves, pas des promesses.',
-      lead: 'La confiance doit tenir après le bouton Supprimer. Vous choisissez ce qui reste, vérifiez l’étape destructive et Bearagnostic confirme le résultat avant de compter le moindre octet comme récupéré.',
-      steps: [['Choisissez ce qui reste','Les correspondances exactes sont vérifiées d’abord et la protection qui conserve une copie reste active.'],['Vérifiez avant de supprimer','Copies choisies, groupes concernés et espace récupérable sont explicites avant Delete & verify.'],['Comptez seulement le confirmé','Seuls les fichiers qu’Android confirme comme disparus sont comptés comme supprimés ou récupérés.']],
-      labels: ['Choisissez ce qui reste','Vérification finale','Résultat vérifié'],
-      note: '« 0 native protections » concerne uniquement cet exemple ; d’autres suppressions peuvent déclencher des protections Android ou natives.',
-    },
+    speedTitle: 'Rapide par conception. Sans attente artificielle.',
+    speedLead: 'Bearagnostic s’arrête quand le travail est réellement terminé, pas quand une animation le décide. Deep Scan lit le contenu accessible dans le périmètre choisi, montre ce qui a été examiné et s’arrête une fois le travail fini. La durée varie selon l’appareil, le stockage, l’organisation des fichiers et le périmètre.',
+    speedAlt: 'Résultat Deep Scan avec les valeurs propres à l’exécution masquées pour la confidentialité.',
+    proofTitle: 'Des preuves, pas des promesses.',
+    proofLead: 'Les doublons exacts sont vérifiés avant le nettoyage. Vous choisissez ce qui reste, examinez les copies sélectionnées puis confirmez avant suppression. Bearagnostic ne compte l’espace récupéré qu’après confirmation par Android de la disparition des copies sélectionnées.',
+    proofAlt: ['Sélection de doublons avec données d’exécution masquées.','Vérification finale avec valeurs d’exécution masquées.','Résultat vérifié avec valeurs d’exécution masquées.'],
   },
   de: {
-    speed: {
-      kicker: 'Deep Scan · beobachteter Lauf',
-      title: 'Schnell gebaut. Nie künstlich ausgebremst.',
-      lead: 'Geschwindigkeit zählt mehr, wenn die echte Arbeit sichtbar bleibt. Bearagnostic liest die vorgesehenen zugänglichen Inhalte, zeigt die Nachweise und hört auf, sobald die Arbeit erledigt ist — ohne künstlich gestreckten Fortschritt oder vorgetäuschte Wartezeit.',
-      evidenceTitle: 'Ein echter Lauf, so wie er stattgefunden hat.',
-      evidenceBody: '1.152 Dateien · 113 Ordner · 22,3 GB gelesen · 15 s. Das ist ein beobachtetes Ergebnis auf einem Gerät, kein Versprechen für jeden Scan.',
-      note: 'Die tatsächliche Dauer hängt von Speicher, Dateimenge und -struktur, gewähltem Umfang, Gerät und zugänglichen Inhalten ab.',
-      screenAlt: 'Deep-Scan-Ergebnis mit 1.152 Dateien, 113 Ordnern, 22,3 GB gelesenen Daten, 15 Sekunden und verifiziertem Nachweis.',
-    },
-    proof: {
-      kicker: 'Exakte Duplikate · verifizierte Bereinigung',
-      title: 'Beweise statt Versprechen.',
-      lead: 'Vertrauen muss auch nach dem Löschen bestehen. Du entscheidest, was bleibt, prüfst den destruktiven Schritt und Bearagnostic verifiziert das Ergebnis, bevor auch nur ein Byte als zurückgewonnen zählt.',
-      steps: [['Entscheide, was bleibt','Exakte Übereinstimmungen werden zuerst verifiziert; der Schutz, eine Kopie zu behalten, bleibt aktiv.'],['Vor dem Löschen prüfen','Ausgewählte Kopien, betroffene Gruppen und rückgewinnbarer Speicher sind vor Delete & verify klar sichtbar.'],['Nur Bestätigtes zählen','Nur Dateien, deren Entfernung Android bestätigt, zählen als gelöscht oder zurückgewonnen.']],
-      labels: ['Entscheide, was bleibt','Letzte Prüfung','Verifiziertes Ergebnis'],
-      note: '„0 native protections“ gilt nur für diesen Beispiel-Lauf; bei anderen Löschvorgängen können Android- oder Systemschutzmechanismen greifen.',
-    },
+    speedTitle: 'Schnell gebaut. Nie künstlich ausgebremst.',
+    speedLead: 'Bearagnostic endet, wenn die Arbeit erledigt ist — nicht wenn eine Animation es behauptet. Deep Scan liest zugängliche Inhalte im gewählten Umfang, zeigt die geprüften Inhalte und stoppt nach Abschluss. Die Dauer hängt von Gerät, Speicher, Dateistruktur und gewähltem Umfang ab.',
+    speedAlt: 'Deep-Scan-Ergebnis mit aus Datenschutzgründen ausgeblendeten Laufwerten.',
+    proofTitle: 'Beweise statt Versprechen.',
+    proofLead: 'Exakte Duplikate werden vor der Bereinigung verifiziert. Du entscheidest, was bleibt, prüfst die ausgewählten Kopien und bestätigst vor dem Löschen. Bearagnostic zählt Speicher erst dann als zurückgewonnen, wenn Android bestätigt, dass die ausgewählten Kopien entfernt wurden.',
+    proofAlt: ['Duplikatauswahl mit ausgeblendeten Laufdaten.','Letzte Prüfung mit ausgeblendeten Laufwerten.','Verifiziertes Ergebnis mit ausgeblendeten Laufwerten.'],
   },
   it: {
-    speed: {
-      kicker: 'Deep Scan · esecuzione osservata',
-      title: 'Veloce per progetto. Mai rallentato apposta.',
-      lead: 'La velocità conta di più quando il lavoro reale è visibile. Bearagnostic legge il contenuto accessibile previsto, mostra le prove e si ferma quando il lavoro è finito — senza progressi allungati o attese finte.',
-      evidenceTitle: 'Un’esecuzione reale, così com’è avvenuta.',
-      evidenceBody: '1.152 file · 113 cartelle · 22,3 GB letti · 15 s. È un risultato osservato su un dispositivo, non una promessa per ogni scansione.',
-      note: 'Il tempo reale varia con memoria, quantità e disposizione dei file, ambito scelto, dispositivo e contenuto accessibile.',
-      screenAlt: 'Risultato Deep Scan con 1.152 file, 113 cartelle, 22,3 GB letti, 15 secondi e prova verificata.',
-    },
-    proof: {
-      kicker: 'Duplicati esatti · pulizia verificata',
-      title: 'Prove, non promesse.',
-      lead: 'La fiducia deve restare anche dopo il tasto Elimina. Scegli cosa resta, controlli il passaggio distruttivo e Bearagnostic verifica il risultato prima di contare anche un solo byte come recuperato.',
-      steps: [['Scegli cosa resta','Le corrispondenze esatte vengono verificate prima e la protezione che conserva una copia resta attiva.'],['Controlla prima di eliminare','Copie selezionate, gruppi coinvolti e spazio recuperabile sono espliciti prima di Delete & verify.'],['Conta solo ciò che è confermato','Solo i file che Android conferma come rimossi vengono conteggiati come eliminati o recuperati.']],
-      labels: ['Scegli cosa resta','Revisione finale','Risultato verificato'],
-      note: '“0 native protections” riguarda solo questo esempio; altre eliminazioni possono attivare protezioni Android o native.',
-    },
+    speedTitle: 'Veloce per progetto. Mai rallentato apposta.',
+    speedLead: 'Bearagnostic termina quando il lavoro è davvero finito, non quando lo dice un’animazione. Deep Scan legge il contenuto accessibile nell’ambito scelto, mostra ciò che ha esaminato e si ferma al termine. La durata varia in base a dispositivo, memoria, disposizione dei file e ambito selezionato.',
+    speedAlt: 'Risultato Deep Scan con valori della singola esecuzione nascosti per privacy.',
+    proofTitle: 'Prove, non promesse.',
+    proofLead: 'I duplicati esatti vengono verificati prima della pulizia. Scegli cosa resta, controlli le copie selezionate e confermi prima di eliminare. Bearagnostic conta lo spazio recuperato solo dopo che Android conferma la rimozione delle copie selezionate.',
+    proofAlt: ['Selezione duplicati con dati di esecuzione nascosti.','Revisione finale con valori di esecuzione nascosti.','Risultato verificato con valori di esecuzione nascosti.'],
   },
   ja: {
-    speed: {
-      kicker: 'Deep Scan · 実測例',
-      title: '速さは設計から。待ち時間を演出しない。',
-      lead: '速さに意味があるのは、実際に行った処理が見えるときです。Bearagnostic は対象となるアクセス可能な内容を読み、根拠を示し、仕事が終わればそこで完了します。進捗を引き延ばしたり、待ち時間を演出したりしません。',
-      evidenceTitle: '実際の1回を、そのまま表示。',
-      evidenceBody: '1,152ファイル · 113フォルダ · 22.3 GB読み取り · 15秒。これは1台の端末で観測された結果であり、すべてのスキャン時間を保証するものではありません。',
-      note: '実際の時間はストレージ速度、ファイル数と配置、選択範囲、端末性能、アクセス可能な内容によって変わります。',
-      screenAlt: '1,152ファイル、113フォルダ、22.3 GB読み取り、15秒、Verified を示す Deep Scan 完了画面。',
-    },
-    proof: {
-      kicker: '完全一致の重複 · 検証済みクリーンアップ',
-      title: '約束より、証拠を。',
-      lead: '削除ボタンを押した後まで信頼できること。残すものは自分で決め、削除前に最終確認し、Bearagnostic は結果を検証してから初めて回収容量として数えます。',
-      steps: [['残すものを選ぶ','完全一致を先に検証し、最低1コピーを残す保護も維持します。'],['削除前に確認','選択したコピー、対象グループ、回収可能容量を Delete & verify の前に明示します。'],['確認できた結果だけ数える','Android が実際に消えたと確認したファイルだけを削除・回収済みとして数えます。']],
-      labels: ['残すものを選ぶ','最終確認','検証済み結果'],
-      note: '「0 native protections」はこの実行例だけの結果です。別の削除では Android や端末側の保護が働く場合があります。',
-    },
+    speedTitle: '速さは設計から。待ち時間を演出しない。',
+    speedLead: 'Bearagnostic は、アニメーションではなく実際の処理が終わった時点で完了します。Deep Scan は選択した範囲のアクセス可能な内容を読み、確認した内容を示し、処理完了時に停止します。所要時間は端末、ストレージ、ファイル配置、選択範囲によって変わります。',
+    speedAlt: '実行固有の値をプライバシー保護のため非表示にした Deep Scan 完了画面。',
+    proofTitle: '約束より、証拠を。',
+    proofLead: '完全一致の重複は削除前に検証されます。残すものを自分で選び、選択したコピーを確認してから削除を確定します。Bearagnostic は Android が選択したコピーの削除を確認した後にのみ回収容量として数えます。',
+    proofAlt: ['実行固有情報を非表示にした重複選択画面。','実行固有値を非表示にした最終確認画面。','実行固有値を非表示にした検証済み結果画面。'],
   },
   ko: {
-    speed: {
-      kicker: 'Deep Scan · 실제 관측 결과',
-      title: '설계부터 빠르게. 억지 대기는 없이.',
-      lead: '속도는 실제 작업이 보일 때 더 의미가 있습니다. Bearagnostic은 접근 가능한 대상 콘텐츠를 읽고 근거를 보여 준 뒤, 일이 끝나면 바로 마칩니다. 진행률을 억지로 늘리거나 기다리는 척하지 않습니다.',
-      evidenceTitle: '실제 한 번의 실행을 그대로.',
-      evidenceBody: '1,152개 파일 · 113개 폴더 · 22.3 GB 읽음 · 15초. 한 기기에서 관측된 결과이며 모든 스캔 시간을 약속하는 수치가 아닙니다.',
-      note: '실제 시간은 저장장치 속도, 파일 수와 배치, 선택 범위, 기기 성능, 접근 가능한 콘텐츠에 따라 달라집니다.',
-      screenAlt: '1,152개 파일, 113개 폴더, 22.3 GB 읽기, 15초, Verified 근거를 보여 주는 Deep Scan 완료 화면.',
-    },
-    proof: {
-      kicker: '완전 동일 중복 · 검증된 정리',
-      title: '약속보다 증거.',
-      lead: '삭제 버튼을 누른 뒤에도 신뢰가 이어져야 합니다. 무엇을 남길지 직접 고르고, 삭제 단계를 최종 확인하며, Bearagnostic은 결과를 검증한 뒤에만 회수 공간으로 계산합니다.',
-      steps: [['남길 것을 선택','완전 동일한 파일을 먼저 검증하고 최소 한 복사본을 남기는 보호도 유지합니다.'],['삭제 전에 최종 확인','선택된 복사본, 영향받는 그룹, 회수 가능 공간을 Delete & verify 전에 명확히 보여 줍니다.'],['확인된 결과만 계산','Android가 실제로 사라졌다고 확인한 파일만 삭제·회수로 계산합니다.']],
-      labels: ['남길 것을 선택','최종 확인','검증된 결과'],
-      note: '“0 native protections”는 이 예시 실행의 결과일 뿐이며 다른 삭제에서는 Android 또는 기기 보호가 적용될 수 있습니다.',
-    },
+    speedTitle: '설계부터 빠르게. 억지 대기는 없이.',
+    speedLead: 'Bearagnostic은 애니메이션이 아니라 실제 작업이 끝났을 때 완료됩니다. Deep Scan은 선택한 범위의 접근 가능한 콘텐츠를 읽고 검토한 내용을 보여 준 뒤 작업이 끝나면 멈춥니다. 시간은 기기, 저장장치, 파일 배치, 선택 범위에 따라 달라집니다.',
+    speedAlt: '개인정보 보호를 위해 실행별 수치를 숨긴 Deep Scan 완료 화면.',
+    proofTitle: '약속보다 증거.',
+    proofLead: '완전히 동일한 중복 파일은 정리 전에 검증됩니다. 남길 항목을 직접 선택하고 선택된 복사본을 검토한 뒤 삭제를 확인합니다. Bearagnostic은 Android가 선택된 복사본의 삭제를 확인한 뒤에만 회수 공간으로 계산합니다.',
+    proofAlt: ['실행별 정보를 숨긴 중복 선택 화면.','실행별 수치를 숨긴 최종 검토 화면.','실행별 수치를 숨긴 검증 결과 화면.'],
   },
   id: {
-    speed: {
-      kicker: 'Deep Scan · hasil pengamatan',
-      title: 'Cepat sejak dirancang. Tanpa menambah waktu palsu.',
-      lead: 'Kecepatan lebih berarti saat pekerjaan nyata terlihat. Bearagnostic membaca konten yang dapat diakses sesuai cakupan, menunjukkan buktinya, lalu selesai ketika pekerjaannya selesai — tanpa progres yang dipanjangkan atau waktu tunggu pura-pura.',
-      evidenceTitle: 'Satu hasil nyata, ditampilkan apa adanya.',
-      evidenceBody: '1.152 file · 113 folder · 22,3 GB dibaca · 15 dtk. Ini hasil yang diamati pada satu perangkat, bukan janji untuk setiap pemindaian.',
-      note: 'Waktu nyata berubah sesuai kecepatan penyimpanan, jumlah dan susunan file, cakupan, perangkat, dan konten yang dapat diakses.',
-      screenAlt: 'Hasil Deep Scan dengan 1.152 file, 113 folder, 22,3 GB dibaca, 15 detik, dan bukti Verified.',
-    },
-    proof: {
-      kicker: 'Duplikat identik · pembersihan terverifikasi',
-      title: 'Bukti, bukan janji.',
-      lead: 'Kepercayaan harus tetap ada setelah tombol hapus. Anda memilih yang tetap disimpan, meninjau langkah penghapusan, lalu Bearagnostic memverifikasi hasil sebelum menghitung satu byte pun sebagai ruang yang kembali.',
-      steps: [['Pilih yang tetap disimpan','Kecocokan identik diverifikasi lebih dulu dan perlindungan untuk menyisakan satu salinan tetap aktif.'],['Tinjau sebelum menghapus','Salinan terpilih, grup terdampak, dan ruang yang bisa dipulihkan jelas sebelum Delete & verify.'],['Hitung hanya yang terkonfirmasi','Hanya file yang dikonfirmasi Android telah hilang yang dihitung sebagai dihapus atau dipulihkan.']],
-      labels: ['Pilih yang disimpan','Tinjauan akhir','Hasil terverifikasi'],
-      note: '“0 native protections” hanya berlaku pada contoh ini; penghapusan lain dapat melibatkan perlindungan Android atau sistem.',
-    },
+    speedTitle: 'Cepat sejak dirancang. Tanpa jeda buatan.',
+    speedLead: 'Bearagnostic selesai saat pekerjaannya benar-benar selesai, bukan saat animasi mengatakannya. Deep Scan membaca konten yang dapat diakses dalam cakupan pilihan Anda, menunjukkan apa yang ditinjau, lalu berhenti saat selesai. Waktu pemindaian bergantung pada perangkat, penyimpanan, susunan file, dan cakupan.',
+    speedAlt: 'Layar Deep Scan dengan nilai khusus proses disembunyikan demi privasi.',
+    proofTitle: 'Bukti, bukan janji.',
+    proofLead: 'Duplikat identik diverifikasi sebelum pembersihan. Anda memilih apa yang tetap ada, meninjau salinan terpilih, lalu mengonfirmasi sebelum menghapus. Bearagnostic hanya menghitung ruang sebagai kembali setelah Android mengonfirmasi salinan terpilih benar-benar hilang.',
+    proofAlt: ['Layar pemilihan duplikat dengan data proses disembunyikan.','Tinjauan akhir dengan nilai proses disembunyikan.','Hasil terverifikasi dengan nilai proses disembunyikan.'],
   },
   vi: {
-    speed: {
-      kicker: 'Deep Scan · lần chạy quan sát thực tế',
-      title: 'Nhanh từ thiết kế. Không kéo dài giả tạo.',
-      lead: 'Tốc độ có ý nghĩa hơn khi bạn thấy được công việc thật phía sau. Bearagnostic đọc nội dung có thể truy cập trong phạm vi cần thiết, đưa ra bằng chứng và kết thúc khi công việc hoàn tất — không kéo dài tiến trình hay giả vờ chờ.',
-      evidenceTitle: 'Một lần chạy thật, đúng như đã xảy ra.',
-      evidenceBody: '1.152 tệp · 113 thư mục · đọc 22,3 GB · 15 giây. Đây là kết quả quan sát trên một thiết bị, không phải cam kết cho mọi lần quét.',
-      note: 'Thời gian thực tế thay đổi theo tốc độ lưu trữ, số lượng và bố cục tệp, phạm vi chọn, thiết bị và nội dung có thể truy cập.',
-      screenAlt: 'Kết quả Deep Scan hiển thị 1.152 tệp, 113 thư mục, 22,3 GB đã đọc, 15 giây và bằng chứng Verified.',
-    },
-    proof: {
-      kicker: 'Bản sao trùng khớp · dọn dẹp đã xác minh',
-      title: 'Bằng chứng, không chỉ lời hứa.',
-      lead: 'Niềm tin phải còn nguyên sau nút Xóa. Bạn chọn thứ được giữ lại, xem lại bước xóa và Bearagnostic xác minh kết quả trước khi tính bất kỳ byte nào là dung lượng đã thu hồi.',
-      steps: [['Chọn thứ được giữ lại','Các bản khớp chính xác được xác minh trước và bảo vệ giữ lại một bản sao vẫn hoạt động.'],['Xem lại trước khi xóa','Bản sao đã chọn, nhóm bị ảnh hưởng và dung lượng có thể thu hồi được hiển thị rõ trước Delete & verify.'],['Chỉ tính kết quả đã xác nhận','Chỉ tệp mà Android xác nhận đã biến mất mới được tính là đã xóa hoặc thu hồi.']],
-      labels: ['Chọn thứ giữ lại','Xem lại lần cuối','Kết quả đã xác minh'],
-      note: '“0 native protections” chỉ thuộc lần chạy ví dụ này; các lần xóa khác có thể gặp cơ chế bảo vệ của Android hoặc hệ thống.',
-    },
+    speedTitle: 'Nhanh từ thiết kế. Không kéo dài giả tạo.',
+    speedLead: 'Bearagnostic kết thúc khi công việc thực sự hoàn tất, không phải khi hoạt ảnh nói vậy. Deep Scan đọc nội dung có thể truy cập trong phạm vi bạn chọn, cho biết những gì đã kiểm tra và dừng khi hoàn tất. Thời gian quét phụ thuộc vào thiết bị, bộ nhớ, cách bố trí tệp và phạm vi đã chọn.',
+    speedAlt: 'Màn hình Deep Scan đã ẩn các giá trị riêng của lần chạy để bảo vệ quyền riêng tư.',
+    proofTitle: 'Bằng chứng, không phải lời hứa.',
+    proofLead: 'Các bản sao trùng khớp được xác minh trước khi dọn dẹp. Bạn chọn nội dung giữ lại, xem lại các bản sao đã chọn và xác nhận trước khi xóa. Bearagnostic chỉ tính dung lượng thu hồi sau khi Android xác nhận các bản sao đã chọn thực sự biến mất.',
+    proofAlt: ['Màn hình chọn tệp trùng đã ẩn dữ liệu lần chạy.','Màn hình xem lại cuối đã ẩn giá trị lần chạy.','Kết quả đã xác minh với giá trị lần chạy được ẩn.'],
   },
   'zh-cn': {
-    speed: {
-      kicker: 'Deep Scan · 实际观测结果',
-      title: '快在设计里，不靠虚假的等待。',
-      lead: '当真实工作看得见，速度才更有意义。Bearagnostic 会读取目标范围内可访问的内容、展示证据，并在工作完成时结束——不故意拖长进度，也不制造假等待。',
-      evidenceTitle: '一次真实运行，按实际结果呈现。',
-      evidenceBody: '1,152 个文件 · 113 个文件夹 · 读取 22.3 GB · 15 秒。这是单台设备上的观测结果，不是对每次扫描的承诺。',
-      note: '实际时间会因存储速度、文件数量与布局、所选范围、设备性能以及可访问内容而变化。',
-      screenAlt: 'Deep Scan 完成画面，显示 1,152 个文件、113 个文件夹、读取 22.3 GB、15 秒以及 Verified 证据。',
-    },
-    proof: {
-      kicker: '完全重复文件 · 已验证清理',
-      title: '用证据说话，不只靠承诺。',
-      lead: '按下删除之后，信任也应该成立。你决定保留什么，确认真正的删除步骤，而 Bearagnostic 会先验证结果，再把任何字节计入已回收空间。',
-      steps: [['决定保留什么','先验证完全一致的副本，并始终保留至少一份副本的保护。'],['删除前再次确认','在 Delete & verify 前明确显示所选副本、受影响分组和可回收空间。'],['只计算已确认结果','只有 Android 确认已经消失的文件，才会计为已删除或已回收。']],
-      labels: ['决定保留什么','最终确认','已验证结果'],
-      note: '“0 native protections”只属于这一次示例运行；其他删除操作可能触发 Android 或系统原生保护。',
-    },
+    speedTitle: '快，是设计出来的。绝不虚假拖延。',
+    speedLead: 'Bearagnostic 在工作真正完成时结束，而不是等动画说完成。Deep Scan 会读取所选范围内可访问的内容，展示已检查的内容，并在工作完成时停止。扫描时间会因设备、存储、文件布局和所选范围而变化。',
+    speedAlt: '为保护隐私而隐藏单次运行数据的 Deep Scan 完成界面。',
+    proofTitle: '用证据说话，而不是承诺。',
+    proofLead: '完全相同的重复文件会在清理前验证。你决定保留什么、复核所选副本，并在删除前确认。只有 Android 确认所选副本确实已删除后，Bearagnostic 才会计算已回收空间。',
+    proofAlt: ['隐藏单次运行信息的重复文件选择界面。','隐藏单次运行数值的最终确认界面。','隐藏单次运行数值的已验证结果界面。'],
   },
   'zh-tw': {
-    speed: {
-      kicker: 'Deep Scan · 實際觀測結果',
-      title: '快在設計裡，不靠虛假的等待。',
-      lead: '當真實工作看得見，速度才更有意義。Bearagnostic 會讀取目標範圍內可存取的內容、呈現證據，並在工作完成時結束——不故意拉長進度，也不製造假等待。',
-      evidenceTitle: '一次真實執行，照實呈現。',
-      evidenceBody: '1,152 個檔案 · 113 個資料夾 · 讀取 22.3 GB · 15 秒。這是單一裝置上的觀測結果，不是對每次掃描的承諾。',
-      note: '實際時間會因儲存速度、檔案數量與配置、所選範圍、裝置效能以及可存取內容而變化。',
-      screenAlt: 'Deep Scan 完成畫面，顯示 1,152 個檔案、113 個資料夾、讀取 22.3 GB、15 秒與 Verified 證據。',
-    },
-    proof: {
-      kicker: '完全重複檔案 · 已驗證清理',
-      title: '用證據說話，不只靠承諾。',
-      lead: '按下刪除後，信任也應該成立。你決定保留什麼，確認真正的刪除步驟，而 Bearagnostic 會先驗證結果，再把任何位元組計入已回收空間。',
-      steps: [['決定保留什麼','先驗證完全一致的副本，並維持至少保留一份副本的保護。'],['刪除前再次確認','在 Delete & verify 前清楚顯示所選副本、受影響群組與可回收空間。'],['只計算已確認結果','只有 Android 確認已經消失的檔案，才會計為已刪除或已回收。']],
-      labels: ['決定保留什麼','最終確認','已驗證結果'],
-      note: '「0 native protections」只屬於這一次示例執行；其他刪除操作可能觸發 Android 或系統原生保護。',
-    },
+    speedTitle: '快，是設計出來的。絕不虛假拖延。',
+    speedLead: 'Bearagnostic 在工作真正完成時結束，而不是等動畫說完成。Deep Scan 會讀取所選範圍內可存取的內容，顯示已檢查的內容，並在工作完成時停止。掃描時間會依裝置、儲存空間、檔案配置與所選範圍而不同。',
+    speedAlt: '為保護隱私而隱藏單次執行資料的 Deep Scan 完成畫面。',
+    proofTitle: '用證據說話，而不是承諾。',
+    proofLead: '完全相同的重複檔案會在清理前驗證。你決定保留什麼、檢查所選副本，並在刪除前確認。只有 Android 確認所選副本確實已移除後，Bearagnostic 才會計算已回收空間。',
+    proofAlt: ['隱藏單次執行資訊的重複檔案選擇畫面。','隱藏單次執行數值的最終確認畫面。','隱藏單次執行數值的已驗證結果畫面。'],
   },
   ar: {
-    speed: {
-      kicker: 'Deep Scan · نتيجة مرصودة',
-      title: 'سريع بحكم التصميم. بلا انتظار مصطنع.',
-      lead: 'تكون السرعة أكثر قيمة عندما ترى العمل الحقيقي خلفها. يقرأ Bearagnostic المحتوى المتاح ضمن النطاق المقصود، ويعرض الدليل، ويتوقف عندما تنتهي المهمة — بلا تقدم ممدد أو انتظار وهمي.',
-      evidenceTitle: 'تشغيل حقيقي واحد، كما حدث فعلاً.',
-      evidenceBody: '1,152 ملفًا · 113 مجلدًا · قراءة 22.3 GB · 15 ثانية. هذه نتيجة مرصودة على جهاز واحد وليست وعدًا لكل عملية فحص.',
-      note: 'يختلف الزمن الفعلي حسب سرعة التخزين وعدد الملفات وترتيبها والنطاق المختار وأداء الجهاز والمحتوى المتاح.',
-      screenAlt: 'نتيجة Deep Scan تعرض 1,152 ملفًا و113 مجلدًا و22.3 GB مقروءة و15 ثانية ودليل Verified.',
-    },
-    proof: {
-      kicker: 'نسخ متطابقة · تنظيف موثّق',
-      title: 'دليل، لا وعود.',
-      lead: 'يجب أن تبقى الثقة بعد زر الحذف. أنت تختار ما يبقى، وتراجع خطوة الحذف، ثم يتحقق Bearagnostic من النتيجة قبل أن يحسب أي بايت كمساحة مستعادة.',
-      steps: [['اختر ما يبقى','يتم التحقق من التطابقات الدقيقة أولاً، وتظل حماية الاحتفاظ بنسخة واحدة فعالة.'],['راجع قبل الحذف','تظهر النسخ المحددة والمجموعات المتأثرة والمساحة القابلة للاستعادة بوضوح قبل Delete & verify.'],['احسب المؤكد فقط','لا تُحسب الملفات كمحذوفة أو المساحة كمستعادة إلا بعد أن يؤكد Android اختفاءها.']],
-      labels: ['اختر ما يبقى','المراجعة النهائية','نتيجة موثّقة'],
-      note: '«0 native protections» تخص هذا المثال فقط؛ قد تنطبق حماية Android أو النظام في عمليات حذف أخرى.',
-    },
+    speedTitle: 'سريع بتصميمه. بلا انتظار مصطنع.',
+    speedLead: 'ينتهي Bearagnostic عندما ينتهي العمل فعلاً، لا عندما تقول الرسوم المتحركة ذلك. يقرأ Deep Scan المحتوى المتاح ضمن النطاق الذي تختاره، ويعرض ما راجعه، ثم يتوقف عند اكتمال العمل. تختلف مدة الفحص حسب الجهاز والتخزين وتوزيع الملفات والنطاق المختار.',
+    speedAlt: 'شاشة اكتمال Deep Scan مع إخفاء قيم التشغيل الخاصة حفاظاً على الخصوصية.',
+    proofTitle: 'دليل، لا وعود.',
+    proofLead: 'يتم التحقق من النسخ المتطابقة قبل التنظيف. تختار ما يبقى، وتراجع النسخ المحددة، ثم تؤكد قبل الحذف. لا يحتسب Bearagnostic المساحة كمستعادة إلا بعد أن يؤكد Android أن النسخ المحددة قد اختفت فعلاً.',
+    proofAlt: ['شاشة اختيار النسخ المكررة مع إخفاء بيانات التشغيل.','مراجعة نهائية مع إخفاء قيم التشغيل.','نتيجة موثقة مع إخفاء قيم التشغيل.'],
   },
   hi: {
-    speed: {
-      kicker: 'Deep Scan · देखा गया वास्तविक रन',
-      title: 'डिज़ाइन से तेज़। बनावटी इंतज़ार नहीं।',
-      lead: 'गति तब अधिक मायने रखती है जब उसके पीछे का असली काम दिखाई दे। Bearagnostic तय दायरे के पहुँच योग्य कंटेंट को पढ़ता है, प्रमाण दिखाता है और काम पूरा होते ही रुक जाता है — न खिंचा हुआ progress, न नकली इंतज़ार।',
-      evidenceTitle: 'एक वास्तविक रन, जैसा हुआ वैसा ही।',
-      evidenceBody: '1,152 फ़ाइलें · 113 फ़ोल्डर · 22.3 GB पढ़ा · 15 सेकंड। यह एक डिवाइस पर देखा गया परिणाम है, हर स्कैन का वादा नहीं।',
-      note: 'वास्तविक समय स्टोरेज गति, फ़ाइलों की संख्या और व्यवस्था, चुने दायरे, डिवाइस और पहुँच योग्य कंटेंट पर निर्भर करता है।',
-      screenAlt: 'Deep Scan परिणाम जिसमें 1,152 फ़ाइलें, 113 फ़ोल्डर, 22.3 GB पढ़ा गया, 15 सेकंड और Verified प्रमाण दिखता है।',
-    },
-    proof: {
-      kicker: 'सटीक डुप्लिकेट · सत्यापित सफ़ाई',
-      title: 'वादे नहीं, प्रमाण।',
-      lead: 'Delete दबाने के बाद भी भरोसा कायम रहना चाहिए। आप तय करते हैं क्या रहेगा, हटाने वाले कदम की समीक्षा करते हैं और Bearagnostic परिणाम सत्यापित करने के बाद ही किसी बाइट को वापस मिली जगह में गिनता है।',
-      steps: [['तय करें क्या रहेगा','सटीक मिलान पहले सत्यापित होते हैं और कम-से-कम एक कॉपी रखने की सुरक्षा बनी रहती है।'],['हटाने से पहले समीक्षा','चुनी कॉपियाँ, प्रभावित समूह और वापस मिल सकने वाली जगह Delete & verify से पहले स्पष्ट रहती है।'],['केवल पुष्टि हुआ परिणाम गिनें','सिर्फ वही फ़ाइलें हटाई या पुनः प्राप्त मानी जाती हैं जिन्हें Android सचमुच गायब होने की पुष्टि करता है।']],
-      labels: ['तय करें क्या रहेगा','अंतिम समीक्षा','सत्यापित परिणाम'],
-      note: '“0 native protections” केवल इस उदाहरण रन का परिणाम है; दूसरी deletions में Android या native सुरक्षा लागू हो सकती है।',
-    },
+    speedTitle: 'डिज़ाइन से तेज़। दिखावटी इंतज़ार नहीं।',
+    speedLead: 'Bearagnostic तब समाप्त होता है जब काम सच में पूरा हो जाता है, न कि जब कोई एनीमेशन ऐसा कहे। Deep Scan चुने गए दायरे में उपलब्ध सामग्री पढ़ता है, जो जाँचा गया उसे दिखाता है और काम पूरा होने पर रुकता है। समय डिवाइस, स्टोरेज, फ़ाइल व्यवस्था और चुने गए दायरे पर निर्भर करता है।',
+    speedAlt: 'गोपनीयता के लिए रन-विशिष्ट मान हटाए गए Deep Scan परिणाम।',
+    proofTitle: 'वादे नहीं, प्रमाण।',
+    proofLead: 'सटीक डुप्लिकेट साफ़ करने से पहले सत्यापित किए जाते हैं। आप तय करते हैं क्या रखना है, चुनी गई प्रतियों की समीक्षा करते हैं और हटाने से पहले पुष्टि करते हैं। Bearagnostic जगह को तभी वापस मिली मानता है जब Android पुष्टि करे कि चुनी गई प्रतियाँ वास्तव में हट चुकी हैं।',
+    proofAlt: ['रन डेटा हटाकर दिखाया गया डुप्लिकेट चयन।','रन मान हटाकर दिखाया गया अंतिम रिव्यू।','रन मान हटाकर दिखाया गया सत्यापित परिणाम।'],
   },
   tr: {
-    speed: {
-      kicker: 'Deep Scan · gözlemlenen çalışma',
-      title: 'Tasarım gereği hızlı. Yapay bekleme yok.',
-      lead: 'Hız, arkasındaki gerçek işi görebildiğinizde daha anlamlıdır. Bearagnostic hedeflenen erişilebilir içeriği okur, kanıtı gösterir ve iş bittiğinde durur — uzatılmış ilerleme ya da sahte bekleme yok.',
-      evidenceTitle: 'Gerçek bir çalışma, olduğu gibi gösterildi.',
-      evidenceBody: '1.152 dosya · 113 klasör · 22,3 GB okundu · 15 sn. Bu tek bir cihazda gözlemlenen sonuçtur; her tarama için verilmiş bir söz değildir.',
-      note: 'Gerçek süre depolama hızı, dosya sayısı ve düzeni, seçilen kapsam, cihaz ve erişilebilir içeriğe göre değişir.',
-      screenAlt: '1.152 dosya, 113 klasör, 22,3 GB okuma, 15 saniye ve Verified kanıtı gösteren Deep Scan sonucu.',
-    },
-    proof: {
-      kicker: 'Birebir kopyalar · doğrulanmış temizlik',
-      title: 'Söz değil, kanıt.',
-      lead: 'Güven, silme düğmesinden sonra da sürmeli. Neyin kalacağına siz karar verir, yıkıcı adımı gözden geçirir ve Bearagnostic sonucu doğrulamadan tek bir baytı bile geri kazanılmış saymaz.',
-      steps: [['Neyin kalacağını seçin','Birebir eşleşmeler önce doğrulanır ve bir kopyayı koruma güvenliği etkin kalır.'],['Silmeden önce gözden geçirin','Seçilen kopyalar, etkilenen gruplar ve geri kazanılabilir alan Delete & verify öncesinde açıkça gösterilir.'],['Yalnızca doğrulananı sayın','Yalnızca Android’in gerçekten kaybolduğunu doğruladığı dosyalar silinmiş veya geri kazanılmış sayılır.']],
-      labels: ['Neyin kalacağını seçin','Son inceleme','Doğrulanmış sonuç'],
-      note: '“0 native protections” yalnızca bu örnek çalışmaya aittir; başka silmelerde Android veya sistem korumaları devreye girebilir.',
-    },
+    speedTitle: 'Tasarım gereği hızlı. Yapay bekleme yok.',
+    speedLead: 'Bearagnostic, bir animasyon öyle söylediğinde değil, iş gerçekten bittiğinde tamamlanır. Deep Scan seçtiğiniz kapsam içindeki erişilebilir içeriği okur, neleri incelediğini gösterir ve iş tamamlandığında durur. Süre; cihaz, depolama, dosya düzeni ve seçilen kapsama göre değişir.',
+    speedAlt: 'Gizlilik için çalışmaya özel değerleri gizlenmiş Deep Scan sonuç ekranı.',
+    proofTitle: 'Söz değil, kanıt.',
+    proofLead: 'Birebir kopyalar temizleme öncesinde doğrulanır. Neyin kalacağını siz seçer, seçilen kopyaları gözden geçirir ve silmeden önce onaylarsınız. Bearagnostic, alanı ancak Android seçilen kopyaların gerçekten kaldırıldığını doğruladıktan sonra geri kazanılmış sayar.',
+    proofAlt: ['Çalışmaya özel verileri gizlenmiş kopya seçim ekranı.','Çalışmaya özel değerleri gizlenmiş son inceleme.','Çalışmaya özel değerleri gizlenmiş doğrulanmış sonuç.'],
   },
 } as const;
 
@@ -325,15 +141,15 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
 <article class="feature-story story-chapter story-speed" aria-labelledby="story-speed-title">
   <div class="feature-story-copy story-copy">
     <span class="feature-number">04</span>
-    <h3 id="story-speed-title">{story.speed.title}</h3>
-    <p>{locale === 'en' ? story.speed.lead : `${story.speed.lead} ${story.speed.evidenceBody} ${story.speed.note}`}</p>
+    <h3 id="story-speed-title">{story.speedTitle}</h3>
+    <p>{story.speedLead}</p>
   </div>
 
   <div class="feature-story-visual story-visual story-speed-visual">
     <figure class="story-screen story-speed-screen">
       <img
-        src="/products/bearagnostic/showcase/section-04-deep-scan-complete.webp"
-        alt={story.speed.screenAlt}
+        src="/products/bearagnostic/showcase/section-04-deep-scan-privacy-safe.webp"
+        alt={story.speedAlt}
         width="691"
         height="1536"
         loading="lazy"
@@ -342,10 +158,10 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     </figure>
     <figure class="story-mascot story-speed-mascot" aria-hidden="true">
       <img
-        src="/products/bearagnostic/showcase/dr-bear-ultra-fast-scanning.webp"
+        src="/products/bearagnostic/showcase/dr-bear-speed-runner-final.webp"
         alt=""
-        width="1254"
-        height="1254"
+        width="1536"
+        height="1536"
         loading="lazy"
         decoding="async"
       />
@@ -356,84 +172,56 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
 <article class="feature-story story-chapter story-proof" aria-labelledby="story-proof-title">
   <div class="feature-story-copy story-copy">
     <span class="feature-number">05</span>
-    <h3 id="story-proof-title">{story.proof.title}</h3>
-    <p>{story.proof.lead} {story.proof.note}</p>
+    <h3 id="story-proof-title">{story.proofTitle}</h3>
+    <p>{story.proofLead}</p>
   </div>
 
   <div class="feature-story-visual story-visual story-proof-visual">
     <figure class="story-screen story-proof-a">
-      <img
-        src="/products/bearagnostic/showcase/section-05-exact-duplicates.webp"
-        alt={story.proof.labels[0]}
-        width="691"
-        height="1536"
-        loading="lazy"
-        decoding="async"
-      />
+      <img src="/products/bearagnostic/showcase/section-05-exact-duplicates-privacy-safe.webp" alt={story.proofAlt[0]} width="691" height="1536" loading="lazy" decoding="async" />
     </figure>
     <figure class="story-screen story-proof-b">
-      <img
-        src="/products/bearagnostic/showcase/section-05-final-review.webp"
-        alt={story.proof.labels[1]}
-        width="691"
-        height="1536"
-        loading="lazy"
-        decoding="async"
-      />
+      <img src="/products/bearagnostic/showcase/section-05-final-review-privacy-safe.webp" alt={story.proofAlt[1]} width="691" height="1536" loading="lazy" decoding="async" />
     </figure>
     <figure class="story-screen story-proof-c">
-      <img
-        src="/products/bearagnostic/showcase/section-05-verified-cleanup.webp"
-        alt={story.proof.labels[2]}
-        width="691"
-        height="1536"
-        loading="lazy"
-        decoding="async"
-      />
+      <img src="/products/bearagnostic/showcase/section-05-verified-cleanup-privacy-safe.webp" alt={story.proofAlt[2]} width="691" height="1536" loading="lazy" decoding="async" />
     </figure>
     <figure class="story-mascot story-proof-mascot" aria-hidden="true">
-      <img
-        src="/products/bearagnostic/showcase/dr-bear-verified-shield.webp"
-        alt=""
-        width="1254"
-        height="1254"
-        loading="lazy"
-        decoding="async"
-      />
+      <img src="/products/bearagnostic/showcase/dr-bear-verified-shield-final.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
     </figure>
   </div>
 </article>
 
 <style>
-  /* Sections 04–05: explicit production feature grammar from Sections 01–03. */
+  /* 04–05 intentionally mirror the production grammar used by 01–03. */
   .story-chapter {
     position: relative !important;
     display: grid !important;
     align-items: center !important;
     min-height: 650px !important;
-    padding: clamp(1.45rem, 3vw, 2.5rem) !important;
+    padding: clamp(1.9rem, 3vw, 2.65rem) !important;
     overflow: hidden !important;
-    border: 1px solid rgba(17, 60, 103, .08) !important;
-    border-radius: 38px !important;
-    box-shadow: 0 30px 78px rgba(29, 67, 107, .074), inset 0 1px 0 rgba(255,255,255,.97) !important;
+    border: 1px solid rgba(30,103,163,.085) !important;
+    border-radius: 40px !important;
+    box-shadow: 0 30px 76px rgba(25,68,108,.085), inset 0 1px 0 rgba(255,255,255,.96) !important;
   }
 
   .story-speed {
     grid-template-columns: minmax(570px, 1.2fr) minmax(300px, .8fr) !important;
-    gap: clamp(1.4rem, 2.7vw, 2.8rem) !important;
+    gap: clamp(1.8rem, 3.5vw, 3.8rem) !important;
     background:
-      radial-gradient(circle at 12% 14%, rgba(43, 180, 235, .12), transparent 23rem),
-      radial-gradient(circle at 72% 86%, rgba(74, 131, 245, .065), transparent 22rem),
-      linear-gradient(145deg, rgba(255,255,255,.997), rgba(245,251,255,.975)) !important;
+      radial-gradient(circle at 14% 18%, rgba(67,196,239,.125), transparent 24rem),
+      radial-gradient(circle at 64% 90%, rgba(75,131,245,.065), transparent 24rem),
+      linear-gradient(145deg, rgba(255,255,255,.995), rgba(245,251,255,.965)) !important;
   }
 
   .story-proof {
     grid-template-columns: minmax(300px, .82fr) minmax(570px, 1.18fr) !important;
-    gap: clamp(1.4rem, 2.7vw, 2.8rem) !important;
+    gap: clamp(1.8rem, 3.5vw, 3.8rem) !important;
     background:
-      radial-gradient(circle at 88% 15%, rgba(98, 91, 210, .105), transparent 23rem),
-      radial-gradient(circle at 65% 86%, rgba(61, 188, 145, .075), transparent 22rem),
-      linear-gradient(145deg, rgba(255,255,255,.997), rgba(247,249,255,.975)) !important;
+      radial-gradient(circle at 88% 16%, rgba(111,99,220,.105), transparent 24rem),
+      radial-gradient(circle at 65% 88%, rgba(61,188,145,.075), transparent 24rem),
+      linear-gradient(145deg, rgba(255,255,255,.997), rgba(248,248,255,.972)) !important;
   }
 
   .story-speed .story-copy { order: 2 !important; }
@@ -454,34 +242,22 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     width: 44px !important;
     height: 44px !important;
     place-items: center !important;
-    border: 1px solid rgba(43, 114, 246, .1) !important;
+    border: 1px solid rgba(43,114,246,.1) !important;
     border-radius: 15px !important;
     font-size: .76rem !important;
     font-weight: 850 !important;
     letter-spacing: .1em !important;
   }
-
-  .story-speed .feature-number {
-    color: #0f7fd0 !important;
-    border-color: rgba(23,138,211,.10) !important;
-    background: rgba(25,151,224,.065) !important;
-  }
-
-  .story-proof .feature-number {
-    color: #635ac9 !important;
-    border-color: rgba(98,89,199,.11) !important;
-    background: rgba(111,95,215,.065) !important;
-  }
+  .story-speed .feature-number { color:#0f7fd0 !important; background:rgba(25,151,224,.065) !important; }
+  .story-proof .feature-number { color:#635ac9 !important; background:rgba(111,95,215,.065) !important; }
 
   .story-copy h3 {
     margin: 1.2rem 0 0 !important;
-    color: inherit !important;
     font-size: clamp(2rem, 3.3vw, 3.15rem) !important;
     line-height: 1.02 !important;
-    letter-spacing: var(--type-heading-tracking, -0.045em) !important;
+    letter-spacing: var(--type-heading-tracking, -.045em) !important;
     text-wrap: balance;
   }
-
   .story-copy p {
     margin: 1rem 0 0 !important;
     color: #667b95 !important;
@@ -494,231 +270,119 @@ const story = copy[locale as keyof typeof copy] ?? copy.en;
     display: block !important;
     width: 100% !important;
     max-width: 735px !important;
-    min-height: 610px !important;
+    min-height: 600px !important;
     margin-inline: auto !important;
     overflow: visible !important;
     isolation: isolate !important;
   }
-
   .story-visual::before {
-    position: absolute !important;
-    z-index: -2 !important;
-    inset: 4% -2% 0 !important;
-    display: block !important;
-    border-radius: 50% !important;
-    content: '' !important;
-    pointer-events: none !important;
+    position:absolute !important; z-index:-2 !important; inset:5% -2% 1% 2% !important;
+    border-radius:50% !important; content:'' !important; pointer-events:none !important;
   }
-
-  .story-speed-visual::before {
-    background: radial-gradient(ellipse at 43% 49%, rgba(255,255,255,.996) 0 28%, rgba(227,246,255,.55) 49%, rgba(206,239,253,.22) 67%, transparent 80%) !important;
-  }
-
-  .story-proof-visual::before {
-    background: radial-gradient(ellipse at 58% 48%, rgba(255,255,255,.996) 0 28%, rgba(237,232,255,.50) 48%, rgba(217,248,245,.18) 68%, transparent 80%) !important;
-  }
-
+  .story-speed-visual::before { background:radial-gradient(ellipse at 48% 48%,rgba(255,255,255,.96) 0 27%,rgba(227,246,255,.55) 49%,rgba(206,239,253,.22) 66%,transparent 78%) !important; }
+  .story-proof-visual::before { background:radial-gradient(ellipse at 52% 48%,rgba(255,255,255,.98) 0 27%,rgba(236,233,255,.50) 48%,rgba(217,248,245,.17) 68%,transparent 80%) !important; }
   .story-visual::after {
-    position: absolute !important;
-    z-index: -1 !important;
-    inset: auto 5% 0 5% !important;
-    height: 8% !important;
-    border-radius: 50% !important;
-    background: radial-gradient(ellipse, rgba(25,73,116,.13), transparent 70%) !important;
-    filter: blur(11px) !important;
-    content: '' !important;
-    pointer-events: none !important;
+    position:absolute !important; z-index:-1 !important; inset:auto 5% 0 5% !important; height:8% !important;
+    border-radius:50% !important; background:radial-gradient(ellipse,rgba(25,73,116,.13),transparent 70%) !important;
+    filter:blur(11px) !important; content:'' !important; pointer-events:none !important;
   }
 
-  .story-screen, .story-mascot { position: absolute !important; margin: 0 !important; box-sizing: border-box !important; }
+  .story-screen,.story-mascot { position:absolute !important; margin:0 !important; box-sizing:border-box !important; }
   .story-screen {
-    overflow: hidden !important;
-    padding: 6px !important;
-    border: 1px solid rgba(17,59,96,.105) !important;
-    border-radius: 31px !important;
-    background: #fff !important;
-    box-shadow: 0 32px 72px rgba(24,66,107,.145), 0 9px 24px rgba(24,66,107,.06) !important;
-    transform-origin: center center !important;
+    overflow:hidden !important; padding:6px !important; border:1px solid rgba(17,59,96,.105) !important;
+    border-radius:31px !important; background:#fff !important;
+    box-shadow:0 32px 72px rgba(24,66,107,.145),0 9px 24px rgba(24,66,107,.06) !important;
+    transform-origin:center center !important;
   }
-  .story-screen img { display: block !important; width: 100% !important; height: auto !important; border-radius: 24px !important; }
-  .story-mascot img { display: block !important; width: 100% !important; height: auto !important; object-fit: contain !important; }
+  .story-screen img { display:block !important; width:100% !important; height:auto !important; border-radius:24px !important; }
+  .story-mascot img { display:block !important; width:100% !important; height:auto !important; object-fit:contain !important; }
 
-  /* 04 — same visual weight as the accepted feature cards; speed mascot overlaps the phone in front. */
-  .story-speed-screen {
-    z-index: 6 !important;
-    inset-inline-start: 4% !important;
-    inset-block-end: 0 !important;
-    width: min(38%, 270px) !important;
-    transform: rotate(-.8deg) !important;
-  }
-  .story-speed-mascot {
-    z-index: 8 !important;
-    inset-inline-end: 2% !important;
-    inset-block-end: -1.5% !important;
-    width: min(63%, 455px) !important;
-    filter: drop-shadow(0 30px 27px rgba(35,54,94,.13)) !important;
-  }
+  /* 04: one readable evidence screen + the exact speed mascot supplied by P'Benz. */
+  .story-speed-screen { z-index:6 !important; inset-inline-start:4% !important; inset-block-end:0 !important; width:min(39%,278px) !important; transform:rotate(-.8deg) !important; }
+  .story-speed-mascot { z-index:8 !important; inset-inline-end:-2% !important; inset-block-end:-1% !important; width:min(66%,470px) !important; filter:drop-shadow(0 30px 27px rgba(35,54,94,.13)) !important; }
 
-  /* 05 — verified result is primary; two support screens establish the flow; mascot overlaps the hero screen. */
-  .story-proof-a {
-    z-index: 1 !important;
-    inset-block-start: 4% !important;
-    inset-inline-start: 0 !important;
-    width: min(24%, 176px) !important;
-    transform: rotate(-2.2deg) !important;
-    opacity: .90 !important;
-  }
-  .story-proof-b {
-    z-index: 2 !important;
-    inset-block-start: 0 !important;
-    inset-inline-start: 18% !important;
-    width: min(24%, 176px) !important;
-    transform: rotate(1.7deg) !important;
-    opacity: .96 !important;
-  }
-  .story-proof-c {
-    z-index: 6 !important;
-    inset-inline-start: 20% !important;
-    inset-block-end: 0 !important;
-    width: min(40%, 286px) !important;
-    transform: rotate(-.25deg) !important;
-    box-shadow: 0 36px 80px rgba(31,67,108,.16), 0 10px 27px rgba(31,67,108,.06) !important;
-  }
-  .story-proof-mascot {
-    z-index: 8 !important;
-    inset-inline-end: -1% !important;
-    inset-block-end: -2% !important;
-    width: min(56%, 410px) !important;
-    filter: drop-shadow(0 30px 27px rgba(35,54,94,.13)) !important;
+  /* 05: three readable proof screens, spaced deliberately; mascot overlaps only the verified screen edge. */
+  .story-proof-a { z-index:2 !important; inset-block-start:9% !important; inset-inline-start:0 !important; width:min(27%,198px) !important; transform:rotate(-1.7deg) !important; }
+  .story-proof-b { z-index:3 !important; inset-block-start:2% !important; inset-inline-start:24% !important; width:min(27%,198px) !important; transform:rotate(1.35deg) !important; }
+  .story-proof-c { z-index:6 !important; inset-block-start:8% !important; inset-inline-start:47% !important; width:min(38%,278px) !important; transform:rotate(-.2deg) !important; box-shadow:0 36px 80px rgba(31,67,108,.16),0 10px 27px rgba(31,67,108,.06) !important; }
+  .story-proof-mascot { z-index:8 !important; inset-inline-end:-5% !important; inset-block-end:-3% !important; width:min(38%,278px) !important; filter:drop-shadow(0 30px 27px rgba(35,54,94,.13)) !important; }
+
+  @media (max-width:1180px) and (min-width:981px) {
+    .story-speed { grid-template-columns:minmax(480px,1.1fr) minmax(280px,.9fr) !important; min-height:620px !important; }
+    .story-proof { grid-template-columns:minmax(280px,.9fr) minmax(480px,1.1fr) !important; min-height:620px !important; }
+    .story-visual { min-height:555px !important; }
+    .story-speed-screen { width:min(38%,230px) !important; }
+    .story-speed-mascot { width:min(64%,385px) !important; }
+    .story-proof-a,.story-proof-b { width:min(27%,162px) !important; }
+    .story-proof-b { inset-inline-start:24% !important; }
+    .story-proof-c { width:min(38%,230px) !important; inset-inline-start:47% !important; }
+    .story-proof-mascot { width:min(38%,230px) !important; }
   }
 
-  @media (max-width: 1180px) and (min-width: 981px) {
-    .story-speed { grid-template-columns: minmax(480px,1.1fr) minmax(280px,.9fr) !important; min-height: 620px !important; }
-    .story-proof { grid-template-columns: minmax(280px,.9fr) minmax(480px,1.1fr) !important; min-height: 620px !important; }
-    .story-visual { min-height: 555px !important; }
-    .story-speed-screen { width: min(39%, 235px) !important; }
-    .story-speed-mascot { width: min(62%, 370px) !important; inset-inline-end: 1% !important; }
-    .story-proof-a, .story-proof-b { width: min(23%, 142px) !important; }
-    .story-proof-b { inset-inline-start: 18% !important; }
-    .story-proof-c { width: min(39%, 238px) !important; inset-inline-start: 20% !important; }
-    .story-proof-mascot { width: min(55%, 330px) !important; }
+  @media (max-width:980px) and (min-width:681px) {
+    .story-speed,.story-proof { grid-template-columns:1fr !important; gap:1.2rem !important; min-height:0 !important; padding:clamp(1.35rem,3.3vw,1.8rem) !important; }
+    .story-speed .story-copy,.story-proof .story-copy,.story-speed .story-visual,.story-proof .story-visual { order:initial !important; }
+    .story-copy { max-width:650px !important; }
+    .story-visual { width:min(100%,680px) !important; min-height:clamp(520px,70vw,585px) !important; }
+    .story-speed-screen { inset-inline-start:6% !important; width:min(38%,240px) !important; }
+    .story-speed-mascot { width:min(63%,400px) !important; inset-inline-end:0 !important; }
+    .story-proof-a,.story-proof-b { width:min(27%,175px) !important; }
+    .story-proof-b { inset-inline-start:24% !important; }
+    .story-proof-c { width:min(38%,250px) !important; inset-inline-start:47% !important; }
+    .story-proof-mascot { width:min(37%,245px) !important; inset-inline-end:-1% !important; }
   }
 
-  @media (max-width: 980px) and (min-width: 681px) {
-    .story-speed, .story-proof {
-      grid-template-columns: 1fr !important;
-      gap: 1.2rem !important;
-      min-height: 0 !important;
-      padding: clamp(1.35rem, 3.3vw, 1.8rem) !important;
-    }
-    .story-speed .story-copy, .story-proof .story-copy,
-    .story-speed .story-visual, .story-proof .story-visual { order: initial !important; }
-    .story-copy { max-width: 650px !important; }
-    .story-visual { width: min(100%, 680px) !important; min-height: clamp(520px, 70vw, 585px) !important; }
-    .story-speed-screen { inset-inline-start: 8% !important; width: min(38%, 240px) !important; }
-    .story-speed-mascot { inset-inline-end: 1% !important; width: min(61%, 385px) !important; }
-    .story-proof-a, .story-proof-b { width: min(23%, 155px) !important; }
-    .story-proof-b { inset-inline-start: 18% !important; }
-    .story-proof-c { width: min(40%, 268px) !important; inset-inline-start: 21% !important; }
-    .story-proof-mascot { width: min(54%, 355px) !important; inset-inline-end: 0 !important; }
+  /* Smartphone: recomposed rather than scaled down. */
+  @media (max-width:680px) {
+    .story-speed,.story-proof { grid-template-columns:1fr !important; min-height:0 !important; gap:.9rem !important; padding:clamp(1rem,4.6vw,1.25rem) !important; border-radius:29px !important; }
+    .story-speed .story-copy,.story-proof .story-copy,.story-speed .story-visual,.story-proof .story-visual { order:initial !important; }
+    .story-copy { max-width:100% !important; }
+    .story-copy h3 { font-size:clamp(1.75rem,8vw,2.55rem) !important; }
+    .story-visual::before { inset:6% -6% 0 !important; }
+
+    .story-speed-visual { width:100% !important; max-width:390px !important; min-height:min(112vw,430px) !important; margin:.2rem auto 0 !important; }
+    .story-speed-screen { inset-inline-start:0 !important; width:min(50%,188px) !important; padding:5px !important; border-radius:27px !important; transform:rotate(-.6deg) !important; }
+    .story-speed-screen img { border-radius:21px !important; }
+    .story-speed-mascot { inset-inline-end:-5% !important; inset-block-end:-1% !important; width:min(70%,262px) !important; }
+
+    .story-proof-visual { width:100% !important; max-width:410px !important; min-height:min(154vw,585px) !important; margin:.1rem auto 0 !important; }
+    .story-proof-a,.story-proof-b,.story-proof-c { padding:5px !important; border-radius:25px !important; }
+    .story-proof-a img,.story-proof-b img,.story-proof-c img { border-radius:19px !important; }
+    .story-proof-a { inset-block-start:0 !important; inset-inline-start:2% !important; width:min(42%,158px) !important; transform:rotate(-1.25deg) !important; }
+    .story-proof-b { inset-block-start:0 !important; inset-inline-start:auto !important; inset-inline-end:2% !important; width:min(42%,158px) !important; transform:rotate(1.1deg) !important; }
+    .story-proof-c { inset-inline-start:5% !important; inset-block-start:auto !important; inset-block-end:0 !important; width:min(55%,208px) !important; transform:rotate(-.3deg) !important; }
+    .story-proof-mascot { inset-inline-end:-2% !important; inset-block-end:-1% !important; width:min(47%,178px) !important; }
   }
 
-  @media (max-width: 680px) {
-    .story-speed, .story-proof {
-      grid-template-columns: 1fr !important;
-      min-height: 0 !important;
-      gap: .9rem !important;
-      padding: clamp(1rem, 4.6vw, 1.25rem) !important;
-      border-radius: 29px !important;
-    }
-    .story-speed .story-copy, .story-proof .story-copy,
-    .story-speed .story-visual, .story-proof .story-visual { order: initial !important; }
-    .story-copy { max-width: 100% !important; }
-    .story-copy h3 { font-size: clamp(1.75rem, 8vw, 2.55rem) !important; }
-    .story-visual::before { inset: 6% -6% 0 !important; }
-
-    .story-speed-visual {
-      width: 100% !important;
-      max-width: 390px !important;
-      min-height: min(112vw, 430px) !important;
-      margin: .2rem auto 0 !important;
-    }
-    .story-speed-screen {
-      inset-inline-start: 1% !important;
-      width: min(52%, 190px) !important;
-      padding: 5px !important;
-      border-radius: 27px !important;
-      transform: rotate(-.6deg) !important;
-    }
-    .story-speed-screen img { border-radius: 21px !important; }
-    .story-speed-mascot {
-      inset-inline-end: -3% !important;
-      inset-block-end: -1% !important;
-      width: min(68%, 250px) !important;
-    }
-
-    .story-proof-visual {
-      width: 100% !important;
-      max-width: 410px !important;
-      min-height: min(139vw, 525px) !important;
-      margin: .1rem auto 0 !important;
-    }
-    .story-proof-a, .story-proof-b, .story-proof-c { padding: 5px !important; border-radius: 25px !important; }
-    .story-proof-a img, .story-proof-b img, .story-proof-c img { border-radius: 19px !important; }
-    .story-proof-a {
-      inset-block-start: 1% !important;
-      inset-inline-start: 0 !important;
-      width: min(34%, 130px) !important;
-      transform: rotate(-2deg) !important;
-    }
-    .story-proof-b {
-      inset-block-start: 3% !important;
-      inset-inline-start: 28% !important;
-      width: min(34%, 130px) !important;
-      transform: rotate(1.8deg) !important;
-    }
-    .story-proof-c {
-      inset-inline-start: 7% !important;
-      inset-block-end: 0 !important;
-      width: min(54%, 205px) !important;
-      transform: rotate(-.35deg) !important;
-    }
-    .story-proof-mascot {
-      inset-inline-end: -3% !important;
-      inset-block-end: -1% !important;
-      width: min(59%, 220px) !important;
-    }
+  @media (max-width:430px) {
+    .story-speed,.story-proof { border-radius:26px !important; }
+    .story-speed-visual { min-height:min(113vw,400px) !important; }
+    .story-speed-screen { width:min(50%,174px) !important; }
+    .story-speed-mascot { width:min(70%,240px) !important; }
+    .story-proof-visual { min-height:min(155vw,550px) !important; }
+    .story-proof-a,.story-proof-b { width:min(42%,145px) !important; }
+    .story-proof-c { width:min(55%,192px) !important; }
+    .story-proof-mascot { width:min(47%,164px) !important; }
   }
 
-  @media (max-width: 430px) {
-    .story-speed, .story-proof { border-radius: 26px !important; }
-    .story-speed-visual { min-height: min(113vw, 400px) !important; }
-    .story-speed-screen { width: min(52%, 176px) !important; }
-    .story-speed-mascot { width: min(68%, 230px) !important; }
-    .story-proof-visual { min-height: min(140vw, 505px) !important; }
-    .story-proof-a, .story-proof-b { width: min(34%, 118px) !important; }
-    .story-proof-c { width: min(54%, 190px) !important; }
-    .story-proof-mascot { width: min(59%, 205px) !important; }
+  @media (max-width:360px) {
+    .story-speed-visual { min-height:365px !important; }
+    .story-speed-screen { width:min(50%,158px) !important; }
+    .story-speed-mascot { width:min(69%,215px) !important; }
+    .story-proof-visual { min-height:505px !important; }
+    .story-proof-a,.story-proof-b { width:min(41%,128px) !important; }
+    .story-proof-c { width:min(54%,174px) !important; }
+    .story-proof-mascot { width:min(46%,150px) !important; }
   }
 
-  @media (max-width: 360px) {
-    .story-speed-visual { min-height: 365px !important; }
-    .story-speed-screen { width: min(52%, 160px) !important; }
-    .story-speed-mascot { width: min(67%, 205px) !important; }
-    .story-proof-visual { min-height: 465px !important; }
-    .story-proof-a, .story-proof-b { width: min(33%, 104px) !important; }
-    .story-proof-c { width: min(54%, 176px) !important; }
-    .story-proof-mascot { width: min(58%, 182px) !important; }
-  }
+  :global(html[dir='rtl']) .story-speed-screen { transform:rotate(.8deg) !important; }
+  :global(html[dir='rtl']) .story-proof-a { transform:rotate(1.7deg) !important; }
+  :global(html[dir='rtl']) .story-proof-b { transform:rotate(-1.35deg) !important; }
+  :global(html[dir='rtl']) .story-proof-c { transform:rotate(.2deg) !important; }
 
-  :global(html[dir="rtl"]) .story-speed-screen { transform: rotate(.8deg) !important; }
-  :global(html[dir="rtl"]) .story-proof-a { transform: rotate(2.2deg) !important; }
-  :global(html[dir="rtl"]) .story-proof-b { transform: rotate(-1.7deg) !important; }
-  :global(html[dir="rtl"]) .story-proof-c { transform: rotate(.25deg) !important; }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .story-mascot { transition: transform 240ms ease !important; }
-    .story-chapter:hover .story-mascot { transform: translateY(-3px) !important; }
+  @media (prefers-reduced-motion:no-preference) {
+    .story-mascot { transition:transform 240ms ease !important; }
+    .story-chapter:hover .story-mascot { transform:translateY(-3px) !important; }
   }
-  @media (prefers-reduced-motion: reduce) { .story-mascot { transition: none !important; } }
+  @media (prefers-reduced-motion:reduce) { .story-mascot { transition:none !important; } }
 </style>
