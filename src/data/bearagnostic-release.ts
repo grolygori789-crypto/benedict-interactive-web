@@ -3,12 +3,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 export const bearagnosticRelease = {
-  versionName: '0.35.45-alpha93',
-  versionCode: 93,
-  apkFilename: 'Bearagnostic-0.35.45-alpha93.apk',
-  apkSha256: '09c12a8eb81d1a9353bc588b49639648457a1d502318ba58bc10bd8da7cfb66f',
+  versionName: '0.35.46-alpha94',
+  versionCode: 94,
+  apkFilename: 'Bearagnostic-0.35.46-alpha94.apk',
+  apkSha256: '04235d5aec385e2cfb2cd3d4a6427446657b27e1475fc156d00aaf7009c2f742',
   certificateSha256: '503FB4A77B38E7129E20002EC6A0B1D4225FD189BB16E0C71EBAD88ECA88AE90',
-  publicPath: '/downloads/Bearagnostic-0.35.45-alpha93.apk',
+  publicPath: '/downloads/Bearagnostic-0.35.46-alpha94.apk',
   appLanguages: ['English', 'ไทย', '日本語'],
   websiteLanguageCount: 16,
   proPriceThb: 249,
