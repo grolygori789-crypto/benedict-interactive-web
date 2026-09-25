@@ -218,27 +218,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "A simple upgrade, planned from the start.",
-      "proBody": "The commercial model is being designed around a straightforward one-time Pro upgrade rather than a subscription treadmill.",
+      "proTitle": "Lifetime Pro. One payment, no subscription.",
+      "proBody": "Lifetime Pro is THB 249 once. Existing verified customers can restore access now; new purchases are not open yet.",
       "proPoints": [
-        "One-time purchase planned",
-        "Restore access across supported devices",
+        "THB 249 once for Lifetime Pro",
+        "Restore existing Pro with your verified purchase email",
         "Server-verified entitlement, not a fragile client flag"
       ],
-      "proStatus": "Payment is not live yet",
-      "proNote": "This staging site does not take payments. Pricing and the final purchase flow will be published only when the product is ready.",
+      "proStatus": "Existing Pro restoration is live",
+      "proNote": "New Pro purchases are not open yet. Existing verified customers can restore access in the production app.",
       "supportCta": "Bearagnostic support"
     },
     "support": {
       "metaDescription": "Support information for Benedict Interactive products.",
       "kicker": "Support",
       "title": "Clear help, without the maze.",
-      "lead": "Official help will live here, close to the product and easy to find. No scavenger hunt across old posts, mystery links, or five tabs you forgot opening.",
+      "lead": "Official help is here, close to the product and easy to find. No scavenger hunt across old posts, mystery links, or five forgotten tabs.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "Troubleshooting, known issues, release notes, purchase restoration, and product guidance will be collected here as the public release approaches.",
+      "bearBody": "Release notes, installation help, Restore Pro, troubleshooting, and product guidance are available here for the current public release.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "This site is the canonical home for product information. Store listings and social posts may point here; they are not the source of truth.",
-      "stagingNote": "Support channels are still being prepared for launch."
+      "stagingNote": "Public support is available through Benedict Interactive while the branded support address is being finalized."
     },
     "common": {
       "inDevelopment": "In development",
@@ -246,7 +246,7 @@ export const content = {
       "viewProduct": "View product",
       "backHome": "Back home",
       "footerLine": "Independent software by Benedict J.",
-      "footerStaging": "Pre-launch staging · Payments are not active",
+      "footerStaging": "Public release · Verified downloads from Benedict Interactive",
       "skipToContent": "Skip to content"
     }
   },
@@ -357,27 +357,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "อัปเกรดแบบง่ายๆ วางไว้ตั้งแต่ต้น",
-      "proBody": "โมเดลเชิงพาณิชย์กำลังออกแบบให้เป็นการซื้อ Pro ครั้งเดียวแบบตรงไปตรงมา แทนการวิ่งบนลู่วิ่งค่าสมาชิกรายเดือน",
+      "proTitle": "Lifetime Pro จ่ายครั้งเดียว ไม่มีค่าสมาชิกรายเดือน",
+      "proBody": "Lifetime Pro ราคา 249 บาท จ่ายครั้งเดียว ลูกค้าที่มีสิทธิ์และผ่านการยืนยันแล้วกู้คืน Pro ได้ทันที ส่วนการซื้อใหม่ยังไม่เปิด",
       "proPoints": [
-        "วางแผนเป็นการซื้อครั้งเดียว",
-        "กู้คืนสิทธิ์บนอุปกรณ์ที่รองรับ",
-        "ตรวจสอบสิทธิ์จากเซิร์ฟเวอร์ ไม่ฝากอนาคตไว้กับแฟล็กในแอป"
+        "Lifetime Pro 249 บาท จ่ายครั้งเดียว",
+        "กู้คืน Pro เดิมด้วยอีเมลจากการซื้อที่ผ่านการยืนยัน",
+        "สิทธิ์ตรวจสอบจากเซิร์ฟเวอร์ ไม่พึ่งแฟล็กในเครื่อง"
       ],
-      "proStatus": "ยังไม่เปิดรับชำระเงิน",
-      "proNote": "เว็บไซต์ทดสอบนี้ยังไม่รับเงิน ราคาและขั้นตอนซื้อจริงจะประกาศเมื่อผลิตภัณฑ์พร้อมเท่านั้น",
+      "proStatus": "ลูกค้า Pro เดิมกู้คืนสิทธิ์ได้แล้ว",
+      "proNote": "ยังไม่เปิดขาย Pro สำหรับการซื้อใหม่ ลูกค้าที่มีสิทธิ์และผ่านการยืนยันแล้วสามารถ Restore Pro ในแอป Production ได้ทันที",
       "supportCta": "ช่วยเหลือ Bearagnostic"
     },
     "support": {
       "metaDescription": "ข้อมูลช่วยเหลือสำหรับผลิตภัณฑ์ของ Benedict Interactive",
       "kicker": "ช่วยเหลือ",
       "title": "ความช่วยเหลือที่ชัดเจน ไม่ต้องเดินเขาวงกต",
-      "lead": "ศูนย์ช่วยเหลืออย่างเป็นทางการจะอยู่ตรงนี้ ใกล้ผลิตภัณฑ์และหาเจอง่าย ไม่ต้องไล่ขุดโพสต์เก่า ลิงก์ลึกลับ หรือแท็บห้าอันที่เปิดไว้จนลืมว่ามาจากไหน",
+      "lead": "ความช่วยเหลืออย่างเป็นทางการอยู่ที่นี่ ใกล้ผลิตภัณฑ์และหาเจอง่าย ไม่ต้องไล่ขุดโพสต์เก่า ลิงก์ไม่ชัดเจน หรือเปิดหลายแท็บเพื่อหาคำตอบ",
       "bearTitle": "Bearagnostic",
-      "bearBody": "การแก้ปัญหา ปัญหาที่ทราบแล้ว บันทึกเวอร์ชัน การกู้คืนสิทธิ์ซื้อ และคู่มือใช้งาน จะถูกรวมไว้ที่นี่เมื่อใกล้เปิดตัวสู่สาธารณะ",
+      "bearBody": "รวม release notes วิธีติดตั้ง การกู้คืน Pro การแก้ปัญหา และคู่มือใช้งานสำหรับรุ่นที่เปิดให้ดาวน์โหลดอยู่ในปัจจุบันไว้ที่นี่",
       "generalTitle": "Benedict Interactive",
       "generalBody": "เว็บไซต์นี้คือแหล่งข้อมูลหลักของผลิตภัณฑ์ หน้าร้านและโซเชียลอาจลิงก์มาที่นี่ แต่จะไม่ใช่ต้นฉบับความจริง",
-      "stagingNote": "ช่องทางช่วยเหลือกำลังเตรียมให้พร้อมก่อนเปิดตัว"
+      "stagingNote": "ติดต่อฝ่ายช่วยเหลือของ Benedict Interactive ได้ตามปกติ ระหว่างที่กำลังปิดงานอีเมลซัพพอร์ตภายใต้แบรนด์"
     },
     "common": {
       "inDevelopment": "กำลังพัฒนา",
@@ -385,7 +385,7 @@ export const content = {
       "viewProduct": "ดูผลิตภัณฑ์",
       "backHome": "กลับหน้าแรก",
       "footerLine": "ซอฟต์แวร์อิสระโดย Benedict J.",
-      "footerStaging": "เว็บไซต์ก่อนเปิดตัว · ยังไม่เปิดรับชำระเงิน",
+      "footerStaging": "รุ่นสาธารณะ · ดาวน์โหลดไฟล์ที่ยืนยันแล้วจาก Benedict Interactive",
       "skipToContent": "ข้ามไปยังเนื้อหา"
     }
   },
@@ -496,27 +496,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "Una mejora sencilla, pensada desde el principio.",
-      "proBody": "El modelo comercial se está diseñando alrededor de una compra única de Pro, no de una cinta de correr de suscripciones.",
+      "proTitle": "Pro de por vida. Un solo pago, sin suscripción.",
+      "proBody": "Lifetime Pro cuesta 249 THB en un solo pago. Los clientes verificados que ya lo tienen pueden restaurarlo ahora; las nuevas compras aún no están abiertas.",
       "proPoints": [
-        "Compra única prevista",
-        "Restauración del acceso en dispositivos compatibles",
-        "Derechos verificados por servidor, no por una frágil bandera local"
+        "249 THB una vez por Lifetime Pro",
+        "Restaura tu Pro existente con el correo de compra verificado",
+        "Entitlement verificado por servidor, no un simple indicador local"
       ],
-      "proStatus": "Los pagos aún no están activos",
-      "proNote": "Este sitio de preproducción no cobra nada. El precio y el flujo de compra definitivo se publicarán cuando el producto esté listo.",
+      "proStatus": "La restauración del Pro existente ya está activa",
+      "proNote": "Las nuevas compras de Pro aún no están abiertas. Los clientes verificados que ya lo tienen pueden restaurar el acceso en la app de producción.",
       "supportCta": "Soporte de Bearagnostic"
     },
     "support": {
       "metaDescription": "Información de soporte para los productos de Benedict Interactive.",
       "kicker": "Soporte",
       "title": "Ayuda clara, sin laberintos.",
-      "lead": "La ayuda oficial vivirá aquí, cerca del producto y fácil de encontrar. Sin arqueología entre publicaciones antiguas, enlaces misteriosos o cinco pestañas que ya no recuerdas por qué abriste.",
+      "lead": "La ayuda oficial está aquí, cerca del producto y fácil de encontrar. Sin rebuscar entre publicaciones antiguas, enlaces dudosos ni cinco pestañas olvidadas.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "Resolución de problemas, incidencias conocidas, notas de versión, restauración de compras y guías del producto se reunirán aquí a medida que se acerque el lanzamiento público.",
+      "bearBody": "Aquí encontrarás notas de versión, instalación, Restore Pro, solución de problemas y orientación para la versión pública actual.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "Este sitio es la fuente oficial de información del producto. Las tiendas y redes pueden enlazar aquí; no sustituyen a la fuente original.",
-      "stagingNote": "Los canales de soporte aún se están preparando para el lanzamiento."
+      "stagingNote": "El soporte público de Benedict Interactive está disponible mientras terminamos la dirección de soporte de marca."
     },
     "common": {
       "inDevelopment": "En desarrollo",
@@ -524,7 +524,7 @@ export const content = {
       "viewProduct": "Ver producto",
       "backHome": "Volver al inicio",
       "footerLine": "Software independiente de Benedict J.",
-      "footerStaging": "Sitio previo al lanzamiento · Los pagos no están activos",
+      "footerStaging": "Versión pública · Descargas verificadas por Benedict Interactive",
       "skipToContent": "Saltar al contenido"
     }
   },
@@ -635,27 +635,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "Um upgrade simples, pensado desde o começo.",
-      "proBody": "O modelo comercial está sendo desenhado em torno de uma compra única do Pro, em vez de uma esteira infinita de assinaturas.",
+      "proTitle": "Pro vitalício. Um pagamento, sem assinatura.",
+      "proBody": "Lifetime Pro custa 249 THB em um único pagamento. Clientes já verificados podem restaurar o acesso agora; novas compras ainda não estão abertas.",
       "proPoints": [
-        "Compra única planejada",
-        "Restauração de acesso em dispositivos compatíveis",
-        "Direito de uso verificado no servidor, não em uma flag frágil no app"
+        "249 THB uma vez pelo Lifetime Pro",
+        "Restaure o Pro existente com o e-mail de compra verificado",
+        "Entitlement verificado no servidor, não um simples sinalizador local"
       ],
-      "proStatus": "Pagamentos ainda não estão ativos",
-      "proNote": "Este site de pré-lançamento não recebe pagamentos. Preço e fluxo final de compra só serão publicados quando o produto estiver pronto.",
+      "proStatus": "A restauração do Pro existente já está ativa",
+      "proNote": "Novas compras de Pro ainda não estão abertas. Clientes já verificados podem restaurar o acesso no app de produção.",
       "supportCta": "Suporte do Bearagnostic"
     },
     "support": {
       "metaDescription": "Informações de suporte para produtos da Benedict Interactive.",
       "kicker": "Suporte",
       "title": "Ajuda clara, sem labirinto.",
-      "lead": "A ajuda oficial vai morar aqui, perto do produto e fácil de achar. Nada de caça ao tesouro em posts antigos, links misteriosos ou cinco abas que você nem lembra por que abriu.",
+      "lead": "A ajuda oficial está aqui, perto do produto e fácil de achar. Nada de garimpar posts antigos, links duvidosos ou cinco abas esquecidas.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "Soluções de problemas, questões conhecidas, notas de versão, restauração de compras e orientações ficarão reunidas aqui conforme o lançamento público se aproxima.",
+      "bearBody": "Aqui ficam notas da versão, instalação, Restore Pro, solução de problemas e orientações para a versão pública atual.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "Este site é a fonte oficial das informações de produto. Lojas e redes sociais podem apontar para cá; não substituem a fonte.",
-      "stagingNote": "Os canais de suporte ainda estão sendo preparados para o lançamento."
+      "stagingNote": "O suporte público da Benedict Interactive está disponível enquanto finalizamos o endereço de suporte com a marca."
     },
     "common": {
       "inDevelopment": "Em desenvolvimento",
@@ -663,7 +663,7 @@ export const content = {
       "viewProduct": "Ver produto",
       "backHome": "Voltar ao início",
       "footerLine": "Software independente por Benedict J.",
-      "footerStaging": "Pré-lançamento · Pagamentos não estão ativos",
+      "footerStaging": "Versão pública · Downloads verificados pela Benedict Interactive",
       "skipToContent": "Ir para o conteúdo"
     }
   },
@@ -774,27 +774,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "Une mise à niveau simple, pensée dès le départ.",
-      "proBody": "Le modèle commercial est conçu autour d’un achat Pro unique et direct, plutôt que d’un tapis roulant d’abonnements.",
+      "proTitle": "Pro à vie. Un seul paiement, sans abonnement.",
+      "proBody": "Lifetime Pro coûte 249 THB en un seul paiement. Les clients déjà vérifiés peuvent restaurer leur accès dès maintenant ; les nouveaux achats ne sont pas encore ouverts.",
       "proPoints": [
-        "Achat unique prévu",
-        "Restauration de l’accès sur les appareils compatibles",
-        "Droit d’accès vérifié côté serveur, pas via un fragile drapeau local"
+        "249 THB une seule fois pour Lifetime Pro",
+        "Restaurez votre Pro existant avec l’e-mail d’achat vérifié",
+        "Entitlement vérifié côté serveur, pas un simple indicateur local"
       ],
-      "proStatus": "Les paiements ne sont pas encore actifs",
-      "proNote": "Ce site de pré-lancement n’accepte aucun paiement. Le prix et le parcours d’achat final seront publiés uniquement lorsque le produit sera prêt.",
+      "proStatus": "La restauration des accès Pro existants est active",
+      "proNote": "Les nouveaux achats Pro ne sont pas encore ouverts. Les clients déjà vérifiés peuvent restaurer leur accès dans l’application de production.",
       "supportCta": "Assistance Bearagnostic"
     },
     "support": {
       "metaDescription": "Informations d’assistance pour les produits Benedict Interactive.",
       "kicker": "Assistance",
       "title": "Une aide claire, sans labyrinthe.",
-      "lead": "L’aide officielle vivra ici, près du produit et facile à trouver. Pas de chasse au trésor dans d’anciens posts, de liens mystérieux ni de cinq onglets dont vous avez oublié la raison d’être.",
+      "lead": "L’aide officielle est ici, près du produit et facile à trouver. Pas besoin de fouiller d’anciens posts, des liens douteux ou cinq onglets oubliés.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "Dépannage, problèmes connus, notes de version, restauration des achats et conseils produit seront regroupés ici à l’approche du lancement public.",
+      "bearBody": "Vous trouverez ici les notes de version, l’installation, Restore Pro, le dépannage et les conseils pour la version publique actuelle.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "Ce site est la source officielle des informations produit. Les boutiques et réseaux sociaux peuvent y renvoyer ; ils ne remplacent pas la source.",
-      "stagingNote": "Les canaux d’assistance sont encore en préparation pour le lancement."
+      "stagingNote": "Le support public Benedict Interactive reste disponible pendant la finalisation de notre adresse de support de marque."
     },
     "common": {
       "inDevelopment": "En développement",
@@ -802,7 +802,7 @@ export const content = {
       "viewProduct": "Voir le produit",
       "backHome": "Retour à l’accueil",
       "footerLine": "Logiciels indépendants par Benedict J.",
-      "footerStaging": "Pré-lancement · Paiements inactifs",
+      "footerStaging": "Version publique · Téléchargements vérifiés par Benedict Interactive",
       "skipToContent": "Aller au contenu"
     }
   },
@@ -913,27 +913,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "Ein einfaches Upgrade, von Anfang an mitgedacht.",
-      "proBody": "Das Geschäftsmodell wird auf einen unkomplizierten einmaligen Pro-Kauf ausgelegt — statt auf ein endloses Abo-Laufband.",
+      "proTitle": "Pro auf Lebenszeit. Einmal zahlen, kein Abo.",
+      "proBody": "Lifetime Pro kostet einmalig 249 THB. Bereits verifizierte Kunden können ihren Zugang jetzt wiederherstellen; neue Käufe sind noch nicht geöffnet.",
       "proPoints": [
-        "Einmaliger Kauf geplant",
-        "Zugriff auf unterstützten Geräten wiederherstellen",
-        "Serverseitig geprüfte Berechtigung statt fragiler lokaler Flags"
+        "Einmalig 249 THB für Lifetime Pro",
+        "Bestehendes Pro mit der verifizierten Kauf-E-Mail wiederherstellen",
+        "Serververifiziertes Entitlement statt eines anfälligen lokalen Flags"
       ],
-      "proStatus": "Zahlungen sind noch nicht aktiv",
-      "proNote": "Diese Vorabversion nimmt keine Zahlungen entgegen. Preis und endgültiger Kaufablauf werden erst veröffentlicht, wenn das Produkt bereit ist.",
+      "proStatus": "Die Wiederherstellung bestehender Pro-Zugänge ist aktiv",
+      "proNote": "Neue Pro-Käufe sind noch nicht geöffnet. Bereits verifizierte Kunden können ihren Zugang in der Produktions-App wiederherstellen.",
       "supportCta": "Bearagnostic-Support"
     },
     "support": {
       "metaDescription": "Supportinformationen für Produkte von Benedict Interactive.",
       "kicker": "Support",
       "title": "Klare Hilfe, ohne Labyrinth.",
-      "lead": "Offizielle Hilfe wird hier gebündelt: nah am Produkt und leicht zu finden. Keine Schatzsuche in alten Posts, mysteriösen Links oder fünf Tabs, bei denen keiner mehr weiß, warum sie offen sind.",
+      "lead": "Offizielle Hilfe ist hier gebündelt: nah am Produkt und leicht zu finden. Keine Suche in alten Posts, dubiosen Links oder fünf vergessenen Tabs.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "Fehlerbehebung, bekannte Probleme, Release Notes, Kaufwiederherstellung und Produkthilfen werden hier gesammelt, wenn der öffentliche Start näher rückt.",
+      "bearBody": "Hier findest du Release Notes, Installationshilfe, Restore Pro, Fehlerbehebung und Hinweise für die aktuelle öffentliche Version.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "Diese Website ist die maßgebliche Quelle für Produktinformationen. Store-Einträge und Social Posts können hierher verweisen; sie sind nicht die Quelle selbst.",
-      "stagingNote": "Die Supportkanäle werden noch für den Start vorbereitet."
+      "stagingNote": "Der öffentliche Benedict-Interactive-Support ist verfügbar, während wir die gebrandete Support-Adresse finalisieren."
     },
     "common": {
       "inDevelopment": "In Entwicklung",
@@ -941,7 +941,7 @@ export const content = {
       "viewProduct": "Produkt ansehen",
       "backHome": "Zur Startseite",
       "footerLine": "Unabhängige Software von Benedict J.",
-      "footerStaging": "Vor dem Start · Zahlungen sind nicht aktiv",
+      "footerStaging": "Öffentliche Version · Verifizierte Downloads von Benedict Interactive",
       "skipToContent": "Zum Inhalt springen"
     }
   },
@@ -1052,27 +1052,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "Un upgrade semplice, pensato fin dall’inizio.",
-      "proBody": "Il modello commerciale è progettato attorno a un acquisto Pro una tantum, invece che a un tapis roulant di abbonamenti.",
+      "proTitle": "Pro a vita. Un solo pagamento, nessun abbonamento.",
+      "proBody": "Lifetime Pro costa 249 THB una tantum. I clienti già verificati possono ripristinare l’accesso ora; i nuovi acquisti non sono ancora aperti.",
       "proPoints": [
-        "Acquisto una tantum previsto",
-        "Ripristino dell’accesso sui dispositivi supportati",
-        "Titolarità verificata dal server, non da un fragile flag locale"
+        "249 THB una volta per Lifetime Pro",
+        "Ripristina il Pro esistente con l’e-mail di acquisto verificata",
+        "Entitlement verificato dal server, non un semplice flag locale"
       ],
-      "proStatus": "I pagamenti non sono ancora attivi",
-      "proNote": "Questo sito di pre-lancio non accetta pagamenti. Prezzo e flusso d’acquisto definitivo saranno pubblicati solo quando il prodotto sarà pronto.",
+      "proStatus": "Il ripristino del Pro già acquistato è attivo",
+      "proNote": "I nuovi acquisti Pro non sono ancora aperti. I clienti già verificati possono ripristinare l’accesso nell’app di produzione.",
       "supportCta": "Supporto Bearagnostic"
     },
     "support": {
       "metaDescription": "Informazioni di supporto per i prodotti Benedict Interactive.",
       "kicker": "Supporto",
       "title": "Aiuto chiaro, senza labirinti.",
-      "lead": "L’assistenza ufficiale vivrà qui, vicina al prodotto e facile da trovare. Niente caccia al tesoro tra vecchi post, link misteriosi o cinque schede che non ricordi nemmeno perché hai aperto.",
+      "lead": "L’assistenza ufficiale è qui, vicina al prodotto e facile da trovare. Niente ricerche tra vecchi post, link poco chiari o cinque schede dimenticate.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "Risoluzione problemi, problemi noti, note di rilascio, ripristino acquisti e guide al prodotto saranno raccolti qui man mano che si avvicina il lancio pubblico.",
+      "bearBody": "Qui trovi note di rilascio, installazione, Restore Pro, risoluzione dei problemi e guide per la versione pubblica attuale.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "Questo sito è la fonte ufficiale delle informazioni di prodotto. Store e social possono rimandare qui; non sostituiscono la fonte.",
-      "stagingNote": "I canali di supporto sono ancora in preparazione per il lancio."
+      "stagingNote": "Il supporto pubblico Benedict Interactive è disponibile mentre finalizziamo l’indirizzo di assistenza con il nostro brand."
     },
     "common": {
       "inDevelopment": "In sviluppo",
@@ -1080,7 +1080,7 @@ export const content = {
       "viewProduct": "Vedi prodotto",
       "backHome": "Torna alla home",
       "footerLine": "Software indipendente di Benedict J.",
-      "footerStaging": "Pre-lancio · Pagamenti non attivi",
+      "footerStaging": "Versione pubblica · Download verificati da Benedict Interactive",
       "skipToContent": "Vai al contenuto"
     }
   },
@@ -1191,27 +1191,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "シンプルなアップグレードを、最初から。",
-      "proBody": "商用モデルは、終わりのないサブスクではなく、わかりやすい買い切り型のProアップグレードを中心に設計しています。",
+      "proTitle": "買い切りの Lifetime Pro。サブスクなし。",
+      "proBody": "Lifetime Pro は 249 THB の買い切りです。確認済みの既存ユーザーは今すぐアクセスを復元できます。新規購入はまだ開始していません。",
       "proPoints": [
-        "買い切り型を予定",
-        "対応端末で利用権を復元",
-        "壊れやすい端末内フラグではなくサーバーで権利を確認"
+        "Lifetime Pro は 249 THB の買い切り",
+        "確認済みの購入メールで既存 Pro を復元",
+        "壊れやすい端末内フラグではなく、サーバーで利用権を検証"
       ],
-      "proStatus": "まだ決済は開始していません",
-      "proNote": "このプレローンチサイトでは支払いを受け付けていません。価格と正式な購入フローは、製品の準備が整ってから公開します。",
+      "proStatus": "既存の Pro は今すぐ復元できます",
+      "proNote": "Pro の新規購入はまだ開始していません。確認済みの既存ユーザーは本番アプリから Restore Pro を利用できます。",
       "supportCta": "Bearagnosticサポート"
     },
     "support": {
       "metaDescription": "Benedict Interactive製品のサポート情報。",
       "kicker": "サポート",
       "title": "迷路のない、わかりやすいサポート。",
-      "lead": "公式の案内はここに集めます。製品の近くに、見つけやすく。古い投稿や謎のリンク、なぜ開いたか忘れた5つのタブを発掘する必要はありません。",
+      "lead": "公式サポートはここにまとまっています。製品の近くに、見つけやすく。古い投稿や不明なリンク、開きっぱなしのタブを探し回る必要はありません。",
       "bearTitle": "Bearagnostic",
-      "bearBody": "トラブルシューティング、既知の問題、リリースノート、購入権の復元、使い方などは、公開リリースに向けてここへまとめていきます。",
+      "bearBody": "現在公開中のバージョン向けに、リリースノート、インストール、Restore Pro、トラブルシューティング、使い方をまとめています。",
       "generalTitle": "Benedict Interactive",
       "generalBody": "このサイトが製品情報の公式な基準点です。ストアやSNSからここへ案内することはあっても、情報の原本はここに置きます。",
-      "stagingNote": "サポート窓口は公開に向けて準備中です。"
+      "stagingNote": "ブランド専用サポートアドレスの準備中も、Benedict Interactive の公開サポートは利用できます。"
     },
     "common": {
       "inDevelopment": "開発中",
@@ -1219,7 +1219,7 @@ export const content = {
       "viewProduct": "プロダクトを見る",
       "backHome": "ホームへ戻る",
       "footerLine": "Benedict J.によるインディペンデント・ソフトウェア",
-      "footerStaging": "プレローンチ · 決済はまだ有効ではありません",
+      "footerStaging": "公開版 · Benedict Interactive による検証済みダウンロード",
       "skipToContent": "本文へ移動"
     }
   },
@@ -1330,27 +1330,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "처음부터 단순한 업그레이드로.",
-      "proBody": "상업 모델은 끝없는 구독보다, 한 번 구매하는 명확한 Pro 업그레이드를 중심으로 설계하고 있습니다.",
+      "proTitle": "평생 Pro. 한 번 결제하고, 구독은 없습니다.",
+      "proBody": "Lifetime Pro는 249 THB 1회 결제입니다. 기존에 검증된 고객은 지금 바로 이용 권한을 복원할 수 있으며, 신규 구매는 아직 열리지 않았습니다.",
       "proPoints": [
-        "1회 구매 방식 예정",
-        "지원 기기에서 이용 권한 복원",
-        "불안정한 로컬 플래그가 아닌 서버에서 권한 확인"
+        "Lifetime Pro 249 THB 1회 결제",
+        "검증된 구매 이메일로 기존 Pro 복원",
+        "취약한 로컬 플래그가 아닌 서버 검증 entitlement"
       ],
-      "proStatus": "아직 결제를 받지 않습니다",
-      "proNote": "이 사전 공개 사이트에서는 결제를 받지 않습니다. 가격과 최종 구매 흐름은 제품 준비가 끝난 뒤 공개합니다.",
+      "proStatus": "기존 Pro 복원이 현재 이용 가능합니다",
+      "proNote": "신규 Pro 구매는 아직 열리지 않았습니다. 기존에 검증된 고객은 프로덕션 앱에서 Restore Pro를 사용할 수 있습니다.",
       "supportCta": "Bearagnostic 지원"
     },
     "support": {
       "metaDescription": "Benedict Interactive 제품 지원 정보.",
       "kicker": "지원",
       "title": "미로 없는, 명확한 도움.",
-      "lead": "공식 도움말은 여기 한곳에 모입니다. 제품과 가깝고, 찾기 쉽도록. 오래된 게시물, 수상한 링크, 왜 열었는지 기억도 안 나는 탭 다섯 개를 뒤질 필요는 없습니다.",
+      "lead": "공식 도움말은 여기 한곳에 모여 있습니다. 제품과 가깝고 찾기 쉽게. 오래된 글, 수상한 링크, 잊힌 탭을 뒤질 필요가 없습니다.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "문제 해결, 알려진 이슈, 릴리스 노트, 구매 복원, 제품 가이드를 공개 출시가 가까워질수록 이곳에 모을 예정입니다.",
+      "bearBody": "현재 공개 버전의 릴리스 노트, 설치 안내, Restore Pro, 문제 해결과 사용 가이드를 여기에서 확인할 수 있습니다.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "이 사이트가 제품 정보의 공식 기준점입니다. 스토어와 소셜 게시물이 여기로 안내할 수는 있어도, 원본 정보 자체는 아닙니다.",
-      "stagingNote": "지원 채널은 출시를 위해 아직 준비 중입니다."
+      "stagingNote": "브랜드 전용 지원 주소를 마무리하는 동안에도 Benedict Interactive의 공개 지원은 계속 이용할 수 있습니다."
     },
     "common": {
       "inDevelopment": "개발 중",
@@ -1358,7 +1358,7 @@ export const content = {
       "viewProduct": "제품 보기",
       "backHome": "홈으로",
       "footerLine": "Benedict J.의 인디 소프트웨어",
-      "footerStaging": "사전 공개 · 결제 비활성",
+      "footerStaging": "공개 버전 · Benedict Interactive 검증 다운로드",
       "skipToContent": "본문으로 건너뛰기"
     }
   },
@@ -1469,27 +1469,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "Upgrade sederhana, direncanakan sejak awal.",
-      "proBody": "Model komersial sedang dirancang sebagai pembelian Pro satu kali yang lugas, bukan treadmill langganan.",
+      "proTitle": "Pro seumur hidup. Sekali bayar, tanpa langganan.",
+      "proBody": "Lifetime Pro berharga 249 THB sekali bayar. Pelanggan lama yang sudah terverifikasi dapat memulihkan akses sekarang; pembelian baru belum dibuka.",
       "proPoints": [
-        "Pembelian satu kali direncanakan",
-        "Pulihkan akses di perangkat yang didukung",
-        "Hak akses diverifikasi server, bukan flag lokal yang rapuh"
+        "249 THB sekali bayar untuk Lifetime Pro",
+        "Pulihkan Pro yang sudah dimiliki dengan email pembelian terverifikasi",
+        "Entitlement diverifikasi server, bukan sekadar flag lokal"
       ],
-      "proStatus": "Pembayaran belum aktif",
-      "proNote": "Situs pra-rilis ini tidak menerima pembayaran. Harga dan alur pembelian final baru akan dipublikasikan saat produk siap.",
+      "proStatus": "Pemulihan Pro yang sudah dimiliki sudah aktif",
+      "proNote": "Pembelian Pro baru belum dibuka. Pelanggan lama yang sudah terverifikasi dapat memulihkan akses di aplikasi produksi.",
       "supportCta": "Bantuan Bearagnostic"
     },
     "support": {
       "metaDescription": "Informasi bantuan untuk produk Benedict Interactive.",
       "kicker": "Bantuan",
       "title": "Bantuan yang jelas, tanpa labirin.",
-      "lead": "Bantuan resmi akan tinggal di sini, dekat dengan produk dan mudah ditemukan. Tak perlu berburu posting lama, tautan misterius, atau lima tab yang Anda lupa kenapa dibuka.",
+      "lead": "Bantuan resmi tersedia di sini, dekat dengan produk dan mudah ditemukan. Tak perlu mengorek posting lama, tautan meragukan, atau lima tab yang terlupakan.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "Pemecahan masalah, isu yang diketahui, catatan rilis, pemulihan pembelian, dan panduan produk akan dikumpulkan di sini menjelang rilis publik.",
+      "bearBody": "Catatan rilis, panduan instalasi, Restore Pro, pemecahan masalah, dan panduan untuk versi publik saat ini tersedia di sini.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "Situs ini adalah rumah resmi informasi produk. Toko aplikasi dan media sosial boleh menunjuk ke sini; mereka bukan sumber utamanya.",
-      "stagingNote": "Saluran bantuan masih disiapkan untuk peluncuran."
+      "stagingNote": "Dukungan publik Benedict Interactive tetap tersedia selama kami menyelesaikan alamat dukungan bermerek."
     },
     "common": {
       "inDevelopment": "Dalam pengembangan",
@@ -1497,7 +1497,7 @@ export const content = {
       "viewProduct": "Lihat produk",
       "backHome": "Kembali ke beranda",
       "footerLine": "Software independen oleh Benedict J.",
-      "footerStaging": "Pra-rilis · Pembayaran belum aktif",
+      "footerStaging": "Rilis publik · Unduhan terverifikasi dari Benedict Interactive",
       "skipToContent": "Lewati ke konten"
     }
   },
@@ -1608,27 +1608,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "Một bản nâng cấp đơn giản, được tính từ đầu.",
-      "proBody": "Mô hình thương mại đang được thiết kế xoay quanh một lần mua Pro rõ ràng, thay vì guồng quay thuê bao vô tận.",
+      "proTitle": "Pro trọn đời. Thanh toán một lần, không thuê bao.",
+      "proBody": "Lifetime Pro có giá 249 THB, thanh toán một lần. Khách hàng hiện tại đã được xác minh có thể khôi phục quyền truy cập ngay; mua mới chưa mở.",
       "proPoints": [
-        "Dự kiến mua một lần",
-        "Khôi phục quyền truy cập trên thiết bị được hỗ trợ",
-        "Quyền sử dụng được xác minh từ máy chủ, không dựa vào cờ cục bộ mong manh"
+        "249 THB một lần cho Lifetime Pro",
+        "Khôi phục Pro hiện có bằng email mua hàng đã xác minh",
+        "Entitlement được xác minh trên máy chủ, không phụ thuộc vào cờ cục bộ"
       ],
-      "proStatus": "Thanh toán chưa được bật",
-      "proNote": "Trang tiền phát hành này chưa nhận thanh toán. Giá và luồng mua chính thức chỉ được công bố khi sản phẩm sẵn sàng.",
+      "proStatus": "Khôi phục Pro đã mua hiện đã hoạt động",
+      "proNote": "Chưa mở mua Pro mới. Khách hàng hiện tại đã được xác minh có thể Restore Pro trong ứng dụng production.",
       "supportCta": "Hỗ trợ Bearagnostic"
     },
     "support": {
       "metaDescription": "Thông tin hỗ trợ cho sản phẩm Benedict Interactive.",
       "kicker": "Hỗ trợ",
       "title": "Trợ giúp rõ ràng, không mê cung.",
-      "lead": "Hỗ trợ chính thức sẽ nằm ở đây, gần sản phẩm và dễ tìm. Không cần đào bới bài đăng cũ, đường link bí ẩn hay năm tab mà bạn quên mất vì sao đã mở.",
+      "lead": "Hỗ trợ chính thức ở ngay đây, gần sản phẩm và dễ tìm. Không cần đào bới bài cũ, đường link mơ hồ hay những tab đã bị bỏ quên.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "Khắc phục sự cố, lỗi đã biết, ghi chú phát hành, khôi phục mua hàng và hướng dẫn sử dụng sẽ được tập hợp tại đây khi gần đến ngày ra mắt công khai.",
+      "bearBody": "Tại đây có ghi chú phát hành, hướng dẫn cài đặt, Restore Pro, khắc phục sự cố và tài liệu cho phiên bản công khai hiện tại.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "Trang này là nguồn thông tin sản phẩm chính thức. Cửa hàng và mạng xã hội có thể dẫn về đây; chúng không phải nguồn gốc của thông tin.",
-      "stagingNote": "Các kênh hỗ trợ vẫn đang được chuẩn bị cho ngày ra mắt."
+      "stagingNote": "Hỗ trợ công khai của Benedict Interactive vẫn hoạt động trong khi chúng tôi hoàn tất địa chỉ hỗ trợ mang thương hiệu."
     },
     "common": {
       "inDevelopment": "Đang phát triển",
@@ -1636,7 +1636,7 @@ export const content = {
       "viewProduct": "Xem sản phẩm",
       "backHome": "Về trang chủ",
       "footerLine": "Phần mềm độc lập bởi Benedict J.",
-      "footerStaging": "Tiền phát hành · Chưa bật thanh toán",
+      "footerStaging": "Bản phát hành công khai · Tải xuống đã xác minh từ Benedict Interactive",
       "skipToContent": "Chuyển đến nội dung"
     }
   },
@@ -1747,27 +1747,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "从一开始，就把升级做简单。",
-      "proBody": "商业模式正围绕一次性购买 Pro 来设计，而不是把用户放上永不停的订阅跑步机。",
+      "proTitle": "终身 Pro。一次付费，无订阅。",
+      "proBody": "Lifetime Pro 为 249 THB 一次买断。已经验证的现有客户现在即可恢复权益；新的购买尚未开放。",
       "proPoints": [
-        "计划一次性购买",
-        "在支持的设备上恢复使用权",
+        "Lifetime Pro 249 THB 一次买断",
+        "使用已验证的购买邮箱恢复现有 Pro",
         "由服务器验证权益，而不是依赖脆弱的本地标记"
       ],
-      "proStatus": "暂未开启支付",
-      "proNote": "这个预发布网站不会收取任何付款。价格和最终购买流程只会在产品真正准备好之后公布。",
+      "proStatus": "已有 Pro 权益现在可以恢复",
+      "proNote": "新的 Pro 购买尚未开放。已经验证的现有客户可以在生产版应用中使用 Restore Pro。",
       "supportCta": "Bearagnostic 支持"
     },
     "support": {
       "metaDescription": "Benedict Interactive 产品支持信息。",
       "kicker": "支持",
       "title": "清楚的帮助，不走迷宫。",
-      "lead": "官方帮助会集中放在这里，离产品近，也容易找到。不用考古旧帖子、点神秘链接，或者在五个“我为什么打开它来着”的标签页里找答案。",
+      "lead": "官方帮助就在这里，紧贴产品，也容易找到。不用翻旧帖子、点来路不明的链接，也不用在一堆忘记用途的标签页里找答案。",
       "bearTitle": "Bearagnostic",
-      "bearBody": "故障排查、已知问题、版本说明、购买恢复和使用指南，会随着公开发布临近逐步集中到这里。",
+      "bearBody": "这里提供当前公开版本的发行说明、安装帮助、Restore Pro、故障排查和使用指南。",
       "generalTitle": "Benedict Interactive",
       "generalBody": "这里是产品信息的官方来源。商店页面和社交媒体可以链接到这里，但它们不是原始信息源。",
-      "stagingNote": "支持渠道仍在为正式发布做准备。"
+      "stagingNote": "在品牌支持邮箱完成迁移前，Benedict Interactive 的公开支持渠道仍正常开放。"
     },
     "common": {
       "inDevelopment": "开发中",
@@ -1775,7 +1775,7 @@ export const content = {
       "viewProduct": "查看产品",
       "backHome": "返回首页",
       "footerLine": "Benedict J. 独立开发的软件",
-      "footerStaging": "预发布阶段 · 暂未开启支付",
+      "footerStaging": "公开版本 · Benedict Interactive 已验证下载",
       "skipToContent": "跳到正文"
     }
   },
@@ -1886,27 +1886,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "從一開始，就把升級做簡單。",
-      "proBody": "商業模式正以一次性購買 Pro 為核心設計，而不是把使用者放上永不停的訂閱跑步機。",
+      "proTitle": "終身 Pro。一次付費，無訂閱。",
+      "proBody": "Lifetime Pro 為 249 THB 一次買斷。已驗證的既有客戶現在即可復原權益；新的購買尚未開放。",
       "proPoints": [
-        "規劃一次性購買",
-        "在支援的裝置上恢復使用權",
+        "Lifetime Pro 249 THB 一次買斷",
+        "使用已驗證的購買 Email 復原既有 Pro",
         "由伺服器驗證權益，而不是依賴脆弱的本機旗標"
       ],
-      "proStatus": "尚未開放付款",
-      "proNote": "這個預發布網站不會收取任何款項。價格與正式購買流程只會在產品真正準備好之後公布。",
+      "proStatus": "既有 Pro 權益現在可以復原",
+      "proNote": "新的 Pro 購買尚未開放。已驗證的既有客戶可以在 Production App 中使用 Restore Pro。",
       "supportCta": "Bearagnostic 支援"
     },
     "support": {
       "metaDescription": "Benedict Interactive 產品支援資訊。",
       "kicker": "支援",
       "title": "清楚的幫助，不走迷宮。",
-      "lead": "官方協助會集中放在這裡，離產品近，也容易找到。不用考古舊貼文、點神秘連結，或在五個「我為什麼開這個？」的分頁裡找答案。",
+      "lead": "官方協助就在這裡，緊貼產品，也容易找到。不用翻舊貼文、點來源不明的連結，也不用在一堆忘記用途的分頁裡找答案。",
       "bearTitle": "Bearagnostic",
-      "bearBody": "疑難排解、已知問題、版本說明、購買恢復與使用指南，會隨著公開發布接近逐步集中到這裡。",
+      "bearBody": "這裡提供目前公開版本的版本說明、安裝協助、Restore Pro、疑難排解與使用指南。",
       "generalTitle": "Benedict Interactive",
       "generalBody": "這裡是產品資訊的官方來源。商店頁面和社群貼文可以連回這裡，但它們不是資訊原本。",
-      "stagingNote": "支援管道仍在為正式發布做準備。"
+      "stagingNote": "在品牌支援信箱完成遷移前，Benedict Interactive 的公開支援管道仍正常開放。"
     },
     "common": {
       "inDevelopment": "開發中",
@@ -1914,7 +1914,7 @@ export const content = {
       "viewProduct": "查看產品",
       "backHome": "返回首頁",
       "footerLine": "Benedict J. 獨立開發的軟體",
-      "footerStaging": "預發布階段 · 尚未開放付款",
+      "footerStaging": "公開版本 · Benedict Interactive 已驗證下載",
       "skipToContent": "跳到主要內容"
     }
   },
@@ -2025,27 +2025,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "ترقية بسيطة، مخطط لها منذ البداية.",
-      "proBody": "يُصمَّم النموذج التجاري حول شراء Pro لمرة واحدة بشكل مباشر، بدل دوّامة اشتراكات لا تنتهي.",
+      "proTitle": "Pro مدى الحياة. دفعة واحدة، بلا اشتراك.",
+      "proBody": "Lifetime Pro بسعر 249 THB دفعة واحدة. يمكن للعملاء الحاليين الموثقين استعادة الوصول الآن، بينما لم تُفتح المشتريات الجديدة بعد.",
       "proPoints": [
-        "شراء لمرة واحدة مخطط له",
-        "استعادة الوصول على الأجهزة المدعومة",
-        "تحقق من الاستحقاق عبر الخادم بدل علامة محلية هشة"
+        "249 THB دفعة واحدة لـ Lifetime Pro",
+        "استعادة Pro الحالي عبر بريد الشراء الموثق",
+        "Entitlement موثّق على الخادم وليس مجرد علامة محلية قابلة للكسر"
       ],
-      "proStatus": "الدفع غير مفعّل بعد",
-      "proNote": "موقع ما قبل الإطلاق هذا لا يقبل أي دفعات. سيُنشر السعر ومسار الشراء النهائي فقط عندما يصبح المنتج جاهزًا.",
+      "proStatus": "استعادة Pro الحالي متاحة الآن",
+      "proNote": "المشتريات الجديدة لـ Pro لم تُفتح بعد. يمكن للعملاء الحاليين الموثقين استخدام Restore Pro داخل تطبيق الإنتاج.",
       "supportCta": "دعم Bearagnostic"
     },
     "support": {
       "metaDescription": "معلومات الدعم لمنتجات Benedict Interactive.",
       "kicker": "الدعم",
       "title": "مساعدة واضحة، من دون متاهة.",
-      "lead": "سيكون الدعم الرسمي هنا، قريبًا من المنتج وسهل العثور عليه. لا تنقيب في منشورات قديمة، ولا روابط غامضة، ولا خمس تبويبات نسيت أصلًا لماذا فتحتها.",
+      "lead": "الدعم الرسمي موجود هنا، قريب من المنتج وسهل العثور عليه. لا حاجة للبحث في منشورات قديمة أو روابط غامضة أو تبويبات منسية.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "ستُجمع هنا إرشادات حل المشكلات والمشكلات المعروفة وملاحظات الإصدارات واستعادة المشتريات ودليل المنتج مع اقتراب الإطلاق العام.",
+      "bearBody": "تتوفر هنا ملاحظات الإصدار وإرشادات التثبيت وRestore Pro واستكشاف الأخطاء ودليل الإصدار العام الحالي.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "هذا الموقع هو المصدر الرسمي لمعلومات المنتج. قد تشير المتاجر والمنشورات الاجتماعية إليه، لكنها ليست المصدر الأصلي.",
-      "stagingNote": "قنوات الدعم ما زالت قيد الإعداد للإطلاق."
+      "stagingNote": "يبقى دعم Benedict Interactive العام متاحاً أثناء استكمال عنوان الدعم ذي العلامة التجارية."
     },
     "common": {
       "inDevelopment": "قيد التطوير",
@@ -2053,7 +2053,7 @@ export const content = {
       "viewProduct": "عرض المنتج",
       "backHome": "العودة للرئيسية",
       "footerLine": "برمجيات مستقلة من Benedict J.",
-      "footerStaging": "ما قبل الإطلاق · الدفع غير مفعّل",
+      "footerStaging": "إصدار عام · تنزيلات موثّقة من Benedict Interactive",
       "skipToContent": "انتقل إلى المحتوى"
     }
   },
@@ -2164,27 +2164,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "एक आसान अपग्रेड, शुरुआत से ही सोचकर।",
-      "proBody": "व्यावसायिक मॉडल को बार-बार चलने वाली सब्सक्रिप्शन मशीन के बजाय एक साफ़-सुथरी एकमुश्त Pro खरीद के आसपास बनाया जा रहा है।",
+      "proTitle": "लाइफटाइम Pro। एक बार भुगतान, कोई सब्सक्रिप्शन नहीं।",
+      "proBody": "Lifetime Pro की कीमत 249 THB है, एक बार भुगतान। पहले से सत्यापित ग्राहक अभी अपना एक्सेस बहाल कर सकते हैं; नई खरीद अभी खुली नहीं है।",
       "proPoints": [
-        "एकमुश्त खरीद की योजना",
-        "समर्थित डिवाइस पर एक्सेस बहाल करें",
-        "कमज़ोर लोकल फ़्लैग नहीं, सर्वर से सत्यापित अधिकार"
+        "Lifetime Pro के लिए 249 THB एक बार",
+        "सत्यापित खरीद ईमेल से मौजूदा Pro बहाल करें",
+        "कमज़ोर local flag के बजाय server-verified entitlement"
       ],
-      "proStatus": "भुगतान अभी लाइव नहीं है",
-      "proNote": "यह प्री-लॉन्च साइट भुगतान स्वीकार नहीं करती। कीमत और अंतिम खरीद प्रक्रिया तभी प्रकाशित होगी जब प्रोडक्ट तैयार होगा।",
+      "proStatus": "मौजूदा Pro बहाली अभी उपलब्ध है",
+      "proNote": "नई Pro खरीद अभी खुली नहीं है। पहले से सत्यापित ग्राहक production app में Restore Pro कर सकते हैं।",
       "supportCta": "Bearagnostic सहायता"
     },
     "support": {
       "metaDescription": "Benedict Interactive प्रोडक्ट्स के लिए सहायता जानकारी।",
       "kicker": "सहायता",
       "title": "साफ़ मदद, बिना भूलभुलैया।",
-      "lead": "आधिकारिक मदद यहीं मिलेगी—प्रोडक्ट के पास और आसानी से। पुराने पोस्ट, रहस्यमय लिंक या उन पाँच टैब में खोजबीन नहीं करनी पड़ेगी जिन्हें खोलने का कारण भी अब याद नहीं।",
+      "lead": "आधिकारिक मदद यहीं उपलब्ध है—प्रोडक्ट के पास और आसानी से मिलने वाली। पुराने पोस्ट, संदिग्ध लिंक या भूले हुए टैब में खोजबीन करने की जरूरत नहीं।",
       "bearTitle": "Bearagnostic",
-      "bearBody": "ट्रबलशूटिंग, ज्ञात समस्याएँ, रिलीज़ नोट्स, खरीद बहाली और प्रोडक्ट गाइड सार्वजनिक लॉन्च नज़दीक आने पर यहीं इकट्ठे किए जाएँगे।",
+      "bearBody": "मौजूदा सार्वजनिक रिलीज़ के release notes, installation help, Restore Pro, troubleshooting और product guidance यहाँ उपलब्ध हैं।",
       "generalTitle": "Benedict Interactive",
       "generalBody": "यह साइट प्रोडक्ट जानकारी का आधिकारिक स्रोत है। स्टोर और सोशल पोस्ट यहाँ लिंक कर सकते हैं; वे मूल स्रोत नहीं हैं।",
-      "stagingNote": "सहायता चैनल लॉन्च के लिए अभी तैयार किए जा रहे हैं।"
+      "stagingNote": "ब्रांडेड support address पूरा होने तक Benedict Interactive का public support उपलब्ध रहता है।"
     },
     "common": {
       "inDevelopment": "विकास में",
@@ -2192,7 +2192,7 @@ export const content = {
       "viewProduct": "प्रोडक्ट देखें",
       "backHome": "होम पर जाएँ",
       "footerLine": "Benedict J. का स्वतंत्र सॉफ़्टवेयर",
-      "footerStaging": "प्री-लॉन्च · भुगतान सक्रिय नहीं",
+      "footerStaging": "सार्वजनिक रिलीज़ · Benedict Interactive से सत्यापित डाउनलोड",
       "skipToContent": "मुख्य सामग्री पर जाएँ"
     }
   },
@@ -2303,27 +2303,27 @@ export const content = {
         }
       ],
       "proKicker": "Bearagnostic Pro",
-      "proTitle": "Başından beri düşünülmüş, basit bir yükseltme.",
-      "proBody": "Ticari model, bitmeyen abonelik koşu bandı yerine net bir tek seferlik Pro satın alımı etrafında tasarlanıyor.",
+      "proTitle": "Ömür boyu Pro. Tek ödeme, abonelik yok.",
+      "proBody": "Lifetime Pro tek seferlik 249 THB’dir. Daha önce doğrulanmış müşteriler erişimlerini şimdi geri yükleyebilir; yeni satın alımlar henüz açık değildir.",
       "proPoints": [
-        "Tek seferlik satın alma planı",
-        "Desteklenen cihazlarda erişimi geri yükleme",
-        "Kırılgan yerel bayraklar yerine sunucu doğrulamalı hak"
+        "Lifetime Pro için tek seferlik 249 THB",
+        "Doğrulanmış satın alma e-postasıyla mevcut Pro’yu geri yükleyin",
+        "Kırılgan bir yerel işaret yerine sunucu doğrulamalı entitlement"
       ],
-      "proStatus": "Ödeme henüz aktif değil",
-      "proNote": "Bu lansman öncesi site ödeme almıyor. Fiyat ve nihai satın alma akışı yalnızca ürün hazır olduğunda yayınlanacak.",
+      "proStatus": "Mevcut Pro geri yükleme artık aktif",
+      "proNote": "Yeni Pro satın alımları henüz açık değil. Daha önce doğrulanmış müşteriler production uygulamasında Restore Pro kullanabilir.",
       "supportCta": "Bearagnostic desteği"
     },
     "support": {
       "metaDescription": "Benedict Interactive ürünleri için destek bilgileri.",
       "kicker": "Destek",
       "title": "Labirentsiz, açık yardım.",
-      "lead": "Resmî yardım burada, ürüne yakın ve kolay bulunur olacak. Eski gönderiler, gizemli linkler ya da neden açtığınızı unuttuğunuz beş sekme arasında hazine avına gerek yok.",
+      "lead": "Resmî yardım burada, ürüne yakın ve kolay bulunur. Eski gönderiler, şüpheli bağlantılar veya unutulmuş sekmeler arasında arama yapmaya gerek yok.",
       "bearTitle": "Bearagnostic",
-      "bearBody": "Sorun giderme, bilinen sorunlar, sürüm notları, satın alma geri yükleme ve ürün rehberleri, herkese açık sürüm yaklaştıkça burada toplanacak.",
+      "bearBody": "Güncel herkese açık sürüm için sürüm notları, kurulum yardımı, Restore Pro, sorun giderme ve kullanım rehberi burada bulunur.",
       "generalTitle": "Benedict Interactive",
       "generalBody": "Bu site ürün bilgilerinin resmî kaynağıdır. Mağazalar ve sosyal paylaşımlar buraya yönlendirebilir; kaynak onların kendisi değildir.",
-      "stagingNote": "Destek kanalları lansman için hâlâ hazırlanıyor."
+      "stagingNote": "Markalı destek adresini tamamlarken Benedict Interactive’in herkese açık desteği kullanılmaya devam ediyor."
     },
     "common": {
       "inDevelopment": "Geliştiriliyor",
@@ -2331,7 +2331,7 @@ export const content = {
       "viewProduct": "Ürünü gör",
       "backHome": "Ana sayfaya dön",
       "footerLine": "Benedict J. tarafından bağımsız yazılım",
-      "footerStaging": "Lansman öncesi · Ödeme aktif değil",
+      "footerStaging": "Herkese açık sürüm · Benedict Interactive tarafından doğrulanmış indirmeler",
       "skipToContent": "İçeriğe geç"
     }
   }

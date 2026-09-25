@@ -232,7 +232,7 @@ export const legalDocuments: Record<LegalDocumentKey, LegalDocument> = {
     title: 'Privacy Policy',
     metaDescription: 'How Benedict Interactive handles website analytics, contact messages, and privacy.',
     lead: 'A clear explanation of what this website measures, what it does not track, and what happens when you contact Benedict Interactive.',
-    updated: '15 September 2026',
+    updated: '25 September 2026',
     sections: [
       {
         id: 'overview',
@@ -323,7 +323,7 @@ export const legalDocuments: Record<LegalDocumentKey, LegalDocument> = {
     title: 'Terms of Use',
     metaDescription: 'Terms governing use of the Benedict Interactive website and public website content.',
     lead: 'Straightforward rules for using the Benedict Interactive website, its content, and its public product information.',
-    updated: '15 September 2026',
+    updated: '25 September 2026',
     sections: [
       {
         id: 'scope',
@@ -335,9 +335,9 @@ export const legalDocuments: Record<LegalDocumentKey, LegalDocument> = {
       },
       {
         id: 'information',
-        heading: '2. Product information and pre-release status',
+        heading: '2. Product information and availability',
         paragraphs: [
-          'Some products, features, distribution channels, prices, purchase systems, or services described on the site may be in development, planned, or not yet publicly available. A planned feature is not a promise that it will ship on a particular date or in a particular form.',
+          'Products, features, distribution channels, prices, purchase systems, and services may have different availability or rollout states. A feature described as planned or coming later is not a promise of a specific date or form.',
           'We try to keep public product information accurate and current, but software changes. The current product, release notes, purchase flow, or product-specific documentation may supersede older website descriptions.',
         ],
       },
@@ -414,7 +414,7 @@ export const legalDocuments: Record<LegalDocumentKey, LegalDocument> = {
     title: 'Software License',
     metaDescription: 'General software-license terms for software distributed by Benedict Interactive.',
     lead: 'The general license framework for Benedict Interactive software, including Bearagnostic unless product-specific terms say otherwise.',
-    updated: '15 September 2026',
+    updated: '25 September 2026',
     sections: [
       {
         id: 'scope',
@@ -470,7 +470,7 @@ export const legalDocuments: Record<LegalDocumentKey, LegalDocument> = {
         id: 'pro',
         heading: '7. Paid features and entitlement',
         paragraphs: [
-          'If a product later offers paid or Pro features, the applicable purchase, refund, restoration, device, and entitlement terms will be published with the live commercial flow. A planned price or planned Pro description on a pre-release page does not create a purchase right or permanent commercial promise.',
+          'Where a product offers paid or Pro features, the applicable purchase, refund, restoration, device, and entitlement terms are published with the live commercial flow or current product documentation. Availability, pricing, and restoration methods may change prospectively, subject to applicable law and the terms in effect for a valid purchase.',
         ],
       },
       {
@@ -512,7 +512,7 @@ export const legalDocuments: Record<LegalDocumentKey, LegalDocument> = {
     title: 'Legal & Rights',
     metaDescription: 'Copyright, brand, permissions, and rights information for Benedict Interactive.',
     lead: 'Ownership, permissions, third-party rights, and the rules around using Benedict Interactive material.',
-    updated: '15 September 2026',
+    updated: '25 September 2026',
     sections: [
       {
         id: 'copyright',

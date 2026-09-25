@@ -24,7 +24,7 @@ export const productCatalog: readonly ProductCatalogItem[] = [
     slug: 'bearagnostic',
     path: '/products/bearagnostic',
     platform: 'Android',
-    status: 'development',
+    status: 'available',
     heroAsset: '/products/bearagnostic/dr-bear.png',
     heroAlt: 'Dr. Bear giving a thumbs-up while holding a tablet',
     heroWidth: 1254,

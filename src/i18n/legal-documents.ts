@@ -9,7 +9,7 @@ export const localizedLegalDocuments = {
       "title": "นโยบายความเป็นส่วนตัว",
       "metaDescription": "วิธีที่ Benedict Interactive จัดการข้อมูลการใช้งานเว็บไซต์ การติดต่อ และความเป็นส่วนตัว",
       "lead": "อธิบายแบบตรงไปตรงมาว่าเว็บไซต์นี้วัดอะไร ไม่ติดตามอะไร และเกิดอะไรขึ้นเมื่อคุณติดต่อ Benedict Interactive",
-      "updated": "15 กันยายน 2026",
+      "updated": "25 กันยายน 2026",
       "sections": [
         {
           "id": "overview",
@@ -92,7 +92,7 @@ export const localizedLegalDocuments = {
       "title": "ข้อกำหนดการใช้งาน",
       "metaDescription": "ข้อกำหนดสำหรับการใช้เว็บไซต์และเนื้อหาสาธารณะของ Benedict Interactive",
       "lead": "กติกาที่อ่านเข้าใจง่ายสำหรับการใช้เว็บไซต์ เนื้อหา และข้อมูลผลิตภัณฑ์สาธารณะของ Benedict Interactive",
-      "updated": "15 กันยายน 2026",
+      "updated": "25 กันยายน 2026",
       "sections": [
         {
           "id": "scope",
@@ -103,9 +103,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. ข้อมูลผลิตภัณฑ์และสถานะก่อนเปิดตัว",
+          "heading": "2. ข้อมูลผลิตภัณฑ์และสถานะการให้บริการ",
           "paragraphs": [
-            "ผลิตภัณฑ์ ฟีเจอร์ ช่องทางจำหน่าย ราคา ระบบซื้อ หรือบริการบางอย่างบนเว็บไซต์อาจยังอยู่ระหว่างพัฒนา เป็นแผนในอนาคต หรือยังไม่เปิดใช้ต่อสาธารณะ การระบุว่า “วางแผนไว้” ไม่ใช่คำรับรองว่าจะเปิดตัวในวันหรือรูปแบบใดโดยเฉพาะ เราพยายามให้ข้อมูลเป็นปัจจุบัน แต่ตัวผลิตภัณฑ์ release notes ขั้นตอนซื้อ หรือเอกสารเฉพาะผลิตภัณฑ์ที่ใหม่กว่าอาจแทนที่ข้อความเดิมบนเว็บไซต์"
+            "ผลิตภัณฑ์ ฟีเจอร์ ช่องทางเผยแพร่ ราคา ระบบซื้อ และบริการแต่ละรายการอาจเปิดให้ใช้งานในช่วงเวลาหรือสถานะที่ต่างกัน หากระบุว่าเป็นแผนในอนาคตหรือจะเปิดภายหลัง ไม่ถือเป็นคำรับรองว่าจะพร้อมในวันหรือรูปแบบใดโดยเฉพาะ เราพยายามให้ข้อมูลบนเว็บไซต์เป็นปัจจุบัน แต่ตัวผลิตภัณฑ์ release notes ขั้นตอนซื้อ หรือเอกสารเฉพาะผลิตภัณฑ์ล่าสุดอาจแทนที่ข้อความเดิมบนเว็บไซต์"
           ]
         },
         {
@@ -182,7 +182,7 @@ export const localizedLegalDocuments = {
       "title": "สัญญาอนุญาตซอฟต์แวร์",
       "metaDescription": "ข้อกำหนดสิทธิ์การใช้งานทั่วไปสำหรับซอฟต์แวร์ที่เผยแพร่โดย Benedict Interactive",
       "lead": "กรอบสิทธิ์การใช้งานทั่วไปสำหรับซอฟต์แวร์ของ Benedict Interactive รวมถึง Bearagnostic เว้นแต่มีข้อกำหนดเฉพาะผลิตภัณฑ์ระบุไว้ต่างหาก",
-      "updated": "15 กันยายน 2026",
+      "updated": "25 กันยายน 2026",
       "sections": [
         {
           "id": "scope",
@@ -237,7 +237,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. ฟีเจอร์แบบชำระเงินและสิทธิ์ Pro",
           "paragraphs": [
-            "หากในอนาคตผลิตภัณฑ์มีฟีเจอร์แบบชำระเงินหรือ Pro เงื่อนไขการซื้อ การคืนเงิน การกู้คืนสิทธิ์ จำนวนอุปกรณ์ และ entitlement จะเผยแพร่พร้อมระบบขายจริง ราคา หรือคำอธิบาย Pro ที่แสดงว่าเป็นแผนก่อนเปิดตัว ไม่ก่อให้เกิดสิทธิ์ซื้อหรือคำมั่นทางการค้าแบบถาวร"
+            "เมื่อผลิตภัณฑ์มีฟีเจอร์แบบชำระเงินหรือ Pro ให้ยึดเงื่อนไขการซื้อ การคืนเงิน การกู้คืนสิทธิ์ จำนวนอุปกรณ์ และ entitlement ตามขั้นตอนการขายจริงหรือเอกสารผลิตภัณฑ์ล่าสุด ความพร้อมใช้งาน ราคา และวิธีกู้คืนสิทธิ์อาจเปลี่ยนแปลงสำหรับการซื้อในอนาคต โดยยังอยู่ภายใต้กฎหมายที่ใช้บังคับและเงื่อนไขที่เกี่ยวข้องกับการซื้อที่มีผลอยู่"
           ]
         },
         {
@@ -281,7 +281,7 @@ export const localizedLegalDocuments = {
       "title": "กฎหมายและสิทธิ์",
       "metaDescription": "ข้อมูลลิขสิทธิ์ แบรนด์ การขออนุญาต และสิทธิ์ต่างๆ ของ Benedict Interactive",
       "lead": "ข้อมูลเรื่องความเป็นเจ้าของ การอนุญาต สิทธิ์ของบุคคลที่สาม และหลักการใช้เนื้อหาของ Benedict Interactive",
-      "updated": "15 กันยายน 2026",
+      "updated": "25 กันยายน 2026",
       "sections": [
         {
           "id": "copyright",
@@ -333,7 +333,7 @@ export const localizedLegalDocuments = {
       "title": "Política de privacidad",
       "metaDescription": "Cómo gestiona Benedict Interactive las analíticas del sitio, los mensajes de contacto y la privacidad.",
       "lead": "Una explicación clara de qué mide este sitio, qué no rastrea y qué ocurre cuando contactas con Benedict Interactive.",
-      "updated": "15 de septiembre de 2026",
+      "updated": "25 de septiembre de 2026",
       "sections": [
         {
           "id": "overview",
@@ -416,7 +416,7 @@ export const localizedLegalDocuments = {
       "title": "Términos de uso",
       "metaDescription": "Condiciones que regulan el uso del sitio y del contenido público de Benedict Interactive.",
       "lead": "Reglas sencillas para usar el sitio de Benedict Interactive, su contenido y la información pública de sus productos.",
-      "updated": "15 de septiembre de 2026",
+      "updated": "25 de septiembre de 2026",
       "sections": [
         {
           "id": "scope",
@@ -427,9 +427,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. Información de productos y estado previo al lanzamiento",
+          "heading": "2. Información del producto y disponibilidad",
           "paragraphs": [
-            "Algunos productos, funciones, canales de distribución, precios, sistemas de compra o servicios pueden estar en desarrollo, previstos o todavía no disponibles públicamente. Que algo figure como previsto no garantiza una fecha ni una forma concreta de lanzamiento. Intentamos mantener la información actualizada, pero el producto vigente, las notas de versión, el proceso de compra o la documentación específica pueden sustituir descripciones anteriores del sitio."
+            "La disponibilidad de productos, funciones, canales de distribución, precios, sistemas de compra y servicios puede variar según su fase de lanzamiento. Si algo se presenta como previsto o disponible más adelante, no implica una promesa de fecha ni de formato concretos. Intentamos mantener la información al día, pero el producto actual, las notas de versión, el proceso de compra o la documentación específica pueden sustituir descripciones anteriores del sitio."
           ]
         },
         {
@@ -506,7 +506,7 @@ export const localizedLegalDocuments = {
       "title": "Licencia de software",
       "metaDescription": "Condiciones generales de licencia para el software distribuido por Benedict Interactive.",
       "lead": "Marco general de licencia del software de Benedict Interactive, incluido Bearagnostic salvo que existan términos específicos del producto.",
-      "updated": "15 de septiembre de 2026",
+      "updated": "25 de septiembre de 2026",
       "sections": [
         {
           "id": "scope",
@@ -561,7 +561,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. Funciones de pago y derechos Pro",
           "paragraphs": [
-            "Si un producto ofrece más adelante funciones de pago o Pro, las condiciones de compra, reembolso, restauración, dispositivos y derechos se publicarán junto con el sistema comercial real. Un precio o una descripción Pro prevista en una página previa al lanzamiento no crea un derecho de compra ni una promesa comercial permanente."
+            "Cuando un producto ofrece funciones de pago o Pro, se aplican las condiciones de compra, reembolso, restauración, dispositivos y derechos publicadas en el flujo comercial activo o en la documentación vigente del producto. La disponibilidad, el precio y los métodos de restauración pueden cambiar para compras futuras, siempre sujetos a la legislación aplicable y a las condiciones correspondientes a una compra válida."
           ]
         },
         {
@@ -605,7 +605,7 @@ export const localizedLegalDocuments = {
       "title": "Información legal y derechos",
       "metaDescription": "Información sobre copyright, marcas, permisos y derechos de Benedict Interactive.",
       "lead": "Titularidad, permisos, derechos de terceros y reglas para reutilizar material de Benedict Interactive.",
-      "updated": "15 de septiembre de 2026",
+      "updated": "25 de septiembre de 2026",
       "sections": [
         {
           "id": "copyright",
@@ -657,7 +657,7 @@ export const localizedLegalDocuments = {
       "title": "Política de Privacidade",
       "metaDescription": "Como a Benedict Interactive lida com análises do site, mensagens de contato e privacidade.",
       "lead": "Uma explicação clara do que este site mede, do que ele não rastreia e do que acontece quando você entra em contato com a Benedict Interactive.",
-      "updated": "15 de setembro de 2026",
+      "updated": "25 de setembro de 2026",
       "sections": [
         {
           "id": "overview",
@@ -740,7 +740,7 @@ export const localizedLegalDocuments = {
       "title": "Termos de Uso",
       "metaDescription": "Termos que regem o uso do site e do conteúdo público da Benedict Interactive.",
       "lead": "Regras diretas para usar o site da Benedict Interactive, seu conteúdo e as informações públicas de produtos.",
-      "updated": "15 de setembro de 2026",
+      "updated": "25 de setembro de 2026",
       "sections": [
         {
           "id": "scope",
@@ -751,9 +751,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. Informações de produto e status de pré-lançamento",
+          "heading": "2. Informações do produto e disponibilidade",
           "paragraphs": [
-            "Alguns produtos, recursos, canais de distribuição, preços, sistemas de compra ou serviços podem estar em desenvolvimento, planejados ou ainda indisponíveis ao público. Algo marcado como planejado não é promessa de lançamento em data ou formato específicos. Buscamos manter as informações atualizadas, mas o produto atual, notas de versão, fluxo de compra ou documentação específica podem substituir descrições antigas do site."
+            "Produtos, recursos, canais de distribuição, preços, sistemas de compra e serviços podem ter diferentes estágios de disponibilidade. Quando algo é apresentado como planejado ou disponível mais adiante, isso não representa promessa de data ou formato específicos. Buscamos manter as informações atualizadas, mas o produto atual, as notas de versão, o fluxo de compra ou a documentação específica podem substituir descrições anteriores do site."
           ]
         },
         {
@@ -830,7 +830,7 @@ export const localizedLegalDocuments = {
       "title": "Licença de Software",
       "metaDescription": "Termos gerais de licença para software distribuído pela Benedict Interactive.",
       "lead": "O quadro geral de licenciamento do software da Benedict Interactive, incluindo Bearagnostic, salvo se houver termos específicos do produto.",
-      "updated": "15 de setembro de 2026",
+      "updated": "25 de setembro de 2026",
       "sections": [
         {
           "id": "scope",
@@ -885,7 +885,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. Recursos pagos e entitlement Pro",
           "paragraphs": [
-            "Se um produto vier a oferecer recursos pagos ou Pro, os termos de compra, reembolso, restauração, dispositivos e entitlement serão publicados junto com o fluxo comercial real. Um preço ou uma descrição Pro planejados em uma página de pré-lançamento não criam direito de compra nem promessa comercial permanente."
+            "Quando um produto oferece recursos pagos ou Pro, valem os termos de compra, reembolso, restauração, dispositivos e entitlement publicados no fluxo comercial ativo ou na documentação atual do produto. Disponibilidade, preço e métodos de restauração podem mudar para compras futuras, sempre sujeitos à legislação aplicável e aos termos vigentes de uma compra válida."
           ]
         },
         {
@@ -929,7 +929,7 @@ export const localizedLegalDocuments = {
       "title": "Informações legais e direitos",
       "metaDescription": "Informações sobre copyright, marca, permissões e direitos da Benedict Interactive.",
       "lead": "Titularidade, permissões, direitos de terceiros e regras para reutilizar materiais da Benedict Interactive.",
-      "updated": "15 de setembro de 2026",
+      "updated": "25 de setembro de 2026",
       "sections": [
         {
           "id": "copyright",
@@ -981,7 +981,7 @@ export const localizedLegalDocuments = {
       "title": "Politique de confidentialité",
       "metaDescription": "Comment Benedict Interactive gère les statistiques du site, les messages de contact et la confidentialité.",
       "lead": "Une explication claire de ce que le site mesure, de ce qu’il ne suit pas et de ce qui se passe lorsque vous contactez Benedict Interactive.",
-      "updated": "15 septembre 2026",
+      "updated": "25 septembre 2026",
       "sections": [
         {
           "id": "overview",
@@ -1064,7 +1064,7 @@ export const localizedLegalDocuments = {
       "title": "Conditions d’utilisation",
       "metaDescription": "Conditions applicables à l’utilisation du site et des contenus publics de Benedict Interactive.",
       "lead": "Des règles simples pour utiliser le site Benedict Interactive, ses contenus et ses informations produit publiques.",
-      "updated": "15 septembre 2026",
+      "updated": "25 septembre 2026",
       "sections": [
         {
           "id": "scope",
@@ -1075,9 +1075,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. Informations produit et pré-lancement",
+          "heading": "2. Informations produit et disponibilité",
           "paragraphs": [
-            "Certains produits, fonctions, canaux de distribution, prix, systèmes d’achat ou services peuvent être en cours de développement, prévus ou pas encore disponibles au public. La mention « prévu » ne garantit ni date ni forme de lancement. Nous faisons notre possible pour garder les informations à jour, mais le produit actuel, les notes de version, le parcours d’achat ou la documentation spécifique peuvent remplacer des descriptions plus anciennes."
+            "La disponibilité des produits, fonctionnalités, canaux de distribution, tarifs, systèmes d’achat et services peut varier selon leur phase de déploiement. Lorsqu’un élément est présenté comme prévu ou disponible ultérieurement, cela ne constitue pas une promesse de date ni de forme précise. Nous veillons à maintenir les informations à jour, mais le produit actuel, les notes de version, le parcours d’achat ou la documentation propre au produit peuvent remplacer des descriptions plus anciennes du site."
           ]
         },
         {
@@ -1154,7 +1154,7 @@ export const localizedLegalDocuments = {
       "title": "Licence logicielle",
       "metaDescription": "Conditions générales de licence applicables aux logiciels distribués par Benedict Interactive.",
       "lead": "Le cadre général de licence des logiciels Benedict Interactive, y compris Bearagnostic sauf conditions spécifiques contraires.",
-      "updated": "15 septembre 2026",
+      "updated": "25 septembre 2026",
       "sections": [
         {
           "id": "scope",
@@ -1209,7 +1209,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. Fonctions payantes et droits Pro",
           "paragraphs": [
-            "Si un produit propose plus tard des fonctions payantes ou Pro, les conditions d’achat, de remboursement, de restauration, d’appareils et de droits d’accès seront publiées avec le parcours commercial réel. Un prix ou une description Pro affiché comme projet avant lancement ne crée ni droit d’achat ni promesse commerciale permanente."
+            "Lorsqu’un produit propose des fonctionnalités payantes ou Pro, les conditions d’achat, de remboursement, de restauration, d’appareils et de droits d’accès publiées dans le parcours commercial actif ou la documentation produit en vigueur s’appliquent. La disponibilité, les tarifs et les méthodes de restauration peuvent évoluer pour les achats futurs, sous réserve du droit applicable et des conditions attachées à un achat valide."
           ]
         },
         {
@@ -1253,7 +1253,7 @@ export const localizedLegalDocuments = {
       "title": "Mentions légales et droits",
       "metaDescription": "Informations sur le copyright, les marques, les autorisations et les droits de Benedict Interactive.",
       "lead": "Propriété, autorisations, droits de tiers et règles de réutilisation des contenus Benedict Interactive.",
-      "updated": "15 septembre 2026",
+      "updated": "25 septembre 2026",
       "sections": [
         {
           "id": "copyright",
@@ -1305,7 +1305,7 @@ export const localizedLegalDocuments = {
       "title": "Datenschutzerklärung",
       "metaDescription": "Wie Benedict Interactive Website-Analysen, Kontaktanfragen und Datenschutz handhabt.",
       "lead": "Eine verständliche Erklärung dazu, was diese Website misst, was sie nicht verfolgt und was passiert, wenn Sie Benedict Interactive kontaktieren.",
-      "updated": "15. September 2026",
+      "updated": "25. September 2026",
       "sections": [
         {
           "id": "overview",
@@ -1388,7 +1388,7 @@ export const localizedLegalDocuments = {
       "title": "Nutzungsbedingungen",
       "metaDescription": "Bedingungen für die Nutzung der Benedict-Interactive-Website und ihrer öffentlichen Inhalte.",
       "lead": "Klare Regeln für die Nutzung der Website, ihrer Inhalte und der öffentlich bereitgestellten Produktinformationen.",
-      "updated": "15. September 2026",
+      "updated": "25. September 2026",
       "sections": [
         {
           "id": "scope",
@@ -1399,9 +1399,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. Produktinformationen und Vorabstatus",
+          "heading": "2. Produktinformationen und Verfügbarkeit",
           "paragraphs": [
-            "Einige Produkte, Funktionen, Vertriebswege, Preise, Kaufsysteme oder Dienste können sich noch in Entwicklung befinden, geplant oder noch nicht öffentlich verfügbar sein. Eine geplante Funktion ist keine Zusage für einen bestimmten Termin oder eine bestimmte Ausgestaltung. Wir bemühen uns um aktuelle Angaben, aber das aktuelle Produkt, Release Notes, Kaufabläufe oder produktspezifische Dokumentation können ältere Website-Beschreibungen ersetzen."
+            "Produkte, Funktionen, Vertriebswege, Preise, Kaufsysteme und Dienste können sich in unterschiedlichen Phasen der Verfügbarkeit befinden. Wird etwas als geplant oder später verfügbar beschrieben, ist das keine Zusage für einen bestimmten Termin oder eine bestimmte Ausgestaltung. Wir halten die Angaben möglichst aktuell; das aktuelle Produkt, Release Notes, der Kaufablauf oder produktspezifische Dokumentation können ältere Website-Beschreibungen ersetzen."
           ]
         },
         {
@@ -1478,7 +1478,7 @@ export const localizedLegalDocuments = {
       "title": "Softwarelizenz",
       "metaDescription": "Allgemeine Lizenzbedingungen für von Benedict Interactive vertriebene Software.",
       "lead": "Der allgemeine Lizenzrahmen für Benedict-Interactive-Software, einschließlich Bearagnostic, sofern keine produktspezifischen Bedingungen etwas anderes vorsehen.",
-      "updated": "15. September 2026",
+      "updated": "25. September 2026",
       "sections": [
         {
           "id": "scope",
@@ -1533,7 +1533,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. Bezahlfunktionen und Pro-Berechtigungen",
           "paragraphs": [
-            "Soll ein Produkt später kostenpflichtige oder Pro-Funktionen anbieten, werden Kauf-, Erstattungs-, Wiederherstellungs-, Geräte- und Berechtigungsregeln zusammen mit dem echten Verkaufsablauf veröffentlicht. Ein geplanter Preis oder eine geplante Pro-Beschreibung vor Veröffentlichung begründet weder ein Kaufrecht noch eine dauerhafte kommerzielle Zusage."
+            "Bietet ein Produkt kostenpflichtige oder Pro-Funktionen an, gelten die Kauf-, Erstattungs-, Wiederherstellungs-, Geräte- und Berechtigungsbedingungen des jeweils aktiven Verkaufsablaufs oder der aktuellen Produktdokumentation. Verfügbarkeit, Preise und Wiederherstellungsmethoden können sich für künftige Käufe ändern; maßgeblich bleiben das anwendbare Recht und die Bedingungen eines gültigen Kaufs."
           ]
         },
         {
@@ -1577,7 +1577,7 @@ export const localizedLegalDocuments = {
       "title": "Rechtliches & Rechte",
       "metaDescription": "Informationen zu Urheberrecht, Marken, Genehmigungen und Rechten von Benedict Interactive.",
       "lead": "Eigentum, Genehmigungen, Rechte Dritter und Regeln für die Nutzung von Benedict-Interactive-Material.",
-      "updated": "15. September 2026",
+      "updated": "25. September 2026",
       "sections": [
         {
           "id": "copyright",
@@ -1629,7 +1629,7 @@ export const localizedLegalDocuments = {
       "title": "Informativa sulla privacy",
       "metaDescription": "Come Benedict Interactive gestisce le statistiche del sito, i messaggi di contatto e la privacy.",
       "lead": "Una spiegazione chiara di cosa misura questo sito, cosa non traccia e cosa succede quando contatti Benedict Interactive.",
-      "updated": "15 settembre 2026",
+      "updated": "25 settembre 2026",
       "sections": [
         {
           "id": "overview",
@@ -1712,7 +1712,7 @@ export const localizedLegalDocuments = {
       "title": "Termini di utilizzo",
       "metaDescription": "Termini che regolano l’uso del sito e dei contenuti pubblici di Benedict Interactive.",
       "lead": "Regole semplici per usare il sito Benedict Interactive, i suoi contenuti e le informazioni pubbliche sui prodotti.",
-      "updated": "15 settembre 2026",
+      "updated": "25 settembre 2026",
       "sections": [
         {
           "id": "scope",
@@ -1723,9 +1723,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. Informazioni sui prodotti e stato pre-lancio",
+          "heading": "2. Informazioni sul prodotto e disponibilità",
           "paragraphs": [
-            "Alcuni prodotti, funzioni, canali di distribuzione, prezzi, sistemi di acquisto o servizi possono essere in sviluppo, pianificati o non ancora disponibili al pubblico. Una funzione pianificata non è una promessa di uscita in una data o forma specifica. Cerchiamo di mantenere le informazioni aggiornate, ma il prodotto attuale, le note di rilascio, il percorso di acquisto o la documentazione specifica possono sostituire descrizioni precedenti del sito."
+            "Prodotti, funzioni, canali di distribuzione, prezzi, sistemi di acquisto e servizi possono trovarsi in fasi diverse di disponibilità. Se qualcosa è indicato come previsto o disponibile in seguito, non costituisce una promessa di data o modalità specifiche. Cerchiamo di mantenere le informazioni aggiornate, ma il prodotto attuale, le note di rilascio, il percorso di acquisto o la documentazione specifica possono sostituire descrizioni precedenti del sito."
           ]
         },
         {
@@ -1802,7 +1802,7 @@ export const localizedLegalDocuments = {
       "title": "Licenza software",
       "metaDescription": "Condizioni generali di licenza per il software distribuito da Benedict Interactive.",
       "lead": "Il quadro generale di licenza del software Benedict Interactive, incluso Bearagnostic salvo condizioni specifiche del prodotto.",
-      "updated": "15 settembre 2026",
+      "updated": "25 settembre 2026",
       "sections": [
         {
           "id": "scope",
@@ -1857,7 +1857,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. Funzioni a pagamento e diritti Pro",
           "paragraphs": [
-            "Se un prodotto offrirà funzioni a pagamento o Pro, le condizioni di acquisto, rimborso, ripristino, dispositivi ed entitlement saranno pubblicate insieme al vero flusso commerciale. Un prezzo o una descrizione Pro indicati come pianificati prima del lancio non creano un diritto di acquisto né una promessa commerciale permanente."
+            "Quando un prodotto offre funzioni a pagamento o Pro, si applicano le condizioni di acquisto, rimborso, ripristino, dispositivi ed entitlement pubblicate nel flusso commerciale attivo o nella documentazione corrente del prodotto. Disponibilità, prezzi e metodi di ripristino possono cambiare per gli acquisti futuri, nel rispetto della legge applicabile e delle condizioni relative a un acquisto valido."
           ]
         },
         {
@@ -1901,7 +1901,7 @@ export const localizedLegalDocuments = {
       "title": "Note legali e diritti",
       "metaDescription": "Informazioni su copyright, marchi, autorizzazioni e diritti di Benedict Interactive.",
       "lead": "Titolarità, autorizzazioni, diritti di terzi e regole per il riutilizzo dei materiali Benedict Interactive.",
-      "updated": "15 settembre 2026",
+      "updated": "25 settembre 2026",
       "sections": [
         {
           "id": "copyright",
@@ -1953,7 +1953,7 @@ export const localizedLegalDocuments = {
       "title": "Kebijakan Privasi",
       "metaDescription": "Cara Benedict Interactive menangani analitik situs, pesan kontak, dan privasi.",
       "lead": "Penjelasan sederhana tentang apa yang diukur situs ini, apa yang tidak dilacak, dan apa yang terjadi saat Anda menghubungi Benedict Interactive.",
-      "updated": "15 September 2026",
+      "updated": "25 September 2026",
       "sections": [
         {
           "id": "overview",
@@ -2036,7 +2036,7 @@ export const localizedLegalDocuments = {
       "title": "Ketentuan Penggunaan",
       "metaDescription": "Ketentuan yang mengatur penggunaan situs dan konten publik Benedict Interactive.",
       "lead": "Aturan yang mudah dipahami untuk menggunakan situs Benedict Interactive, kontennya, dan informasi produk publik.",
-      "updated": "15 September 2026",
+      "updated": "25 September 2026",
       "sections": [
         {
           "id": "scope",
@@ -2047,9 +2047,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. Informasi produk dan status pra-rilis",
+          "heading": "2. Informasi produk dan ketersediaan",
           "paragraphs": [
-            "Sebagian produk, fitur, kanal distribusi, harga, sistem pembelian, atau layanan mungkin masih dikembangkan, direncanakan, atau belum tersedia untuk umum. Sesuatu yang disebut “direncanakan” bukan janji akan dirilis pada tanggal atau bentuk tertentu. Kami berusaha menjaga informasi tetap akurat, tetapi produk saat ini, catatan rilis, alur pembelian, atau dokumentasi khusus produk dapat menggantikan deskripsi lama di situs."
+            "Produk, fitur, kanal distribusi, harga, sistem pembelian, dan layanan dapat berada pada tahap ketersediaan atau peluncuran yang berbeda. Jika sesuatu disebut direncanakan atau tersedia nanti, itu bukan janji tentang tanggal atau bentuk tertentu. Kami berupaya menjaga informasi tetap mutakhir, tetapi produk saat ini, catatan rilis, alur pembelian, atau dokumentasi khusus produk dapat menggantikan keterangan lama di situs."
           ]
         },
         {
@@ -2126,7 +2126,7 @@ export const localizedLegalDocuments = {
       "title": "Lisensi Perangkat Lunak",
       "metaDescription": "Ketentuan lisensi umum untuk perangkat lunak yang didistribusikan Benedict Interactive.",
       "lead": "Kerangka lisensi umum untuk perangkat lunak Benedict Interactive, termasuk Bearagnostic kecuali ada ketentuan khusus produk.",
-      "updated": "15 September 2026",
+      "updated": "25 September 2026",
       "sections": [
         {
           "id": "scope",
@@ -2181,7 +2181,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. Fitur berbayar dan entitlement Pro",
           "paragraphs": [
-            "Jika produk nanti menawarkan fitur berbayar atau Pro, ketentuan pembelian, refund, pemulihan, perangkat, dan entitlement akan dipublikasikan bersama alur komersial yang nyata. Harga atau deskripsi Pro yang masih berstatus rencana sebelum rilis tidak menciptakan hak pembelian atau janji komersial permanen."
+            "Jika suatu produk menawarkan fitur berbayar atau Pro, ketentuan pembelian, refund, pemulihan, perangkat, dan entitlement yang berlaku adalah yang dipublikasikan dalam alur komersial aktif atau dokumentasi produk terkini. Ketersediaan, harga, dan metode pemulihan dapat berubah untuk pembelian mendatang, dengan tetap tunduk pada hukum yang berlaku dan ketentuan untuk pembelian yang sah."
           ]
         },
         {
@@ -2225,7 +2225,7 @@ export const localizedLegalDocuments = {
       "title": "Informasi Hukum & Hak",
       "metaDescription": "Informasi hak cipta, merek, izin, dan hak Benedict Interactive.",
       "lead": "Kepemilikan, izin, hak pihak ketiga, dan aturan penggunaan ulang materi Benedict Interactive.",
-      "updated": "15 September 2026",
+      "updated": "25 September 2026",
       "sections": [
         {
           "id": "copyright",
@@ -2277,7 +2277,7 @@ export const localizedLegalDocuments = {
       "title": "Chính sách quyền riêng tư",
       "metaDescription": "Cách Benedict Interactive xử lý phân tích website, tin nhắn liên hệ và quyền riêng tư.",
       "lead": "Giải thích rõ website này đo lường những gì, không theo dõi những gì và điều gì xảy ra khi bạn liên hệ Benedict Interactive.",
-      "updated": "15 tháng 9 năm 2026",
+      "updated": "25 tháng 9 năm 2026",
       "sections": [
         {
           "id": "overview",
@@ -2360,7 +2360,7 @@ export const localizedLegalDocuments = {
       "title": "Điều khoản sử dụng",
       "metaDescription": "Điều khoản áp dụng khi sử dụng website và nội dung công khai của Benedict Interactive.",
       "lead": "Những quy tắc dễ hiểu khi sử dụng website Benedict Interactive, nội dung và thông tin sản phẩm công khai.",
-      "updated": "15 tháng 9 năm 2026",
+      "updated": "25 tháng 9 năm 2026",
       "sections": [
         {
           "id": "scope",
@@ -2371,9 +2371,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. Thông tin sản phẩm và trạng thái trước khi phát hành",
+          "heading": "2. Thông tin sản phẩm và tình trạng cung cấp",
           "paragraphs": [
-            "Một số sản phẩm, tính năng, kênh phân phối, giá, hệ thống mua hàng hoặc dịch vụ có thể đang phát triển, mới ở kế hoạch hoặc chưa mở công khai. Việc ghi “dự kiến” không phải cam kết sẽ phát hành vào ngày hoặc theo hình thức cụ thể. Chúng tôi cố gắng giữ thông tin chính xác, nhưng sản phẩm hiện tại, release notes, quy trình mua hoặc tài liệu riêng của sản phẩm có thể thay thế mô tả cũ trên website."
+            "Sản phẩm, tính năng, kênh phân phối, giá, hệ thống mua hàng và dịch vụ có thể ở các giai đoạn cung cấp hoặc triển khai khác nhau. Nội dung được ghi là dự kiến hoặc sẽ có sau không phải là cam kết về một ngày hay hình thức cụ thể. Chúng tôi cố gắng giữ thông tin luôn cập nhật, nhưng sản phẩm hiện tại, ghi chú phát hành, quy trình mua hoặc tài liệu riêng của sản phẩm có thể thay thế mô tả cũ trên website."
           ]
         },
         {
@@ -2450,7 +2450,7 @@ export const localizedLegalDocuments = {
       "title": "Giấy phép phần mềm",
       "metaDescription": "Điều khoản giấy phép chung cho phần mềm do Benedict Interactive phân phối.",
       "lead": "Khung giấy phép chung cho phần mềm Benedict Interactive, bao gồm Bearagnostic trừ khi có điều khoản riêng của sản phẩm.",
-      "updated": "15 tháng 9 năm 2026",
+      "updated": "25 tháng 9 năm 2026",
       "sections": [
         {
           "id": "scope",
@@ -2505,7 +2505,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. Tính năng trả phí và quyền Pro",
           "paragraphs": [
-            "Nếu sau này sản phẩm có tính năng trả phí hoặc Pro, điều khoản mua, hoàn tiền, khôi phục, thiết bị và entitlement sẽ được công bố cùng quy trình thương mại thực tế. Giá hoặc mô tả Pro còn ở trạng thái dự kiến trước khi ra mắt không tạo ra quyền mua hoặc cam kết thương mại lâu dài."
+            "Khi một sản phẩm có tính năng trả phí hoặc Pro, các điều khoản về mua hàng, hoàn tiền, khôi phục, thiết bị và quyền sử dụng được công bố trong quy trình thương mại đang hoạt động hoặc tài liệu sản phẩm hiện hành sẽ được áp dụng. Tình trạng cung cấp, giá và phương thức khôi phục có thể thay đổi đối với các giao dịch trong tương lai, theo pháp luật áp dụng và các điều khoản của giao dịch hợp lệ."
           ]
         },
         {
@@ -2549,7 +2549,7 @@ export const localizedLegalDocuments = {
       "title": "Thông tin pháp lý & quyền",
       "metaDescription": "Thông tin về bản quyền, thương hiệu, xin phép và các quyền của Benedict Interactive.",
       "lead": "Quyền sở hữu, việc xin phép, quyền của bên thứ ba và quy tắc tái sử dụng tài liệu Benedict Interactive.",
-      "updated": "15 tháng 9 năm 2026",
+      "updated": "25 tháng 9 năm 2026",
       "sections": [
         {
           "id": "copyright",
@@ -2601,7 +2601,7 @@ export const localizedLegalDocuments = {
       "title": "Gizlilik Politikası",
       "metaDescription": "Benedict Interactive’ın site analitiği, iletişim mesajları ve gizliliği nasıl ele aldığı.",
       "lead": "Bu sitenin neyi ölçtüğünü, neyi takip etmediğini ve Benedict Interactive ile iletişime geçtiğinizde ne olduğunu açıkça anlatır.",
-      "updated": "15 Eylül 2026",
+      "updated": "25 Eylül 2026",
       "sections": [
         {
           "id": "overview",
@@ -2684,7 +2684,7 @@ export const localizedLegalDocuments = {
       "title": "Kullanım Koşulları",
       "metaDescription": "Benedict Interactive sitesi ve herkese açık içeriklerinin kullanım koşulları.",
       "lead": "Benedict Interactive sitesini, içeriklerini ve herkese açık ürün bilgilerini kullanmaya ilişkin açık kurallar.",
-      "updated": "15 Eylül 2026",
+      "updated": "25 Eylül 2026",
       "sections": [
         {
           "id": "scope",
@@ -2695,9 +2695,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. Ürün bilgileri ve ön sürüm durumu",
+          "heading": "2. Ürün bilgileri ve kullanılabilirlik",
           "paragraphs": [
-            "Sitede anlatılan bazı ürünler, özellikler, dağıtım kanalları, fiyatlar, satın alma sistemleri veya hizmetler geliştirme aşamasında, planlanmış veya henüz herkese açık olmayabilir. “Planlandı” ifadesi belirli bir tarihte veya belirli biçimde yayınlanacağına dair söz değildir. Bilgileri güncel tutmaya çalışırız ancak mevcut ürün, sürüm notları, satın alma akışı veya ürüne özel belgeler eski site açıklamalarının yerini alabilir."
+            "Ürünler, özellikler, dağıtım kanalları, fiyatlar, satın alma sistemleri ve hizmetler farklı erişim veya yayına alma aşamalarında olabilir. Bir şeyin planlandığının ya da daha sonra sunulacağının belirtilmesi, belirli bir tarih veya biçimde sunulacağı anlamına gelmez. Bilgileri güncel tutmaya çalışırız; ancak mevcut ürün, sürüm notları, satın alma akışı veya ürüne özel belgeler sitedeki eski açıklamaların yerini alabilir."
           ]
         },
         {
@@ -2774,7 +2774,7 @@ export const localizedLegalDocuments = {
       "title": "Yazılım Lisansı",
       "metaDescription": "Benedict Interactive tarafından dağıtılan yazılımlar için genel lisans koşulları.",
       "lead": "Ürüne özel koşullar aksini söylemediği sürece Bearagnostic dahil Benedict Interactive yazılımlarına uygulanan genel lisans çerçevesi.",
-      "updated": "15 Eylül 2026",
+      "updated": "25 Eylül 2026",
       "sections": [
         {
           "id": "scope",
@@ -2829,7 +2829,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. Ücretli özellikler ve Pro entitlement",
           "paragraphs": [
-            "Bir ürün daha sonra ücretli veya Pro özellikler sunarsa satın alma, iade, geri yükleme, cihaz ve entitlement koşulları gerçek satış akışıyla birlikte yayınlanır. Ön sürüm sayfasındaki planlanmış fiyat veya Pro açıklaması satın alma hakkı ya da kalıcı ticari vaat oluşturmaz."
+            "Bir ürün ücretli veya Pro özellikler sunuyorsa satın alma, iade, geri yükleme, cihaz ve kullanım hakkı koşullarında geçerli olan; aktif satış akışında veya güncel ürün belgelerinde yayımlanan şartlardır. Gelecekteki satın alımlar için kullanılabilirlik, fiyat ve geri yükleme yöntemleri değişebilir; her durumda yürürlükteki hukuk ve geçerli satın alma koşulları uygulanır."
           ]
         },
         {
@@ -2873,7 +2873,7 @@ export const localizedLegalDocuments = {
       "title": "Yasal Bilgiler ve Haklar",
       "metaDescription": "Benedict Interactive’ın telif, marka, izin ve haklarına ilişkin bilgiler.",
       "lead": "Mülkiyet, izinler, üçüncü taraf hakları ve Benedict Interactive materyallerini yeniden kullanma kuralları.",
-      "updated": "15 Eylül 2026",
+      "updated": "25 Eylül 2026",
       "sections": [
         {
           "id": "copyright",
@@ -2925,7 +2925,7 @@ export const localizedLegalDocuments = {
       "title": "プライバシーポリシー",
       "metaDescription": "Benedict Interactive におけるウェブ解析、問い合わせメール、プライバシーの取り扱いについて説明します。",
       "lead": "このサイトが何を計測し、何を追跡せず、Benedict Interactive に連絡したときに何が起こるのかを分かりやすく説明します。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "overview",
@@ -3008,7 +3008,7 @@ export const localizedLegalDocuments = {
       "title": "利用規約",
       "metaDescription": "Benedict Interactive のウェブサイトと公開コンテンツの利用条件です。",
       "lead": "Benedict Interactive のサイト、コンテンツ、公開されている製品情報を利用する際のルールを分かりやすくまとめています。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "scope",
@@ -3019,9 +3019,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. 製品情報と公開前の内容",
+          "heading": "2. 製品情報と提供状況",
           "paragraphs": [
-            "サイトに記載する製品、機能、配布経路、価格、購入システム、サービスの一部は、開発中、計画段階、または未公開の場合があります。「予定」と記載された内容は、特定の日付や形での提供を約束するものではありません。情報は可能な限り正確かつ最新に保ちますが、現在の製品、リリースノート、購入フロー、製品別ドキュメントが過去のサイト説明より優先されることがあります。"
+            "製品、機能、配布経路、価格、購入システム、サービスは、それぞれ提供状況や公開時期が異なる場合があります。「予定」または「今後提供」と記載された内容は、特定の日付や形での提供を保証するものではありません。情報は可能な限り最新に保ちますが、現在の製品、リリースノート、購入フロー、製品別ドキュメントが過去のサイト説明に優先する場合があります。"
           ]
         },
         {
@@ -3098,7 +3098,7 @@ export const localizedLegalDocuments = {
       "title": "ソフトウェアライセンス",
       "metaDescription": "Benedict Interactive が配布するソフトウェアに適用される一般ライセンス条件です。",
       "lead": "製品別条件に別段の定めがない限り、Bearagnostic を含む Benedict Interactive ソフトウェアに適用される一般的なライセンスです。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "scope",
@@ -3153,7 +3153,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. 有料機能と Pro の利用権",
           "paragraphs": [
-            "将来、有料機能や Pro を提供する場合、購入、返金、復元、端末、利用権に関する条件は実際の販売フローとともに公開します。公開前ページに「予定」として表示された価格や Pro の説明は、購入権や永続的な商業上の約束を生じさせるものではありません。"
+            "有料機能または Pro を提供している製品については、実際に利用できる購入フローまたは最新の製品ドキュメントに記載された購入、返金、復元、端末、利用権の条件が適用されます。提供状況、価格、復元方法は今後の購入について変更される場合がありますが、適用法および有効な購入に適用される条件に従います。"
           ]
         },
         {
@@ -3197,7 +3197,7 @@ export const localizedLegalDocuments = {
       "title": "法的情報・権利",
       "metaDescription": "Benedict Interactive の著作権、ブランド、利用許可、権利に関する情報です。",
       "lead": "所有権、利用許可、第三者の権利、Benedict Interactive の素材を利用する際のルールをまとめています。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "copyright",
@@ -3249,7 +3249,7 @@ export const localizedLegalDocuments = {
       "title": "개인정보 처리방침",
       "metaDescription": "Benedict Interactive가 웹사이트 분석, 문의 메시지와 개인정보를 어떻게 처리하는지 설명합니다.",
       "lead": "이 사이트가 무엇을 측정하고 무엇을 추적하지 않는지, Benedict Interactive에 연락하면 어떤 정보가 처리되는지 쉽게 설명합니다.",
-      "updated": "2026년 9월 15일",
+      "updated": "2026년 9월 25일",
       "sections": [
         {
           "id": "overview",
@@ -3332,7 +3332,7 @@ export const localizedLegalDocuments = {
       "title": "이용약관",
       "metaDescription": "Benedict Interactive 웹사이트와 공개 콘텐츠 이용에 적용되는 조건입니다.",
       "lead": "Benedict Interactive 웹사이트, 콘텐츠와 공개 제품 정보를 이용할 때 알아야 할 규칙을 쉽게 정리했습니다.",
-      "updated": "2026년 9월 15일",
+      "updated": "2026년 9월 25일",
       "sections": [
         {
           "id": "scope",
@@ -3343,9 +3343,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. 제품 정보와 출시 전 상태",
+          "heading": "2. 제품 정보 및 이용 가능 여부",
           "paragraphs": [
-            "사이트에 소개된 일부 제품, 기능, 배포 채널, 가격, 구매 시스템 또는 서비스는 개발 중이거나 계획 단계이거나 아직 공개되지 않았을 수 있습니다. “예정”이라고 표시된 내용은 특정 날짜나 형태로 출시된다는 약속이 아닙니다. 공개 정보는 가능한 한 정확하고 최신으로 유지하지만, 현재 제품, 릴리스 노트, 구매 과정 또는 제품별 문서가 이전의 웹 설명보다 우선할 수 있습니다."
+            "제품, 기능, 배포 채널, 가격, 구매 시스템 및 서비스는 공개 또는 제공 단계가 서로 다를 수 있습니다. ‘예정’ 또는 ‘추후 제공’으로 표시된 내용은 특정 날짜나 형태로 제공된다는 약속이 아닙니다. 공개 정보는 가능한 한 최신으로 유지하지만, 현재 제품, 릴리스 노트, 구매 절차 또는 제품별 문서가 이전 웹사이트 설명보다 우선할 수 있습니다."
           ]
         },
         {
@@ -3422,7 +3422,7 @@ export const localizedLegalDocuments = {
       "title": "소프트웨어 라이선스",
       "metaDescription": "Benedict Interactive가 배포하는 소프트웨어의 일반 라이선스 조건입니다.",
       "lead": "제품별 조건에서 달리 정하지 않는 한 Bearagnostic을 포함한 Benedict Interactive 소프트웨어에 적용되는 일반 라이선스 체계입니다.",
-      "updated": "2026년 9월 15일",
+      "updated": "2026년 9월 25일",
       "sections": [
         {
           "id": "scope",
@@ -3477,7 +3477,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. 유료 기능과 Pro 이용 권한",
           "paragraphs": [
-            "향후 유료 또는 Pro 기능을 제공하는 경우 구매, 환불, 복구, 기기, entitlement 조건은 실제 판매 과정과 함께 공개합니다. 출시 전 페이지에 계획으로 표시된 가격이나 Pro 설명은 구매 권리나 영구적인 상업적 약속을 만들지 않습니다."
+            "제품이 유료 또는 Pro 기능을 제공하는 경우, 현재 운영 중인 구매 절차나 최신 제품 문서에 게시된 구매, 환불, 복원, 기기 및 이용 권한 조건이 적용됩니다. 향후 구매에 대한 제공 여부, 가격 및 복원 방법은 변경될 수 있으며, 관련 법률과 유효한 구매에 적용되는 조건을 따릅니다."
           ]
         },
         {
@@ -3521,7 +3521,7 @@ export const localizedLegalDocuments = {
       "title": "법적 정보 및 권리",
       "metaDescription": "Benedict Interactive의 저작권, 브랜드, 이용 허가와 권리에 관한 정보입니다.",
       "lead": "소유권, 이용 허가, 제3자 권리, Benedict Interactive 자료 재사용 규칙을 설명합니다.",
-      "updated": "2026년 9월 15일",
+      "updated": "2026년 9월 25일",
       "sections": [
         {
           "id": "copyright",
@@ -3573,7 +3573,7 @@ export const localizedLegalDocuments = {
       "title": "隐私政策",
       "metaDescription": "说明 Benedict Interactive 如何处理网站分析、联系邮件和隐私信息。",
       "lead": "清楚说明本网站会统计什么、不会跟踪什么，以及你联系 Benedict Interactive 时会发生什么。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "overview",
@@ -3656,7 +3656,7 @@ export const localizedLegalDocuments = {
       "title": "使用条款",
       "metaDescription": "适用于 Benedict Interactive 网站及其公开内容的使用条款。",
       "lead": "以清晰易懂的方式说明如何使用 Benedict Interactive 网站、内容和公开产品信息。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "scope",
@@ -3667,9 +3667,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. 产品信息与发布前状态",
+          "heading": "2. 产品信息与可用状态",
           "paragraphs": [
-            "网站中提到的部分产品、功能、分发渠道、价格、购买系统或服务可能仍在开发、计划中，或尚未向公众开放。“计划中”不代表承诺会在特定日期或以特定形式上线。我们会尽量保持公开信息准确、及时，但当前产品、发行说明、购买流程或产品专用文档可能会取代网站上的旧说明。"
+            "产品、功能、分发渠道、价格、购买系统和服务可能处于不同的上线或可用阶段。标注为“计划中”或“稍后提供”的内容，并不代表承诺会在特定日期或以特定形式推出。我们会尽量保持信息最新，但当前产品、发行说明、购买流程或产品专用文档可能会取代网站上的旧说明。"
           ]
         },
         {
@@ -3746,7 +3746,7 @@ export const localizedLegalDocuments = {
       "title": "软件许可",
       "metaDescription": "Benedict Interactive 分发软件所适用的通用许可条款。",
       "lead": "Benedict Interactive 软件的通用许可框架，包括 Bearagnostic，除非产品专用条款另有规定。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "scope",
@@ -3801,7 +3801,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. 付费功能与 Pro 权益",
           "paragraphs": [
-            "如果产品未来提供付费或 Pro 功能，购买、退款、恢复、设备和 entitlement 条件会与真实商业流程一同发布。发布前页面中标记为计划中的价格或 Pro 描述，不会产生购买权或永久的商业承诺。"
+            "当产品提供付费或 Pro 功能时，以当前实际购买流程或最新产品文档中公布的购买、退款、恢复、设备和权益条款为准。未来购买的可用范围、价格和恢复方式可能发生变化，并始终受适用法律及有效购买所对应条款的约束。"
           ]
         },
         {
@@ -3845,7 +3845,7 @@ export const localizedLegalDocuments = {
       "title": "法律信息与权利",
       "metaDescription": "Benedict Interactive 的版权、品牌、授权和权利信息。",
       "lead": "说明所有权、授权、第三方权利，以及如何使用 Benedict Interactive 的材料。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "copyright",
@@ -3897,7 +3897,7 @@ export const localizedLegalDocuments = {
       "title": "隱私權政策",
       "metaDescription": "說明 Benedict Interactive 如何處理網站分析、聯絡郵件與隱私資訊。",
       "lead": "清楚說明這個網站會統計什麼、不會追蹤什麼，以及你聯絡 Benedict Interactive 時會發生什麼。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "overview",
@@ -3980,7 +3980,7 @@ export const localizedLegalDocuments = {
       "title": "使用條款",
       "metaDescription": "適用於 Benedict Interactive 網站與公開內容的使用條款。",
       "lead": "用簡單清楚的方式說明如何使用 Benedict Interactive 網站、內容與公開產品資訊。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "scope",
@@ -3991,9 +3991,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. 產品資訊與發布前狀態",
+          "heading": "2. 產品資訊與可用狀態",
           "paragraphs": [
-            "網站中提到的部分產品、功能、發佈管道、價格、購買系統或服務可能仍在開發、規劃中，或尚未公開提供。標示為「規劃中」不代表承諾會在特定日期或以特定形式推出。我們會盡量維持資訊正確且最新，但目前產品、版本說明、購買流程或產品專屬文件可能會取代網站上的舊描述。"
+            "產品、功能、發布管道、價格、購買系統與服務可能處於不同的上線或可用階段。標示為「規劃中」或「稍後提供」的內容，不代表承諾會在特定日期或以特定形式推出。我們會盡量維持資訊最新，但目前產品、版本說明、購買流程或產品專屬文件可能取代網站上的舊說明。"
           ]
         },
         {
@@ -4070,7 +4070,7 @@ export const localizedLegalDocuments = {
       "title": "軟體授權",
       "metaDescription": "Benedict Interactive 發佈軟體所適用的通用授權條款。",
       "lead": "Benedict Interactive 軟體的通用授權架構，包括 Bearagnostic，除非產品專屬條款另有規定。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "scope",
@@ -4125,7 +4125,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. 付費功能與 Pro 權益",
           "paragraphs": [
-            "若產品未來提供付費或 Pro 功能，購買、退款、復原、裝置與 entitlement 條件會與實際商業流程一同公布。發布前頁面標示為規劃中的價格或 Pro 說明，不會產生購買權或永久的商業承諾。"
+            "當產品提供付費或 Pro 功能時，以目前實際購買流程或最新產品文件中公布的購買、退款、復原、裝置與權益條款為準。未來購買的可用範圍、價格與復原方式可能調整，並始終受適用法律及有效購買所對應條款約束。"
           ]
         },
         {
@@ -4169,7 +4169,7 @@ export const localizedLegalDocuments = {
       "title": "法律資訊與權利",
       "metaDescription": "Benedict Interactive 的著作權、品牌、授權與權利資訊。",
       "lead": "說明所有權、授權、第三方權利，以及 Benedict Interactive 材料的使用規則。",
-      "updated": "2026年9月15日",
+      "updated": "2026年9月25日",
       "sections": [
         {
           "id": "copyright",
@@ -4221,7 +4221,7 @@ export const localizedLegalDocuments = {
       "title": "गोपनीयता नीति",
       "metaDescription": "Benedict Interactive वेबसाइट एनालिटिक्स, संपर्क संदेशों और गोपनीयता से जुड़ी जानकारी को कैसे संभालता है।",
       "lead": "सरल भाषा में बताया गया है कि यह वेबसाइट क्या मापती है, क्या ट्रैक नहीं करती और Benedict Interactive से संपर्क करने पर क्या होता है।",
-      "updated": "15 सितंबर 2026",
+      "updated": "25 सितंबर 2026",
       "sections": [
         {
           "id": "overview",
@@ -4304,7 +4304,7 @@ export const localizedLegalDocuments = {
       "title": "उपयोग की शर्तें",
       "metaDescription": "Benedict Interactive वेबसाइट और सार्वजनिक सामग्री के उपयोग पर लागू शर्तें।",
       "lead": "Benedict Interactive वेबसाइट, उसकी सामग्री और सार्वजनिक उत्पाद जानकारी के उपयोग के लिए साफ़ और समझने योग्य नियम।",
-      "updated": "15 सितंबर 2026",
+      "updated": "25 सितंबर 2026",
       "sections": [
         {
           "id": "scope",
@@ -4315,9 +4315,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. उत्पाद जानकारी और प्री-रिलीज़ स्थिति",
+          "heading": "2. उत्पाद जानकारी और उपलब्धता",
           "paragraphs": [
-            "वेबसाइट पर बताए गए कुछ उत्पाद, फ़ीचर, वितरण चैनल, कीमतें, खरीद प्रणाली या सेवाएँ विकासाधीन, योजनाबद्ध या अभी सार्वजनिक रूप से उपलब्ध न हो सकती हैं। “योजनाबद्ध” लिखा होना किसी निश्चित तारीख या रूप में रिलीज़ का वादा नहीं है। हम जानकारी को सही और नया रखने की कोशिश करते हैं, लेकिन मौजूदा उत्पाद, release notes, खरीद प्रक्रिया या उत्पाद-विशिष्ट दस्तावेज़ पुराने वेबसाइट विवरणों की जगह ले सकते हैं।"
+            "उत्पाद, फ़ीचर, वितरण चैनल, कीमतें, खरीद प्रणाली और सेवाएँ अलग-अलग उपलब्धता या रोलआउट चरणों में हो सकती हैं। किसी चीज़ को ‘योजनाबद्ध’ या ‘बाद में उपलब्ध’ बताना किसी तय तारीख या रूप में उपलब्ध कराने का वादा नहीं है। हम जानकारी को यथासंभव नया रखते हैं, लेकिन मौजूदा उत्पाद, रिलीज़ नोट्स, खरीद प्रक्रिया या उत्पाद-विशिष्ट दस्तावेज़ वेबसाइट के पुराने विवरणों की जगह ले सकते हैं।"
           ]
         },
         {
@@ -4394,7 +4394,7 @@ export const localizedLegalDocuments = {
       "title": "सॉफ़्टवेयर लाइसेंस",
       "metaDescription": "Benedict Interactive द्वारा वितरित सॉफ़्टवेयर पर लागू सामान्य लाइसेंस शर्तें।",
       "lead": "Benedict Interactive सॉफ़्टवेयर के लिए सामान्य लाइसेंस ढाँचा, जिसमें Bearagnostic भी शामिल है जब तक उत्पाद-विशिष्ट शर्तें कुछ और न कहें।",
-      "updated": "15 सितंबर 2026",
+      "updated": "25 सितंबर 2026",
       "sections": [
         {
           "id": "scope",
@@ -4449,7 +4449,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. भुगतान वाले फ़ीचर और Pro entitlement",
           "paragraphs": [
-            "यदि भविष्य में कोई उत्पाद भुगतान वाले या Pro फ़ीचर देता है, तो खरीद, रिफंड, बहाली, डिवाइस और entitlement की शर्तें वास्तविक बिक्री प्रक्रिया के साथ प्रकाशित की जाएँगी। प्री-रिलीज़ पेज पर योजनाबद्ध कीमत या Pro विवरण खरीदने का अधिकार या स्थायी व्यावसायिक वादा नहीं बनाता।"
+            "जहाँ कोई उत्पाद भुगतान वाले या Pro फ़ीचर देता है, वहाँ खरीद, रिफंड, बहाली, डिवाइस और उपयोग-अधिकार से जुड़ी वही शर्तें लागू होंगी जो सक्रिय बिक्री प्रक्रिया या मौजूदा उत्पाद दस्तावेज़ में प्रकाशित हैं। भविष्य की खरीदों के लिए उपलब्धता, कीमत और बहाली के तरीके बदल सकते हैं, और वे लागू कानून तथा वैध खरीद पर लागू शर्तों के अधीन रहेंगे।"
           ]
         },
         {
@@ -4493,7 +4493,7 @@ export const localizedLegalDocuments = {
       "title": "कानूनी जानकारी और अधिकार",
       "metaDescription": "Benedict Interactive के कॉपीराइट, ब्रांड, अनुमति और अधिकारों की जानकारी।",
       "lead": "स्वामित्व, अनुमति, तीसरे पक्ष के अधिकार और Benedict Interactive की सामग्री के उपयोग से जुड़े नियम।",
-      "updated": "15 सितंबर 2026",
+      "updated": "25 सितंबर 2026",
       "sections": [
         {
           "id": "copyright",
@@ -4545,7 +4545,7 @@ export const localizedLegalDocuments = {
       "title": "سياسة الخصوصية",
       "metaDescription": "توضح هذه السياسة كيف تتعامل Benedict Interactive مع تحليلات الموقع ورسائل التواصل والخصوصية.",
       "lead": "شرح واضح لما يقيسه هذا الموقع، وما لا يتتبعه، وما الذي يحدث عندما تتواصل مع Benedict Interactive.",
-      "updated": "15 سبتمبر 2026",
+      "updated": "25 سبتمبر 2026",
       "sections": [
         {
           "id": "overview",
@@ -4628,7 +4628,7 @@ export const localizedLegalDocuments = {
       "title": "شروط الاستخدام",
       "metaDescription": "الشروط التي تحكم استخدام موقع Benedict Interactive ومحتواه العام.",
       "lead": "قواعد مباشرة وسهلة الفهم لاستخدام موقع Benedict Interactive ومحتواه ومعلومات المنتجات العامة.",
-      "updated": "15 سبتمبر 2026",
+      "updated": "25 سبتمبر 2026",
       "sections": [
         {
           "id": "scope",
@@ -4639,9 +4639,9 @@ export const localizedLegalDocuments = {
         },
         {
           "id": "information",
-          "heading": "2. معلومات المنتجات وحالة ما قبل الإطلاق",
+          "heading": "2. معلومات المنتج ومدى التوفر",
           "paragraphs": [
-            "قد تكون بعض المنتجات أو الميزات أو قنوات التوزيع أو الأسعار أو أنظمة الشراء أو الخدمات المذكورة في الموقع قيد التطوير أو مخططاً لها أو غير متاحة للجمهور بعد. وكون شيء ما «مخططاً له» لا يعني وعداً بإطلاقه في تاريخ أو شكل محدد. نحاول إبقاء المعلومات دقيقة وحديثة، لكن المنتج الحالي أو ملاحظات الإصدار أو مسار الشراء أو وثائق المنتج قد تحل محل أوصاف أقدم في الموقع."
+            "قد تختلف حالة توفر المنتجات والميزات وقنوات التوزيع والأسعار وأنظمة الشراء والخدمات بحسب مرحلة الإطلاق. وإذا وُصف شيء بأنه مخطط له أو سيُتاح لاحقاً، فهذا لا يعد وعداً بتاريخ أو شكل محدد. نحرص على إبقاء المعلومات محدثة، لكن المنتج الحالي أو ملاحظات الإصدار أو مسار الشراء أو وثائق المنتج قد تحل محل أوصاف أقدم على الموقع."
           ]
         },
         {
@@ -4718,7 +4718,7 @@ export const localizedLegalDocuments = {
       "title": "ترخيص البرمجيات",
       "metaDescription": "شروط الترخيص العامة للبرمجيات التي توزعها Benedict Interactive.",
       "lead": "إطار الترخيص العام لبرمجيات Benedict Interactive، بما في ذلك Bearagnostic ما لم تنص شروط خاصة بالمنتج على غير ذلك.",
-      "updated": "15 سبتمبر 2026",
+      "updated": "25 سبتمبر 2026",
       "sections": [
         {
           "id": "scope",
@@ -4773,7 +4773,7 @@ export const localizedLegalDocuments = {
           "id": "pro",
           "heading": "7. الميزات المدفوعة وحقوق Pro",
           "paragraphs": [
-            "إذا قدم المنتج لاحقاً ميزات مدفوعة أو Pro، فستنشر شروط الشراء والاسترداد والاستعادة والأجهزة وentitlement مع مسار البيع الفعلي. لا ينشئ السعر أو وصف Pro المخطط له في صفحة قبل الإطلاق حقاً في الشراء ولا وعداً تجارياً دائماً."
+            "عندما يقدّم منتج ميزات مدفوعة أو Pro، تسري شروط الشراء والاسترداد والاستعادة والأجهزة وحقوق الاستخدام المنشورة ضمن مسار البيع الفعلي أو وثائق المنتج الحالية. وقد تتغير حالة التوفر والأسعار وطرق الاستعادة للمشتريات المستقبلية، مع الخضوع للقانون المعمول به والشروط المطبقة على أي عملية شراء صحيحة."
           ]
         },
         {
@@ -4817,7 +4817,7 @@ export const localizedLegalDocuments = {
       "title": "المعلومات القانونية والحقوق",
       "metaDescription": "معلومات حقوق النشر والعلامات التجارية والأذونات والحقوق الخاصة بـ Benedict Interactive.",
       "lead": "الملكية والأذونات وحقوق الأطراف الثالثة وقواعد استخدام مواد Benedict Interactive.",
-      "updated": "15 سبتمبر 2026",
+      "updated": "25 سبتمبر 2026",
       "sections": [
         {
           "id": "copyright",

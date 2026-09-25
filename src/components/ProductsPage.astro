@@ -3,11 +3,13 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import AccentHeading from './AccentHeading.astro';
 import { productCatalog } from '../data/products';
 import { getLocaleContent, localizedPath, type LocaleCode } from '../i18n/content';
+import { getBearagnosticReleaseCopy } from '../i18n/bearagnostic-release';
 
 interface Props { locale: LocaleCode; }
 const { locale } = Astro.props;
 const copy = getLocaleContent(locale);
 const page = copy.products;
+const launch = getBearagnosticReleaseCopy(locale);
 const bearProduct = productCatalog.find((product) => product.slug === 'bearagnostic');
 
 if (!bearProduct) {
@@ -27,7 +29,7 @@ if (!bearProduct) {
       <article class="product-showcase bear-showcase-card" data-product={bearProduct.slug}>
         <div class="product-showcase-copy">
           <div class="product-status-row">
-            <span class="status-pill">{copy.common.inDevelopment}</span>
+            <span class="status-pill">{launch.status}</span>
             <span>{bearProduct.platform}</span>
           </div>
 

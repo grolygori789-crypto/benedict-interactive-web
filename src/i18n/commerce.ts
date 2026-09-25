@@ -22,8 +22,8 @@ export interface CommerceCopy {
 
 export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
   en: {
-    upgradeCta: 'Upgrade to Pro', secureCheckout: 'Secure checkout on Ko-fi', lifetime: 'Lifetime Pro', comingSoon: 'Purchase flow coming soon',
-    howKicker: 'How it works', howTitle: 'From checkout to Pro, without the maze.', howLead: 'One clear path. Ko-fi handles payment; Benedict verifies the purchase and Bearagnostic unlocks Pro automatically.',
+    upgradeCta: 'Upgrade to Pro', secureCheckout: 'Secure checkout on Ko-fi', lifetime: 'Lifetime Pro', comingSoon: 'New purchases not open yet',
+    howKicker: 'How it works', howTitle: 'From checkout to Pro, without the maze.', howLead: 'Existing Pro customers can restore access now. When new purchases open, Ko-fi will handle payment; Benedict will verify the purchase and Bearagnostic will unlock Pro.',
     steps: [
       { title: 'Choose Pro', body: 'Start the upgrade from Bearagnostic when Pro goes live.' },
       { title: 'Pay on Ko-fi', body: 'Ko-fi shows the payment methods available for your region and device.' },
@@ -31,11 +31,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro unlocks', body: 'Bearagnostic sees the entitlement and switches to Pro automatically.' },
     ],
     methodsNote: 'No separate Visa, Mastercard, debit, PayPal, or local-payment checkout to choose here — Ko-fi presents what is available to the buyer.',
-    restoreTitle: 'Already purchased?', restoreBody: 'When Pro launches, purchases can be restored with the email used at checkout — useful after reinstalling or moving to a new device.', restoreCta: 'Go to support',
+    restoreTitle: 'Already purchased?', restoreBody: 'Already purchased? Restore Pro now with the email used at checkout. Complete OTP verification, then use Restore Pro in the app — including after a reinstall or move to another supported device.', restoreCta: 'Go to support',
   },
   th: {
-    upgradeCta: 'อัปเกรดเป็น Pro', secureCheckout: 'ชำระเงินอย่างปลอดภัยผ่าน Ko-fi', lifetime: 'Pro แบบตลอดชีพ', comingSoon: 'ระบบสั่งซื้อกำลังจะเปิดให้บริการ',
-    howKicker: 'ขั้นตอนการอัปเกรด', howTitle: 'จากการชำระเงินสู่ Pro แบบง่ายและชัดเจน', howLead: 'มีเพียงขั้นตอนเดียวที่เข้าใจง่าย Ko-fi ดูแลการชำระเงิน ส่วน Benedict ตรวจสอบรายการซื้อ และ Bearagnostic ปลดล็อก Pro ให้อัตโนมัติ',
+    upgradeCta: 'อัปเกรดเป็น Pro', secureCheckout: 'ชำระเงินอย่างปลอดภัยผ่าน Ko-fi', lifetime: 'Pro แบบตลอดชีพ', comingSoon: 'ยังไม่เปิดขายสำหรับการซื้อใหม่',
+    howKicker: 'ขั้นตอนการอัปเกรด', howTitle: 'จากการชำระเงินสู่ Pro แบบง่ายและชัดเจน', howLead: 'ลูกค้า Pro เดิมกู้คืนสิทธิ์ได้แล้วตอนนี้ เมื่อเปิดขายสำหรับการซื้อใหม่ Ko-fi จะดูแลการชำระเงิน Benedict จะตรวจสอบรายการซื้อ และ Bearagnostic จะปลดล็อก Pro',
     steps: [
       { title: 'เลือก Pro', body: 'เริ่มอัปเกรดจาก Bearagnostic เมื่อระบบ Pro เปิดให้บริการ' },
       { title: 'ชำระผ่าน Ko-fi', body: 'Ko-fi จะแสดงช่องทางชำระเงินที่รองรับตามประเทศและอุปกรณ์ของคุณ' },
@@ -43,11 +43,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'ปลดล็อก Pro', body: 'Bearagnostic ตรวจพบสิทธิ์และเปลี่ยนเป็น Pro ให้อัตโนมัติ' },
     ],
     methodsNote: 'ไม่ต้องเลือกหน้าชำระเงินแยกสำหรับ Visa, Mastercard, บัตรเดบิต, PayPal หรือช่องทางท้องถิ่น — Ko-fi จะแสดงตัวเลือกที่ใช้ได้ให้ผู้ซื้อเอง',
-    restoreTitle: 'เคยซื้อแล้วใช่ไหม?', restoreBody: 'เมื่อ Pro เปิดให้บริการ คุณจะกู้คืนสิทธิ์ด้วยอีเมลที่ใช้ตอนชำระเงินได้ เหมาะสำหรับกรณีติดตั้งแอปใหม่หรือเปลี่ยนอุปกรณ์', restoreCta: 'ไปที่หน้าช่วยเหลือ',
+    restoreTitle: 'เคยซื้อแล้วใช่ไหม?', restoreBody: 'เคยซื้อแล้วใช่ไหม? กู้คืน Pro ได้ทันทีด้วยอีเมลเดียวกับที่ใช้ชำระเงิน ยืนยัน OTP แล้วใช้ Restore Pro ในแอป รวมถึงหลังติดตั้งใหม่หรือย้ายไปยังอุปกรณ์ที่รองรับเครื่องอื่น', restoreCta: 'ไปที่หน้าช่วยเหลือ',
   },
   es: {
-    upgradeCta: 'Mejorar a Pro', secureCheckout: 'Pago seguro en Ko-fi', lifetime: 'Pro de por vida', comingSoon: 'El proceso de compra estará disponible pronto',
-    howKicker: 'Cómo funciona', howTitle: 'Del pago a Pro, sin complicaciones.', howLead: 'Un solo recorrido claro. Ko-fi gestiona el pago; Benedict verifica la compra y Bearagnostic desbloquea Pro automáticamente.',
+    upgradeCta: 'Mejorar a Pro', secureCheckout: 'Pago seguro en Ko-fi', lifetime: 'Pro de por vida', comingSoon: 'Las nuevas compras aún no están abiertas',
+    howKicker: 'Cómo funciona', howTitle: 'Del pago a Pro, sin complicaciones.', howLead: 'Los clientes que ya tienen Pro pueden restaurarlo ahora. Cuando se abran las nuevas compras, Ko-fi gestionará el pago, Benedict verificará la compra y Bearagnostic desbloqueará Pro.',
     steps: [
       { title: 'Elige Pro', body: 'Inicia la mejora desde Bearagnostic cuando Pro esté disponible.' },
       { title: 'Paga en Ko-fi', body: 'Ko-fi muestra los métodos de pago disponibles según tu región y dispositivo.' },
@@ -55,11 +55,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro se desbloquea', body: 'Bearagnostic detecta el derecho de uso y cambia a Pro automáticamente.' },
     ],
     methodsNote: 'No necesitas elegir aquí un pago separado para Visa, Mastercard, débito, PayPal u opciones locales: Ko-fi muestra lo que esté disponible para cada comprador.',
-    restoreTitle: '¿Ya lo compraste?', restoreBody: 'Cuando Pro se lance, podrás restaurar la compra con el correo usado al pagar, incluso después de reinstalar o cambiar de dispositivo.', restoreCta: 'Ir a soporte',
+    restoreTitle: '¿Ya lo compraste?', restoreBody: '¿Ya lo compraste? Restaura Pro ahora con el correo usado al pagar. Completa la verificación OTP y usa Restore Pro en la app, también después de reinstalar o cambiar a otro dispositivo compatible.', restoreCta: 'Ir a soporte',
   },
   'pt-br': {
-    upgradeCta: 'Fazer upgrade para Pro', secureCheckout: 'Pagamento seguro no Ko-fi', lifetime: 'Pro vitalício', comingSoon: 'Fluxo de compra em breve',
-    howKicker: 'Como funciona', howTitle: 'Do pagamento ao Pro, sem complicação.', howLead: 'Um caminho claro. O Ko-fi cuida do pagamento; a Benedict verifica a compra e o Bearagnostic libera o Pro automaticamente.',
+    upgradeCta: 'Fazer upgrade para Pro', secureCheckout: 'Pagamento seguro no Ko-fi', lifetime: 'Pro vitalício', comingSoon: 'Novas compras ainda não estão abertas',
+    howKicker: 'Como funciona', howTitle: 'Do pagamento ao Pro, sem complicação.', howLead: 'Clientes que já têm Pro podem restaurar o acesso agora. Quando novas compras forem abertas, a Ko-fi cuidará do pagamento, a Benedict verificará a compra e o Bearagnostic liberará o Pro.',
     steps: [
       { title: 'Escolha o Pro', body: 'Comece o upgrade pelo Bearagnostic quando o Pro estiver disponível.' },
       { title: 'Pague no Ko-fi', body: 'O Ko-fi mostra as formas de pagamento disponíveis para sua região e seu dispositivo.' },
@@ -67,11 +67,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'O Pro é liberado', body: 'O Bearagnostic reconhece o direito de uso e muda para Pro automaticamente.' },
     ],
     methodsNote: 'Não é preciso escolher aqui um checkout separado para Visa, Mastercard, débito, PayPal ou meios locais — o Ko-fi mostra as opções disponíveis ao comprador.',
-    restoreTitle: 'Já comprou?', restoreBody: 'Quando o Pro for lançado, será possível restaurar a compra com o e-mail usado no checkout, inclusive após reinstalar ou trocar de aparelho.', restoreCta: 'Ir para o suporte',
+    restoreTitle: 'Já comprou?', restoreBody: 'Já comprou? Restaure o Pro agora com o e-mail usado no checkout. Conclua a verificação por OTP e use Restore Pro no app, inclusive após reinstalar ou trocar para outro aparelho compatível.', restoreCta: 'Ir para o suporte',
   },
   fr: {
-    upgradeCta: 'Passer à Pro', secureCheckout: 'Paiement sécurisé sur Ko-fi', lifetime: 'Pro à vie', comingSoon: 'Le parcours d’achat arrive bientôt',
-    howKicker: 'Comment ça marche', howTitle: 'Du paiement à Pro, sans parcours compliqué.', howLead: 'Un chemin simple. Ko-fi gère le paiement ; Benedict vérifie l’achat et Bearagnostic déverrouille Pro automatiquement.',
+    upgradeCta: 'Passer à Pro', secureCheckout: 'Paiement sécurisé sur Ko-fi', lifetime: 'Pro à vie', comingSoon: 'Les nouveaux achats ne sont pas encore ouverts',
+    howKicker: 'Comment ça marche', howTitle: 'Du paiement à Pro, sans parcours compliqué.', howLead: 'Les clients qui possèdent déjà Pro peuvent restaurer leur accès dès maintenant. Lorsque les nouveaux achats ouvriront, Ko-fi gérera le paiement, Benedict vérifiera l’achat et Bearagnostic déverrouillera Pro.',
     steps: [
       { title: 'Choisissez Pro', body: 'Lancez la mise à niveau depuis Bearagnostic lorsque Pro sera disponible.' },
       { title: 'Payez sur Ko-fi', body: 'Ko-fi affiche les moyens de paiement disponibles selon votre région et votre appareil.' },
@@ -79,11 +79,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro se déverrouille', body: 'Bearagnostic détecte le droit d’accès et passe automatiquement à Pro.' },
     ],
     methodsNote: 'Pas besoin de choisir ici un paiement distinct pour Visa, Mastercard, carte de débit, PayPal ou un moyen local : Ko-fi présente les options disponibles à l’acheteur.',
-    restoreTitle: 'Déjà acheté ?', restoreBody: 'Au lancement de Pro, vous pourrez restaurer votre achat avec l’adresse e-mail utilisée lors du paiement, même après une réinstallation ou un changement d’appareil.', restoreCta: 'Accéder à l’assistance',
+    restoreTitle: 'Déjà acheté ?', restoreBody: 'Déjà acheté ? Restaurez Pro dès maintenant avec l’adresse e-mail utilisée lors du paiement. Terminez la vérification OTP puis utilisez Restore Pro dans l’application, y compris après une réinstallation ou un changement d’appareil compatible.', restoreCta: 'Accéder à l’assistance',
   },
   de: {
-    upgradeCta: 'Auf Pro upgraden', secureCheckout: 'Sicher bezahlen über Ko-fi', lifetime: 'Pro auf Lebenszeit', comingSoon: 'Kaufablauf demnächst verfügbar',
-    howKicker: 'So funktioniert es', howTitle: 'Vom Bezahlen zu Pro – ohne Umwege.', howLead: 'Ein klarer Ablauf. Ko-fi übernimmt die Zahlung; Benedict prüft den Kauf und Bearagnostic schaltet Pro automatisch frei.',
+    upgradeCta: 'Auf Pro upgraden', secureCheckout: 'Sicher bezahlen über Ko-fi', lifetime: 'Pro auf Lebenszeit', comingSoon: 'Neue Käufe sind noch nicht geöffnet',
+    howKicker: 'So funktioniert es', howTitle: 'Vom Bezahlen zu Pro – ohne Umwege.', howLead: 'Bestehende Pro-Kunden können ihren Zugang jetzt wiederherstellen. Sobald neue Käufe geöffnet werden, übernimmt Ko-fi die Zahlung, Benedict verifiziert den Kauf und Bearagnostic schaltet Pro frei.',
     steps: [
       { title: 'Pro auswählen', body: 'Starte das Upgrade in Bearagnostic, sobald Pro verfügbar ist.' },
       { title: 'Über Ko-fi bezahlen', body: 'Ko-fi zeigt die für deine Region und dein Gerät verfügbaren Zahlungsmethoden.' },
@@ -91,11 +91,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro wird freigeschaltet', body: 'Bearagnostic erkennt die Berechtigung und wechselt automatisch zu Pro.' },
     ],
     methodsNote: 'Du musst hier keinen separaten Checkout für Visa, Mastercard, Debitkarte, PayPal oder lokale Methoden wählen – Ko-fi zeigt dem Käufer die verfügbaren Optionen.',
-    restoreTitle: 'Schon gekauft?', restoreBody: 'Nach dem Pro-Start lässt sich der Kauf mit der beim Bezahlen verwendeten E-Mail wiederherstellen – auch nach Neuinstallation oder Gerätewechsel.', restoreCta: 'Zum Support',
+    restoreTitle: 'Schon gekauft?', restoreBody: 'Bereits gekauft? Stelle Pro jetzt mit der beim Checkout verwendeten E-Mail-Adresse wieder her. Schließe die OTP-Prüfung ab und nutze Restore Pro in der App – auch nach einer Neuinstallation oder auf einem anderen unterstützten Gerät.', restoreCta: 'Zum Support',
   },
   it: {
-    upgradeCta: 'Passa a Pro', secureCheckout: 'Pagamento sicuro su Ko-fi', lifetime: 'Pro a vita', comingSoon: 'Il flusso di acquisto sarà disponibile presto',
-    howKicker: 'Come funziona', howTitle: 'Dal pagamento a Pro, senza complicazioni.', howLead: 'Un percorso chiaro. Ko-fi gestisce il pagamento; Benedict verifica l’acquisto e Bearagnostic sblocca Pro automaticamente.',
+    upgradeCta: 'Passa a Pro', secureCheckout: 'Pagamento sicuro su Ko-fi', lifetime: 'Pro a vita', comingSoon: 'I nuovi acquisti non sono ancora aperti',
+    howKicker: 'Come funziona', howTitle: 'Dal pagamento a Pro, senza complicazioni.', howLead: 'Chi possiede già Pro può ripristinare l’accesso ora. Quando apriranno i nuovi acquisti, Ko-fi gestirà il pagamento, Benedict verificherà l’acquisto e Bearagnostic sbloccherà Pro.',
     steps: [
       { title: 'Scegli Pro', body: 'Avvia l’upgrade da Bearagnostic quando Pro sarà disponibile.' },
       { title: 'Paga su Ko-fi', body: 'Ko-fi mostra i metodi di pagamento disponibili per la tua area e il tuo dispositivo.' },
@@ -103,11 +103,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro si sblocca', body: 'Bearagnostic rileva il diritto d’uso e passa automaticamente a Pro.' },
     ],
     methodsNote: 'Non serve scegliere qui un checkout separato per Visa, Mastercard, debito, PayPal o metodi locali: Ko-fi mostra al cliente le opzioni disponibili.',
-    restoreTitle: 'Hai già acquistato?', restoreBody: 'Quando Pro sarà disponibile, potrai ripristinare l’acquisto con l’e-mail usata al pagamento, anche dopo una reinstallazione o il cambio di dispositivo.', restoreCta: 'Vai all’assistenza',
+    restoreTitle: 'Hai già acquistato?', restoreBody: 'Hai già acquistato? Ripristina Pro ora con l’e-mail usata al checkout. Completa la verifica OTP e usa Restore Pro nell’app, anche dopo una reinstallazione o il passaggio a un altro dispositivo supportato.', restoreCta: 'Vai all’assistenza',
   },
   ja: {
-    upgradeCta: 'Pro にアップグレード', secureCheckout: 'Ko-fi で安全に決済', lifetime: '買い切り Pro', comingSoon: '購入フローは近日公開予定です',
-    howKicker: '購入の流れ', howTitle: '支払いから Pro まで、迷わずシンプルに。', howLead: '流れはひとつだけ。支払いは Ko-fi、購入確認は Benedict、Pro の有効化は Bearagnostic が自動で行います。',
+    upgradeCta: 'Pro にアップグレード', secureCheckout: 'Ko-fi で安全に決済', lifetime: '買い切り Pro', comingSoon: '新規購入はまだ開始していません',
+    howKicker: '購入の流れ', howTitle: '支払いから Pro まで、迷わずシンプルに。', howLead: '既存の Pro ユーザーは今すぐアクセスを復元できます。新規購入の開始後は、支払いを Ko-fi、購入確認を Benedict、Pro の有効化を Bearagnostic が担当します。',
     steps: [
       { title: 'Pro を選ぶ', body: 'Pro の提供開始後、Bearagnostic からアップグレードを開始します。' },
       { title: 'Ko-fi で支払う', body: 'Ko-fi が地域や端末に応じて利用可能な支払い方法を表示します。' },
@@ -115,11 +115,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro を自動有効化', body: 'Bearagnostic が利用権を確認すると、自動で Pro に切り替わります。' },
     ],
     methodsNote: 'Visa、Mastercard、デビット、PayPal、各地域の支払い方法をここで個別に選ぶ必要はありません。利用可能な方法は Ko-fi が購入者に表示します。',
-    restoreTitle: 'すでに購入済みですか？', restoreBody: 'Pro の提供開始後は、購入時のメールアドレスで復元できます。再インストールや端末変更後でも利用できます。', restoreCta: 'サポートを見る',
+    restoreTitle: 'すでに購入済みですか？', restoreBody: 'すでに購入済みですか？ 購入時と同じメールアドレスで OTP を完了し、アプリから Restore Pro を実行してください。再インストール後や別の対応端末への移行時にも利用できます。', restoreCta: 'サポートを見る',
   },
   ko: {
-    upgradeCta: 'Pro로 업그레이드', secureCheckout: 'Ko-fi에서 안전하게 결제', lifetime: '평생 Pro', comingSoon: '구매 절차가 곧 제공됩니다',
-    howKicker: '이용 방법', howTitle: '결제부터 Pro까지, 복잡하지 않게.', howLead: '하나의 명확한 흐름입니다. 결제는 Ko-fi가 처리하고, Benedict가 구매를 확인하며, Bearagnostic이 Pro를 자동으로 잠금 해제합니다.',
+    upgradeCta: 'Pro로 업그레이드', secureCheckout: 'Ko-fi에서 안전하게 결제', lifetime: '평생 Pro', comingSoon: '신규 구매는 아직 열리지 않았습니다',
+    howKicker: '이용 방법', howTitle: '결제부터 Pro까지, 복잡하지 않게.', howLead: '기존 Pro 고객은 지금 바로 이용 권한을 복원할 수 있습니다. 신규 구매가 열리면 Ko-fi가 결제를 처리하고, Benedict가 구매를 검증하며, Bearagnostic이 Pro를 활성화합니다.',
     steps: [
       { title: 'Pro 선택', body: 'Pro가 출시되면 Bearagnostic에서 업그레이드를 시작합니다.' },
       { title: 'Ko-fi에서 결제', body: 'Ko-fi가 지역과 기기에 맞는 사용 가능한 결제 수단을 표시합니다.' },
@@ -127,11 +127,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro 자동 잠금 해제', body: 'Bearagnostic이 사용 권한을 확인하면 자동으로 Pro로 전환됩니다.' },
     ],
     methodsNote: 'Visa, Mastercard, 직불카드, PayPal 또는 현지 결제 수단을 여기서 따로 고를 필요가 없습니다. Ko-fi가 구매자에게 가능한 옵션을 보여줍니다.',
-    restoreTitle: '이미 구매하셨나요?', restoreBody: 'Pro 출시 후에는 결제에 사용한 이메일로 구매를 복원할 수 있습니다. 재설치나 기기 변경 후에도 사용할 수 있습니다.', restoreCta: '지원 페이지로 이동',
+    restoreTitle: '이미 구매하셨나요?', restoreBody: '이미 구매하셨나요? 결제에 사용한 동일한 이메일로 OTP 인증을 완료한 뒤 앱에서 Restore Pro를 사용하세요. 재설치 후나 다른 지원 기기로 옮긴 경우에도 동일합니다.', restoreCta: '지원 페이지로 이동',
   },
   id: {
-    upgradeCta: 'Upgrade ke Pro', secureCheckout: 'Pembayaran aman melalui Ko-fi', lifetime: 'Pro seumur hidup', comingSoon: 'Alur pembelian segera hadir',
-    howKicker: 'Cara kerjanya', howTitle: 'Dari pembayaran ke Pro, tanpa alur yang rumit.', howLead: 'Satu alur yang jelas. Ko-fi menangani pembayaran; Benedict memverifikasi pembelian dan Bearagnostic membuka Pro secara otomatis.',
+    upgradeCta: 'Upgrade ke Pro', secureCheckout: 'Pembayaran aman melalui Ko-fi', lifetime: 'Pro seumur hidup', comingSoon: 'Pembelian baru belum dibuka',
+    howKicker: 'Cara kerjanya', howTitle: 'Dari pembayaran ke Pro, tanpa alur yang rumit.', howLead: 'Pelanggan yang sudah memiliki Pro dapat memulihkan akses sekarang. Saat pembelian baru dibuka, Ko-fi akan menangani pembayaran, Benedict memverifikasi pembelian, dan Bearagnostic membuka Pro.',
     steps: [
       { title: 'Pilih Pro', body: 'Mulai upgrade dari Bearagnostic saat Pro sudah tersedia.' },
       { title: 'Bayar di Ko-fi', body: 'Ko-fi menampilkan metode pembayaran yang tersedia untuk wilayah dan perangkat Anda.' },
@@ -139,11 +139,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro terbuka', body: 'Bearagnostic melihat hak akses dan beralih ke Pro secara otomatis.' },
     ],
     methodsNote: 'Tidak perlu memilih checkout terpisah untuk Visa, Mastercard, debit, PayPal, atau metode lokal — Ko-fi menampilkan opsi yang tersedia kepada pembeli.',
-    restoreTitle: 'Sudah pernah membeli?', restoreBody: 'Saat Pro diluncurkan, pembelian dapat dipulihkan dengan email yang digunakan saat checkout, termasuk setelah memasang ulang atau mengganti perangkat.', restoreCta: 'Buka dukungan',
+    restoreTitle: 'Sudah pernah membeli?', restoreBody: 'Sudah pernah membeli? Pulihkan Pro sekarang dengan email yang digunakan saat checkout. Selesaikan verifikasi OTP lalu gunakan Restore Pro di aplikasi, termasuk setelah memasang ulang atau berpindah ke perangkat lain yang didukung.', restoreCta: 'Buka dukungan',
   },
   vi: {
-    upgradeCta: 'Nâng cấp lên Pro', secureCheckout: 'Thanh toán an toàn qua Ko-fi', lifetime: 'Pro trọn đời', comingSoon: 'Quy trình mua hàng sắp ra mắt',
-    howKicker: 'Cách hoạt động', howTitle: 'Từ thanh toán đến Pro, rõ ràng và đơn giản.', howLead: 'Chỉ một quy trình dễ hiểu. Ko-fi xử lý thanh toán; Benedict xác minh giao dịch và Bearagnostic tự động mở khóa Pro.',
+    upgradeCta: 'Nâng cấp lên Pro', secureCheckout: 'Thanh toán an toàn qua Ko-fi', lifetime: 'Pro trọn đời', comingSoon: 'Chưa mở mua mới',
+    howKicker: 'Cách hoạt động', howTitle: 'Từ thanh toán đến Pro, rõ ràng và đơn giản.', howLead: 'Khách hàng đã có Pro có thể khôi phục quyền truy cập ngay bây giờ. Khi mở mua mới, Ko-fi sẽ xử lý thanh toán, Benedict xác minh giao dịch và Bearagnostic mở khóa Pro.',
     steps: [
       { title: 'Chọn Pro', body: 'Bắt đầu nâng cấp từ Bearagnostic khi Pro chính thức mở bán.' },
       { title: 'Thanh toán trên Ko-fi', body: 'Ko-fi hiển thị các phương thức thanh toán phù hợp với khu vực và thiết bị của bạn.' },
@@ -151,11 +151,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro được mở khóa', body: 'Bearagnostic nhận quyền sử dụng và tự động chuyển sang Pro.' },
     ],
     methodsNote: 'Bạn không cần chọn riêng Visa, Mastercard, thẻ ghi nợ, PayPal hay phương thức địa phương tại đây — Ko-fi sẽ hiển thị các lựa chọn khả dụng cho người mua.',
-    restoreTitle: 'Đã mua trước đó?', restoreBody: 'Khi Pro ra mắt, bạn có thể khôi phục giao dịch bằng email đã dùng khi thanh toán, kể cả sau khi cài lại hoặc đổi thiết bị.', restoreCta: 'Đi đến hỗ trợ',
+    restoreTitle: 'Đã mua trước đó?', restoreBody: 'Đã mua trước đó? Hãy khôi phục Pro ngay bằng email đã dùng khi thanh toán. Hoàn tất xác minh OTP rồi dùng Restore Pro trong ứng dụng, kể cả sau khi cài lại hoặc chuyển sang thiết bị được hỗ trợ khác.', restoreCta: 'Đi đến hỗ trợ',
   },
   'zh-cn': {
-    upgradeCta: '升级到 Pro', secureCheckout: '通过 Ko-fi 安全付款', lifetime: '终身 Pro', comingSoon: '购买流程即将上线',
-    howKicker: '购买方式', howTitle: '从付款到 Pro，简单清楚，不绕路。', howLead: '只需一条清晰流程。Ko-fi 负责付款，Benedict 验证购买，Bearagnostic 自动解锁 Pro。',
+    upgradeCta: '升级到 Pro', secureCheckout: '通过 Ko-fi 安全付款', lifetime: '终身 Pro', comingSoon: '新的购买尚未开放',
+    howKicker: '购买方式', howTitle: '从付款到 Pro，简单清楚，不绕路。', howLead: '已有 Pro 的客户现在即可恢复权益。开放新购买后，将由 Ko-fi 处理付款、Benedict 验证购买，并由 Bearagnostic 解锁 Pro。',
     steps: [
       { title: '选择 Pro', body: 'Pro 上线后，可直接从 Bearagnostic 开始升级。' },
       { title: '在 Ko-fi 付款', body: 'Ko-fi 会根据你的地区和设备显示可用的付款方式。' },
@@ -163,11 +163,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: '自动解锁 Pro', body: 'Bearagnostic 确认权益后，会自动切换为 Pro。' },
     ],
     methodsNote: '无需在这里分别选择 Visa、Mastercard、借记卡、PayPal 或本地付款方式——Ko-fi 会向购买者显示可用选项。',
-    restoreTitle: '已经购买过？', restoreBody: 'Pro 上线后，可使用结账时的邮箱恢复购买；即使重新安装或更换设备也可以恢复。', restoreCta: '前往支持',
+    restoreTitle: '已经购买过？', restoreBody: '已经购买过？现在即可使用结账时的同一邮箱恢复 Pro。完成 OTP 验证后，在应用中选择 Restore Pro；重新安装或更换到其他受支持设备后也可使用。', restoreCta: '前往支持',
   },
   'zh-tw': {
-    upgradeCta: '升級至 Pro', secureCheckout: '透過 Ko-fi 安全付款', lifetime: '終身 Pro', comingSoon: '購買流程即將上線',
-    howKicker: '購買方式', howTitle: '從付款到 Pro，簡單清楚、不繞路。', howLead: '只需一條清楚流程。Ko-fi 負責付款，Benedict 驗證購買，Bearagnostic 自動解鎖 Pro。',
+    upgradeCta: '升級至 Pro', secureCheckout: '透過 Ko-fi 安全付款', lifetime: '終身 Pro', comingSoon: '新的購買尚未開放',
+    howKicker: '購買方式', howTitle: '從付款到 Pro，簡單清楚、不繞路。', howLead: '已有 Pro 的客戶現在即可復原權益。開放新購買後，將由 Ko-fi 處理付款、Benedict 驗證購買，並由 Bearagnostic 解鎖 Pro。',
     steps: [
       { title: '選擇 Pro', body: 'Pro 上線後，可直接從 Bearagnostic 開始升級。' },
       { title: '在 Ko-fi 付款', body: 'Ko-fi 會依你的地區與裝置顯示可用的付款方式。' },
@@ -175,11 +175,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: '自動解鎖 Pro', body: 'Bearagnostic 確認權益後，會自動切換為 Pro。' },
     ],
     methodsNote: '不需要在這裡分別選擇 Visa、Mastercard、簽帳金融卡、PayPal 或當地付款方式——Ko-fi 會向購買者顯示可用選項。',
-    restoreTitle: '已經購買過？', restoreBody: 'Pro 上線後，可使用結帳時的電子郵件恢復購買；即使重新安裝或更換裝置也能恢復。', restoreCta: '前往支援',
+    restoreTitle: '已經購買過？', restoreBody: '已經購買過？現在即可使用結帳時的同一個 Email 復原 Pro。完成 OTP 驗證後，在 App 中選擇 Restore Pro；重新安裝或更換到其他支援裝置後也可使用。', restoreCta: '前往支援',
   },
   ar: {
-    upgradeCta: 'الترقية إلى Pro', secureCheckout: 'دفع آمن عبر Ko-fi', lifetime: 'Pro مدى الحياة', comingSoon: 'مسار الشراء سيتوفر قريبًا',
-    howKicker: 'كيف تعمل العملية', howTitle: 'من الدفع إلى Pro بخطوات واضحة وبسيطة.', howLead: 'مسار واحد واضح: يتولى Ko-fi عملية الدفع، ويتحقق Benedict من عملية الشراء، ثم يفتح Bearagnostic مزايا Pro تلقائيًا.',
+    upgradeCta: 'الترقية إلى Pro', secureCheckout: 'دفع آمن عبر Ko-fi', lifetime: 'Pro مدى الحياة', comingSoon: 'المشتريات الجديدة لم تُفتح بعد',
+    howKicker: 'كيف تعمل العملية', howTitle: 'من الدفع إلى Pro بخطوات واضحة وبسيطة.', howLead: 'يمكن للعملاء الذين لديهم Pro بالفعل استعادة الوصول الآن. وعند فتح المشتريات الجديدة، سيتولى Ko-fi الدفع، وتتحقق Benedict من الشراء، ثم يفعّل Bearagnostic مزايا Pro.',
     steps: [
       { title: 'اختر Pro', body: 'ابدأ الترقية من Bearagnostic عند إطلاق Pro.' },
       { title: 'ادفع عبر Ko-fi', body: 'يعرض Ko-fi وسائل الدفع المتاحة حسب منطقتك وجهازك.' },
@@ -187,11 +187,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'يُفتح Pro تلقائيًا', body: 'يتعرف Bearagnostic على الاستحقاق ويتحول إلى Pro تلقائيًا.' },
     ],
     methodsNote: 'لا حاجة لاختيار صفحة دفع منفصلة لـ Visa أو Mastercard أو بطاقة الخصم أو PayPal أو الوسائل المحلية؛ يعرض Ko-fi الخيارات المتاحة للمشتري.',
-    restoreTitle: 'اشتريت Pro من قبل؟', restoreBody: 'عند إطلاق Pro، ستتمكن من استعادة الشراء باستخدام البريد الإلكتروني المستخدم عند الدفع، حتى بعد إعادة تثبيت التطبيق أو تغيير الجهاز.', restoreCta: 'الانتقال إلى الدعم',
+    restoreTitle: 'اشتريت Pro من قبل؟', restoreBody: 'اشتريت Pro من قبل؟ استعده الآن باستخدام البريد نفسه الذي استُخدم عند الدفع. أكمل التحقق عبر OTP ثم استخدم Restore Pro داخل التطبيق، بما في ذلك بعد إعادة التثبيت أو الانتقال إلى جهاز آخر مدعوم.', restoreCta: 'الانتقال إلى الدعم',
   },
   hi: {
-    upgradeCta: 'Pro में अपग्रेड करें', secureCheckout: 'Ko-fi पर सुरक्षित भुगतान', lifetime: 'लाइफटाइम Pro', comingSoon: 'खरीद प्रक्रिया जल्द उपलब्ध होगी',
-    howKicker: 'यह कैसे काम करता है', howTitle: 'भुगतान से Pro तक, बिना उलझन के।', howLead: 'एक साफ़ और सरल प्रक्रिया। भुगतान Ko-fi संभालता है, Benedict खरीद की पुष्टि करता है और Bearagnostic अपने-आप Pro अनलॉक कर देता है।',
+    upgradeCta: 'Pro में अपग्रेड करें', secureCheckout: 'Ko-fi पर सुरक्षित भुगतान', lifetime: 'लाइफटाइम Pro', comingSoon: 'नई खरीद अभी खुली नहीं है',
+    howKicker: 'यह कैसे काम करता है', howTitle: 'भुगतान से Pro तक, बिना उलझन के।', howLead: 'मौजूदा Pro ग्राहक अभी अपना एक्सेस बहाल कर सकते हैं। नई खरीद खुलने पर भुगतान Ko-fi संभालेगा, Benedict खरीद की पुष्टि करेगा और Bearagnostic Pro अनलॉक करेगा।',
     steps: [
       { title: 'Pro चुनें', body: 'Pro उपलब्ध होने पर Bearagnostic से अपग्रेड शुरू करें।' },
       { title: 'Ko-fi पर भुगतान करें', body: 'Ko-fi आपके क्षेत्र और डिवाइस के लिए उपलब्ध भुगतान विकल्प दिखाता है।' },
@@ -199,11 +199,11 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro अनलॉक होता है', body: 'Bearagnostic अधिकार पहचानते ही अपने-आप Pro में बदल जाता है।' },
     ],
     methodsNote: 'यहाँ Visa, Mastercard, डेबिट, PayPal या स्थानीय भुगतान के लिए अलग checkout चुनने की जरूरत नहीं है — Ko-fi खरीदार को उपलब्ध विकल्प दिखाता है।',
-    restoreTitle: 'पहले ही खरीद चुके हैं?', restoreBody: 'Pro लॉन्च होने के बाद checkout में इस्तेमाल किए गए ईमेल से खरीद बहाल की जा सकेगी, चाहे ऐप दोबारा इंस्टॉल किया हो या डिवाइस बदला हो।', restoreCta: 'सहायता पर जाएँ',
+    restoreTitle: 'पहले ही खरीद चुके हैं?', restoreBody: 'पहले खरीद चुके हैं? Checkout में इस्तेमाल किए गए उसी ईमेल से अभी Pro बहाल करें। OTP verification पूरा करें और app में Restore Pro इस्तेमाल करें—रीइंस्टॉल या किसी दूसरे supported device पर जाने के बाद भी।', restoreCta: 'सहायता पर जाएँ',
   },
   tr: {
-    upgradeCta: 'Pro’ya yükselt', secureCheckout: 'Ko-fi üzerinden güvenli ödeme', lifetime: 'Ömür boyu Pro', comingSoon: 'Satın alma akışı yakında',
-    howKicker: 'Nasıl çalışır', howTitle: 'Ödemeden Pro’ya, gereksiz karmaşa olmadan.', howLead: 'Tek ve net bir akış. Ödemeyi Ko-fi yönetir; Benedict satın alımı doğrular, Bearagnostic ise Pro’yu otomatik olarak açar.',
+    upgradeCta: 'Pro’ya yükselt', secureCheckout: 'Ko-fi üzerinden güvenli ödeme', lifetime: 'Ömür boyu Pro', comingSoon: 'Yeni satın alımlar henüz açık değil',
+    howKicker: 'Nasıl çalışır', howTitle: 'Ödemeden Pro’ya, gereksiz karmaşa olmadan.', howLead: 'Mevcut Pro müşterileri erişimlerini şimdi geri yükleyebilir. Yeni satın alımlar açıldığında ödemeyi Ko-fi işleyecek, Benedict satın alımı doğrulayacak ve Bearagnostic Pro’yu etkinleştirecek.',
     steps: [
       { title: 'Pro’yu seçin', body: 'Pro kullanıma açıldığında yükseltmeyi Bearagnostic içinden başlatın.' },
       { title: 'Ko-fi üzerinden ödeyin', body: 'Ko-fi, bölgeniz ve cihazınız için kullanılabilen ödeme yöntemlerini gösterir.' },
@@ -211,7 +211,7 @@ export const commerceCopy: Record<LocaleCode, CommerceCopy> = {
       { title: 'Pro otomatik açılır', body: 'Bearagnostic yetkiyi gördüğünde otomatik olarak Pro’ya geçer.' },
     ],
     methodsNote: 'Burada Visa, Mastercard, banka kartı, PayPal veya yerel yöntemler için ayrı bir ödeme sayfası seçmeniz gerekmez; Ko-fi alıcıya kullanılabilir seçenekleri gösterir.',
-    restoreTitle: 'Daha önce satın aldınız mı?', restoreBody: 'Pro kullanıma açıldığında satın alma sırasında kullandığınız e-postayla erişimi geri yükleyebilirsiniz; yeniden kurulum veya cihaz değişiminde de geçerlidir.', restoreCta: 'Desteğe git',
+    restoreTitle: 'Daha önce satın aldınız mı?', restoreBody: 'Daha önce satın aldınız mı? Checkout sırasında kullandığınız aynı e-postayla Pro’yu şimdi geri yükleyin. OTP doğrulamasını tamamlayın ve uygulamada Restore Pro’yu kullanın; yeniden kurulumdan veya başka bir desteklenen cihaza geçişten sonra da aynı yolu izleyin.', restoreCta: 'Desteğe git',
   },
 };
 
