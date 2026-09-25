@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 
 export const bearagnosticRelease = {
   versionName: '0.35.46-alpha94',
@@ -27,10 +27,14 @@ export type BearagnosticArtifactState =
  * The website must never expose a download link merely because a file with the
  * expected name exists. The link becomes available only when the exact public
  * file is present AND its SHA-256 equals the frozen Golden APK hash.
+ *
+ * Resolve from the project root rather than import.meta.url. Astro/Vite can
+ * bundle this module into another build location, which makes source-relative
+ * import.meta.url paths unreliable during a static production build.
  */
 export function getBearagnosticArtifactState(): BearagnosticArtifactState {
-  const artifactUrl = new URL(`../../public${bearagnosticRelease.publicPath}`, import.meta.url);
-  const artifactPath = fileURLToPath(artifactUrl);
+  const relativePublicPath = bearagnosticRelease.publicPath.replace(/^\/+/, '');
+  const artifactPath = resolve(process.cwd(), 'public', relativePublicPath);
 
   if (!existsSync(artifactPath)) {
     return { status: 'missing', actualSha256: null };
